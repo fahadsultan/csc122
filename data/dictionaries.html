@@ -1,0 +1,1382 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Dictionaries &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data/dictionaries';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    CSC-122 Data Structures & Algorithms (Spring 2024)
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Calendar</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../syllabus/index.html">Syllabus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/textbook.html">Textbooks &amp; Other Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/mental_health.html">Mental Health Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/academic_success.html">Center for Academic Success</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/accomodations.html">Accomodations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/integrity.html">Academic Integrity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/title_9.html">Nondiscrimination Policy and Sexual Misconduct</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Elements of Programming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/data.html">1. Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/operations.html">2. Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/controls.html">3. Controls</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">4. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/recursion.html">5. Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">6. Functional Programming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/analysis.html">7. Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/brute.html">8. Brute Force</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">9. Greedy Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/divide_conquer.html">10. Divide and Conquer</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/oop.html">11. Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/datastructures.html">12. Native Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/structs.html">13. Custom Data Structures</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdata/dictionaries.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/data/dictionaries.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dictionaries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dictionaries</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-find-index-of-minimum-value-u-using-for-loops-u">Question. Find Index of Minimum Value, <u> using <code class="docutils literal notranslate"><span class="pre">for</span></code> loops </u></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-assignment-and-for-loops">Tuple Assignment and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-enumerate">Built-in <code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops-with-enumerate"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops with <code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-find-index-of-minimum-value-u-using-for-loops-and-enumerate-u">Question. Find Index of Minimum Value, <u> using for loops AND enumerate</u></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-13-1">Lecture 13.1.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Dictionaries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#friday-nov-17">Friday, Nov 17</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Dictionaries</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries-vs-other-data-structures">Dictionaries vs. other Data Structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries-syntax">Dictionaries Syntax</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dictionaries-and-inserting-key-value-pairs">Creating Dictionaries, and Inserting Key-Value Pairs</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-values">Accessing Values</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-key-value-pairs">Deleting Key-Value Pairs</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#change-value-associated-with-an-existing-key">Change value associated with an existing key</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-length-of-a-dictionary">Getting length of a Dictionary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-over-dictionaries">Looping over Dictionaries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary-methods">Dictionary methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membership-operator-in-with-dictionaries">Membership operator <code class="docutils literal notranslate"><span class="pre">in</span></code> with Dictionaries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing-and-copying">Aliasing and copying</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries-continued">Dictionaries (continued)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-create-a-dictionary-mapping-morse-code-to-english-letters">Question 1. Create a Dictionary mapping Morse code to English letters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-create-a-dictionary-mapping-english-letters-to-morse-code">Question 2. Create a Dictionary mapping English letters to Morse code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-convert-english-text-to-morse-code">Question 3. Convert English Text to Morse Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4-sum-currency-notes">Question 4. Sum currency notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-5-change-making-problem">Question 5. Change-making problem</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dictionaries">
+<h1>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h1>
+<section id="question-find-index-of-minimum-value-u-using-for-loops-u">
+<h2>Question. Find Index of Minimum Value, <u> using <code class="docutils literal notranslate"><span class="pre">for</span></code> loops </u><a class="headerlink" href="#question-find-index-of-minimum-value-u-using-for-loops-u" title="Permalink to this headline">#</a></h2>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">find_min</span></code> that accepts as input a list of integers and returns the <strong>index</strong> of the list item with the <strong>minimum</strong> value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_min</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">minimum</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="o">&lt;</span> <span class="n">minimum</span><span class="p">:</span>
+            <span class="n">minimum</span> <span class="o">=</span> <span class="n">element</span>
+            <span class="n">min_index</span> <span class="o">=</span> <span class="n">i</span>    
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+            
+    <span class="k">return</span> <span class="n">min_index</span>
+
+<span class="k">assert</span> <span class="n">find_min</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Test case failed&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test case passed successfully&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test case passed successfully
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tuple-assignment-and-for-loops">
+<h1>Tuple Assignment and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#tuple-assignment-and-for-loops" title="Permalink to this headline">#</a></h1>
+<p>Recall, <strong>from Lecture 10.3:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;From Lab 12&quot;&quot;&quot;</span>
+
+<span class="n">emojis</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;😀&#39;</span><span class="p">,</span> <span class="s2">&quot;Grinning Face&quot;</span><span class="p">),</span>          <span class="p">(</span><span class="s1">&#39;😁&#39;</span><span class="p">,</span> <span class="s2">&quot;Beaming Face With Smiling Eyes&quot;</span><span class="p">),</span> 
+          <span class="p">(</span><span class="s1">&#39;😂&#39;</span><span class="p">,</span> <span class="s2">&quot;Face With Tears of Joy&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;🤣&#39;</span><span class="p">,</span> <span class="s2">&quot;Rolling on the Floor Laughing&quot;</span><span class="p">)]</span>
+
+<span class="k">for</span> <span class="n">icon</span><span class="p">,</span> <span class="n">desc</span> <span class="ow">in</span> <span class="n">emojis</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">desc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Grinning Face
+Beaming Face With Smiling Eyes
+Face With Tears of Joy
+Rolling on the Floor Laughing
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="built-in-enumerate">
+<h1>Built-in <code class="docutils literal notranslate"><span class="pre">enumerate</span></code><a class="headerlink" href="#built-in-enumerate" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><strong>Input =&gt;</strong> <code class="docutils literal notranslate"><span class="pre">list</span></code> or <code class="docutils literal notranslate"><span class="pre">set</span></code>, a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> or a <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Output =&gt;</strong> a List of Tuples:<br />
+<code class="docutils literal notranslate"><span class="pre">[(idx0,</span> <span class="pre">val0),</span>&#160; <span class="pre">...</span> <span class="pre">,(</span> <span class="pre">idx_len-1,</span> <span class="pre">val_len-1</span> <span class="pre">)</span> <span class="pre">]</span></code></p></li>
+</ul>
+<p><img alt="list" src="https://i.ibb.co/GJkSBQ7/Screen-Shot-2022-10-27-at-1-21-19-PM.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">rainbow</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, &#39;Red&#39;), (1, &#39;Orange&#39;), (2, &#39;Yellow&#39;), (3, &#39;Green&#39;), (4, &#39;Blue&#39;), (5, &#39;Indigo&#39;), (6, &#39;Violet&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="for-loops-with-enumerate">
+<h2><code class="docutils literal notranslate"><span class="pre">for</span></code> loops with <code class="docutils literal notranslate"><span class="pre">enumerate</span></code><a class="headerlink" href="#for-loops-with-enumerate" title="Permalink to this headline">#</a></h2>
+<p><strong>Problem</strong>: Given a list <code class="docutils literal notranslate"><span class="pre">sequence</span></code> and a value <code class="docutils literal notranslate"><span class="pre">val</span></code>, find index of <code class="docutils literal notranslate"><span class="pre">val</span></code> in <code class="docutils literal notranslate"><span class="pre">sequence</span></code> if present; if not, else return <code class="docutils literal notranslate"><span class="pre">-1</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_val</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span> 
+    
+    <span class="k">return</span> <span class="n">val_idx</span>
+
+<span class="k">assert</span> <span class="n">find_val</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>        <span class="o">==</span>  <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="k">assert</span> <span class="n">find_val</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">])</span> <span class="o">==</span>  <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="k">assert</span> <span class="n">find_val</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>           <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Test case 3 failed&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [5],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">find_val</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">val_idx</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="k">assert</span> <span class="n">find_val</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>        <span class="o">==</span>  <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">assert</span> <span class="n">find_val</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">])</span> <span class="o">==</span>  <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">assert</span> <span class="n">find_val</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>           <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Test case 3 failed&quot;</span>
+
+<span class="ne">TypeError</span>: find_val() missing 1 required positional argument: &#39;val&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="question-find-index-of-minimum-value-u-using-for-loops-and-enumerate-u">
+<h1>Question. Find Index of Minimum Value, <u> using for loops AND enumerate</u><a class="headerlink" href="#question-find-index-of-minimum-value-u-using-for-loops-and-enumerate-u" title="Permalink to this headline">#</a></h1>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">find_min</span></code> that accepts as input a list of integers and returns the <strong>index</strong> of the list item with the <strong>minimum</strong> value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_min</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">minimum</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="n">enum</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">enum</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="n">minimum</span><span class="p">:</span>
+            <span class="n">minimum</span> <span class="o">=</span> <span class="n">num</span>
+            <span class="n">min_index</span> <span class="o">=</span> <span class="n">idx</span>
+    <span class="k">return</span> <span class="n">min_index</span>
+
+<span class="k">assert</span> <span class="n">find_min</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Test case failed&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test case passed successfully&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="lecture-13-1">
+<h1>Lecture 13.1.<a class="headerlink" href="#lecture-13-1" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Dictionaries<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="friday-nov-17">
+<h1>Friday, Nov 17<a class="headerlink" href="#friday-nov-17" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>All of the indexed data structures we have studied so far — strings, lists, and tuples— are <strong>sequence types</strong>, which use <strong>contiguous integers</strong>, starting from 0, <strong>as indices</strong> to access the values they contain within them.</p></li>
+</ul>
+<center><img width=1100 src="https://i.ibb.co/k6J59Nw/Screen-Shot-2022-11-17-at-11-01-06-PM.png"></center></section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>Dictionaries<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><strong>Dictionaries</strong> <u><em>map</em></u> <strong>Keys</strong> to <strong>Values</strong></p></li>
+<li><p><strong>Keys</strong> can be any immutable type: <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">tuples</span></code></p></li>
+<li><p><strong>Values</strong> can be of <u><em>any</em></u> type</p></li>
+</ul>
+<img src="https://i.ibb.co/h1J1vpR/Screen-Shot-2022-11-17-at-11-28-01-AM.png"><img src="https://i.ibb.co/ZxMVZd0/Screen-Shot-2022-11-17-at-1-06-23-PM.png"><section id="dictionaries-vs-other-data-structures">
+<h2>Dictionaries vs. other Data Structures<a class="headerlink" href="#dictionaries-vs-other-data-structures" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>Type</p></th>
+<th class="text-center head"><p>Collection</p></th>
+<th class="text-center head"><p>Syntax</p></th>
+<th class="text-center head"><p>Ordered</p></th>
+<th class="text-center head"><p>Indexed</p></th>
+<th class="text-center head"><p>Mutable</p></th>
+<th class="text-center head"><p>Passed By</p></th>
+<th class="text-center head"><p>Duplicates Allowed</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">strings</span></code></p></td>
+<td class="text-center"><p>characters</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&quot;c1c2c3&quot;</span></code></p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✗</p></td>
+<td class="text-center"><p>value</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+<td class="text-center"><p>any data type</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[v1,</span> <span class="pre">v2..</span> <span class="pre">vn]</span></code></p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>reference</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code></p></td>
+<td class="text-center"><p>any data type</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">(v1,</span> <span class="pre">v2..</span> <span class="pre">vn)</span></code></p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✗</p></td>
+<td class="text-center"><p>value</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">set</span></code></p></td>
+<td class="text-center"><p>immutable types</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">{v1,</span> <span class="pre">v2..</span> <span class="pre">vn}</span></code></p></td>
+<td class="text-center"><p>✗</p></td>
+<td class="text-center"><p>✗</p></td>
+<td class="text-center"><p>✗</p></td>
+<td class="text-center"><p>value</p></td>
+<td class="text-center"><p>✗</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><strong><code class="docutils literal notranslate"><span class="pre">dictionaries</span></code></strong></p></td>
+<td class="text-center"><p><strong>any data type</strong>*</p></td>
+<td class="text-center"><p><strong><code class="docutils literal notranslate"><span class="pre">{k1:v1,k2:v2..</span> <span class="pre">kn:vn}</span></code></strong></p></td>
+<td class="text-center"><p><strong>✗</strong></p></td>
+<td class="text-center"><p><strong>✓</strong></p></td>
+<td class="text-center"><p><strong>✓</strong></p></td>
+<td class="text-center"><p><strong>reference</strong></p></td>
+<td class="text-center"><p><strong>✗</strong>**</p></td>
+</tr>
+</tbody>
+</table>
+<p>* <em><strong>keys</strong> can only be immutable type; <strong>values</strong> can be any data type</em> <br />
+** <em><strong>keys</strong> can not be duplicate; <strong>values</strong> can be duplicate</em></p>
+</section>
+<section id="dictionaries-syntax">
+<h2>Dictionaries Syntax<a class="headerlink" href="#dictionaries-syntax" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Use curly brackets <code class="docutils literal notranslate"><span class="pre">{}</span></code> to <strong>initialize</strong></p></li>
+<li><p>Use square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> to:</p>
+<ul>
+<li><p><strong>insert</strong> keys, and map values to them</p></li>
+<li><p><strong>access</strong> values, using keys</p></li>
+<li><p><strong>update</strong> key-value mappings</p></li>
+</ul>
+</li>
+<li><p>The key-value pairs of a dictionary are seperated by commas <code class="docutils literal notranslate"><span class="pre">,</span></code></p></li>
+<li><p>Each pair contains a key and a value separated by a colon <code class="docutils literal notranslate"><span class="pre">:</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">}</span>
+
+<span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;value1&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="creating-dictionaries-and-inserting-key-value-pairs">
+<h1>Creating Dictionaries, and Inserting Key-Value Pairs<a class="headerlink" href="#creating-dictionaries-and-inserting-key-value-pairs" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>One way to create a dictionary is to start with the empty dictionary and add key-value pairs. The empty dictionary is denoted <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span>        <span class="o">=</span> <span class="p">{}</span>     <span class="c1"># a dictionary to translate English words into Spanish</span>
+<span class="n">eng2sp</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;uno&#39;</span>  <span class="c1"># adding a new key &quot;one&quot; and mapping the value &quot;uno&quot; to it</span>
+<span class="n">eng2sp</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;dos&#39;</span>  <span class="c1"># adding yet another key &quot;one&quot; and mapping the value &quot;dos&quot; to it</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eng2sp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Similar to sets, the <strong>order</strong> of the pairs is <strong>unpredictable</strong>.</p></li>
+<li><p>Another way to create a dictionary is to provide a list of key-value pairs using the same syntax as the previous output:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;tres&#39;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eng2sp</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="accessing-values">
+<h1>Accessing Values<a class="headerlink" href="#accessing-values" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>The values in a dictionary are <strong><u><i>accessed with Keys, NOT with Indices</i></u></strong>. Hence,</p>
+<ul>
+<li><p>It doesn’t matter what order in which we write the pairs</p></li>
+<li><p>There is no need to worry about ordering.</p></li>
+</ul>
+</li>
+</ul>
+<p>Here is how we use a key to look up the corresponding value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eng2sp</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">])</span>  <span class="c1"># The key &#39;two&#39; yields the value &#39;dos&#39;.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="deleting-key-value-pairs">
+<h1>Deleting Key-Value Pairs<a class="headerlink" href="#deleting-key-value-pairs" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">del</span></code> statement removes a key-value pair from a dictionary.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;tres&#39;</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">eng2sp</span><span class="p">)</span>
+
+<span class="k">del</span> <span class="n">eng2sp</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">eng2sp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="change-value-associated-with-an-existing-key">
+<h1>Change value associated with an existing key<a class="headerlink" href="#change-value-associated-with-an-existing-key" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Override previous value mapped to the key, using the assignment operator:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;tres&#39;</span><span class="p">}</span>
+
+<span class="n">eng2sp</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;uno más dos&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">eng2sp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="getting-length-of-a-dictionary">
+<h1>Getting length of a Dictionary<a class="headerlink" href="#getting-length-of-a-dictionary" title="Permalink to this headline">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">len</span></code> function also works on dictionaries; it returns the number of key-value pairs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;tres&#39;</span><span class="p">}</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">eng2sp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="looping-over-dictionaries">
+<h1>Looping over Dictionaries<a class="headerlink" href="#looping-over-dictionaries" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>You can loop through a dictionary by using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p></li>
+<li><p>When looping through a dictionary, the <strong>target variable</strong> of the for loop is <strong>set to <code class="docutils literal notranslate"><span class="pre">keys</span></code></strong> of the dictionary</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;tres&#39;</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">eng2sp</span><span class="p">:</span> 
+    <span class="n">value</span> <span class="o">=</span> <span class="n">eng2sp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dictionary-methods">
+<h1>Dictionary methods<a class="headerlink" href="#dictionary-methods" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Dictionaries have a number of useful built-in methods.</p></li>
+<li><p>As we saw earlier with <code class="docutils literal notranslate"><span class="pre">strings</span></code> and <code class="docutils literal notranslate"><span class="pre">lists</span></code>, dictionary <strong>methods</strong> use <strong>dot notation</strong>, which specifies the name of the method to the right of the dot and the name of the object on which to apply the method immediately to the left of the dot.</p></li>
+</ul>
+<p><strong>1.</strong> <code class="docutils literal notranslate"><span class="pre">dictionary</span></code><strong><code class="docutils literal notranslate"><span class="pre">.keys()</span></code></strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">keys</span></code> method takes a dictionary and returns the <strong>list of its keys</strong>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">eng2sp</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>2.</strong> <code class="docutils literal notranslate"><span class="pre">dictionary</span></code><strong><code class="docutils literal notranslate"><span class="pre">.values()</span></code></strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">values</span></code> method takes a dictionary and returns the <strong>list of its values</strong>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">eng2sp</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>3.</strong> <code class="docutils literal notranslate"><span class="pre">dictionary</span></code><strong><code class="docutils literal notranslate"><span class="pre">.items()</span></code></strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">items</span></code> method takes a dictionary and returns the <strong>list of key-value pairs</strong>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">eng2sp</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="membership-operator-in-with-dictionaries">
+<h1>Membership operator <code class="docutils literal notranslate"><span class="pre">in</span></code> with Dictionaries<a class="headerlink" href="#membership-operator-in-with-dictionaries" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">in</span></code> operator checks if <strong><u>a Key</u></strong> (<em>NOT VALUE</em>) <strong>exists</strong> in the dictionary</p>
+<ul>
+<li><p>returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the key is present in the dictionary and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;tres&#39;</span><span class="p">}</span>
+
+
+<span class="s1">&#39;one&#39;</span> <span class="ow">in</span> <span class="n">eng2sp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;deux&#39;</span> <span class="ow">in</span> <span class="n">eng2sp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>This method can be very useful, since looking up a non-existant key in a dictionary causes a runtime error:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2esp</span><span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="aliasing-and-copying">
+<h1>Aliasing and copying<a class="headerlink" href="#aliasing-and-copying" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Because dictionaries are mutable, you need to be aware of aliasing.</p></li>
+<li><p>Whenever two variables refer to the same object, changes to one affect the other.</p></li>
+</ul>
+<p>If you want to modify a dictionary and keep a copy of the original, use the copy method. For example, opposites is a dictionary that contains pairs of opposites:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opposites</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;up&#39;</span><span class="p">:</span> <span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">:</span> <span class="s1">&#39;wrong&#39;</span><span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">:</span> <span class="s1">&#39;false&#39;</span><span class="p">}</span>
+<span class="n">alias</span> <span class="o">=</span> <span class="n">opposites</span>
+<span class="n">copy</span> <span class="o">=</span> <span class="n">opposites</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alias</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span>
+<span class="n">opposites</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>If we modify copy, opposites is unchanged:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">copy</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;privilege&#39;</span>
+<span class="n">opposites</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dictionaries-continued">
+<h1>Dictionaries (continued)<a class="headerlink" href="#dictionaries-continued" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Initializing Dictionaries with Key-Value Pairs</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<img src="https://i.ibb.co/h1J1vpR/Screen-Shot-2022-11-17-at-11-28-01-AM.png"><ul class="simple">
+<li><p>Populating Dictionaries</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span>        <span class="o">=</span> <span class="p">{}</span>     <span class="c1"># a dictionary to translate English words into Spanish</span>
+<span class="n">eng2sp</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;uno&#39;</span>  <span class="c1"># adding a new key &quot;one&quot; and mapping the value &quot;uno&quot; to it</span>
+<span class="n">eng2sp</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;dos&#39;</span>  <span class="c1"># adding yet another key &quot;one&quot; and mapping the value &quot;dos&quot; to it</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eng2sp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Similar to sets, the <strong>order</strong> of the pairs is <strong>unpredictable</strong>.</p></li>
+</ul>
+<hr /><ul class="simple">
+<li><p><strong>Values</strong> in a dictionary are <strong>accessed</strong> with <strong><em>Keys</em></strong>, with square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eng2sp</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">])</span>  <span class="c1"># The key &#39;two&#39; yields the value &#39;dos&#39;.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The <strong><code class="docutils literal notranslate"><span class="pre">del</span></code></strong> statement <strong>removes</strong> a key-value pair from a dictionary</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;tres&#39;</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before deletion&quot;</span><span class="p">,</span> <span class="n">eng2sp</span><span class="p">)</span>
+
+<span class="k">del</span> <span class="n">eng2sp</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span> <span class="c1"># Deleting key-value pair with key `two`</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After deletion&quot;</span><span class="p">,</span> <span class="n">eng2sp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr /><ul class="simple">
+<li><p><strong>Change value associated with an existing key</strong>: Override previous value mapped to the key, using the assignment operator</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;tres&#39;</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before change&quot;</span><span class="p">,</span> <span class="n">eng2sp</span><span class="p">)</span>
+<span class="n">eng2sp</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;uno más dos&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After change&quot;</span><span class="p">,</span> <span class="n">eng2sp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>Getting length of a Dictionary</strong>: The <code class="docutils literal notranslate"><span class="pre">len</span></code> function also works on dictionaries; it returns the number of key-value pairs:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;tres&#39;</span><span class="p">}</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">eng2sp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr /><ul class="simple">
+<li><p><strong>Looping over Dictionaries</strong>: When looping through a dictionary, the <strong>target variable</strong> of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is <strong>set to <code class="docutils literal notranslate"><span class="pre">keys</span></code></strong> of the dictionary</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;tres&#39;</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">random</span> <span class="ow">in</span> <span class="n">eng2sp</span><span class="p">:</span> 
+    <span class="n">value</span> <span class="o">=</span> <span class="n">eng2sp</span><span class="p">[</span><span class="n">random</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dictionary</span></code><strong><code class="docutils literal notranslate"><span class="pre">.keys()</span></code></strong>: The <code class="docutils literal notranslate"><span class="pre">keys</span></code> method  returns the <strong>list of its keys</strong>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">eng2sp</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr /><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dictionary</span></code><strong><code class="docutils literal notranslate"><span class="pre">.values()</span></code></strong>: The <code class="docutils literal notranslate"><span class="pre">values</span></code> method returns the <strong>list of its values</strong>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">eng2sp</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">eng2sp</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dictionary</span></code><strong><code class="docutils literal notranslate"><span class="pre">.items()</span></code></strong>: The <code class="docutils literal notranslate"><span class="pre">items</span></code> method returns the <strong>list of key-value pairs</strong>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">eng2sp</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr /><ul class="simple">
+<li><p><strong>Membership operator <code class="docutils literal notranslate"><span class="pre">in</span></code></strong> checks if <strong><u>a Key</u></strong> (<em>NOT VALUE</em>) <strong>exists</strong> in the dictionary</p>
+<ul>
+<li><p>returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the key is present in the dictionary and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise</p></li>
+</ul>
+</li>
+</ul>
+<p>value <code class="docutils literal notranslate"><span class="pre">in</span></code> structure</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;tres&#39;</span><span class="p">}</span>
+
+
+<span class="s1">&#39;random&#39;</span> <span class="ow">in</span> <span class="n">eng2sp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;deux&#39;</span> <span class="ow">in</span> <span class="n">eng2sp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>This method can be very useful, since looking up a non-existant key in a dictionary causes a runtime error:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng2sp</span><span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr/></section>
+<section class="tex2jax_ignore mathjax_ignore" id="questions">
+<h1>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">#</a></h1>
+<section id="question-1-create-a-dictionary-mapping-morse-code-to-english-letters">
+<h2>Question 1. Create a Dictionary mapping Morse code to English letters<a class="headerlink" href="#question-1-create-a-dictionary-mapping-morse-code-to-english-letters" title="Permalink to this headline">#</a></h2>
+<img src="https://thumbs.gfycat.com/SpryFlippantBichonfrise-size_restricted.gif"><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_morse2eng</span><span class="p">(</span><span class="n">morse_code</span><span class="p">,</span> <span class="n">alphabet</span><span class="p">):</span>
+        
+    <span class="k">return</span> <span class="n">morse2eng</span>
+
+<span class="n">morse_code</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.-&quot;</span><span class="p">,</span><span class="s2">&quot;-...&quot;</span><span class="p">,</span><span class="s2">&quot;-.-.&quot;</span><span class="p">,</span><span class="s2">&quot;-..&quot;</span><span class="p">,</span><span class="s2">&quot;.&quot;</span><span class="p">,</span><span class="s2">&quot;..-.&quot;</span><span class="p">,</span><span class="s2">&quot;--.&quot;</span><span class="p">,</span><span class="s2">&quot;....&quot;</span><span class="p">,</span><span class="s2">&quot;..&quot;</span><span class="p">,</span><span class="s2">&quot;.---&quot;</span><span class="p">,</span><span class="s2">&quot;-.-&quot;</span><span class="p">,</span><span class="s2">&quot;.-..&quot;</span><span class="p">,</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>\
+              <span class="s2">&quot;-.&quot;</span><span class="p">,</span><span class="s2">&quot;---&quot;</span><span class="p">,</span><span class="s2">&quot;.--.&quot;</span><span class="p">,</span><span class="s2">&quot;--.-&quot;</span><span class="p">,</span><span class="s2">&quot;.-.&quot;</span><span class="p">,</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="s2">&quot;..-&quot;</span><span class="p">,</span><span class="s2">&quot;...-&quot;</span><span class="p">,</span><span class="s2">&quot;.--&quot;</span><span class="p">,</span><span class="s2">&quot;-..-&quot;</span><span class="p">,</span><span class="s2">&quot;-.--&quot;</span><span class="p">,</span><span class="s2">&quot;--..&quot;</span><span class="p">]</span>
+
+<span class="n">alphabet</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
+
+<span class="k">assert</span> <span class="n">create_morse2eng</span><span class="p">(</span><span class="n">morse_code</span><span class="p">,</span> <span class="n">alphabet</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span>  <span class="s1">&#39;.-&#39;</span>   <span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;-...&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;-.-.&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;-..&#39;</span> <span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;.&#39;</span>   <span class="p">:</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;..-.&#39;</span><span class="p">:</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;--.&#39;</span> <span class="p">:</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;....&#39;</span><span class="p">:</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;..&#39;</span>  <span class="p">:</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;.---&#39;</span><span class="p">:</span> <span class="s1">&#39;j&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;-.-&#39;</span> <span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;.-..&#39;</span><span class="p">:</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;--&#39;</span>  <span class="p">:</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;-.&#39;</span>  <span class="p">:</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;---&#39;</span> <span class="p">:</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;.--.&#39;</span><span class="p">:</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;--.-&#39;</span><span class="p">:</span> <span class="s1">&#39;q&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;.-.&#39;</span> <span class="p">:</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;...&#39;</span> <span class="p">:</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;-&#39;</span>   <span class="p">:</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;..-&#39;</span> <span class="p">:</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;...-&#39;</span><span class="p">:</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;.--&#39;</span> <span class="p">:</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;-..-&#39;</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;-.--&#39;</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span>\
+                                                     <span class="s1">&#39;--..&#39;</span><span class="p">:</span> <span class="s1">&#39;z&#39;</span><span class="p">},</span> <span class="s2">&quot;Test case failed&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All test cases passed successfully&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-2-create-a-dictionary-mapping-english-letters-to-morse-code">
+<h2>Question 2. Create a Dictionary mapping English letters to Morse code<a class="headerlink" href="#question-2-create-a-dictionary-mapping-english-letters-to-morse-code" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_eng2morse</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">morse_code</span><span class="p">):</span>
+        
+    <span class="k">return</span> <span class="n">eng2morse</span>
+
+<span class="n">morse_code</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.-&quot;</span><span class="p">,</span><span class="s2">&quot;-...&quot;</span><span class="p">,</span><span class="s2">&quot;-.-.&quot;</span><span class="p">,</span><span class="s2">&quot;-..&quot;</span><span class="p">,</span><span class="s2">&quot;.&quot;</span><span class="p">,</span><span class="s2">&quot;..-.&quot;</span><span class="p">,</span><span class="s2">&quot;--.&quot;</span><span class="p">,</span><span class="s2">&quot;....&quot;</span><span class="p">,</span><span class="s2">&quot;..&quot;</span><span class="p">,</span><span class="s2">&quot;.---&quot;</span><span class="p">,</span><span class="s2">&quot;-.-&quot;</span><span class="p">,</span><span class="s2">&quot;.-..&quot;</span><span class="p">,</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>\
+              <span class="s2">&quot;-.&quot;</span><span class="p">,</span><span class="s2">&quot;---&quot;</span><span class="p">,</span><span class="s2">&quot;.--.&quot;</span><span class="p">,</span><span class="s2">&quot;--.-&quot;</span><span class="p">,</span><span class="s2">&quot;.-.&quot;</span><span class="p">,</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="s2">&quot;..-&quot;</span><span class="p">,</span><span class="s2">&quot;...-&quot;</span><span class="p">,</span><span class="s2">&quot;.--&quot;</span><span class="p">,</span><span class="s2">&quot;-..-&quot;</span><span class="p">,</span><span class="s2">&quot;-.--&quot;</span><span class="p">,</span><span class="s2">&quot;--..&quot;</span><span class="p">]</span>
+
+<span class="n">alphabet</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
+
+<span class="k">assert</span> <span class="n">create_eng2morse</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="n">morse_code</span><span class="p">)</span> <span class="o">==</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;-...&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;-.-.&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="s1">&#39;-..&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="s1">&#39;..-.&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="s1">&#39;--.&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="s1">&#39;....&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;i&#39;</span><span class="p">:</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;j&#39;</span><span class="p">:</span> <span class="s1">&#39;.---&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="s1">&#39;-.-&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="s1">&#39;.-..&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;m&#39;</span><span class="p">:</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;-.&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;o&#39;</span><span class="p">:</span> <span class="s1">&#39;---&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;p&#39;</span><span class="p">:</span> <span class="s1">&#39;.--.&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="s1">&#39;--.-&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="s1">&#39;.-.&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;u&#39;</span><span class="p">:</span> <span class="s1">&#39;..-&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="s1">&#39;...-&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="s1">&#39;.--&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;-..-&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="s1">&#39;-.--&#39;</span><span class="p">,</span>\
+                                                 <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="s1">&#39;--..&#39;</span><span class="p">},</span> <span class="s2">&quot;Test case failed&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All test cases passed successfully&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-3-convert-english-text-to-morse-code">
+<h2>Question 3. Convert English Text to Morse Code<a class="headerlink" href="#question-3-convert-english-text-to-morse-code" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convert_to_morse</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    
+    <span class="k">return</span> <span class="n">converted</span>
+
+
+<span class="k">assert</span> <span class="n">convert_to_morse</span><span class="p">(</span><span class="s2">&quot;what&quot;</span><span class="p">)</span>    <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;.--&#39;</span><span class="p">,</span> <span class="s1">&#39;....&#39;</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">],</span>                       <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="k">assert</span> <span class="n">convert_to_morse</span><span class="p">(</span><span class="s2">&quot;hath&quot;</span><span class="p">)</span>    <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;....&#39;</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;....&#39;</span><span class="p">],</span>                      <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="k">assert</span> <span class="n">convert_to_morse</span><span class="p">(</span><span class="s2">&quot;god&quot;</span><span class="p">)</span>     <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;--.&#39;</span><span class="p">,</span> <span class="s1">&#39;---&#39;</span><span class="p">,</span> <span class="s1">&#39;-..&#39;</span><span class="p">],</span>                            <span class="s2">&quot;Test case 3 failed&quot;</span>
+<span class="k">assert</span> <span class="n">convert_to_morse</span><span class="p">(</span><span class="s2">&quot;wrought&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;.--&#39;</span><span class="p">,</span> <span class="s1">&#39;.-.&#39;</span><span class="p">,</span> <span class="s1">&#39;---&#39;</span><span class="p">,</span> <span class="s1">&#39;..-&#39;</span><span class="p">,</span> <span class="s1">&#39;--.&#39;</span><span class="p">,</span> <span class="s1">&#39;....&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">],</span> <span class="s2">&quot;Test case 4 failed&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All test cases passed successfully&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-4-sum-currency-notes">
+<h2>Question 4. Sum currency notes<a class="headerlink" href="#question-4-sum-currency-notes" title="Permalink to this headline">#</a></h2>
+<p>Given <code class="docutils literal notranslate"><span class="pre">amount</span></code>, compute minimum number of bills needed to give back the change.</p>
+<p>Assume you have infinite banknotes for each denomination.</p>
+<p>U.S. currency denominations (implicit)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_change</span><span class="p">(</span><span class="n">change_notes</span><span class="p">):</span>
+    
+
+    <span class="k">return</span> <span class="n">summ</span>
+
+<span class="k">assert</span> <span class="n">sum_change</span><span class="p">({</span><span class="mi">100</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span> <span class="o">==</span> <span class="mi">396</span><span class="p">,</span> <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="k">assert</span> <span class="n">sum_change</span><span class="p">({</span><span class="mi">100</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span> <span class="o">==</span> <span class="mi">18</span><span class="p">,</span>  <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="k">assert</span> <span class="n">sum_change</span><span class="p">({</span><span class="mi">100</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>   <span class="s2">&quot;Test case 3 failed&quot;</span>
+<span class="k">assert</span> <span class="n">sum_change</span><span class="p">({</span><span class="mi">100</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span> <span class="o">==</span> <span class="mi">39</span><span class="p">,</span>  <span class="s2">&quot;Test case 4 failed&quot;</span>
+<span class="k">assert</span> <span class="n">sum_change</span><span class="p">({</span><span class="mi">100</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span> <span class="o">==</span> <span class="mi">199</span><span class="p">,</span> <span class="s2">&quot;Test case 5 failed&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All test cases passed successfully&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-5-change-making-problem">
+<h2>Question 5. Change-making problem<a class="headerlink" href="#question-5-change-making-problem" title="Permalink to this headline">#</a></h2>
+<p>Given <code class="docutils literal notranslate"><span class="pre">amount</span></code>, compute minimum number of bills needed to give back the change.</p>
+<p>Assume you have infinite banknotes for each denomination.</p>
+<p>U.S. currency denominations (implicit)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_change</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+
+    <span class="k">return</span> <span class="n">counts</span>
+
+<span class="k">assert</span> <span class="n">make_change</span><span class="p">(</span><span class="mi">396</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="mi">100</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="k">assert</span> <span class="n">make_change</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>  <span class="o">==</span> <span class="p">{</span><span class="mi">100</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span> <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="k">assert</span> <span class="n">make_change</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>   <span class="o">==</span> <span class="p">{</span><span class="mi">100</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="s2">&quot;Test case 3 failed&quot;</span>
+<span class="k">assert</span> <span class="n">make_change</span><span class="p">(</span><span class="mi">39</span><span class="p">)</span>  <span class="o">==</span> <span class="p">{</span><span class="mi">100</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span> <span class="s2">&quot;Test case 4 failed&quot;</span>
+<span class="k">assert</span> <span class="n">make_change</span><span class="p">(</span><span class="mi">199</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="mi">100</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span> <span class="s2">&quot;Test case 5 failed&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All test cases passed successfully&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dictionaries</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-find-index-of-minimum-value-u-using-for-loops-u">Question. Find Index of Minimum Value, <u> using <code class="docutils literal notranslate"><span class="pre">for</span></code> loops </u></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-assignment-and-for-loops">Tuple Assignment and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-enumerate">Built-in <code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops-with-enumerate"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops with <code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-find-index-of-minimum-value-u-using-for-loops-and-enumerate-u">Question. Find Index of Minimum Value, <u> using for loops AND enumerate</u></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-13-1">Lecture 13.1.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Dictionaries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#friday-nov-17">Friday, Nov 17</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Dictionaries</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries-vs-other-data-structures">Dictionaries vs. other Data Structures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries-syntax">Dictionaries Syntax</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dictionaries-and-inserting-key-value-pairs">Creating Dictionaries, and Inserting Key-Value Pairs</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-values">Accessing Values</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-key-value-pairs">Deleting Key-Value Pairs</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#change-value-associated-with-an-existing-key">Change value associated with an existing key</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-length-of-a-dictionary">Getting length of a Dictionary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-over-dictionaries">Looping over Dictionaries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary-methods">Dictionary methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membership-operator-in-with-dictionaries">Membership operator <code class="docutils literal notranslate"><span class="pre">in</span></code> with Dictionaries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing-and-copying">Aliasing and copying</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries-continued">Dictionaries (continued)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-create-a-dictionary-mapping-morse-code-to-english-letters">Question 1. Create a Dictionary mapping Morse code to English letters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-create-a-dictionary-mapping-english-letters-to-morse-code">Question 2. Create a Dictionary mapping English letters to Morse code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-convert-english-text-to-morse-code">Question 3. Convert English Text to Morse Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4-sum-currency-notes">Question 4. Sum currency notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-5-change-making-problem">Question 5. Change-making problem</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Syed Fahad Sultan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

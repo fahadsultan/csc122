@@ -1,0 +1,823 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Inheritance &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data/oop5';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    CSC-122 Data Structures & Algorithms (Spring 2024)
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Calendar</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../syllabus/index.html">Syllabus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/textbook.html">Textbooks &amp; Other Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/mental_health.html">Mental Health Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/academic_success.html">Center for Academic Success</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/accomodations.html">Accomodations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/integrity.html">Academic Integrity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/title_9.html">Nondiscrimination Policy and Sexual Misconduct</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Elements of Programming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/data.html">1. Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/operations.html">2. Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/controls.html">3. Controls</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">4. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/recursion.html">5. Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">6. Functional Programming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/analysis.html">7. Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/brute.html">8. Brute Force</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">9. Greedy Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/divide_conquer.html">10. Divide and Conquer</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/oop.html">11. Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/datastructures.html">12. Native Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/structs.html">13. Custom Data Structures</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdata/oop5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/data/oop5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Inheritance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hand-of-cards">A hand of cards</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-cards">Dealing cards</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-a-hand">Printing a Hand</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cardgame-class">The CardGame class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oldmaidhand-class">OldMaidHand class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oldmaidgame-class"><code class="docutils literal notranslate"><span class="pre">OldMaidGame</span></code> class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary"><em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises"><em>Exercises</em></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="inheritance">
+<h1>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">#</a></h1>
+<p>The language feature most often associated with object-oriented programming is <strong>inheritance</strong>. Inheritance is the ability to define a new class that is a modified version of an existing class.</p>
+<p>The primary advantage of this feature is that you can add new methods to a class without modifying the existing class. It is called inheritance because the new class inherits all of the methods of the existing class. Extending this metaphor, the existing class is sometimes called the <strong>parent</strong> class. The new class may be called the <strong>child</strong> class or sometimes subclass.</p>
+<p>Inheritance is a powerful feature. Some programs that would be complicated without inheritance can be written concisely and simply with it. Also, inheritance can facilitate code reuse, since you can customize the behavior of parent classes without having to modify them. In some cases, the inheritance structure reflects the natural structure of the problem, which makes the program easier to understand.</p>
+<p>On the other hand, inheritance can make programs difficult to read. When a method is invoked, it is sometimes not clear where to find its definition. The relevant code may be scattered among several modules. Also, many of the things that can be done using inheritance can be done as elegantly (or more so) without it. If the natural structure of the problem does not lend itself to inheritance, this style of programming can do more harm than good.</p>
+<p>In this chapter we will demonstrate the use of inheritance as part of a program that plays the card game Old Maid. One of our goals is to write code that could be reused to implement other card games.</p>
+<section id="a-hand-of-cards">
+<h2>A hand of cards<a class="headerlink" href="#a-hand-of-cards" title="Permalink to this headline">#</a></h2>
+<p>or almost any card game, we need to represent a hand of cards. A hand is similar to a deck, of course. Both are made up of a set of cards, and both require operations like adding and removing cards. Also, we might like the ability to shuffle both decks and hands.</p>
+<p>A hand is also different from a deck. Depending on the game being played, we might want to perform some operations on hands that don’t make sense for a deck. For example, in poker we might classify a hand (straight, flush, etc.) or compare it with another hand. In bridge, we might want to compute a score for a hand in order to make a bid.</p>
+<p>This situation suggests the use of inheritance. If <code class="docutils literal notranslate"><span class="pre">Hand</span></code> is a subclass of <code class="docutils literal notranslate"><span class="pre">Deck</span></code>, it will have all the methods of <code class="docutils literal notranslate"><span class="pre">Deck</span></code>, and new methods can be added.</p>
+<p>In the class definition, the name of the parent class appears in parentheses:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hand</span><span class="p">(</span><span class="n">Deck</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">class</span> <span class="nc">Hand</span><span class="p">(</span><span class="n">Deck</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="k">pass</span>
+
+<span class="ne">NameError</span>: name &#39;Deck&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>This statement indicates that the new Hand class inherits from the existing <code class="docutils literal notranslate"><span class="pre">Deck</span></code> class.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Hand</span></code> constructor initializes the attributes for the hand, which are <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">cards</span></code>. The string <code class="docutils literal notranslate"><span class="pre">name</span></code> identifies this hand, probably by the name of the player that holds it. The name is an optional parameter with the empty string as a default value. <code class="docutils literal notranslate"><span class="pre">cards</span></code> is the list of cards in the hand, initialized to the empty list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hand</span><span class="p">(</span><span class="n">Deck</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">cards</span> <span class="o">=</span> <span class="p">[]</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For just about any card game, it is necessary to add and remove cards from the deck. Removing cards is already taken care of, since Hand inherits <code class="docutils literal notranslate"><span class="pre">remove</span></code> from <code class="docutils literal notranslate"><span class="pre">Deck</span></code>. But we have to write <code class="docutils literal notranslate"><span class="pre">add</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hand</span><span class="p">(</span><span class="n">Deck</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">card</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, the ellipsis indicates that we have omitted other methods. The list <code class="docutils literal notranslate"><span class="pre">append</span></code> method adds the new card to the end of the list of cards.</p>
+</section>
+<section id="dealing-cards">
+<h2>Dealing cards<a class="headerlink" href="#dealing-cards" title="Permalink to this headline">#</a></h2>
+<p>Now that we have a <code class="docutils literal notranslate"><span class="pre">Hand</span></code> class, we want to deal cards from the <code class="docutils literal notranslate"><span class="pre">Deck</span></code> into hands. It is not immediately obvious whether this method should go in the Hand class or in the <code class="docutils literal notranslate"><span class="pre">Deck</span></code> class, but since it operates on a single deck and (possibly) several hands, it is more natural to put it in <code class="docutils literal notranslate"><span class="pre">Deck</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">deal</span></code> should be fairly general, since different games will have different requirements. We may want to deal out the entire deck at once or add one card to each hand.</p>
+<p><code class="docutils literal notranslate"><span class="pre">deal</span></code> takes two parameters, a list (or tuple) of hands and the total number of cards to deal. If there are not enough cards in the deck, the method deals out all of the cards and stops:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Deck</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">deal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hands</span><span class="p">,</span> <span class="n">num_cards</span><span class="o">=</span><span class="mi">999</span><span class="p">):</span>
+        <span class="n">num_hands</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hands</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_cards</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span> <span class="k">break</span>   <span class="c1"># break if out of cards</span>
+            <span class="n">card</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>           <span class="c1"># take the top card</span>
+            <span class="n">hand</span> <span class="o">=</span> <span class="n">hands</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="n">num_hands</span><span class="p">]</span> <span class="c1"># whose turn is next?</span>
+            <span class="n">hand</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>              <span class="c1"># add the card to the hand</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The second parameter, <code class="docutils literal notranslate"><span class="pre">num_cards</span></code>, is optional; the default is a large number, which effectively means that all of the cards in the deck will get dealt.</p>
+<p>The loop variable <code class="docutils literal notranslate"><span class="pre">i</span></code> goes from 0 to <code class="docutils literal notranslate"><span class="pre">nCards-1</span></code>. Each time through the loop, a card is removed from the deck using the list method <code class="docutils literal notranslate"><span class="pre">pop</span></code>, which removes and returns the last item in the list.</p>
+<p>The modulus operator (<code class="docutils literal notranslate"><span class="pre">%</span></code>) allows us to deal cards in a round robin (one card at a time to each hand). When <code class="docutils literal notranslate"><span class="pre">i</span></code> is equal to the number of hands in the list, the expression <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">%</span> <span class="pre">nHands</span></code> wraps around to the beginning of the list (index 0).</p>
+</section>
+<section id="printing-a-hand">
+<h2>Printing a Hand<a class="headerlink" href="#printing-a-hand" title="Permalink to this headline">#</a></h2>
+<p>To print the contents of a hand, we can take advantage of the <code class="docutils literal notranslate"><span class="pre">printDeck</span></code> and <code class="docutils literal notranslate"><span class="pre">__str__</span></code> methods inherited from Deck. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">deck</span> <span class="o">=</span> <span class="n">Deck</span><span class="p">()</span>
+<span class="n">deck</span><span class="o">.</span><span class="n">shuffle</span><span class="p">()</span>
+<span class="n">hand</span> <span class="o">=</span> <span class="n">Hand</span><span class="p">(</span><span class="s2">&quot;frank&quot;</span><span class="p">)</span>
+<span class="n">deck</span><span class="o">.</span><span class="n">deal</span><span class="p">([</span><span class="n">hand</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hand</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s not a great hand, but it has the makings of a straight flush.</p>
+<p>Although it is convenient to inherit the existing methods, there is additional information in a <code class="docutils literal notranslate"><span class="pre">Hand</span></code> object we might want to include when we print one. To do that, we can provide a <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method in the Hand class that overrides the one in the <code class="docutils literal notranslate"><span class="pre">Deck</span></code> class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hand</span><span class="p">(</span><span class="n">Deck</span><span class="p">)</span>
+    <span class="o">...</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hand &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">&quot; is empty</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">&quot; contains</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">s</span> <span class="o">+</span> <span class="n">Deck</span><span class="o">.</span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Initially, <code class="docutils literal notranslate"><span class="pre">s</span></code> is a string that identifies the hand. If the hand is empty, the program appends the words <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">empty</span></code> and returns <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+<p>Otherwise, the program appends the word <code class="docutils literal notranslate"><span class="pre">contains</span></code> and the string representation of the <code class="docutils literal notranslate"><span class="pre">Deck</span></code>, computed by invoking the <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method in the Deck class on self.</p>
+<p>It may seem odd to send <code class="docutils literal notranslate"><span class="pre">self</span></code>, which refers to the current <code class="docutils literal notranslate"><span class="pre">Hand</span></code>, to a <code class="docutils literal notranslate"><span class="pre">Deck</span></code> method, until you remember that a <code class="docutils literal notranslate"><span class="pre">Hand</span></code> is a kind of <code class="docutils literal notranslate"><span class="pre">Deck</span></code>. <code class="docutils literal notranslate"><span class="pre">Hand</span></code> objects can do everything <code class="docutils literal notranslate"><span class="pre">Deck</span></code> objects can, so it is legal to send a <code class="docutils literal notranslate"><span class="pre">Hand</span></code> to a <code class="docutils literal notranslate"><span class="pre">Deck</span></code> method.</p>
+<p>In general, it is always legal to use an instance of a subclass in place of an instance of a parent class.</p>
+</section>
+<section id="the-cardgame-class">
+<h2>The CardGame class<a class="headerlink" href="#the-cardgame-class" title="Permalink to this headline">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">CardGame</span></code> class takes care of some basic chores common to all games, such as creating the deck and shuffling it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CardGame</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deck</span> <span class="o">=</span> <span class="n">Deck</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deck</span><span class="o">.</span><span class="n">shuffle</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is the first case we have seen where the initialization method performs a significant computation, beyond initializing attributes.</p>
+<p>To implement specific games, we can inherit from <code class="docutils literal notranslate"><span class="pre">CardGame</span></code> and add features for the new game. As an example, we’ll write a simulation of Old Maid.</p>
+<p>The object of Old Maid is to get rid of cards in your hand. You do this by matching cards by rank and color. For example, the 4 of Clubs matches the 4 of Spades since both suits are black. The Jack of Hearts matches the Jack of Diamonds since both are red.</p>
+<p>To begin the game, the Queen of Clubs is removed from the deck so that the Queen of Spades has no match. The fifty-one remaining cards are dealt to the players in a round robin. After the deal, all players match and discard as many cards as possible.</p>
+<p>When no more matches can be made, play begins. In turn, each player picks a card (without looking) from the closest neighbor to the left who still has cards. If the chosen card matches a card in the player’s hand, the pair is removed. Otherwise, the card is added to the player’s hand. Eventually all possible matches are made, leaving only the Queen of Spades in the loser’s hand.</p>
+<p>In our computer simulation of the game, the computer plays all hands. Unfortunately, some nuances of the real game are lost. In a real game, the player with the Old Maid goes to some effort to get their neighbor to pick that card, by displaying it a little more prominently, or perhaps failing to display it more prominently, or even failing to fail to display that card more prominently. The computer simply picks a neighbor’s card at random.</p>
+</section>
+<section id="oldmaidhand-class">
+<h2>OldMaidHand class<a class="headerlink" href="#oldmaidhand-class" title="Permalink to this headline">#</a></h2>
+<p>A hand for playing Old Maid requires some abilities beyond the general abilities of a <code class="docutils literal notranslate"><span class="pre">Hand</span></code>. We will define a new class, <code class="docutils literal notranslate"><span class="pre">OldMaidHand</span></code>, that inherits from <code class="docutils literal notranslate"><span class="pre">Hand</span></code> and provides an additional method called <code class="docutils literal notranslate"><span class="pre">remove_matches</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">OldMaidHand</span><span class="p">(</span><span class="n">Hand</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">remove_matches</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">original_cards</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cards</span><span class="p">[:]</span>
+        <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="n">original_cards</span><span class="p">:</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="n">Card</span><span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="n">card</span><span class="o">.</span><span class="n">suit</span><span class="p">,</span> <span class="n">card</span><span class="o">.</span><span class="n">rank</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">match</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cards</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hand </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2"> matches </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">card</span><span class="p">,</span> <span class="n">match</span><span class="p">))</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">count</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We start by making a copy of the list of cards, so that we can traverse the copy while removing cards from the original. Since <code class="docutils literal notranslate"><span class="pre">self.cards</span></code> is modified in the loop, we don’t want to use it to control the traversal. Python can get quite confused if it is traversing a list that is changing!</p>
+<p>For each card in the hand, we figure out what the matching card is and go looking for it. The match card has the same rank and the other suit of the same color. The expression <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">-</span> <span class="pre">card.suit</span></code> turns a Club (suit 0) into a Spade (suit 3) and a Diamond (suit 1) into a Heart (suit 2). You should satisfy yourself that the opposite operations also work. If the match card is also in the hand, both cards are removed.</p>
+<p>The following example demonstrates how to use <code class="docutils literal notranslate"><span class="pre">remove_matches</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">game</span> <span class="o">=</span> <span class="n">CardGame</span><span class="p">()</span>
+<span class="n">hand</span> <span class="o">=</span> <span class="n">OldMaidHand</span><span class="p">(</span><span class="s2">&quot;frank&quot;</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">deck</span><span class="o">.</span><span class="n">deal</span><span class="p">([</span><span class="n">hand</span><span class="p">],</span> <span class="mi">13</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hand</span><span class="p">)</span>
+
+<span class="n">hand</span><span class="o">.</span><span class="n">remove_matches</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">hand</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that there is no <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method for the <code class="docutils literal notranslate"><span class="pre">OldMaidHand</span></code> class. We inherit it from Hand.</p>
+</section>
+<section id="oldmaidgame-class">
+<h2><code class="docutils literal notranslate"><span class="pre">OldMaidGame</span></code> class<a class="headerlink" href="#oldmaidgame-class" title="Permalink to this headline">#</a></h2>
+<p>Now we can turn our attention to the game itself. <code class="docutils literal notranslate"><span class="pre">OldMaidGame</span></code> is a subclass of <code class="docutils literal notranslate"><span class="pre">CardGame</span></code> with a new method called <code class="docutils literal notranslate"><span class="pre">play</span></code> that takes a list of players as a parameter.</p>
+<p>Since <code class="docutils literal notranslate"><span class="pre">__init__</span></code> is inherited from <code class="docutils literal notranslate"><span class="pre">CardGame</span></code>, a new <code class="docutils literal notranslate"><span class="pre">OldMaidGame</span></code> object contains a new shuffled deck:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">OldMaidGame</span><span class="p">(</span><span class="n">CardGame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+        <span class="c1"># remove Queen of Clubs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deck</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">Card</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+
+        <span class="c1"># make a hand for each player</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hands</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">OldMaidHand</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+        <span class="c1"># deal the cards</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deck</span><span class="o">.</span><span class="n">deal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hands</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------- Cards have been dealt&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printHands</span><span class="p">()</span>
+
+        <span class="c1"># remove initial matches</span>
+        <span class="n">matches</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">removeAllMatches</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------- Matches discarded, play begins&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printHands</span><span class="p">()</span>
+
+        <span class="c1"># play until all 50 cards are matched</span>
+        <span class="n">turn</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">numHands</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hands</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">matches</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
+            <span class="n">matches</span> <span class="o">=</span> <span class="n">matches</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">playOneTurn</span><span class="p">(</span><span class="n">turn</span><span class="p">)</span>
+            <span class="n">turn</span> <span class="o">=</span> <span class="p">(</span><span class="n">turn</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">numHands</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------- Game is Over&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printHands</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The writing of <code class="docutils literal notranslate"><span class="pre">printHands()</span></code> is left as an exercise.</p>
+<p>Some of the steps of the game have been separated into methods. <code class="docutils literal notranslate"><span class="pre">remove_all_matches</span></code> traverses the list of hands and invokes <code class="docutils literal notranslate"><span class="pre">remove_matches</span></code> on each:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">OldMaidGame</span><span class="p">(</span><span class="n">CardGame</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">remove_all_matches</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">hand</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hands</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="n">hand</span><span class="o">.</span><span class="n">remove_matches</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">count</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">count</span></code> is an accumulator that adds up the number of matches in each hand and returns the total.</p>
+<p>When the total number of matches reaches twenty-five, fifty cards have been removed from the hands, which means that only one card is left and the game is over.</p>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">turn</span></code> keeps track of which player’s turn it is. It starts at 0 and increases by one each time; when it reaches <code class="docutils literal notranslate"><span class="pre">numHands</span></code>, the modulus operator wraps it back around to 0.</p>
+<p>The method <code class="docutils literal notranslate"><span class="pre">playOneTurn</span></code> takes a parameter that indicates whose turn it is. The return value is the number of matches made during this turn:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">OldMaidGame</span><span class="p">(</span><span class="n">CardGame</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">play_one_turn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hands</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">neighbor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_neighbor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">pickedCard</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hands</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]</span><span class="o">.</span><span class="n">popCard</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hands</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">pickedCard</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hand </span><span class="si">%s</span><span class="s2"> picked </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hands</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">pickedCard</span><span class="p">))</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hands</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">remove_matches</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hands</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">shuffle</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">count</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If a player’s hand is empty, that player is out of the game, so he or she does nothing and returns 0.</p>
+<p>Otherwise, a turn consists of finding the first player on the left that has cards, taking one card from the neighbor, and checking for matches. Before returning, the cards in the hand are shuffled so that the next player’s choice is random.</p>
+<p>The method <code class="docutils literal notranslate"><span class="pre">find_neighbor</span></code> starts with the player to the immediate left and continues around the circle until it finds a player that still has cards:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">OldMaidGame</span><span class="p">(</span><span class="n">CardGame</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">find_neighbor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="n">numHands</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hands</span><span class="p">)</span>
+        <span class="k">for</span> <span class="nb">next</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">numHands</span><span class="p">):</span>
+            <span class="n">neighbor</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="nb">next</span><span class="p">)</span> <span class="o">%</span> <span class="n">numHands</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">hands</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">return</span> <span class="n">neighbor</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">find_neighbor</span></code> ever went all the way around the circle without finding cards, it would return <code class="docutils literal notranslate"><span class="pre">None</span></code> and cause an error elsewhere in the program. Fortunately, we can prove that that will never happen (as long as the end of the game is detected correctly).</p>
+<p>We have omitted the <code class="docutils literal notranslate"><span class="pre">print_hands</span></code> method. You can write that one yourself.</p>
+<p>The following output is from a truncated form of the game where only the top fifteen cards (tens and higher) were dealt to three players. With this small deck, play stops after seven matches instead of twenty-five.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cards</span>
+<span class="n">game</span> <span class="o">=</span> <span class="n">cards</span><span class="o">.</span><span class="n">OldMaidGame</span><span class="p">()</span>
+<span class="n">game</span><span class="o">.</span><span class="n">play</span><span class="p">([</span><span class="s2">&quot;Allen&quot;</span><span class="p">,</span><span class="s2">&quot;Jeff&quot;</span><span class="p">,</span><span class="s2">&quot;Chris&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So Jeff loses.</p>
+<hr/></section>
+<section id="glossary">
+<h2><em>Glossary</em><a class="headerlink" href="#glossary" title="Permalink to this headline">#</a></h2>
+<dl class="glossary simple">
+<dt id="term-inheritance">inheritance<a class="headerlink" href="#term-inheritance" title="Permalink to this term">#</a></dt><dd><p>The ability to define a new class that is a modified version of a previously defined class.</p>
+</dd>
+<dt id="term-parent-class">parent class<a class="headerlink" href="#term-parent-class" title="Permalink to this term">#</a></dt><dd><p>The class from which a child class inherits.</p>
+</dd>
+<dt id="term-child-class">child class<a class="headerlink" href="#term-child-class" title="Permalink to this term">#</a></dt><dd><p>A new class created by inheriting from an existing class; also called a subclass.</p>
+</dd>
+</dl>
+</section>
+<section id="exercises">
+<h2><em>Exercises</em><a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Add a method, <code class="docutils literal notranslate"><span class="pre">print_hands</span></code>, to the <code class="docutils literal notranslate"><span class="pre">OldMaidGame</span></code> class which traverses <code class="docutils literal notranslate"><span class="pre">self.hands</span></code> and prints each hand.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hand-of-cards">A hand of cards</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-cards">Dealing cards</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-a-hand">Printing a Hand</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cardgame-class">The CardGame class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oldmaidhand-class">OldMaidHand class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oldmaidgame-class"><code class="docutils literal notranslate"><span class="pre">OldMaidGame</span></code> class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary"><em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises"><em>Exercises</em></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Syed Fahad Sultan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

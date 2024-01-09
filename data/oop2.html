@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Classes and functions &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data/oop2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    CSC-122 Data Structures & Algorithms (Spring 2024)
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Calendar</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../syllabus/index.html">Syllabus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/textbook.html">Textbooks &amp; Other Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/mental_health.html">Mental Health Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/academic_success.html">Center for Academic Success</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/accomodations.html">Accomodations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/integrity.html">Academic Integrity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/title_9.html">Nondiscrimination Policy and Sexual Misconduct</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Elements of Programming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/data.html">1. Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/operations.html">2. Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/controls.html">3. Controls</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">4. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/recursion.html">5. Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">6. Functional Programming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/analysis.html">7. Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/brute.html">8. Brute Force</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">9. Greedy Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/divide_conquer.html">10. Divide and Conquer</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/oop.html">11. Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/datastructures.html">12. Native Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/structs.html">13. Custom Data Structures</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdata/oop2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/data/oop2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Classes and functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time">Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-functions">Pure functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers">Modifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prototype-development-versus-planning">Prototype development versus planning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization">Generalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary"><em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises"><em>Exercises</em></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="classes-and-functions">
+<h1>Classes and functions<a class="headerlink" href="#classes-and-functions" title="Permalink to this headline">#</a></h1>
+<section id="time">
+<h2>Time<a class="headerlink" href="#time" title="Permalink to this headline">#</a></h2>
+<p>As another example of a user-defined type, we’ll define a class called Time that records the time of day. The class definition looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Time</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>We can create a new Time object and assign attributes for hours, minutes, and seconds:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">59</span>
+<span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+<p>The state diagram for the <code class="docutils literal notranslate"><span class="pre">Time</span></code> object looks like this:</p>
+<img src="https://www.cs.swarthmore.edu/courses/CS21Book/_images/time.png">
+</section>
+<section id="pure-functions">
+<h2>Pure functions<a class="headerlink" href="#pure-functions" title="Permalink to this headline">#</a></h2>
+<p>In the next few sections, we’ll write two versions of a function called add_time, which calculates the sum of two Times. They will demonstrate two kinds of functions: pure functions and modifiers.</p>
+<p>The following is a rough version of <code class="docutils literal notranslate"><span class="pre">add_time</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_time</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="n">Time</span><span class="p">()</span>
+    <span class="nb">sum</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">hours</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="n">hours</span>
+    <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">minutes</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="n">minutes</span>
+    <span class="nb">sum</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">seconds</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="n">seconds</span>
+    <span class="k">return</span> <span class="nb">sum</span>
+</pre></div>
+</div>
+<p>The function creates a new <code class="docutils literal notranslate"><span class="pre">Time</span></code> object, initializes its attributes, and returns a reference to the new object. This is called a <strong>pure function</strong> because it does not modify any of the objects passed to it as parameters and it has no side effects, such as displaying a value or getting user input.</p>
+<p>Here is an example of how to use this function. We’ll create two Time objects: <code class="docutils literal notranslate"><span class="pre">current_time</span></code>, which contains the current time; and <code class="docutils literal notranslate"><span class="pre">bread_time</span></code>, which contains the amount of time it takes for a breadmaker to make bread. Then we’ll use <code class="docutils literal notranslate"><span class="pre">add_time</span></code> to figure out when the bread will be done. If you haven’t finished writing <code class="docutils literal notranslate"><span class="pre">print_time</span></code> yet, take a look ahead to Section before you try this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">current_time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">current_time</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">current_time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">current_time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span>  <span class="mi">30</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bread_time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bread_time</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bread_time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bread_time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">done_time</span> <span class="o">=</span> <span class="n">add_time</span><span class="p">(</span><span class="n">current_time</span><span class="p">,</span> <span class="n">bread_time</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">print_time</span><span class="p">(</span><span class="n">done_time</span><span class="p">)</span>
+<span class="go">12:49:30</span>
+</pre></div>
+</div>
+<p>The output of this program is <code class="docutils literal notranslate"><span class="pre">12:49:30</span></code>, which is correct. On the other hand, there are cases where the result is not correct. Can you think of one?</p>
+<p>The problem is that this function does not deal with cases where the number of seconds or minutes adds up to more than sixty. When that happens, we have to carry the extra seconds into the minutes column or the extra minutes into the hours column.</p>
+<p>Here’s a second corrected version of the function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_time</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="n">Time</span><span class="p">()</span>
+    <span class="nb">sum</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">hours</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="n">hours</span>
+    <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">minutes</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="n">minutes</span>
+    <span class="nb">sum</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">seconds</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="n">seconds</span>
+
+    <span class="k">if</span> <span class="nb">sum</span><span class="o">.</span><span class="n">seconds</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="nb">sum</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">.</span><span class="n">seconds</span> <span class="o">-</span> <span class="mi">60</span>
+        <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">-</span> <span class="mi">60</span>
+        <span class="nb">sum</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">.</span><span class="n">hours</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="nb">sum</span>
+</pre></div>
+</div>
+<p>Although this function is correct, it is starting to get big. Later we will suggest an alternative approach that yields shorter code.</p>
+</section>
+<section id="modifiers">
+<h2>Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">#</a></h2>
+<p>There are times when it is useful for a function to modify one or more of the objects it gets as parameters. Usually, the caller keeps a reference to the objects it passes, so any changes the function makes are visible to the caller. Functions that work this way are called <strong>modifiers</strong>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">increment</span></code>, which adds a given number of seconds to a Time object, would be written most naturally as a modifier. A rough draft of the function looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">seconds</span><span class="p">):</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">+</span> <span class="n">seconds</span>
+
+    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">-</span> <span class="mi">60</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">-</span> <span class="mi">60</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">hours</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>The first line performs the basic operation; the remainder deals with the special cases we saw before.</p>
+<p>Is this function correct? What happens if the parameter <code class="docutils literal notranslate"><span class="pre">seconds</span></code> is much greater than sixty? In that case, it is not enough to carry once; we have to keep doing it until seconds is less than sixty. One solution is to replace the <code class="docutils literal notranslate"><span class="pre">if</span></code> statements with <code class="docutils literal notranslate"><span class="pre">while</span></code> statements:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">seconds</span><span class="p">):</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">+</span> <span class="n">seconds</span>
+
+    <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">-</span> <span class="mi">60</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">-</span> <span class="mi">60</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">hours</span> <span class="o">+</span> <span class="mi">1</span>
+
+</pre></div>
+</div>
+<p>This function is now correct, but it is not very efficient. In Section we will see a faster alternative.</p>
+</section>
+<section id="prototype-development-versus-planning">
+<h2>Prototype development versus planning<a class="headerlink" href="#prototype-development-versus-planning" title="Permalink to this headline">#</a></h2>
+<p>In this chapter, we demonstrated an approach to program development that we call prototype development. In each case, we wrote a rough draft (or prototype) that performed the basic calculation and then tested it on a few cases, correcting flaws as we found them.</p>
+<p>Although this approach can be effective, it can lead to code that is unnecessarily complicated – since it deals with many special cases – and unreliable – since it is hard to know if you have found all the errors.</p>
+<p>An alternative is <strong>planned development</strong>, in which high-level insight into the problem can make the programming much easier. In this case, the insight is that a Time object is really a three-digit number in base 60! The <code class="docutils literal notranslate"><span class="pre">second</span></code> component is the ones column, the <code class="docutils literal notranslate"><span class="pre">minute</span></code> component is the sixties column, and the hour component is the thirty-six hundreds column.</p>
+<p>When we wrote add_time and increment, we were effectively doing addition in base 60, which is why we had to carry from one column to the next.</p>
+<p>This observation suggests another approach to the whole problem – we can convert a Time object into a single number and take advantage of the fact that the computer knows how to do arithmetic with numbers. The following function converts a Time object into an integer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convert_to_seconds</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">minutes</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">hours</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="n">minutes</span>
+    <span class="n">seconds</span> <span class="o">=</span> <span class="n">minutes</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="n">seconds</span>
+    <span class="k">return</span> <span class="n">seconds</span>
+</pre></div>
+</div>
+<p>Now, all we need is a way to convert from an integer to a <code class="docutils literal notranslate"><span class="pre">Time</span></code> object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_time</span><span class="p">(</span><span class="n">seconds</span><span class="p">):</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="n">seconds</span><span class="o">/</span><span class="mi">3600</span>
+    <span class="n">seconds</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">-</span> <span class="n">time</span><span class="o">.</span><span class="n">hours</span> <span class="o">*</span> <span class="mi">3600</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">seconds</span><span class="o">/</span><span class="mi">60</span>
+    <span class="n">seconds</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">-</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">*</span> <span class="mi">60</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">seconds</span>
+    <span class="k">return</span> <span class="n">time</span>
+</pre></div>
+</div>
+<p>You might have to think a bit to convince yourself that this technique to convert from one base to another is correct. Assuming you are convinced, you can use these functions to rewrite <code class="docutils literal notranslate"><span class="pre">add_time</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_time</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
+    <span class="n">seconds</span> <span class="o">=</span> <span class="n">convert_to_seconds</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span> <span class="o">+</span> <span class="n">convert_to_seconds</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">make_time</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This version is much shorter than the original, and it is much easier to demonstrate that it is correct (assuming, as usual, that the functions it calls are correct).</p>
+</section>
+<section id="generalization">
+<h2>Generalization<a class="headerlink" href="#generalization" title="Permalink to this headline">#</a></h2>
+<p>In some ways, converting from base 60 to base 10 and back is harder than just dealing with times. Base conversion is more abstract; our intuition for dealing with times is better.</p>
+<p>But if we have the insight to treat times as base 60 numbers and make the investment of writing the conversion functions (<code class="docutils literal notranslate"><span class="pre">convert_to_seconds</span></code> and <code class="docutils literal notranslate"><span class="pre">make_time</span></code>), we get a program that is shorter, easier to read and debug, and more reliable.</p>
+<p>It is also easier to add features later. For example, imagine subtracting two <code class="docutils literal notranslate"><span class="pre">Time</span></code>s to find the duration between them. The naive approach would be to implement subtraction with borrowing. Using the conversion functions would be easier and more likely to be correct.</p>
+<p>Ironically, sometimes making a problem harder (or more general) makes it easier (because there are fewer special cases and fewer opportunities for error).</p>
+</section>
+<section id="algorithms">
+<h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">#</a></h2>
+<p>When you write a general solution for a class of problems, as opposed to a specific solution to a single problem, you have written an <strong>algorithm</strong>. We mentioned this word before but did not define it carefully. It is not easy to define, so we will try a couple of approaches.</p>
+<p>First, consider something that is not an algorithm. When you learned to multiply single-digit numbers, you probably memorized the multiplication table. In effect, you memorized 100 specific solutions. That kind of knowledge is not algorithmic.</p>
+<p>But if you were lazy, you probably cheated by learning a few tricks. For example, to find the product of n and 9, you can write <code class="docutils literal notranslate"><span class="pre">n-1</span></code> as the first digit and <code class="docutils literal notranslate"><span class="pre">10-n</span></code> as the second digit. This trick is a general solution for multiplying any single-digit number by 9. That’s an algorithm!</p>
+<p>Similarly, the techniques you learned for addition with carrying, subtraction with borrowing, and long division are all algorithms. One of the characteristics of algorithms is that they do not require any intelligence to carry out. They are mechanical processes in which each step follows from the last according to a simple set of rules.</p>
+<p>In our opinion, it is embarrassing that humans spend so much time in school learning to execute algorithms that, quite literally, require no intelligence.</p>
+<p>On the other hand, the process of designing algorithms is interesting, intellectually challenging, and a central part of what we call programming.</p>
+<p>Some of the things that people do naturally, without difficulty or conscious thought, are the hardest to express algorithmically. Understanding natural language is a good example. We all do it, but so far no one has been able to explain <em>how</em> we do it, at least not in the form of an algorithm.</p>
+<hr/>
+</section>
+<section id="glossary">
+<h2><em>Glossary</em><a class="headerlink" href="#glossary" title="Permalink to this headline">#</a></h2>
+<dl class="glossary simple">
+<dt id="term-pure-function">pure function<a class="headerlink" href="#term-pure-function" title="Permalink to this term">#</a></dt><dd><p>A function that does not modify any of the objects it receives as parameters. Most pure functions are fruitful.</p>
+</dd>
+<dt id="term-modifier">modifier<a class="headerlink" href="#term-modifier" title="Permalink to this term">#</a></dt><dd><p>A function that changes one or more of the objects it receives as parameters. Most modifiers are void.</p>
+</dd>
+<dt id="term-functional-programming-style">functional programming style<a class="headerlink" href="#term-functional-programming-style" title="Permalink to this term">#</a></dt><dd><p>A style of program design in which the majority of functions are pure.</p>
+</dd>
+<dt id="term-prototype-development">prototype development<a class="headerlink" href="#term-prototype-development" title="Permalink to this term">#</a></dt><dd><p>A way of developing programs starting with a prototype and gradually testing and improving it.</p>
+</dd>
+<dt id="term-planned-development">planned development<a class="headerlink" href="#term-planned-development" title="Permalink to this term">#</a></dt><dd><p>A way of developing programs that involves high-level insight into the problem and more planning than incremental development or prototype development.</p>
+</dd>
+<dt id="term-algorithm">algorithm<a class="headerlink" href="#term-algorithm" title="Permalink to this term">#</a></dt><dd><p>A set of instructions for solving a class of problems by a mechanical, unintelligent process.</p>
+</dd>
+</dl>
+</section>
+<section id="exercises">
+<h2><em>Exercises</em><a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Write a function <code class="docutils literal notranslate"><span class="pre">print_time</span></code> that takes a <code class="docutils literal notranslate"><span class="pre">Time</span></code> object as an argument and prints it in the form <code class="docutils literal notranslate"><span class="pre">hours:minutes:seconds</span></code>.</p></li>
+<li><p>Write a boolean function <code class="docutils literal notranslate"><span class="pre">after</span></code> that takes two <code class="docutils literal notranslate"><span class="pre">Time</span></code> objects, <code class="docutils literal notranslate"><span class="pre">t1</span></code> and <code class="docutils literal notranslate"><span class="pre">t2</span></code>, as arguments, and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">t1</span></code> follows <code class="docutils literal notranslate"><span class="pre">t2</span></code> chronologically and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+<li><p>Rewrite the <code class="docutils literal notranslate"><span class="pre">increment</span></code> function so that it doesn’t contain any loops.</p></li>
+<li><p>Now rewrite <code class="docutils literal notranslate"><span class="pre">increment</span></code> as a pure function, and write function calls to both versions.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time">Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-functions">Pure functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers">Modifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prototype-development-versus-planning">Prototype development versus planning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization">Generalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary"><em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises"><em>Exercises</em></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Syed Fahad Sultan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
