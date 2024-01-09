@@ -317,13 +317,32 @@ As solutions to these complexities, we will learn about **Abstractions**. Abstra
 2. **Functional Abstractions** : How do we represent functions in a way that is easy to use?
 3. **Abstract Processes** : How do we organize our code in a way that is easy to understand? -->
 
-We are about to study the idea of a **computational process** (aka algorithm). Computational processes are abstract beings that inhabit computers. As they evolve, processes manipulate other abstract things called **data**. The evolution of a process is directed by a pattern of rules called a program. People create programs to direct processes. In effect, we conjure the spirits of the computer with our spells.
+## Abstract Computational Processes
+
+In this course, we are also going to spend a lot of time studying abstract **computational process** that are independent of any particular hardware or machine. Computational processes are abstract beings that inhabit computers. As they evolve, processes manipulate other abstract things called **data**. The evolution of a process is directed by a pattern of rules called a program. People create programs to direct processes. In effect, we conjure the spirits of the computer with our spells.
+
+```{figure} https://i.giphy.com/zZRxy466qETsY.webp
+---
+width: 50%
+align: center
+---
+Programming a computer is like casting a spell on it. It can be very powerful, but also very dangerous.
+```
 
 A computational process is indeed much like a sorcerer’s idea of a spirit. It cannot be seen or touched. It is not composed of matter at all. However, it is very real. It can perform intellectual work. It can answer questions. It can affect the world by disbursing money at a bank or by controlling a robot arm in a factory. The programs we use to conjure processes are like a sorcerer’s spells. They are carefully composed from symbolic expressions in arcane and esoteric programming languages that prescribe the tasks we want our processes to perform.
 A computational process, in a correctly working computer, executes programs precisely and accurately. Thus, like the sorcerer’s apprentice, novice programmers must learn to understand and to anticipate the consequences of their conjuring. Even small errors, usually called **bugs**, in programs can have complex and unanticipated consequences.
 
 Fortunately, learning to program is considerably less dangerous than learning sorcery, because the spirits we deal with are conveniently contained in a secure way. Real-world programming, however, requires care, expertise, and wisdom. A small bug in a computer-aided design program, for example, can lead to the catastrophic collapse of an airplane or a dam or the self-destruction of an industrial robot.
-Master software engineers have the ability to organize programs so that they can be reasonably sure that the resulting processes will perform the tasks intended. They can visualize the behavior of their systems in advance. They know how to structure programs so that unanticipated problems do not lead to catastrophic consequences, and when problems do arise, they can debug their programs. Well-designed computational systems, like well-designed automobiles or nuclear reactors, are designed in a **modular** manner, so that the parts can be constructed, replaced, and debugged separately.
+
+```{figure} https://i.gifer.com/origin/a2/a282e956c43010036c4586d0ee970fe1_w200.gif
+---
+width: 50%
+align: center
+---
+A small bug in a  program can lead to catastrophic results.
+```
+
+Master software engineers have the ability to organize programs so that they can be reasonably sure that the resulting processes will perform the tasks intended. They can visualize the behavior of their systems in advance. They know how to structure programs so that unanticipated problems do not lead to catastrophic consequences, and when problems do arise, they can debug their programs. Well-designed computational systems, like well-designed automobiles or nuclear reactors, are designed in a **modular** manner, so that the parts can be constructed, replaced, and debugged separately. A significant part of the course is focused on testing software. 
 <!-- 
 ## Elements of Programming
 

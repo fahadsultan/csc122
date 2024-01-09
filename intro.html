@@ -405,6 +405,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strike-data-structures-algrorithms-strike-br-complexity-abstraction-and-scalability">❌ <strike>Data Structures &amp; Algrorithms</strike> <br/>✅ Complexity, Abstraction and Scalability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract-computational-processes">Abstract Computational Processes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#six-problems-of-interest">Six Problems of Interest</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search">1. Search</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sort">2. Sort</a></li>
@@ -688,11 +689,26 @@ As solutions to these complexities, we will learn about **Abstractions**. Abstra
 1. **Data Abstractions** : How do we represent data in a way that is easy to use?
 2. **Functional Abstractions** : How do we represent functions in a way that is easy to use?
 3. **Abstract Processes** : How do we organize our code in a way that is easy to understand? -->
-<p>We are about to study the idea of a <strong>computational process</strong> (aka algorithm). Computational processes are abstract beings that inhabit computers. As they evolve, processes manipulate other abstract things called <strong>data</strong>. The evolution of a process is directed by a pattern of rules called a program. People create programs to direct processes. In effect, we conjure the spirits of the computer with our spells.</p>
+</section>
+<section id="abstract-computational-processes">
+<h2>Abstract Computational Processes<a class="headerlink" href="#abstract-computational-processes" title="Permalink to this headline">#</a></h2>
+<p>In this course, we are also going to spend a lot of time studying abstract <strong>computational process</strong> that are independent of any particular hardware or machine. Computational processes are abstract beings that inhabit computers. As they evolve, processes manipulate other abstract things called <strong>data</strong>. The evolution of a process is directed by a pattern of rules called a program. People create programs to direct processes. In effect, we conjure the spirits of the computer with our spells.</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="https://i.giphy.com/zZRxy466qETsY.webp"><img alt="https://i.giphy.com/zZRxy466qETsY.webp" src="https://i.giphy.com/zZRxy466qETsY.webp" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Programming a computer is like casting a spell on it. It can be very powerful, but also very dangerous.</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>A computational process is indeed much like a sorcerer’s idea of a spirit. It cannot be seen or touched. It is not composed of matter at all. However, it is very real. It can perform intellectual work. It can answer questions. It can affect the world by disbursing money at a bank or by controlling a robot arm in a factory. The programs we use to conjure processes are like a sorcerer’s spells. They are carefully composed from symbolic expressions in arcane and esoteric programming languages that prescribe the tasks we want our processes to perform.
 A computational process, in a correctly working computer, executes programs precisely and accurately. Thus, like the sorcerer’s apprentice, novice programmers must learn to understand and to anticipate the consequences of their conjuring. Even small errors, usually called <strong>bugs</strong>, in programs can have complex and unanticipated consequences.</p>
-<p>Fortunately, learning to program is considerably less dangerous than learning sorcery, because the spirits we deal with are conveniently contained in a secure way. Real-world programming, however, requires care, expertise, and wisdom. A small bug in a computer-aided design program, for example, can lead to the catastrophic collapse of an airplane or a dam or the self-destruction of an industrial robot.
-Master software engineers have the ability to organize programs so that they can be reasonably sure that the resulting processes will perform the tasks intended. They can visualize the behavior of their systems in advance. They know how to structure programs so that unanticipated problems do not lead to catastrophic consequences, and when problems do arise, they can debug their programs. Well-designed computational systems, like well-designed automobiles or nuclear reactors, are designed in a <strong>modular</strong> manner, so that the parts can be constructed, replaced, and debugged separately.</p>
+<p>Fortunately, learning to program is considerably less dangerous than learning sorcery, because the spirits we deal with are conveniently contained in a secure way. Real-world programming, however, requires care, expertise, and wisdom. A small bug in a computer-aided design program, for example, can lead to the catastrophic collapse of an airplane or a dam or the self-destruction of an industrial robot.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="https://i.gifer.com/origin/a2/a282e956c43010036c4586d0ee970fe1_w200.gif"><img alt="https://i.gifer.com/origin/a2/a282e956c43010036c4586d0ee970fe1_w200.gif" src="https://i.gifer.com/origin/a2/a282e956c43010036c4586d0ee970fe1_w200.gif" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">A small bug in a  program can lead to catastrophic results.</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Master software engineers have the ability to organize programs so that they can be reasonably sure that the resulting processes will perform the tasks intended. They can visualize the behavior of their systems in advance. They know how to structure programs so that unanticipated problems do not lead to catastrophic consequences, and when problems do arise, they can debug their programs. Well-designed computational systems, like well-designed automobiles or nuclear reactors, are designed in a <strong>modular</strong> manner, so that the parts can be constructed, replaced, and debugged separately. A significant part of the course is focused on testing software.</p>
 <!-- 
 ## Elements of Programming
 
@@ -733,10 +749,10 @@ Thus, any powerful programming language should be able to describe:
 <section id="search">
 <h3>1. Search<a class="headerlink" href="#search" title="Permalink to this headline">#</a></h3>
 <p>We are concerned with the process of collecting information in a computer’s memory, in such a way that the information can subsequently be recovered as quickly as possible.</p>
-<figure class="align-center" id="id11">
+<figure class="align-center" id="id13">
 <a class="reference internal image-reference" href="https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/pixta_26761468_M.jpg?width=610&amp;height=406&amp;name=pixta_26761468_M.jpg"><img alt="https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/pixta_26761468_M.jpg?width=610&amp;height=406&amp;name=pixta_26761468_M.jpg" src="https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/pixta_26761468_M.jpg?width=610&amp;height=406&amp;name=pixta_26761468_M.jpg" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Search is a fundamental problem in computer science. It is the basis of many other problems, such as sorting, and it is the basis of many applications, such as information retrieval.</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Search is a fundamental problem in computer science. It is the basis of many other problems, such as sorting, and it is the basis of many applications, such as information retrieval.</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In this course, we are going to focus on the simplest form of search: <strong>searching for a single element in a set of data</strong> i.e.
@@ -760,10 +776,10 @@ how to find the data that has been stored with a given identification. For examp
 <section id="sort">
 <h3>2. Sort<a class="headerlink" href="#sort" title="Permalink to this headline">#</a></h3>
 <p>Typical computer science students study the basic sorting algorithms at least three times before they graduate: first in introductory programming, then in data structures, and finally in an advanced algorithms course.</p>
-<figure class="align-center" id="id12">
+<figure class="align-center" id="id14">
 <a class="reference internal image-reference" href="_images/sorting.png"><img alt="_images/sorting.png" src="_images/sorting.png" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Sorting is most evident in social media apps where the homepage is a <em>sorted</em> list of posts. The posts are sorted by a combination of factors such as time, popularity, etc.</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Sorting is most evident in social media apps where the homepage is a <em>sorted</em> list of posts. The posts are sorted by a combination of factors such as time, popularity, etc.</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Why is sorting worth so much attention? There are several reasons:</p>
@@ -784,10 +800,10 @@ how to find the data that has been stored with a given identification. For examp
 <section id="create-read-update-delete-crud">
 <h3>3-6. Create, Read, Update, Delete (CRUD)<a class="headerlink" href="#create-read-update-delete-crud" title="Permalink to this headline">#</a></h3>
 <p><strong>Create</strong>: Adding a record to a database, inserting a node into a linked list, and inserting an element into a priority queue are all examples of the insert problem. Other names of this problem include: <em>Insert, Add, Post</em></p>
-<figure class="align-center" id="id13">
+<figure class="align-center" id="id15">
 <a class="reference internal image-reference" href="_images/crud.png"><img alt="_images/crud.png" src="_images/crud.png" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Every modern application performs these four essential operations on data: Create, Read, Update, and Delete. These operations are commonly referred to as CRUD operations.</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Every modern application performs these four essential operations on data: Create, Read, Update, and Delete. These operations are commonly referred to as CRUD operations.</span><a class="headerlink" href="#id15" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Read</strong>:  Reading or accessing data is the most fundamental problem in computer science. Other names of this problem include: <em>Access, Get, Fetch, Retrieve</em></p>
@@ -878,6 +894,7 @@ how to find the data that has been stored with a given identification. For examp
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strike-data-structures-algrorithms-strike-br-complexity-abstraction-and-scalability">❌ <strike>Data Structures &amp; Algrorithms</strike> <br/>✅ Complexity, Abstraction and Scalability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract-computational-processes">Abstract Computational Processes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#six-problems-of-interest">Six Problems of Interest</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search">1. Search</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sort">2. Sort</a></li>
