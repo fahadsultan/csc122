@@ -1,0 +1,109 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index.md
+parts: 
+  - caption: 
+    chapters:
+    - file: calendar
+    - file: syllabus/index
+      sections: 
+      - file: syllabus/grading
+      - file: syllabus/textbook 
+      - file: syllabus/mental_health
+      - file: syllabus/academic_success
+      - file: syllabus/accomodations
+      - file: syllabus/integrity
+      - file: syllabus/title_9
+  - caption: 
+    chapters:
+    - file: intro
+  - caption: Basic Elements of Programming
+    numbered: true
+    chapters:
+    # - file: basics/data
+    - file: tmp/data
+    # - file: basics/operations
+    - file: tmp/operations
+      # sections:
+      # - file: basics/math_operators
+      # - file: basics/precedence_associativity
+    # - file: basics/controls
+    - file: tmp/controls
+      # sections: 
+      # - file: basics/conditionals
+      # - file: basics/loops
+  - caption: Building Abstractions with Functions
+    numbered: true
+    chapters:
+    # - file: functions/functions
+    - file: tmp/functions
+      # sections: 
+      #   - file: functions/testdriven
+      #   - file: functions/exceptions
+      #   - file: functions/filesmodules
+      #   - file: basics/file_io
+    # - file: functions/recursion
+    - file: tmp/recursion
+      # sections: 
+      #   - file: functions/head_tail
+      #   - file: functions/tree_recursion
+    # - file: functions/functionalprogramming
+    - file: tmp/functionalprogramming
+  - caption: Designing Abstract Processes
+    numbered: true
+    chapters:
+    # - file: algos/analysis
+    - file: tmp/analysis
+      # sections: 
+      #   - file: algos/time
+      #   - file: algos/space
+    # - file: algos/brute
+    - file: tmp/brute
+      # sections: 
+      #   - file: algos/search_linear
+      #   - file: algos/bogo
+    # - file: algos/greedy
+    - file: tmp/greedy
+      # sections: 
+      #   - file: algos/sort_bubble
+      #   - file: algos/sort_selection
+      #   - file: algos/sort_insertion
+    # - file: algos/divide_conquer
+    - file: tmp/divide_conquer
+      # sections: 
+      #   - file: algos/search_binary
+      #   - file: algos/sort_merge
+    # - file: algos/dynamic
+  - caption: Building Abstractions with Data
+    numbered: true
+    chapters: 
+    # - file: data/oop
+    - file: tmp/oop
+      # sections: 
+      # - file: data/oop1
+      # - file: data/oop2
+      # - file: data/oop3
+      # - file: data/oop4
+      # - file: data/oop5
+      # - file: data/operator_overloading
+    # - file: data/datastructures
+    - file: tmp/datastructures
+      # sections:
+      # - file: data/strings
+      # - file: data/lists
+      # - file: data/tuples
+      # - file: data/sets
+      # - file: data/dictionaries
+      # - file: data/11_python
+    # - file: data/structs
+    - file: tmp/structs
+      # sections:
+      #   - file: data/linkedlists
+      #   - file: data/queue
+      #   - file: data/stack
+  # - caption: 
+  #   numbered: false
+  #   chapters: 
+  #   - file: genindex
