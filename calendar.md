@@ -7,9 +7,9 @@
 <br/>
 <!-- <center><i>September: Programming for Data Science</i></center> -->
 
-| #       | TOPIC                      | READING | MEETING-1                  | MEETING-2       | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
+| #       | TOPIC                      | READING | MEETING 1                  | MEETING 2       | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
 |---------|----------------------------|---------|----------------------------|-----------------|-----|-------------------|
-| 1       | Introduction      |      |  |           |  |     |
+| 1       | Introduction      |      |  **[Introduction](intro.md)**  | **[Analysis](algos/analysis.md) + [Time Complexity](algos/time.md)** |  |     |
 | 2       | Designing Abstract Processes      |        |  |    |     |             | 
 | 3       | Designing Abstract Processes   |          |     |    |    |    |    
 | 4       | Designing Abstract Processes   |         |     |   |    |   
@@ -18,7 +18,7 @@
 <br><br>
 <!-- <center><i>October: Mathematics for Data Science</i></center>         -->
 
-| #     | TOPIC                      | READING | MEETING-1                  | MEETING-2              | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
+| #     | TOPIC                      | READING | MEETING 1                  | MEETING 2              | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
 |-------|----------------------------|---------|----------------------------|------------------------|-----|-------------------|
 | 5 | Building Abstractions with Functions  |   | |   |     |  |
 | 6 | Building Abstractions with Functions  |         |                 |          |    |  |
@@ -29,7 +29,7 @@
 <br><br>        
 <!-- <center><i>November: Problems, Models and Algorithms of Data Science</i></center>  -->
 
-| #     | TOPIC                      | READING | MEETING-1                  | MEETING-2              | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
+| #     | TOPIC                      | READING | MEETING 1                  | MEETING 2              | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
 |-------|----------------------------|---------|----------------------------|------------------------|-----|-------------------|
 | 9    | Building Abstractions with Data  |         |        |    |     | 
 | 10   | Building Abstractions with Data |     |      |             |          | 

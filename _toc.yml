@@ -9,6 +9,7 @@ parts:
     - file: calendar
     - file: syllabus/index
       sections: 
+      - file: syllabus/pathways
       - file: syllabus/grading
       - file: syllabus/textbook 
       - file: syllabus/mental_health
@@ -54,11 +55,11 @@ parts:
   - caption: Designing Abstract Processes
     numbered: true
     chapters:
-    # - file: algos/analysis
-    - file: tmp/analysis
-      # sections: 
-      #   - file: algos/time
-      #   - file: algos/space
+    # - file: tmp/analysis
+    - file: algos/analysis
+      sections: 
+        - file: algos/time
+        - file: algos/space
     # - file: algos/brute
     - file: tmp/brute
       # sections: 

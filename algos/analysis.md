@@ -1,81 +1,148 @@
 # Analysis
 
-Algorithms are the most important and durable part of computer science.
+An **Algorithm** essentially is a sequence of instructions that maps input(s) to output(s). 
 
-This is because they can be studied in a way **independent of any programming-language** and **machine hardware**. 
+Algorithms are the one of the oldest and fundamental concepts in computer science. They have endured over the years and are still extremely relevant because they can be designed, studied, and analyzed in a way that is **independent** of any **programming-language** and **machine hardware**.
 
-This means that we need techniques that enable us to compare the efficiency of algorithms without implementing them. 
+This allows algorithms to be relevant indepedent of rise and fall in popularity of different programming languages as well as all the innovations and progress in computer processors. 
 
-Our two most important tools are:
+This means that we need techniques that enable us to compare the efficiency of algorithms without implementing and executing them. 
 
-1. RAM model of computation 
-2. Asymptotic Analysis of worst-case complexity.
+The three important abstractions that allow us to do so are:
 
-Assessing algorithmic performance makes use of the “big Oh” notation that, proves essential to compare algorithms and design more efficient ones. 
+1. **Pseudocode** - enables independence from any programming language
+2. **RAM model of computation** - enables independence from any particular machine hardware
+3. **Asymptotic Analysis** - enables independence from any particular input data
 
-While the hopelessly _"practical"_ person may blanch at the notion of theoretical analysis, we present the material because it really is useful in thinking about algorithms.
+## Pseudocode
 
-This method of keeping score will be the most mathematically demanding part of this book. But once you understand the intuition behind these ideas, the formalism becomes a lot easier to deal with.
+**Pseudocode** is a halfway point between human language and programming language, which allows us to focus on the algorithmic ideas rather than on implementation details.
+
+
+```{figure} https://www.researchgate.net/profile/Natarajan-Shankar/publication/260799988/figure/fig1/AS:296930316963840@1447805112100/Trade-off-between-natural-language-and-formal-specifications-4-inset-showing-the.png
+---
+width: 50%
+name: fig-2-1
+---
+Pseudocode lies between natural language and formal language, on the axes of precision and ease-of-comprehension.
+```
+
+By emphasizing ideas rather than implementation details, pseudocode is able to describe algorithms without being too formal, ignoring many of the tedious details that are required in a specific programming language. At the same time, pseudocode is more precise and less ambiguous than natural human language.
+
+Consider the following pseudocode for an algorithm called DISTANCE, whose input is four numbers (x1, y1, x2, y2) and whose output is one number d. 
+
+DISTANCE($x_1, y_1, x_2, y_2$) \
+&emsp;&emsp;$d \leftarrow (x_2 - x_1)^2 + (y_2 - y_1)^2$ \
+&emsp;&emsp;$d \leftarrow \sqrt{d}$ \
+&emsp;&emsp;return $d$
+
+Pseudocode is not a programming language. It is a simple way of writing programming code in English. It is used to design while taking into account the algorithmic paradigms.
+
+Pseudocode is sometimes used as a detailed step in the process of developing a program. It allows designers or lead programmers to express the design in great detail and provides programmers a detailed template for the next step of writing code in a specific programming language.
+
+Pseudocode generally does not actually obey the syntax rules of any particular language; there is **no systematic standard form**. For example, the following pseudcode is more formal than the previous pseudocode: 
+
+
+```{prf:algorithm} Ford–Fulkerson
+:label: my-algorithm
+
+**Inputs** Given a Network $G=(V,E)$ with flow capacity $c$, a source node $s$, and a sink node $t$
+
+**Output** Compute a flow $f$ from $s$ to $t$ of maximum value
+
+1. $f(u, v) \leftarrow 0$ for all edges $(u,v)$
+2. While there is a path $p$ from $s$ to $t$ in $G_{f}$ such that $c_{f}(u,v)>0$
+	for all edges $(u,v) \in p$:
+
+	1. Find $c_{f}(p)= \min \{c_{f}(u,v):(u,v)\in p\}$
+	2. For each edge $(u,v) \in p$
+
+		1. $f(u,v) \leftarrow f(u,v) + c_{f}(p)$ *(Send flow along the path)*
+		2. $f(u,v) \leftarrow f(u,v) - c_{f}(p)$ *(The flow might be "returned" later)*
+```
+
+Some writers borrow style and syntax from control structures from some conventional programming language. Variable declarations are typically omitted. Function calls and blocks of code, such as code contained within a loop, are often replaced by a one-line natural language sentence. The common operators and their symbols in pseudocode are given below:
+
+| Type of operation | Symbol | Example |
+| --- | --- | --- |
+| Assignment | ← or := | c ← 2πr, c := 2πr |
+| Comparison | =, ≠, <, >, ≤, ≥ | |
+| Arithmetic | +, −, ×, /, mod | |
+| Floor/ceiling | ⌊, ⌋, ⌈, ⌉ | a ← ⌊b⌋ + ⌈c⌉ |
+| Logical | and, or | |
+| Sums, products | Σ Π | h ← Σa∈A 1/a |
+| Subscripts | [] | a[1] ← 0 |
+
+Pseudocode is commonly used in textbooks and scientific publications that are documenting various algorithms, and also in planning of computer program development.
 
 ## The RAM Model of Computation
 
-Machine-independent algorithm design depends upon a hypothetical computer called the Random Access Machine or RAM. Under this model of computation, we are confronted with a computer where:
+Machine-independent algorithm design depends upon **a hypothetical computer** called the **Random Access Machine** or RAM. Under this model of computation, we are confronted with a computer where:
 
-- Each _simple_ operation (+, -, *, /, if, call, return, etc.) takes exactly one time step.
+1. Each _simple_ operation (+, -, *, /, if, call, return, etc.) takes exactly one time step.
 
-- Loops and subroutines are _not_ considered simple operations. Instead, they are the composition of many single-step operations. It makes no sense for sort to be a single-step operation, since sorting 1,000,000 items will certainly take much longer than sorting 10 items. The time it takes to run through a loop or execute a subprogram depends upon the number of loop iterations or the specific nature of the subprogram.
+2. Loops and subroutines (aka functions, methods, procedures etc.) are _NOT_ considered simple operations. Instead, they are the composition of many single-step operations. It makes no sense for sort to be a single-step operation, since sorting 1,000,000 items will certainly take much longer than sorting 10 items. The time it takes to run through a loop or execute a subprogram depends upon the number of loop iterations or the specific nature of the subprogram.
 
-- Each memory access takes exactly one time step. Further, we have as much memory as we need. The RAM model takes no notice of whether an item is in cache or on the disk. It also ignores the fact that memory access time is not uniform. In the RAM model, we can access any memory location in the same amount of time.
+3. Each memory access takes exactly one time step. Further, we have as much memory as we need. The RAM model takes no notice of whether an item is in cache or on the disk. It also ignores the fact that memory access time is not uniform. In the RAM model, we can access any memory location in the same amount of time.
 
 Under the RAM model, we measure run time by counting up the number of steps an algorithm takes on a given problem instance. If we assume that our RAM executes a given number of steps per second, this operation count converts naturally to the actual running time.
-The RAM is a simple model of how computers perform. Perhaps it sounds too simple. After all, multiplying two numbers takes more time than adding two num- bers on most processors, which violates the first assumption of the model. Fancy compiler loop unrolling and hyperthreading may well violate the second assump- tion. And certainly memory access times differ greatly depending on whether data sits in cache or on the disk. This makes us zero for three on the truth of our basic assumptions.
+
+``` {figure} https://samyzaf.com/afl/figs/ram1.jpg
+---
+width: 60%
+name: fig-2-1
+---
+Random Access Machine (RAM) is a hypothetical computer model that abstracts away unnecessary details. with an unlimited number of registers and a simple instruction set. The RAM model is used in algorithm analysis because it is simple to implement and it is not tied to any particular hardware design. You don't need to worry about the specifics, just **remember the three assumptions**.
+```
+
+The RAM is a simple model of how computers perform. Perhaps it sounds too simple. After all, multiplying two numbers takes more time than adding two num- bers on most processors, which violates the first assumption of the model. Fancy compiler loop unrolling and hyperthreading may well violate the second assumption. And certainly memory access times differ greatly depending on whether data sits in cache or on the disk. This makes us zero for three on the truth of our basic assumptions.
 
 And yet, despite these complaints, the RAM proves an excellent model for understanding how an algorithm will perform on a real computer. It strikes a fine balance by capturing the essential behavior of computers while being simple to work with. We use the RAM model because it is useful in practice.
 
-Every model has a size range over which it is useful. Take, for example, the model that the Earth is flat. You might argue that this is a bad model, since it has been fairly well established that the Earth is in fact round. But, when laying the foundation of a house, the flat Earth model is sufficiently accurate that it can be reliably used. It is so much easier to manipulate a flat-Earth model that it is inconceivable that you would try to think spherically when you don’t have to.1
+Every model has a size range over which it is useful. Take, for example, the model that the Earth is a sphere (or even an eliptical). You might argue that this is a bad model, since it has been fairly well established that the Earth is in fact technically a geoid. But, for most purposes, the Earth is sufficiently spherical that you can use the spherical model without getting into trouble. If you are trying to land a satellite on the moon, you might need to take the geoid into account. But if you are trying to drive to the grocery store, the spherical model is good enough.
+
+```{figure} https://www.syfy.com/sites/syfy/files/earth_geoid.jpg
+---
+width: 60%
+name: fig-2-1
+---
+The Earth is not a perfect sphere. It is a geoid. But for most purposes, the spherical model is good enough.
+```
+
 
 The same situation is true with the RAM model of computation. We make an abstraction that is generally very useful. It is quite difficult to design an algorithm such that the RAM model gives you substantially misleading results. The robustness of the RAM enables us to analyze algorithms in a machine-independent way.
 
-### Best, Worst, and Average-Case Complexity
+## Asymptotic Analysis
 
-Using the RAM model of computation, we can count how many steps our algorithm takes on any given input instance by executing it. However, to understand how good or bad an algorithm is in general, we must know how it works over all instances.
-To understand the notions of the best, worst, and average-case complexity, think about running an algorithm over all possible instances of data that can be fed to it. For the problem of sorting, the set of possible input instances consists of all possible arrangements of n keys, over all possible values of n. We can represent each input instance as a point on a graph (shown in Figure 2.1) where the x-axis represents the size of the input problem (for sorting, the number of items to sort), and the y-axis denotes the number of steps taken by the algorithm in this instance.
-These points naturally align themselves into columns, because only integers represent possible input size (e.g., it makes no sense to sort 10.57 items). We can define three interesting functions over the plot of these points:
+Asymptotic analysis is a method of describing limiting behavior. 
 
-* The _worst-case complexity_ of the algorithm is the function defined by the maximum number of steps taken in any instance of size _n_. This represents the curve passing through the highest point in each column.
+```{figure} https://www.openbookproject.net/books/pythonds/_images/newplot.png
+---
+width: 70%
+name: fig-2-1
+---
+Comparison of growth rate functions.
+```
 
-* The _best-case complexity_ of the algorithm is the function defined by the minimum number of steps taken in any instance of size _n_. This represents the curve passing through the lowest point of each column.
+For example, the function $f(n) = 3n^2 + 5n + 7$ is asymptotically equivalent to $g(n) = n^2$. This is because the term $5n + 7$ becomes insignificant as $n$ becomes infinitely large $n \rightarrow \infty$". 
 
-* The _average-case complexity_ of the algorithm, which is the function defined by the average number of steps over all instances of size _n_.
+In other words, the term $n^2$ _'dominates'_ the behavior of the function. 
 
-The worst-case complexity proves to be most useful of these three measures in practice. Many people find this counterintuitive. To illustrate why, try to project what will happen if you bring n dollars into a casino to gamble. The best case, that you walk out owning the place, is possible but so unlikely that you should not even think about it. The worst case, that you lose all n dollars, is easy to calculate and distressingly likely to happen. The average case, that the typical bettor loses 87.32% of the money that he brings to the casino, is difficult to establish and its meaning subject to debate. What exactly does average mean? Stupid people lose more than smart people, so are you smarter or stupider than the average person, and by how much? Card counters at blackjack do better on average than customers who accept three or more free drinks. We avoid all these complexities and obtain a very useful result by just considering the worst case.
+This is often written symbolically as $f (n) \sim n^2$, which is read as "$f(n)$ is asymptotic to $n^2$".
 
-The important thing to realize is that each of these time complexities define a numerical function, representing time versus problem size. These functions are as well defined as any other numerical function, be it y = x2 − 2x + 1 or the price of Google stock as a function of time. But time complexities are such complicated functions that we must simplify them to work with them. For this, we need the “Big Oh” notation.
+Alternatively,  if $g(n) = n^2$ and $f(n) = 3n^2 + 5n + 7$, we can write $f(n) \sim g(n)$.
 
-## Big Oh Notation
+Formally, given functions f (x) and g(x), we define a binary relation
 
-The best, worst, and average-case time complexities for any given algorithm are numerical functions over the size of possible problem instances. However, it is very difficult to work precisely with these functions, because they tend to:
+$f(x) \sim g(x)$ as $x \rightarrow \infty$, if and only if
 
-* _Have too many bumps_ – An algorithm such as binary search typically runs a bit faster for arrays of size exactly n = 2k − 1 (where k is an integer), because the array partitions work out nicely. This detail is not particularly significant, but it warns us that the exact time complexity function for any algorithm is liable to be very complicated, with little up and down bumps as shown in Figure 2.2.
+$ \lim_{x \rightarrow \infty} \frac{f(x)}{g(x)} = 1$
 
-* _Require too much detail to specify precisely_ – Counting the exact number of RAM instructions executed in the worst case requires the algorithm be specified to the detail of a complete computer program. Further, the precise answer depends upon uninteresting coding details (e.g., did he use a case statement or nested ifs?). Performing a precise worst-case analysis like
 
-$$T(n)=12754n^2 +4353n+834lg_2n+13546$$
+We say that a faster-growing function dominates a slower-growing one. When $f$ and $g$ belong to different classes and $g$ dominates $f$, it is sometimes written as $g ≫ f$.
 
-would clearly be very difficult work, but provides us little extra information than the observation that “the time grows quadratically with n.”
 
-It proves to be much easier to talk in terms of simple upper and lower bounds of time-complexity functions using the Big Oh notation. The Big Oh simplifies our analysis by ignoring levels of detail that do not impact our comparison of algorithms.
+$$n! ≫ d^n ≫ n^3 ≫ n^2 ≫ nlogn ≫ n ≫ logn ≫ 1$$
 
-The Big Oh notation ignores the difference between multiplicative constants. The functions f(n) = 2n and g(n) = n are identical in Big Oh analysis. This makes sense given our application. Suppose a given algorithm in (say) C language ran twice as fast as one with the same algorithm written in Java. This multiplicative factor of two tells us nothing about the algorithm itself, since both programs imple- ment exactly the same algorithm. We ignore such constant factors when comparing two algorithms.
+We say that $f(n)$ and $g(n)$ have the same asymptotic behavior, and write $f(n) = Θ(g(n))$.
 
-The formal definitions associated with the Big Oh notation are as follows:
-
-* $f (n) = O(g(n))$ means $c · g(n)$ is an _upper bound_ on f (n). Thus there exists some constant c such that f (n) is always ≤ c · g(n), for large enough n (i.e. , n ≥ n0 for some constant n0).
-
-* $f(n) = Ω(g(n))$ means $c · g(n)$ is a _lower bound_ on f(n). Thus there exists some constant c such that f(n) is always ≥ c · g(n), for all n ≥ n0.
-
-* $f(n) = Θ(g(n))$ means $c1 · g(n)$ is an _upper bound_ on f(n) and c2 · g(n) is a lower bound on f(n), for all n ≥ n0. Thus there exist constants c1 and c2 such that f (n) ≤ c1 · g(n) and f (n) ≥ c2 · g(n). This means that g(n) provides a nice, tight bound on f(n).
-
-Got it? These definitions are illustrated in Figure 2.3. Each of these definitions assumes a constant n0 beyond which they are always satisfied. We are not concerned about small values of n (i.e. , anything to the left of n0). After all, we don’t really care whether one sorting algorithm sorts six items faster than another, but seek which algorithm proves faster when sorting 10,000 or 1,000,000 items. The Big Oh notation enables us to ignore details and focus on the big picture.
-
-Make sure you understand this notation by working through the following ex- amples. We choose certain constants (c and n0) in the explanations below because they work and make a point, but other pairs of constants will do exactly the same job. You are free to choose any constants that maintain the same inequality—ideally constants that make it obvious that the inequality holds:
