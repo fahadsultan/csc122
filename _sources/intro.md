@@ -209,7 +209,7 @@ Consistent effort and regular feedback.
 
 <i><u>**Everything is tentative and subject to change**</u></i>
 
-```{figure} https://raw.githubusercontent.com/fahadsultan/csc122/main/assets/complaints.jpeg
+```{figure} assets/complaints.jpeg
 ---
 width: 50%
 align: right

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Analysis &#8212; My sample book</title>
+    <title>7. Analysis &#8212; My sample book</title>
   
   
   
@@ -67,6 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'algos/analysis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.4. Time Complexity" href="time.html" />
+    <link rel="prev" title="6. Functional Programming" href="../tmp/functionalprogramming.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -160,6 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../calendar.html">Calendar</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../syllabus/index.html">Syllabus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/pathways.html">Purposeful Pathways (Spring ‘24)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../syllabus/textbook.html">Textbooks &amp; Other Resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../syllabus/mental_health.html">Mental Health Resources</a></li>
@@ -186,8 +189,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">6. Functional Programming</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/analysis.html">7. Analysis</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">7. Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="time.html">7.4. Time Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="space.html">7.5. Space Complexity</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../tmp/brute.html">8. Brute Force</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">9. Greedy Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tmp/divide_conquer.html">10. Divide and Conquer</a></li>
@@ -390,11 +397,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ram-model-of-computation">The RAM Model of Computation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-worst-and-average-case-complexity">Best, Worst, and Average-Case Complexity</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-oh-notation">Big Oh Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">7.1. Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ram-model-of-computation">7.2. The RAM Model of Computation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asymptotic-analysis">7.3. Asymptotic Analysis</a></li>
 </ul>
             </nav>
         </div>
@@ -407,66 +412,146 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analysis">
-<h1>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h1>
-<p>Algorithms are the most important and durable part of computer science.</p>
-<p>This is because they can be studied in a way <strong>independent of any programming-language</strong> and <strong>machine hardware</strong>.</p>
-<p>This means that we need techniques that enable us to compare the efficiency of algorithms without implementing them.</p>
-<p>Our two most important tools are:</p>
+<h1><span class="section-number">7. </span>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h1>
+<p>An <strong>Algorithm</strong> essentially is a sequence of instructions that maps input(s) to output(s).</p>
+<p>Algorithms are the one of the oldest and fundamental concepts in computer science. They have endured over the years and are still extremely relevant because they can be designed, studied, and analyzed in a way that is <strong>independent</strong> of any <strong>programming-language</strong> and <strong>machine hardware</strong>.</p>
+<p>This allows algorithms to be relevant indepedent of rise and fall in popularity of different programming languages as well as all the innovations and progress in computer processors.</p>
+<p>This means that we need techniques that enable us to compare the efficiency of algorithms without implementing and executing them.</p>
+<p>The three important abstractions that allow us to do so are:</p>
 <ol class="arabic simple">
-<li><p>RAM model of computation</p></li>
-<li><p>Asymptotic Analysis of worst-case complexity.</p></li>
+<li><p><strong>Pseudocode</strong> - enables independence from any programming language</p></li>
+<li><p><strong>RAM model of computation</strong> - enables independence from any particular machine hardware</p></li>
+<li><p><strong>Asymptotic Analysis</strong> - enables independence from any particular input data</p></li>
 </ol>
-<p>Assessing algorithmic performance makes use of the “big Oh” notation that, proves essential to compare algorithms and design more efficient ones.</p>
-<p>While the hopelessly <em>“practical”</em> person may blanch at the notion of theoretical analysis, we present the material because it really is useful in thinking about algorithms.</p>
-<p>This method of keeping score will be the most mathematically demanding part of this book. But once you understand the intuition behind these ideas, the formalism becomes a lot easier to deal with.</p>
+<section id="pseudocode">
+<h2><span class="section-number">7.1. </span>Pseudocode<a class="headerlink" href="#pseudocode" title="Permalink to this headline">#</a></h2>
+<p><strong>Pseudocode</strong> is a halfway point between human language and programming language, which allows us to focus on the algorithmic ideas rather than on implementation details.</p>
+<figure class="align-default" id="fig-2-1">
+<a class="reference internal image-reference" href="https://www.researchgate.net/profile/Natarajan-Shankar/publication/260799988/figure/fig1/AS:296930316963840&#64;1447805112100/Trade-off-between-natural-language-and-formal-specifications-4-inset-showing-the.png"><img alt="https://www.researchgate.net/profile/Natarajan-Shankar/publication/260799988/figure/fig1/AS:296930316963840&#64;1447805112100/Trade-off-between-natural-language-and-formal-specifications-4-inset-showing-the.png" src="https://www.researchgate.net/profile/Natarajan-Shankar/publication/260799988/figure/fig1/AS:296930316963840&#64;1447805112100/Trade-off-between-natural-language-and-formal-specifications-4-inset-showing-the.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Pseudocode lies between natural language and formal language, on the axes of precision and ease-of-comprehension.</span><a class="headerlink" href="#fig-2-1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>By emphasizing ideas rather than implementation details, pseudocode is able to describe algorithms without being too formal, ignoring many of the tedious details that are required in a specific programming language. At the same time, pseudocode is more precise and less ambiguous than natural human language.</p>
+<p>Consider the following pseudocode for an algorithm called DISTANCE, whose input is four numbers (x1, y1, x2, y2) and whose output is one number d.</p>
+<p>DISTANCE(<span class="math notranslate nohighlight">\(x_1, y_1, x_2, y_2\)</span>) <br />
+  <span class="math notranslate nohighlight">\(d \leftarrow (x_2 - x_1)^2 + (y_2 - y_1)^2\)</span> <br />
+  <span class="math notranslate nohighlight">\(d \leftarrow \sqrt{d}\)</span> <br />
+  return <span class="math notranslate nohighlight">\(d\)</span></p>
+<p>Pseudocode is not a programming language. It is a simple way of writing programming code in English. It is used to design while taking into account the algorithmic paradigms.</p>
+<p>Pseudocode is sometimes used as a detailed step in the process of developing a program. It allows designers or lead programmers to express the design in great detail and provides programmers a detailed template for the next step of writing code in a specific programming language.</p>
+<p>Pseudocode generally does not actually obey the syntax rules of any particular language; there is <strong>no systematic standard form</strong>. For example, the following pseudcode is more formal than the previous pseudocode:</p>
+<div class="proof algorithm admonition" id="my-algorithm">
+<p class="admonition-title"><span class="caption-number">Algorithm 7.1 </span> (Ford–Fulkerson)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Inputs</strong> Given a Network <span class="math notranslate nohighlight">\(G=(V,E)\)</span> with flow capacity <span class="math notranslate nohighlight">\(c\)</span>, a source node <span class="math notranslate nohighlight">\(s\)</span>, and a sink node <span class="math notranslate nohighlight">\(t\)</span></p>
+<p><strong>Output</strong> Compute a flow <span class="math notranslate nohighlight">\(f\)</span> from <span class="math notranslate nohighlight">\(s\)</span> to <span class="math notranslate nohighlight">\(t\)</span> of maximum value</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(f(u, v) \leftarrow 0\)</span> for all edges <span class="math notranslate nohighlight">\((u,v)\)</span></p></li>
+<li><p>While there is a path <span class="math notranslate nohighlight">\(p\)</span> from <span class="math notranslate nohighlight">\(s\)</span> to <span class="math notranslate nohighlight">\(t\)</span> in <span class="math notranslate nohighlight">\(G_{f}\)</span> such that <span class="math notranslate nohighlight">\(c_{f}(u,v)&gt;0\)</span>
+for all edges <span class="math notranslate nohighlight">\((u,v) \in p\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Find <span class="math notranslate nohighlight">\(c_{f}(p)= \min \{c_{f}(u,v):(u,v)\in p\}\)</span></p></li>
+<li><p>For each edge <span class="math notranslate nohighlight">\((u,v) \in p\)</span></p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(f(u,v) \leftarrow f(u,v) + c_{f}(p)\)</span> <em>(Send flow along the path)</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(u,v) \leftarrow f(u,v) - c_{f}(p)\)</span> <em>(The flow might be “returned” later)</em></p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+</div><p>Some writers borrow style and syntax from control structures from some conventional programming language. Variable declarations are typically omitted. Function calls and blocks of code, such as code contained within a loop, are often replaced by a one-line natural language sentence. The common operators and their symbols in pseudocode are given below:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type of operation</p></th>
+<th class="head"><p>Symbol</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Assignment</p></td>
+<td><p>← or :=</p></td>
+<td><p>c ← 2πr, c := 2πr</p></td>
+</tr>
+<tr class="row-odd"><td><p>Comparison</p></td>
+<td><p>=, ≠, &lt;, &gt;, ≤, ≥</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Arithmetic</p></td>
+<td><p>+, −, ×, /, mod</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Floor/ceiling</p></td>
+<td><p>⌊, ⌋, ⌈, ⌉</p></td>
+<td><p>a ← ⌊b⌋ + ⌈c⌉</p></td>
+</tr>
+<tr class="row-even"><td><p>Logical</p></td>
+<td><p>and, or</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sums, products</p></td>
+<td><p>Σ Π</p></td>
+<td><p>h ← Σa∈A 1/a</p></td>
+</tr>
+<tr class="row-even"><td><p>Subscripts</p></td>
+<td><p>[]</p></td>
+<td><p>a[1] ← 0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Pseudocode is commonly used in textbooks and scientific publications that are documenting various algorithms, and also in planning of computer program development.</p>
+</section>
 <section id="the-ram-model-of-computation">
-<h2>The RAM Model of Computation<a class="headerlink" href="#the-ram-model-of-computation" title="Permalink to this headline">#</a></h2>
-<p>Machine-independent algorithm design depends upon a hypothetical computer called the Random Access Machine or RAM. Under this model of computation, we are confronted with a computer where:</p>
-<ul class="simple">
+<h2><span class="section-number">7.2. </span>The RAM Model of Computation<a class="headerlink" href="#the-ram-model-of-computation" title="Permalink to this headline">#</a></h2>
+<p>Machine-independent algorithm design depends upon <strong>a hypothetical computer</strong> called the <strong>Random Access Machine</strong> or RAM. Under this model of computation, we are confronted with a computer where:</p>
+<ol class="arabic simple">
 <li><p>Each <em>simple</em> operation (+, -, *, /, if, call, return, etc.) takes exactly one time step.</p></li>
-<li><p>Loops and subroutines are <em>not</em> considered simple operations. Instead, they are the composition of many single-step operations. It makes no sense for sort to be a single-step operation, since sorting 1,000,000 items will certainly take much longer than sorting 10 items. The time it takes to run through a loop or execute a subprogram depends upon the number of loop iterations or the specific nature of the subprogram.</p></li>
+<li><p>Loops and subroutines (aka functions, methods, procedures etc.) are <em>NOT</em> considered simple operations. Instead, they are the composition of many single-step operations. It makes no sense for sort to be a single-step operation, since sorting 1,000,000 items will certainly take much longer than sorting 10 items. The time it takes to run through a loop or execute a subprogram depends upon the number of loop iterations or the specific nature of the subprogram.</p></li>
 <li><p>Each memory access takes exactly one time step. Further, we have as much memory as we need. The RAM model takes no notice of whether an item is in cache or on the disk. It also ignores the fact that memory access time is not uniform. In the RAM model, we can access any memory location in the same amount of time.</p></li>
-</ul>
-<p>Under the RAM model, we measure run time by counting up the number of steps an algorithm takes on a given problem instance. If we assume that our RAM executes a given number of steps per second, this operation count converts naturally to the actual running time.
-The RAM is a simple model of how computers perform. Perhaps it sounds too simple. After all, multiplying two numbers takes more time than adding two num- bers on most processors, which violates the first assumption of the model. Fancy compiler loop unrolling and hyperthreading may well violate the second assump- tion. And certainly memory access times differ greatly depending on whether data sits in cache or on the disk. This makes us zero for three on the truth of our basic assumptions.</p>
+</ol>
+<p>Under the RAM model, we measure run time by counting up the number of steps an algorithm takes on a given problem instance. If we assume that our RAM executes a given number of steps per second, this operation count converts naturally to the actual running time.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="https://samyzaf.com/afl/figs/ram1.jpg"><img alt="https://samyzaf.com/afl/figs/ram1.jpg" src="https://samyzaf.com/afl/figs/ram1.jpg" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.2 </span><span class="caption-text">Random Access Machine (RAM) is a hypothetical computer model that abstracts away unnecessary details. with an unlimited number of registers and a simple instruction set. The RAM model is used in algorithm analysis because it is simple to implement and it is not tied to any particular hardware design. You don’t need to worry about the specifics, just <strong>remember the three assumptions</strong>.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The RAM is a simple model of how computers perform. Perhaps it sounds too simple. After all, multiplying two numbers takes more time than adding two num- bers on most processors, which violates the first assumption of the model. Fancy compiler loop unrolling and hyperthreading may well violate the second assumption. And certainly memory access times differ greatly depending on whether data sits in cache or on the disk. This makes us zero for three on the truth of our basic assumptions.</p>
 <p>And yet, despite these complaints, the RAM proves an excellent model for understanding how an algorithm will perform on a real computer. It strikes a fine balance by capturing the essential behavior of computers while being simple to work with. We use the RAM model because it is useful in practice.</p>
-<p>Every model has a size range over which it is useful. Take, for example, the model that the Earth is flat. You might argue that this is a bad model, since it has been fairly well established that the Earth is in fact round. But, when laying the foundation of a house, the flat Earth model is sufficiently accurate that it can be reliably used. It is so much easier to manipulate a flat-Earth model that it is inconceivable that you would try to think spherically when you don’t have to.1</p>
+<p>Every model has a size range over which it is useful. Take, for example, the model that the Earth is a sphere (or even an eliptical). You might argue that this is a bad model, since it has been fairly well established that the Earth is in fact technically a geoid. But, for most purposes, the Earth is sufficiently spherical that you can use the spherical model without getting into trouble. If you are trying to land a satellite on the moon, you might need to take the geoid into account. But if you are trying to drive to the grocery store, the spherical model is good enough.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="https://www.syfy.com/sites/syfy/files/earth_geoid.jpg"><img alt="https://www.syfy.com/sites/syfy/files/earth_geoid.jpg" src="https://www.syfy.com/sites/syfy/files/earth_geoid.jpg" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.3 </span><span class="caption-text">The Earth is not a perfect sphere. It is a geoid. But for most purposes, the spherical model is good enough.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>The same situation is true with the RAM model of computation. We make an abstraction that is generally very useful. It is quite difficult to design an algorithm such that the RAM model gives you substantially misleading results. The robustness of the RAM enables us to analyze algorithms in a machine-independent way.</p>
-<section id="best-worst-and-average-case-complexity">
-<h3>Best, Worst, and Average-Case Complexity<a class="headerlink" href="#best-worst-and-average-case-complexity" title="Permalink to this headline">#</a></h3>
-<p>Using the RAM model of computation, we can count how many steps our algorithm takes on any given input instance by executing it. However, to understand how good or bad an algorithm is in general, we must know how it works over all instances.
-To understand the notions of the best, worst, and average-case complexity, think about running an algorithm over all possible instances of data that can be fed to it. For the problem of sorting, the set of possible input instances consists of all possible arrangements of n keys, over all possible values of n. We can represent each input instance as a point on a graph (shown in Figure 2.1) where the x-axis represents the size of the input problem (for sorting, the number of items to sort), and the y-axis denotes the number of steps taken by the algorithm in this instance.
-These points naturally align themselves into columns, because only integers represent possible input size (e.g., it makes no sense to sort 10.57 items). We can define three interesting functions over the plot of these points:</p>
-<ul class="simple">
-<li><p>The <em>worst-case complexity</em> of the algorithm is the function defined by the maximum number of steps taken in any instance of size <em>n</em>. This represents the curve passing through the highest point in each column.</p></li>
-<li><p>The <em>best-case complexity</em> of the algorithm is the function defined by the minimum number of steps taken in any instance of size <em>n</em>. This represents the curve passing through the lowest point of each column.</p></li>
-<li><p>The <em>average-case complexity</em> of the algorithm, which is the function defined by the average number of steps over all instances of size <em>n</em>.</p></li>
-</ul>
-<p>The worst-case complexity proves to be most useful of these three measures in practice. Many people find this counterintuitive. To illustrate why, try to project what will happen if you bring n dollars into a casino to gamble. The best case, that you walk out owning the place, is possible but so unlikely that you should not even think about it. The worst case, that you lose all n dollars, is easy to calculate and distressingly likely to happen. The average case, that the typical bettor loses 87.32% of the money that he brings to the casino, is difficult to establish and its meaning subject to debate. What exactly does average mean? Stupid people lose more than smart people, so are you smarter or stupider than the average person, and by how much? Card counters at blackjack do better on average than customers who accept three or more free drinks. We avoid all these complexities and obtain a very useful result by just considering the worst case.</p>
-<p>The important thing to realize is that each of these time complexities define a numerical function, representing time versus problem size. These functions are as well defined as any other numerical function, be it y = x2 − 2x + 1 or the price of Google stock as a function of time. But time complexities are such complicated functions that we must simplify them to work with them. For this, we need the “Big Oh” notation.</p>
 </section>
-</section>
-<section id="big-oh-notation">
-<h2>Big Oh Notation<a class="headerlink" href="#big-oh-notation" title="Permalink to this headline">#</a></h2>
-<p>The best, worst, and average-case time complexities for any given algorithm are numerical functions over the size of possible problem instances. However, it is very difficult to work precisely with these functions, because they tend to:</p>
-<ul class="simple">
-<li><p><em>Have too many bumps</em> – An algorithm such as binary search typically runs a bit faster for arrays of size exactly n = 2k − 1 (where k is an integer), because the array partitions work out nicely. This detail is not particularly significant, but it warns us that the exact time complexity function for any algorithm is liable to be very complicated, with little up and down bumps as shown in Figure 2.2.</p></li>
-<li><p><em>Require too much detail to specify precisely</em> – Counting the exact number of RAM instructions executed in the worst case requires the algorithm be specified to the detail of a complete computer program. Further, the precise answer depends upon uninteresting coding details (e.g., did he use a case statement or nested ifs?). Performing a precise worst-case analysis like</p></li>
-</ul>
+<section id="asymptotic-analysis">
+<h2><span class="section-number">7.3. </span>Asymptotic Analysis<a class="headerlink" href="#asymptotic-analysis" title="Permalink to this headline">#</a></h2>
+<p>Asymptotic analysis is a method of describing limiting behavior.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="https://www.openbookproject.net/books/pythonds/_images/newplot.png"><img alt="https://www.openbookproject.net/books/pythonds/_images/newplot.png" src="https://www.openbookproject.net/books/pythonds/_images/newplot.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.4 </span><span class="caption-text">Comparison of growth rate functions.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For example, the function <span class="math notranslate nohighlight">\(f(n) = 3n^2 + 5n + 7\)</span> is asymptotically equivalent to <span class="math notranslate nohighlight">\(g(n) = n^2\)</span>. This is because the term <span class="math notranslate nohighlight">\(5n + 7\)</span> becomes insignificant as <span class="math notranslate nohighlight">\(n\)</span> becomes infinitely large <span class="math notranslate nohighlight">\(n \rightarrow \infty\)</span>”.</p>
+<p>In other words, the term <span class="math notranslate nohighlight">\(n^2\)</span> <em>‘dominates’</em> the behavior of the function.</p>
+<p>This is often written symbolically as <span class="math notranslate nohighlight">\(f (n) \sim n^2\)</span>, which is read as “<span class="math notranslate nohighlight">\(f(n)\)</span> is asymptotic to <span class="math notranslate nohighlight">\(n^2\)</span>”.</p>
+<p>Alternatively,  if <span class="math notranslate nohighlight">\(g(n) = n^2\)</span> and <span class="math notranslate nohighlight">\(f(n) = 3n^2 + 5n + 7\)</span>, we can write <span class="math notranslate nohighlight">\(f(n) \sim g(n)\)</span>.</p>
+<p>Formally, given functions f (x) and g(x), we define a binary relation</p>
+<p><span class="math notranslate nohighlight">\(f(x) \sim g(x)\)</span> as <span class="math notranslate nohighlight">\(x \rightarrow \infty\)</span>, if and only if</p>
+<p><span class="math notranslate nohighlight">\( \lim_{x \rightarrow \infty} \frac{f(x)}{g(x)} = 1\)</span></p>
+<p>We say that a faster-growing function dominates a slower-growing one. When <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> belong to different classes and <span class="math notranslate nohighlight">\(g\)</span> dominates <span class="math notranslate nohighlight">\(f\)</span>, it is sometimes written as <span class="math notranslate nohighlight">\(g ≫ f\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[T(n)=12754n^2 +4353n+834lg_2n+13546\]</div>
-<p>would clearly be very difficult work, but provides us little extra information than the observation that “the time grows quadratically with n.”</p>
-<p>It proves to be much easier to talk in terms of simple upper and lower bounds of time-complexity functions using the Big Oh notation. The Big Oh simplifies our analysis by ignoring levels of detail that do not impact our comparison of algorithms.</p>
-<p>The Big Oh notation ignores the difference between multiplicative constants. The functions f(n) = 2n and g(n) = n are identical in Big Oh analysis. This makes sense given our application. Suppose a given algorithm in (say) C language ran twice as fast as one with the same algorithm written in Java. This multiplicative factor of two tells us nothing about the algorithm itself, since both programs imple- ment exactly the same algorithm. We ignore such constant factors when comparing two algorithms.</p>
-<p>The formal definitions associated with the Big Oh notation are as follows:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(f (n) = O(g(n))\)</span> means <span class="math notranslate nohighlight">\(c · g(n)\)</span> is an <em>upper bound</em> on f (n). Thus there exists some constant c such that f (n) is always ≤ c · g(n), for large enough n (i.e. , n ≥ n0 for some constant n0).</p></li>
-<li><p><span class="math notranslate nohighlight">\(f(n) = Ω(g(n))\)</span> means <span class="math notranslate nohighlight">\(c · g(n)\)</span> is a <em>lower bound</em> on f(n). Thus there exists some constant c such that f(n) is always ≥ c · g(n), for all n ≥ n0.</p></li>
-<li><p><span class="math notranslate nohighlight">\(f(n) = Θ(g(n))\)</span> means <span class="math notranslate nohighlight">\(c1 · g(n)\)</span> is an <em>upper bound</em> on f(n) and c2 · g(n) is a lower bound on f(n), for all n ≥ n0. Thus there exist constants c1 and c2 such that f (n) ≤ c1 · g(n) and f (n) ≥ c2 · g(n). This means that g(n) provides a nice, tight bound on f(n).</p></li>
-</ul>
-<p>Got it? These definitions are illustrated in Figure 2.3. Each of these definitions assumes a constant n0 beyond which they are always satisfied. We are not concerned about small values of n (i.e. , anything to the left of n0). After all, we don’t really care whether one sorting algorithm sorts six items faster than another, but seek which algorithm proves faster when sorting 10,000 or 1,000,000 items. The Big Oh notation enables us to ignore details and focus on the big picture.</p>
-<p>Make sure you understand this notation by working through the following ex- amples. We choose certain constants (c and n0) in the explanations below because they work and make a point, but other pairs of constants will do exactly the same job. You are free to choose any constants that maintain the same inequality—ideally constants that make it obvious that the inequality holds:</p>
+\[n! ≫ d^n ≫ n^3 ≫ n^2 ≫ nlogn ≫ n ≫ logn ≫ 1\]</div>
+<p>We say that <span class="math notranslate nohighlight">\(f(n)\)</span> and <span class="math notranslate nohighlight">\(g(n)\)</span> have the same asymptotic behavior, and write <span class="math notranslate nohighlight">\(f(n) = Θ(g(n))\)</span>.</p>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -500,6 +585,24 @@ These points naturally align themselves into columns, because only integers repr
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../tmp/functionalprogramming.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Functional Programming</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="time.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7.4. </span>Time Complexity</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -518,11 +621,9 @@ These points naturally align themselves into columns, because only integers repr
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ram-model-of-computation">The RAM Model of Computation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-worst-and-average-case-complexity">Best, Worst, and Average-Case Complexity</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-oh-notation">Big Oh Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">7.1. Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ram-model-of-computation">7.2. The RAM Model of Computation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asymptotic-analysis">7.3. Asymptotic Analysis</a></li>
 </ul>
   </nav></div>
 

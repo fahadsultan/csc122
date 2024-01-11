@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Time Complexity &#8212; My sample book</title>
+    <title>7.4. Time Complexity &#8212; My sample book</title>
   
   
   
@@ -62,9 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'algos/time';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.5. Space Complexity" href="space.html" />
+    <link rel="prev" title="7. Analysis" href="analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -158,6 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../calendar.html">Calendar</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../syllabus/index.html">Syllabus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/pathways.html">Purposeful Pathways (Spring ‘24)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../syllabus/textbook.html">Textbooks &amp; Other Resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../syllabus/mental_health.html">Mental Health Resources</a></li>
@@ -184,8 +189,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">6. Functional Programming</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/analysis.html">7. Analysis</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="analysis.html">7. Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.4. Time Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="space.html">7.5. Space Complexity</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../tmp/brute.html">8. Brute Force</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">9. Greedy Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tmp/divide_conquer.html">10. Divide and Conquer</a></li>
@@ -365,7 +374,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -381,6 +392,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-worst-and-average-case-complexity">7.4.1. Best, Worst, and Average-Case Complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-oh-notation">7.4.2. Big Oh Notation</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -391,7 +411,144 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="time-complexity">
-<h1>Time Complexity<a class="headerlink" href="#time-complexity" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">7.4. </span>Time Complexity<a class="headerlink" href="#time-complexity" title="Permalink to this headline">#</a></h1>
+<p>Consider the block of code that follows and answer the Search questions below.</p>
+<p><strong>Question:</strong> Given <strong>two inputs</strong>: 1. list of n numbers <code class="docutils literal notranslate"><span class="pre">data</span></code> and 2. a number called <code class="docutils literal notranslate"><span class="pre">query</span></code>, return <strong>output</strong> last location of query in list, if it exists, otherwise return -1</p>
+<p><strong>Solution:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>         <span class="c1"># 1</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>    <span class="c1"># 2</span>
+      <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">query</span><span class="p">:</span>       <span class="c1"># 3</span>
+         <span class="k">return</span> <span class="n">i</span>                <span class="c1"># 4</span>
+   <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>                     <span class="c1"># 5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the function <code class="docutils literal notranslate"><span class="pre">search</span></code> above evaluate how many lines of code are executed for the following inputs:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(10)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(10)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(10)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">10</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(1000*1000)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(1000*1000)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">1000*1000</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><p>What is the best case scenario (fewest lines of code executed)?</p></li>
+<li><p>What is the worst case scenario (most lines of code executed)?</p></li>
+<li><p>What is the average case scenario (average number of lines of code executed)?</p></li>
+</ul>
+<figure class="align-default" id="trace-table">
+<a class="reference internal image-reference" href="../_images/trace_table.png"><img alt="../_images/trace_table.png" src="../_images/trace_table.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.5 </span><span class="caption-text">Use the table above to trace the search algorithm/code above. Add rows to the table as needed.</span><a class="headerlink" href="#trace-table" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="best-worst-and-average-case-complexity">
+<h2><span class="section-number">7.4.1. </span>Best, Worst, and Average-Case Complexity<a class="headerlink" href="#best-worst-and-average-case-complexity" title="Permalink to this headline">#</a></h2>
+<p>Using the RAM model of computation, we can count how many steps our algorithm takes on any given input instance by executing it.</p>
+<p>However, to understand <strong>how good or bad</strong> an algorithm is in general, we must know how it works <strong>over ALL instances</strong> (inputs).</p>
+<p>To understand the notions of the best, worst, and average-case complexity, think about running an algorithm over all possible instances of data that can be fed to it. For the problem of sorting, the set of possible input instances consists of all possible arrangements of n elements, over all possible values of n.</p>
+<p>We can represent each input instance as a point on a graph where the x-axis represents the size of the input problem (size of data), and the y-axis denotes the number of steps taken by the algorithm in this instance.</p>
+<figure class="align-default" id="fig-2-1">
+<a class="reference internal image-reference" href="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*1WlWN-d_vqf-_o48bWMjNA.png"><img alt="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*1WlWN-d_vqf-_o48bWMjNA.png" src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*1WlWN-d_vqf-_o48bWMjNA.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.6 </span><span class="caption-text">The best, worst, and average-case complexities of an algorithm.</span><a class="headerlink" href="#fig-2-1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>These points naturally align themselves into columns, because only integers represent possible input size (e.g., it makes no sense to sort 10.57 items). We can define three interesting functions over the plot of these points:</p>
+<ul class="simple">
+<li><p>The <strong>worst-case complexity</strong> of the algorithm is the function defined by the <strong>maximum number of steps</strong> taken in any instance of size <em>n</em>. This represents the curve passing through the highest point in each column.</p></li>
+<li><p>The <strong>best-case complexity</strong> of the algorithm is the function defined by the <strong>minimum number of steps</strong> taken in any instance of size <em>n</em>. This represents the curve passing through the lowest point of each column.</p></li>
+<li><p>The <strong>average-case complexity</strong> of the algorithm, which is the function defined by the <strong>average number of steps</strong> over all instances of size <em>n</em>.</p></li>
+</ul>
+<p>The <strong>worst-case complexity</strong> proves to be <strong>most useful</strong> of these three measures <strong>in practice</strong>. Many people find this counterintuitive.</p>
+<p>To illustrate why, try to project what will happen if you bring n dollars into a casino to gamble. The best case, that you walk out owning the place, is possible but so unlikely that you should not even think about it. The worst case, that you lose all n dollars, is easy to calculate and distressingly likely to happen. The average case, that the typical bettor loses 87.32% of the money that he brings to the casino, is difficult to establish and its meaning subject to debate. What exactly does average mean? Stupid people lose more than smart people, so are you smarter or stupider than the average person, and by how much? Card counters at blackjack do better on average than customers who accept three or more free drinks. We avoid all these complexities and obtain a very useful result by just considering the worst case.</p>
+<p>The important thing to realize is that each of these time complexities define a numerical function, representing time versus problem size. These functions are as well defined as any other numerical function, be it <span class="math notranslate nohighlight">\(y = x^2 − 2x + 1\)</span> or the price of Google stock as a function of time. But time complexities are such complicated functions that we must simplify them to work with them. For this, we need the “Big Oh” notation and the concept of asymptotic behavior.</p>
+</section>
+<section id="big-oh-notation">
+<h2><span class="section-number">7.4.2. </span>Big Oh Notation<a class="headerlink" href="#big-oh-notation" title="Permalink to this headline">#</a></h2>
+<p>Assessing algorithmic performance makes use of the “big Oh” notation that, proves essential to compare algorithms and design more efficient ones.</p>
+<p>While the hopelessly <em>“practical”</em> person may blanch at the notion of theoretical analysis, we present the material because it really is useful in thinking about algorithms.</p>
+<p>This method of keeping score will be the most mathematically demanding part of this book. But once you understand the intuition behind these ideas, the formalism becomes a lot easier to deal with.</p>
+<p>The best, worst, and average-case time complexities for any given algorithm are numerical functions over the size of possible problem instances. However, it is very difficult to work precisely with these functions, because they tend to:</p>
+<ul class="simple">
+<li><p><em>Have too many bumps</em> – An algorithm such as binary search typically runs a bit faster for arrays of size exactly n = 2k − 1 (where k is an integer), because the array partitions work out nicely. This detail is not particularly significant, but it warns us that the exact time complexity function for any algorithm is liable to be very complicated, with little up and down bumps as shown in Figure 2.2.</p></li>
+<li><p><em>Require too much detail to specify precisely</em> – Counting the exact number of RAM instructions executed in the worst case requires the algorithm be specified to the detail of a complete computer program. Further, the precise answer depends upon uninteresting coding details (e.g., did he use a case statement or nested ifs?). Performing a precise worst-case analysis like</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[T(n)=12754n^2 +4353n+834lg_2n+13546\]</div>
+<p>would clearly be very difficult work, but provides us little extra information than the observation that “the time grows quadratically with n.”</p>
+<p>It proves to be much easier to talk in terms of simple upper and lower bounds of time-complexity functions using the Big Oh notation. The Big Oh simplifies our analysis by ignoring levels of detail that do not impact our comparison of algorithms.</p>
+<p>The Big Oh notation ignores the difference between multiplicative constants. The functions f(n) = 2n and g(n) = n are identical in Big Oh analysis. This makes sense given our application. Suppose a given algorithm in (say) C language ran twice as fast as one with the same algorithm written in Java. This multiplicative factor of two tells us nothing about the algorithm itself, since both programs imple- ment exactly the same algorithm. We ignore such constant factors when comparing two algorithms.</p>
+<figure class="align-default" id="fig-2-2">
+<a class="reference internal image-reference" href="../_images/bigoh2.png"><img alt="../_images/bigoh2.png" src="../_images/bigoh2.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.7 </span><span class="caption-text">Upper and lower bounds valid for <span class="math notranslate nohighlight">\(n &gt; n_0\)</span> smooth out the bumps of complex functions.</span><a class="headerlink" href="#fig-2-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/bigoh3.png"><img alt="../_images/bigoh3.png" src="../_images/bigoh3.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.8 </span><span class="caption-text">Illustrating the big <span class="math notranslate nohighlight">\(O\)</span>, big <span class="math notranslate nohighlight">\(\Omega\)</span>, and big <span class="math notranslate nohighlight">\(\Theta\)</span> notations.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The formal definitions associated with the Big Oh notation are as follows:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f (n) = O(g(n))\)</span> means <span class="math notranslate nohighlight">\(c · g(n)\)</span> is an <em>upper bound</em> on f (n). Thus there exists some constant c such that f (n) is always <span class="math notranslate nohighlight">\(\leq c · g(n)\)</span>, for large enough n (i.e. , n ≥ n0 for some constant n0).</p></li>
+<li><p><span class="math notranslate nohighlight">\(f(n) = \Omega(g(n))\)</span> means <span class="math notranslate nohighlight">\(c · g(n)\)</span> is a <em>lower bound</em> on f(n). Thus there exists some constant c such that f(n) is always <span class="math notranslate nohighlight">\(\geq c · g(n)\)</span>, for all n ≥ n0.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f(n) = \Theta(g(n))\)</span> means <span class="math notranslate nohighlight">\(c_1 · g(n)\)</span> is an <em>upper bound</em> on f(n) and <span class="math notranslate nohighlight">\(c_2 · g(n)\)</span> is a lower bound on <span class="math notranslate nohighlight">\(f(n)\)</span>, for all <span class="math notranslate nohighlight">\(n \geq n0\)</span>. Thus there exist constants c1 and c2 such that <span class="math notranslate nohighlight">\(f(n) ≤ c1 · g(n)\)</span> and <span class="math notranslate nohighlight">\(f(n) ≥ c2 · g(n)\)</span>. This means that <span class="math notranslate nohighlight">\(g(n)\)</span> provides a nice, tight bound on f(n).</p></li>
+</ul>
+<p>Got it? These definitions are illustrated in the figure above. Each of these definitions assumes a constant n0 beyond which they are always satisfied. We are not concerned about small values of n (i.e. , anything to the left of n0). After all, we don’t really care whether one sorting algorithm sorts six items faster than another, but seek which algorithm proves faster when sorting 10,000 or 1,000,000 items. The Big Oh notation enables us to ignore details and focus on the big picture.</p>
+<p>Make sure you understand this notation by working through the following examples. We choose certain constants (c and n0) in the explanations below because they work and make a point, but other pairs of constants will do exactly the same job. You are free to choose any constants that maintain the same inequality—ideally constants that make it obvious that the inequality holds:</p>
+<p>The good news is that only a few function classes tend to occur in the course of basic algorithm analysis. These suffice to cover almost all the algorithms we will discuss in this text, and are listed in order of increasing dominance:</p>
+<ul class="simple">
+<li><p><strong>Constant functions</strong>, <span class="math notranslate nohighlight">\(f(n) = 1\)</span></p></li>
+</ul>
+<p>Such functions might measure the cost of adding two numbers, printing out “The Star Spangled Banner,” or the growth realized by functions such as f (n) = min(n, 100). In the big picture, there is no dependence on the parameter n.</p>
+<ul class="simple">
+<li><p><strong>Logarithmic</strong> functions, <span class="math notranslate nohighlight">\(f (n) = log n\)</span></p></li>
+</ul>
+<p>Logarithmic time-complexity shows up in algorithms such as binary search. Such functions grow quite slowly as n gets big, but faster than the constant function (which is standing still, after all).</p>
+<p>If you are unfamiliar with logs, please review <a class="reference external" href="https://fahadsultan.com/datascience_ml/2_maths/13_log.html">this page</a> or come to office hours.</p>
+<ul class="simple">
+<li><p><strong>Linear</strong> functions, <span class="math notranslate nohighlight">\(f(n) = n\)</span></p></li>
+</ul>
+<p>Such functions measure the cost of looking at each item once (or twice, or ten times) in an n-element array, say to identify the biggest item, the smallest item, or compute the average value.</p>
+<ul class="simple">
+<li><p><strong>Superlinear</strong> functions, <span class="math notranslate nohighlight">\(f(n) = n lg n\)</span></p></li>
+</ul>
+<p>This important class of functions arises in such algorithms as Quicksort and Mergesort. They grow just a little faster than linear (see Figure 2.4), just enough to be a different dominance class.</p>
+<ul class="simple">
+<li><p><strong>Quadratic</strong> functions, <span class="math notranslate nohighlight">\(f(n) = n^2\)</span></p></li>
+</ul>
+<p>Such functions measure the cost of looking at most or all pairs of items in an n-element universe. This arises in algorithms such as insertion sort and selection sort.</p>
+<ul class="simple">
+<li><p><strong>Cubic</strong> functions, <span class="math notranslate nohighlight">\(f(n) = n^3\)</span></p></li>
+</ul>
+<p>Such functions enumerate through all triples of items in an n-element universe. These also arise in certain dynamic program- ming algorithms developed in Chapter 8.</p>
+<ul class="simple">
+<li><p><strong>Exponential</strong> functions, <span class="math notranslate nohighlight">\(f(n) = c^n\)</span> for a given constant <span class="math notranslate nohighlight">\(c &gt; 1\)</span></p></li>
+</ul>
+<p>Functions like <span class="math notranslate nohighlight">\(2^n\)</span> arise when enumerating all subsets of n items. As we have seen, exponential algorithms become useless fast, but not as fast as…</p>
+<ul class="simple">
+<li><p><strong>Factorial</strong> functions, <span class="math notranslate nohighlight">\(f(n) = n!\)</span></p></li>
+</ul>
+<p>Functions like n! arise when generating all permutations or orderings of n items.</p>
+<figure class="align-default" id="fig-2-4">
+<a class="reference internal image-reference" href="../_images/skiena_bigo.png"><img alt="../_images/skiena_bigo.png" src="../_images/skiena_bigo.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.9 </span><span class="caption-text">Growth rates of common functions measured in nanoseconds.</span><a class="headerlink" href="#fig-2-4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/bigoh4.png"><img alt="../_images/bigoh4.png" src="../_images/bigoh4.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.10 </span><span class="caption-text">Growth rates of common growth functions.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -425,6 +582,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="analysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Analysis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="space.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7.5. </span>Space Complexity</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -434,6 +609,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-worst-and-average-case-complexity">7.4.1. Best, Worst, and Average-Case Complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-oh-notation">7.4.2. Big Oh Notation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
