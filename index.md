@@ -14,7 +14,7 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 ```
 
 ```{important}
-**[Written Assignment 1]()** is due before Tuesday. Please submit your work on Moodle.
+<b><a href="algos/written_assignment.html">Written Assignment 1</a></b> is due before Tuesday, January 23rd. Please submit your work on Moodle.
 ```
 
 ```{tip}

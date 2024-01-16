@@ -11,7 +11,7 @@ This means that we need techniques that enable us to compare the efficiency of a
 The three important abstractions that allow us to do so are:
 
 1. **Pseudocode** - enables independence from any programming language
-2. **RAM model of computation** - enables independence from any particular machine hardware
+2. **Random Access Machine** - enables independence from any particular machine hardware
 3. **Asymptotic Analysis** - enables independence from any particular input data
 
 ## Pseudocode

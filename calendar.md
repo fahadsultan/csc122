@@ -17,7 +17,7 @@ PA: _Programming Assignment_
 
 | #       | TOPIC                      | READING | MEETING 1                  | MEETING 2       | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
 |---------|----------------------------|---------|----------------------------|-----------------|-----|-------------------|
-| 1       | Introduction      |     GGT (Chapter 3)  |  **[Introduction](intro.md)**  | **[Analysis](algos/analysis.md) + [Time Complexity](algos/time.md)** | <b><a href="file:///Users/fsultan/Downloads/csc122/_build/html/algos/homework.html">WA.1.</a></b> |   **[PA.1.](https://colab.research.google.com/drive/10T0eNTfBgqEeTUbqcq-z96Fkh_KMFVuJ?usp=sharing)**  |
+| 1       | Introduction      |     GGT (Chapter 3)  |  **[Introduction](intro.md)**  | **[Analysis](algos/analysis.md) + [Time Complexity](algos/time.md)** | <b><a href="file:///Users/fsultan/Downloads/csc122/_build/html/algos/written_assignment.html">WA.1.</a></b> |   **[PA.1.](https://colab.research.google.com/drive/10T0eNTfBgqEeTUbqcq-z96Fkh_KMFVuJ?usp=sharing)**  |
 | 2       | Designing Abstract Processes      |        |  |    |     |             | 
 | 3       | Designing Abstract Processes   |          |     |    |    |    |    
 | 4       | Designing Abstract Processes   |         |     |   |    |   
