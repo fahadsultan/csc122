@@ -11,7 +11,7 @@ This means that we need techniques that enable us to compare the efficiency of a
 The three important abstractions that allow us to do so are:
 
 1. **Pseudocode** - enables independence from any programming language
-2. **RAM model of computation** - enables independence from any particular machine hardware
+2. **Random Access Machine** - enables independence from any particular machine hardware
 3. **Asymptotic Analysis** - enables independence from any particular input data
 
 ## Pseudocode
@@ -75,9 +75,11 @@ Some writers borrow style and syntax from control structures from some conventio
 
 Pseudocode is commonly used in textbooks and scientific publications that are documenting various algorithms, and also in planning of computer program development.
 
-## The RAM Model of Computation
+## Random Access Machine
 
-Machine-independent algorithm design depends upon **a hypothetical computer** called the **Random Access Machine** or RAM. Under this model of computation, we are confronted with a computer where:
+Machine-independent algorithm design depends upon **a hypothetical computer** called the **Random Access Machine** or RAM. 
+
+Under the RAM model of computation, we are confronted with a computer where:
 
 1. Each _simple_ operation (+, -, *, /, if, call, return, etc.) takes exactly one time step.
 
@@ -106,9 +108,8 @@ Every model has a size range over which it is useful. Take, for example, the mod
 width: 60%
 name: fig-2-1
 ---
-The Earth is not a perfect sphere. It is a geoid. But for most purposes, the spherical model is good enough.
+The Earth is not a perfect sphere. It is a geoid. But for most purposes, the spherical model is good enough. The same situation is true with the RAM model of computation. 
 ```
-
 
 The same situation is true with the RAM model of computation. We make an abstraction that is generally very useful. It is quite difficult to design an algorithm such that the RAM model gives you substantially misleading results. The robustness of the RAM enables us to analyze algorithms in a machine-independent way.
 

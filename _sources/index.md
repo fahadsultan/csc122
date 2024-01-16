@@ -10,8 +10,12 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 👇🏾 Below, you can find important links and important announcements.
 
 ```{important}
-Please fill out the **[Pre-course survey](https://courses.furman.edu/mod/feedback/view.php?id=670705)** as soon as possible. 
-``` 
+**[Programming Assignment 1](https://courses.furman.edu/mod/feedback/view.php?id=670705)** is due before next lab. Please submit your work on Moodle.
+```
+
+```{important}
+<b><a href="algos/written_assignment.html">Written Assignment 1</a></b> is due before Tuesday, January 23rd. Please submit your work on Moodle.
+```
 
 ```{tip}
 I have an **Open-Door Policy** and am in my office (_Riley Hall 200-D_) between 9 AM - 5 PM most weekdays. Please drop by with your questions or just to say hi! <br/>

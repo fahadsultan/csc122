@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Merge Sort &#8212; My sample book</title>
+    <title>Homework Assignment 1 &#8212; My sample book</title>
   
   
   
@@ -62,7 +62,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'algos/sort_merge';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'algos/written_assignment';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -271,7 +271,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Falgos/sort_merge.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Falgos/written_assignment.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,7 +301,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/algos/sort_merge.ipynb" target="_blank"
+      <li><a href="../_sources/algos/written_assignment.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -383,7 +383,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Merge Sort</h1>
+    <h1>Homework Assignment 1</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -393,10 +393,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">Steps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">Complexity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-code">The Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-trace-tables">Question 1. Trace Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-best-case-worst-case">Question 2. Best Case, Worst Case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-pseudocode">Question 3. Pseudocode</a></li>
 </ul>
             </nav>
         </div>
@@ -408,65 +407,184 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="merge-sort">
-<h1>Merge Sort<a class="headerlink" href="#merge-sort" title="Permalink to this headline">#</a></h1>
-<p>Merge sort is a divide and conquer algorithm that was invented by John von Neumann in 1945. Merge sort is a comparison sort, meaning that it can sort items of any type for which a “less-than” relation (formally, a total order) is defined.</p>
-<p>It is an efficient, general-purpose, comparison-based sorting algorithm. Most implementations produce a stable sort, which means that the order of equal elements is the same in the input and output.</p>
-<section id="steps">
-<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-assignment-1">
+<h1>Homework Assignment 1<a class="headerlink" href="#homework-assignment-1" title="Permalink to this headline">#</a></h1>
+<section id="question-1-trace-tables">
+<h2>Question 1. Trace Tables<a class="headerlink" href="#question-1-trace-tables" title="Permalink to this headline">#</a></h2>
+<p>Trace table is a table that shows the values of relevant variables or expressions at each step of a program from start to finish.</p>
+<p>Each column of the table represents a variable or expression in the program. Each row of the table represents a single step of the program.</p>
+<figure class="align-default" id="trace-table">
+<a class="reference internal image-reference" href="../_images/trace_table.png"><img alt="../_images/trace_table.png" src="../_images/trace_table.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">Use the table above to trace the search algorithm/code above. Add rows to the table as needed.</span><a class="headerlink" href="#trace-table" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Trace tables are a useful tool for understanding the flow of control and mapping of inputs to outputs in a program. They are often used for debugging.</p>
+<p>Consider the block of code below that solves the following <em>search</em> problem:</p>
+<p><strong>Problem:</strong> Given <strong>two inputs</strong>:</p>
 <ol class="arabic simple">
-<li><p>Divide the unsorted list into n sublists, each containing one element (a list of one element is considered sorted).</p></li>
-<li><p>Repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining. This will be the sorted list.</p></li>
+<li><p>list of n numbers <code class="docutils literal notranslate"><span class="pre">data</span></code> and</p></li>
+<li><p>a number called <code class="docutils literal notranslate"><span class="pre">query</span></code>,</p></li>
 </ol>
-</section>
-<section id="complexity">
-<h2>Complexity<a class="headerlink" href="#complexity" title="Permalink to this headline">#</a></h2>
-<p>The analysis</p>
-</section>
-<section id="visualization">
-<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">#</a></h2>
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Merge_sort_algorithm_diagram.svg">
-</section>
-<section id="the-code">
-<h2>The Code<a class="headerlink" href="#the-code" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merge sort </span>
-
-<span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">mid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
-        <span class="n">left</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[:</span><span class="n">mid</span><span class="p">]</span>
-        <span class="n">right</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">:]</span>
-        
-        <span class="n">merge_sort</span><span class="p">(</span><span class="n">left</span><span class="p">)</span>
-        <span class="n">merge_sort</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
-        
-        <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
-        
-        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">right</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
-                <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">right</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-                <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
-            <span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
-        
-        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">left</span><span class="p">):</span>
-            <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
-            <span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
-            
-        <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">right</span><span class="p">):</span>
-            <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">right</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-            <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
-            <span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
+<p>return <strong>output</strong> last location of query in list, if it exists, otherwise return -1</p>
+<p><strong>Code:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>         <span class="c1"># line 1</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>    <span class="c1"># line 2</span>
+      <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">query</span><span class="p">:</span>       <span class="c1"># line 3</span>
+         <span class="k">return</span> <span class="n">i</span>                <span class="c1"># line 4</span>
+   <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>                     <span class="c1"># line 5</span>
 </pre></div>
 </div>
+<p>For inputs: <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9]</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">5</span></code>, the trace table would look like this:</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/trace_table_example.png"><img alt="../_images/trace_table_example.png" src="../_images/trace_table_example.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9]</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">5</span></code></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For the function <code class="docutils literal notranslate"><span class="pre">search</span></code> above create a trace table for the following sets of inputs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(10)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(10)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">10</span></code></p></li>
+</ul>
+<p>and answer the total number of lines of code executed for each set of inputs by counting the number of rows in the trace table.</p>
+<p>For the following sets of inputs, answer the total number of lines of code executed without creating a trace table:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(1000*1000)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(1000*1000)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">1000*1000</span></code></p></li>
+</ul>
+<br/>
+<hr/>
+<br/>
+</section>
+<section id="question-2-best-case-worst-case">
+<h2>Question 2. Best Case, Worst Case<a class="headerlink" href="#question-2-best-case-worst-case" title="Permalink to this headline">#</a></h2>
+<p>On the axes below, plot the number of lines of code executed for the function <code class="docutils literal notranslate"><span class="pre">search</span></code> from Q1 for the following inputs:</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/bigoh_plot.png"><img alt="../_images/bigoh_plot.png" src="../_images/bigoh_plot.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">Plot the number of lines of code executed for the function <code class="docutils literal notranslate"><span class="pre">search</span></code> from Q1 for given inputs.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Line 1</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(1)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(2)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(4)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(6)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(10)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Line 2</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(2)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(4)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(6)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(8)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">7</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data=range(10)</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">=</span> <span class="pre">9</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>Which of the two lines above is the best case scenario? Which is the worst case scenario?</p>
+<p>Describe in words what the best case scenario and worst case scenario mean for this function in terms of inputs.</p>
+<hr/></section>
+<section id="question-3-pseudocode">
+<h2>Question 3. Pseudocode<a class="headerlink" href="#question-3-pseudocode" title="Permalink to this headline">#</a></h2>
+<p>What value is returned by the each of the functions below?</p>
+<p>Express your answer in terms of the input <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p><strong>1.1.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function loop(n)
+    r ← 0
+    for i ← 0 to n-1 do
+        r ← r + 1
+    return r
+</pre></div>
 </div>
+<p><strong>1.2.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function twoloops(n)
+    r ← 0
+    for i ← 0 to n-1 do
+        r ← r + 1
+    
+    for j ← 0 to n-1 do
+        r ← r + 1
+    return r
+</pre></div>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif" align="center"></section>
+<p><strong>1.3.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function threeloops(n)
+    r ← 0
+    for i ← 0 to n-1 do
+        r ← r + 1
+    
+    for j ← 0 to n-1 do
+        r ← r + 1
+
+    for k ← 0 to n-1 do
+        r ← r + 1
+
+    return r
+</pre></div>
+</div>
+<p><strong>1.4.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function twonestedloops(n)
+    r ← 0
+    for i ← 0 to n-1 do
+        for j ← 0 to n-1 do
+            r ← r + 1
+    return r
+</pre></div>
+</div>
+<p><strong>1.5.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function threenestedloops(n)
+    r ← 0
+    for i ← 0 to n-1 do
+        for j ← 0 to n-1 do
+            for k ← 0 to n-1 do
+                r ← r + 1
+    return r
+</pre></div>
+</div>
+<p><strong>1.6.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function function_call(n)
+    a ← loop(n) //from 1.1
+    b ← loop(n) //from 1.1
+    r ← a + b
+    return r
+</pre></div>
+</div>
+<p><strong>1.7.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function function_call_in_loop(n)
+    r ← 0
+    for i ← 0 to n-1 do
+        a ← loop(n) //from 1.1
+        r ← r + a
+    return r
+</pre></div>
+</div>
+<p><strong>1.8.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function repeatedly_half(n)
+    r ← 0
+    while n &gt; 2 do
+        n ← n / 2
+        r ← r + 1
+    return r
+</pre></div>
+</div>
+<p><strong>1.9.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function repeatedly_divide(n, c)
+    r ← 0
+    while n &gt; c do
+        n ← n / c
+        r ← r + 1
+    return r
+</pre></div>
+</div>
+<br/>
+<hr/>
+<br/>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -518,10 +636,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">Steps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">Complexity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-code">The Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-trace-tables">Question 1. Trace Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-best-case-worst-case">Question 2. Best Case, Worst Case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-pseudocode">Question 3. Pseudocode</a></li>
 </ul>
   </nav></div>
 

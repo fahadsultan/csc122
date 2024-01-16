@@ -398,7 +398,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">7.1. Pseudocode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ram-model-of-computation">7.2. The RAM Model of Computation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-access-machine">7.2. Random Access Machine</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asymptotic-analysis">7.3. Asymptotic Analysis</a></li>
 </ul>
             </nav>
@@ -420,7 +420,7 @@ document.write(`
 <p>The three important abstractions that allow us to do so are:</p>
 <ol class="arabic simple">
 <li><p><strong>Pseudocode</strong> - enables independence from any programming language</p></li>
-<li><p><strong>RAM model of computation</strong> - enables independence from any particular machine hardware</p></li>
+<li><p><strong>Random Access Machine</strong> - enables independence from any particular machine hardware</p></li>
 <li><p><strong>Asymptotic Analysis</strong> - enables independence from any particular input data</p></li>
 </ol>
 <section id="pseudocode">
@@ -503,9 +503,10 @@ for all edges <span class="math notranslate nohighlight">\((u,v) \in p\)</span>:
 </table>
 <p>Pseudocode is commonly used in textbooks and scientific publications that are documenting various algorithms, and also in planning of computer program development.</p>
 </section>
-<section id="the-ram-model-of-computation">
-<h2><span class="section-number">7.2. </span>The RAM Model of Computation<a class="headerlink" href="#the-ram-model-of-computation" title="Permalink to this headline">#</a></h2>
-<p>Machine-independent algorithm design depends upon <strong>a hypothetical computer</strong> called the <strong>Random Access Machine</strong> or RAM. Under this model of computation, we are confronted with a computer where:</p>
+<section id="random-access-machine">
+<h2><span class="section-number">7.2. </span>Random Access Machine<a class="headerlink" href="#random-access-machine" title="Permalink to this headline">#</a></h2>
+<p>Machine-independent algorithm design depends upon <strong>a hypothetical computer</strong> called the <strong>Random Access Machine</strong> or RAM.</p>
+<p>Under the RAM model of computation, we are confronted with a computer where:</p>
 <ol class="arabic simple">
 <li><p>Each <em>simple</em> operation (+, -, *, /, if, call, return, etc.) takes exactly one time step.</p></li>
 <li><p>Loops and subroutines (aka functions, methods, procedures etc.) are <em>NOT</em> considered simple operations. Instead, they are the composition of many single-step operations. It makes no sense for sort to be a single-step operation, since sorting 1,000,000 items will certainly take much longer than sorting 10 items. The time it takes to run through a loop or execute a subprogram depends upon the number of loop iterations or the specific nature of the subprogram.</p></li>
@@ -524,7 +525,7 @@ for all edges <span class="math notranslate nohighlight">\((u,v) \in p\)</span>:
 <figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="https://www.syfy.com/sites/syfy/files/earth_geoid.jpg"><img alt="https://www.syfy.com/sites/syfy/files/earth_geoid.jpg" src="https://www.syfy.com/sites/syfy/files/earth_geoid.jpg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7.3 </span><span class="caption-text">The Earth is not a perfect sphere. It is a geoid. But for most purposes, the spherical model is good enough.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7.3 </span><span class="caption-text">The Earth is not a perfect sphere. It is a geoid. But for most purposes, the spherical model is good enough. The same situation is true with the RAM model of computation.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The same situation is true with the RAM model of computation. We make an abstraction that is generally very useful. It is quite difficult to design an algorithm such that the RAM model gives you substantially misleading results. The robustness of the RAM enables us to analyze algorithms in a machine-independent way.</p>
@@ -622,7 +623,7 @@ for all edges <span class="math notranslate nohighlight">\((u,v) \in p\)</span>:
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">7.1. Pseudocode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ram-model-of-computation">7.2. The RAM Model of Computation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-access-machine">7.2. Random Access Machine</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asymptotic-analysis">7.3. Asymptotic Analysis</a></li>
 </ul>
   </nav></div>
