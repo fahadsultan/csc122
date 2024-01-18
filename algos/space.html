@@ -374,9 +374,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -392,15 +390,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-space-complexities">7.5.1. Common Space Complexities</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#space-time-tradeoff">7.5.2. Space Time Tradeoff</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -445,8 +434,6 @@ document.write(`
 </pre></div>
 </div>
 <p>Note that the search function above allocates only memory for <code class="docutils literal notranslate"><span class="pre">i</span></code> variable. The space complexity of <code class="docutils literal notranslate"><span class="pre">search</span></code> therefore is constant space: O(1).</p>
-<section id="common-space-complexities">
-<h2><span class="section-number">7.5.1. </span>Common Space Complexities<a class="headerlink" href="#common-space-complexities" title="Permalink to this headline">#</a></h2>
 <p>Space complexities of most popular and common algorithms belong to an even smaller set of complexities than time complexities.</p>
 <p>Most algorithms are either constant space or linear space.</p>
 <p>More importantly, while an algorithm of time complexity <span class="math notranslate nohighlight">\(O(n^2)\)</span> with 1 billion rows takes a hopelessly long time to run (about 30 years), an algorithm of space complexity <span class="math notranslate nohighlight">\(O(n^2)\)</span> with 1 billion rows takes only around 1 GB of memory.</p>
@@ -454,17 +441,14 @@ document.write(`
 <figure class="align-default" id="memory-cost">
 <a class="reference internal image-reference" href="https://assets.ourworldindata.org/grapher/exports/historical-cost-of-computer-memory-and-storage.svg"><img alt="https://assets.ourworldindata.org/grapher/exports/historical-cost-of-computer-memory-and-storage.svg" src="https://assets.ourworldindata.org/grapher/exports/historical-cost-of-computer-memory-and-storage.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7.10 </span><span class="caption-text">Cost of computer memory and storage over time</span><a class="headerlink" href="#memory-cost" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7.12 </span><span class="caption-text">Cost of computer memory and storage over time</span><a class="headerlink" href="#memory-cost" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-</section>
-<section id="space-time-tradeoff">
-<h2><span class="section-number">7.5.2. </span>Space Time Tradeoff<a class="headerlink" href="#space-time-tradeoff" title="Permalink to this headline">#</a></h2>
 <p>In computer science, we can often reduce the space complexity of an algorithm at the cost of increasing its time complexity, and vice versa. This is called the <strong>space-time tradeoff</strong>.</p>
 <figure class="align-default" id="spacetime-tradeoff">
 <a class="reference internal image-reference" href="../_images/spacetime_tradeoff.png"><img alt="../_images/spacetime_tradeoff.png" src="../_images/spacetime_tradeoff.png" style="width: 70%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7.11 </span><span class="caption-text">Space Time Tradeoff</span><a class="headerlink" href="#spacetime-tradeoff" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7.13 </span><span class="caption-text">Space Time Tradeoff</span><a class="headerlink" href="#spacetime-tradeoff" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In other words,  we can often make an algorithm faster by using more space or we can often make an algorithm use less space at the cost of making it slower.</p>
@@ -473,10 +457,9 @@ document.write(`
 <figure class="align-default" id="cdn">
 <a class="reference internal image-reference" href="https://www.dotcom-monitor.com/blog/wp-content/uploads/sites/3/2020/05/CDN-Edge-Servers-e1589849154852.png"><img alt="https://www.dotcom-monitor.com/blog/wp-content/uploads/sites/3/2020/05/CDN-Edge-Servers-e1589849154852.png" src="https://www.dotcom-monitor.com/blog/wp-content/uploads/sites/3/2020/05/CDN-Edge-Servers-e1589849154852.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7.12 </span><span class="caption-text">The data on the internet is duplicated and stored on multiple edge servers around the world to reduce the time it takes to load the website. An example of how time/speed is prioritized over space/memory.</span><a class="headerlink" href="#cdn" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7.14 </span><span class="caption-text">The data on the internet is duplicated and stored on multiple edge servers around the world to reduce the time it takes to load the website. An example of how time/speed is prioritized over space/memory.</span><a class="headerlink" href="#cdn" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -537,21 +520,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-space-complexities">7.5.1. Common Space Complexities</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#space-time-tradeoff">7.5.2. Space Time Tradeoff</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
