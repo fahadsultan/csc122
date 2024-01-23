@@ -10,7 +10,7 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 👇🏾 Below, you can find important links and important announcements.
 
 ```{important}
-**[Programming Assignment 1](https://courses.furman.edu/mod/feedback/view.php?id=670705)** is due before next lab. Please submit your work on Moodle.
+**[Programming Assignment 2](https://colab.research.google.com/drive/1Sg07q8Hg_BD1imXRNe2X4FYP965paikq?usp=sharing)** is due before next lab (January 26th). Please submit your work on Moodle.
 ```
 
 ```{important}

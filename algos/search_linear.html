@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Linear Search &#8212; My sample book</title>
+    <title>2.1. Linear Search &#8212; My sample book</title>
   
   
   
@@ -62,9 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'algos/search_linear';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.2. Bogosort" href="bogo.html" />
+    <link rel="prev" title="2. Brute Force" href="brute.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -172,28 +176,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="time.html">1.4. Time Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="space.html">1.5. Space Complexity</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="brute.html">2. Brute Force</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Linear Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bogo.html">2.2. Bogosort</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">3. Greedy Algorithms</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="search_binary.html">4.1. Binary Search</a></li>
+</ul>
+</li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Elements of Programming</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/data.html">1. Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/operations.html">2. Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/controls.html">3. Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/data.html">5. Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/operations.html">6. Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/controls.html">7. Controls</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">4. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/recursion.html">5. Recursion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">6. Functional Programming</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">7. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="time.html">7.4. Time Complexity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="space.html">7.5. Space Complexity</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/brute.html">8. Brute Force</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">9. Greedy Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/divide_conquer.html">10. Divide and Conquer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">8. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/recursion.html">9. Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">10. Functional Programming</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
 <ul class="nav bd-sidenav">
@@ -393,14 +404,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">Problem Statement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-complexity">Time Complexity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-complexity">Space Complexity</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">2.1.1. Analysis</a></li>
 </ul>
             </nav>
         </div>
@@ -413,46 +417,54 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="linear-search">
-<h1>Linear Search<a class="headerlink" href="#linear-search" title="Permalink to this headline">#</a></h1>
-<section id="problem-statement">
-<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">#</a></h2>
-<p>Given an array of integers, find the index of a given element in the array.</p>
-<img src="../assets/sequential_search.gif">
+<h1><span class="section-number">2.1. </span>Linear Search<a class="headerlink" href="#linear-search" title="Permalink to this headline">#</a></h1>
+<p><strong>Linear Search</strong> (also known as <strong>Sequential Search</strong>) is a brute force search algorithm that finds a target value within a list by sequentially checking each element of the list until a match is found.</p>
+<br/>
+<center>
+<img width="65%" src="https://raw.githubusercontent.com/fahadsultan/csc122/main/assets/sequential_search.gif">
+</center>
+<br/>
+<!-- ## Psuedocode -->
+<p>The pseudocode for the algorithm is as follows:</p>
+<div class="proof algorithm admonition" id="my-algorithm">
+<p class="admonition-title"><span class="caption-number">Algorithm 2.1 </span> (Linear Search Algorithm)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Inputs</strong> Given a list of numbers <span class="math notranslate nohighlight">\(L\)</span> of length <span class="math notranslate nohighlight">\(n\)</span> and a target value <span class="math notranslate nohighlight">\(t\)</span></p>
+<p><strong>Output</strong> The index of the target value <span class="math notranslate nohighlight">\(t\)</span> in the list <span class="math notranslate nohighlight">\(L\)</span> of length <span class="math notranslate nohighlight">\(n\)</span></p>
+<ol class="arabic">
+<li><p>For <span class="math notranslate nohighlight">\(i\)</span> from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(n-1\)</span>:</p>
+<p>1.1. If <span class="math notranslate nohighlight">\(L[i] == t\)</span>:  <br />
+1.1.1. Return <span class="math notranslate nohighlight">\(i\)</span> <br />
+1.2. end If</p>
+</li>
+<li><p>end For</p></li>
+<li><p>Return -1</p></li>
+</ol>
 </section>
-<section id="solution">
-<h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-<span class="n">target</span> <span class="o">=</span> <span class="mi">5</span>
+</div><!-- ## Implementation -->
+<p>Python implementation of the algorithm is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">query</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="k">def</span> <span class="nf">linear_search</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">linear_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns the index position of the target if found, else returns None</span>
+<span class="sd">    Returns the index position of the target if found, else returns -1</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">query</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">i</span>
-    <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">linear_search</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">target</span><span class="p">))</span>
+<span class="n">linear_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
 <section id="analysis">
-<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h2>
-<section id="time-complexity">
-<h3>Time Complexity<a class="headerlink" href="#time-complexity" title="Permalink to this headline">#</a></h3>
+<h2><span class="section-number">2.1.1. </span>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h2>
 <p>The time complexity of the above algorithm is <code class="docutils literal notranslate"><span class="pre">O(n)</span></code> since in the worst case we have to iterate over the entire list to find the target.</p>
-</section>
-<section id="space-complexity">
-<h3>Space Complexity<a class="headerlink" href="#space-complexity" title="Permalink to this headline">#</a></h3>
+<p>In best case, the target is found at the first index, thus the best case is <code class="docutils literal notranslate"><span class="pre">O(1)</span></code>.</p>
+<p>Assuming uniform distribution of the target value, the average case is  If each element is equally likely to be searched, then linear search has an average case of <span class="math notranslate nohighlight">\( \frac{n+1}{2}\)</span> comparisons. Thus, the average case is <code class="docutils literal notranslate"><span class="pre">O(n)</span></code>.</p>
 <p>The space complexity of the above algorithm is <code class="docutils literal notranslate"><span class="pre">O(1)</span></code> since we are not using any extra space.</p>
-</section>
-</section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Linear_search">Wikipedia</a></p></li>
-</ul>
 </section>
 </section>
 
@@ -487,6 +499,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="brute.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Brute Force</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="bogo.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>Bogosort</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -505,14 +535,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">Problem Statement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-complexity">Time Complexity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-complexity">Space Complexity</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">2.1.1. Analysis</a></li>
 </ul>
   </nav></div>
 

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>9. Greedy Algorithms &#8212; My sample book</title>
+    <title>3. Greedy Algorithms &#8212; My sample book</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'tmp/greedy';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10. Divide and Conquer" href="divide_conquer.html" />
-    <link rel="prev" title="8. Brute Force" href="brute.html" />
+    <link rel="next" title="4. Divide and Conquer" href="../algos/divide_conquer.html" />
+    <link rel="prev" title="2.2. Bogosort" href="../algos/bogo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -174,28 +174,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/time.html">1.4. Time Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/space.html">1.5. Space Complexity</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/brute.html">2. Brute Force</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/search_linear.html">2.1. Linear Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/bogo.html">2.2. Bogosort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Greedy Algorithms</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/search_binary.html">4.1. Binary Search</a></li>
+</ul>
+</li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Elements of Programming</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="data.html">1. Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="operations.html">2. Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controls.html">3. Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">5. Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations.html">6. Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controls.html">7. Controls</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="recursion.html">5. Recursion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functionalprogramming.html">6. Functional Programming</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/analysis.html">7. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../algos/time.html">7.4. Time Complexity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../algos/space.html">7.5. Space Complexity</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="brute.html">8. Brute Force</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Greedy Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="divide_conquer.html">10. Divide and Conquer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">8. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recursion.html">9. Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functionalprogramming.html">10. Functional Programming</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
 <ul class="nav bd-sidenav">
@@ -398,7 +405,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="greedy-algorithms">
-<h1><span class="section-number">9. </span>Greedy Algorithms<a class="headerlink" href="#greedy-algorithms" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">3. </span>Greedy Algorithms<a class="headerlink" href="#greedy-algorithms" title="Permalink to this headline">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -433,20 +440,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="brute.html"
+       href="../algos/bogo.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Brute Force</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>Bogosort</p>
       </div>
     </a>
     <a class="right-next"
-       href="divide_conquer.html"
+       href="../algos/divide_conquer.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Divide and Conquer</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Divide and Conquer</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

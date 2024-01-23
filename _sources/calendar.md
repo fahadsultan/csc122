@@ -17,9 +17,9 @@ PA: _Programming Assignment_
 
 | #       | TOPIC                      | READING | MEETING 1                  | MEETING 2       | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
 |---------|----------------------------|---------|----------------------------|-----------------|-----|-------------------|
-| 1       | Introduction      |     GGT (Chapter 3)  |  **[Introduction](intro.md)**  | **[Analysis](algos/analysis.md) + [Time Complexity](algos/time.md)** | <b><a href="file:///Users/fsultan/Downloads/csc122/_build/html/algos/written_assignment.html">WA.1.</a></b> |   **[PA.1.](https://colab.research.google.com/drive/10T0eNTfBgqEeTUbqcq-z96Fkh_KMFVuJ?usp=sharing)**  |
-| 2       | Designing Abstract Processes      |        |  |    |     |             | 
-| 3       | Designing Abstract Processes   |          |     |    |    |    |    
+| 1       | Introduction      |     GGT (Chapter 3)  |  **[Introduction](intro.md)**  | **[Analysis](algos/analysis.md)** | <b><a href="file:///Users/fsultan/Downloads/csc122/_build/html/algos/written_assignment.html">WA.1.</a></b> |   **[PA.1.](https://colab.research.google.com/drive/10T0eNTfBgqEeTUbqcq-z96Fkh_KMFVuJ?usp=sharing)**  |
+| 2       | Analysis      |   GGT (Chapter 3)    | **[Time Complexity](algos/time.md)** |  **[Space Complexity](algos/time.md)**  |     |     **[PA.2.](https://colab.research.google.com/drive/1Sg07q8Hg_BD1imXRNe2X4FYP965paikq?usp=sharing)**        | 
+| 3       | Brute Force   |          |     |    |    |    |    
 | 4       | Designing Abstract Processes   |         |     |   |    |   
 
 <center><b><i>EXAM 1</i></b><center>

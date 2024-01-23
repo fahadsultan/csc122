@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Divide and Conquer &#8212; My sample book</title>
+    <title>4. Divide and Conquer &#8212; My sample book</title>
   
   
   
@@ -62,9 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'algos/divide_conquer';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1. Binary Search" href="search_binary.html" />
+    <link rel="prev" title="3. Greedy Algorithms" href="../tmp/greedy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -172,28 +176,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="time.html">1.4. Time Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="space.html">1.5. Space Complexity</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="brute.html">2. Brute Force</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="search_linear.html">2.1. Linear Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bogo.html">2.2. Bogosort</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">3. Greedy Algorithms</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">4. Divide and Conquer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="search_binary.html">4.1. Binary Search</a></li>
+</ul>
+</li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Elements of Programming</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/data.html">1. Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/operations.html">2. Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/controls.html">3. Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/data.html">5. Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/operations.html">6. Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/controls.html">7. Controls</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">4. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/recursion.html">5. Recursion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">6. Functional Programming</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">7. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="time.html">7.4. Time Complexity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="space.html">7.5. Space Complexity</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/brute.html">8. Brute Force</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">9. Greedy Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/divide_conquer.html">10. Divide and Conquer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">8. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/recursion.html">9. Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">10. Functional Programming</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
 <ul class="nav bd-sidenav">
@@ -396,7 +407,39 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="divide-and-conquer">
-<h1>Divide and Conquer<a class="headerlink" href="#divide-and-conquer" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4. </span>Divide and Conquer<a class="headerlink" href="#divide-and-conquer" title="Permalink to this headline">#</a></h1>
+<!-- <img align="right" padding="10%" width="20%" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Philip-ii-of-macedon.jpg">  -->
+<img align="right" padding="10%" width="30%" src="https://oll-resources.s3.us-east-2.amazonaws.com/oll3/store/titles/1234/0422-01_TP.jpg">
+<p>Niccolò Machiavelli, the famous military strategist, in The Art of War (1521) wrote that a captain should endeavor with every act to divide the forces of the enemy. Machiavelli advises that this act should be achieved either by making him suspicious of his men in whom he trusted, or by giving him cause that he has to separate his forces, and, because of this, become weaker.</p>
+<p>In politics, sociology and military strategy, the technique of <strong>Divide and Rule</strong> refers to the strategy of causing rivalries and fomenting discord amongst rivals and subordinates to maintain control and power. In human history, it has been effectively used to empower the sovereign to control subjects, populations, or quash factions of dissent, who collectively might be able to oppose its rule.</p>
+<!-- ```{figure} https://miro.medium.com/v2/resize:fit:2000/1*48xHd1kEOqZRIhzrMzeREw.jpeg
+---
+width: 65%
+name: philip
+align: center
+---
+
+``` 
+-->
+<p>In computer science, however, this technique is used to bring down pesky time and space complexities of inefficient algorithms.</p>
+<p><strong>Divide and Conquer</strong> is a strategy of solving a problem by breaking the problem into smaller subproblems, solving the subproblems, and combining them to get the desired solution. It is applicable to problems that can be expressed recursively in terms of two or more subproblems of the same or related type, called recurrence relations. The original problem is continually divided into smaller subproblems until these become simple enough to be solved directly. The solutions to the subproblems are then combined to give a solution to the original problem.</p>
+<center><img width="70%" src="https://miro.medium.com/v2/resize:fit:1150/1*Tt-u972ldjyJVZZiXn4eUA.png">
+<p><br/><br/>
+<img width="70%" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Merge_sort_algorithm_diagram.svg">
+<br/></p>
+</center>
+<br/>
+<p>For the same problem, divide and conquer algorithms often scale better than their brute force counterparts.</p>
+<figure class="align-center" id="brain-brawn">
+<a class="reference internal image-reference" href="../_images/brain_brawn.png"><img alt="../_images/brain_brawn.png" src="../_images/brain_brawn.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Comparison betwen brute force and divide and conquer algorithms is like comparison between brain and brawn.</span><a class="headerlink" href="#brain-brawn" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In case of search, where the brute force algorithm is linear <span class="math notranslate nohighlight">\(O(n)\)</span>, the divide and conquer algorithm is logarithmic <span class="math notranslate nohighlight">\(O(\text{log n})\)</span>. In case of sorting, where the brute force algorithm is quadratic <span class="math notranslate nohighlight">\(O(\text{n}^2)\)</span>, the divide and conquer algorithm is log linear <span class="math notranslate nohighlight">\(O(\text{n log n})\)</span>.</p>
+<br/>
+</center><div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -430,6 +473,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../tmp/greedy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Greedy Algorithms</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="search_binary.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.1. </span>Binary Search</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>

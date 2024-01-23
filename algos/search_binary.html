@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Binary Search &#8212; My sample book</title>
+    <title>4.1. Binary Search &#8212; My sample book</title>
   
   
   
@@ -62,9 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'algos/search_binary';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Data" href="../tmp/data.html" />
+    <link rel="prev" title="4. Divide and Conquer" href="divide_conquer.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -172,28 +176,35 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="time.html">1.4. Time Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="space.html">1.5. Space Complexity</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="brute.html">2. Brute Force</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="search_linear.html">2.1. Linear Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bogo.html">2.2. Bogosort</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">3. Greedy Algorithms</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="divide_conquer.html">4. Divide and Conquer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.1. Binary Search</a></li>
+</ul>
+</li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Elements of Programming</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/data.html">1. Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/operations.html">2. Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/controls.html">3. Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/data.html">5. Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/operations.html">6. Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/controls.html">7. Controls</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">4. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/recursion.html">5. Recursion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">6. Functional Programming</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">7. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="time.html">7.4. Time Complexity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="space.html">7.5. Space Complexity</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/brute.html">8. Brute Force</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">9. Greedy Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/divide_conquer.html">10. Divide and Conquer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">8. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/recursion.html">9. Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">10. Functional Programming</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
 <ul class="nav bd-sidenav">
@@ -370,7 +381,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -386,6 +399,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">4.1.1. Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">4.1.2. Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">4.1.3. Analysis</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -396,8 +419,63 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="binary-search">
-<h1>Binary Search<a class="headerlink" href="#binary-search" title="Permalink to this headline">#</a></h1>
-<img src="../assets/binary_search.gif"></section>
+<h1><span class="section-number">4.1. </span>Binary Search<a class="headerlink" href="#binary-search" title="Permalink to this headline">#</a></h1>
+<p>Binary Search is an example of a divide and conquer algorithms. It is a very efficient algorithm for searching through a sorted list. It works by repeatedly dividing the list in half until the target value is found.</p>
+<p>The binary search algorithm is a lot like the game “Guess the Number”. In this game, one player thinks of a number between 1 and 100 and the other player tries to guess the number. After each guess, the first player tells the second player if the guess was too high or too low. The second player then uses this information to make a better guess. The second player continues to guess until they find the number.</p>
+<figure class="align-default" id="id1">
+<img alt="../_images/binary_search.gif" src="../_images/binary_search.gif" />
+<figcaption>
+<p><span class="caption-number">Fig. 4.2 </span><span class="caption-text">An animated walkthrough of Binary Search (top) comparing it to Linear / Sequential Search (bottom).</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Similarly, the binary search algorithm works similar to how we naturally search for a word in a dictionary. We start by opening the dictionary to the middle. If the word we are looking for is before the word on the page, we open the dictionary to the middle of the left half. If the word we are looking for is after the word on the page, we open the dictionary to the middle of the right half. We continue to divide the dictionary in half until we find the word we are looking for.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/c/c1/Binary-search-work.gif"><img alt="https://upload.wikimedia.org/wikipedia/commons/c/c1/Binary-search-work.gif" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Binary-search-work.gif" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.3 </span><span class="caption-text">A second animated walkthrough of binary search. Note that here the low, mid and high variables are <code class="docutils literal notranslate"><span class="pre">l</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">r</span></code>.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="algorithm">
+<h2><span class="section-number">4.1.1. </span>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Let <span class="math notranslate nohighlight">\(low \leftarrow 0\)</span> and <span class="math notranslate nohighlight">\(high \leftarrow n-1\)</span>.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(mid\)</span> as the average of <span class="math notranslate nohighlight">\(low\)</span> and <span class="math notranslate nohighlight">\(high\)</span>, rounded down (so that it is an integer).</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(data[mid]\)</span> equals <span class="math notranslate nohighlight">\(query\)</span>, then stop. You found it! Return <span class="math notranslate nohighlight">\(mid\)</span>.</p></li>
+<li><p>If the <span class="math notranslate nohighlight">\(mid\)</span> was too low, that is, <span class="math notranslate nohighlight">\(data[mid] &lt; query\)</span>, then set <span class="math notranslate nohighlight">\(low \leftarrow mid + 1\)</span>.</p></li>
+<li><p>Otherwise, the <span class="math notranslate nohighlight">\(mid\)</span> was too high. Set <span class="math notranslate nohighlight">\(max \leftarrow mid - 1\)</span>.</p></li>
+<li><p>Go back to step 2.</p></li>
+</ol>
+<figure class="align-default" id="id3">
+<img alt="https://upload.wikimedia.org/wikipedia/commons/8/83/Binary_Search_Depiction.svg" src="https://upload.wikimedia.org/wikipedia/commons/8/83/Binary_Search_Depiction.svg" /><figcaption>
+<p><span class="caption-number">Fig. 4.4 </span><span class="caption-text">This is an example of a binary search steps through time. <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">[1,3,4,6,7,8,10,13,14,18,19,21,24,37,40,45,71]</span></code> and <code class="docutils literal notranslate"><span class="pre">query=7</span></code></span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="pseudocode">
+<h2><span class="section-number">4.1.2. </span>Pseudocode<a class="headerlink" href="#pseudocode" title="Permalink to this headline">#</a></h2>
+<div class="proof algorithm admonition" id="my-algorithm">
+<p class="admonition-title"><span class="caption-number">Algorithm 4.1 </span> (Binary Search)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Input:</strong> A sorted array A[0..n − 1] and a target value Q</p>
+<p><strong>Output:</strong> an index i such that Q = A[i] or the special value; unsuccessful if no such index exists</p>
+<ol class="arabic simple">
+<li><p>Set Low to 0 and High to n − 1.</p></li>
+<li><p>If Low &gt; High, the search terminates as unsuccessful.</p></li>
+<li><p>Set Mid (the position of the middle element) to the floor (the largest previous integer) of (Low + High) / 2.</p></li>
+<li><p>If A[Mid] &lt; Q, set Low to Mid + 1 and go to step 2.</p></li>
+<li><p>If A[Mid] &gt; Q, set High to Mid − 1 and go to step 2.</p></li>
+<li><p>Now A[Mid] = T, the search is done; return Mid.</p></li>
+</ol>
+</section>
+</div></section>
+<section id="analysis">
+<h2><span class="section-number">4.1.3. </span>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h2>
+<p>The worst-case runtime of binary search is <code class="docutils literal notranslate"><span class="pre">O(log</span> <span class="pre">n)</span></code>. The worst case is when the target value is not in the array. In this case, the algorithm will continue to divide the array in half until the subarray is empty. This will take <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">n</span></code> iterations.</p>
+<p>The best-case runtime of binary search is <code class="docutils literal notranslate"><span class="pre">O(1)</span></code>. The best case is when the target value is the middle element of the array. In this case, the algorithm will find the target on the first iteration.</p>
+<p>The average-case runtime of binary search is <code class="docutils literal notranslate"><span class="pre">O(log</span> <span class="pre">n)</span></code>. The average case is when the target value is equally likely to be any of the <code class="docutils literal notranslate"><span class="pre">n</span></code> values in the array. In this case, the algorithm will find the target in <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">n</span></code> iterations.</p>
+<p>With respect to space, binary search requires <code class="docutils literal notranslate"><span class="pre">O(1)</span></code> space. This is because the algorithm only needs to store a few integers.</p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -430,6 +508,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="divide_conquer.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Divide and Conquer</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../tmp/data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -439,6 +535,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">4.1.1. Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">4.1.2. Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">4.1.3. Analysis</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

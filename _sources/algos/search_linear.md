@@ -1,37 +1,63 @@
 # Linear Search
 
-## Problem Statement
-Given an array of integers, find the index of a given element in the array.
+**Linear Search** (also known as **Sequential Search**) is a brute force search algorithm that finds a target value within a list by sequentially checking each element of the list until a match is found.
 
-<img src="../assets/sequential_search.gif">
+<br/>
 
-## Solution
+<center>
+<img width="65%" src="https://raw.githubusercontent.com/fahadsultan/csc122/main/assets/sequential_search.gif">
+</center>
+
+<br/>
+<!-- ## Psuedocode -->
+
+The pseudocode for the algorithm is as follows:
+
+```{prf:algorithm} Linear Search Algorithm
+:label: my-algorithm
+
+**Inputs** Given a list of numbers $L$ of length $n$ and a target value $t$
+
+**Output** The index of the target value $t$ in the list $L$ of length $n$
+
+1. For $i$ from $0$ to $n-1$: 
+    
+    1.1. If $L[i] == t$:  \
+    1.1.1. Return $i$ \
+    1.2. end If 
+
+2. end For 
+
+3. Return -1
+```
+
+<!-- ## Implementation -->
+
+Python implementation of the algorithm is as follows:
+
 ```python
-list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-target = 5
+data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+query = 5
 
-def linear_search(list, target):
+def linear_search(data, query):
     """
-    Returns the index position of the target if found, else returns None
+    Returns the index position of the target if found, else returns -1
     """
-    for i in range(0, len(list)):
-        if list[i] == target:
+    i = 0
+    while i < len(data):
+        if data[i] == query:
             return i
-    return None
+    return -1
 
-print(linear_search(list, target))
+linear_search(data, query)
 ```
 
 ## Analysis
 
-### Time Complexity
-
 The time complexity of the above algorithm is `O(n)` since in the worst case we have to iterate over the entire list to find the target.
 
-### Space Complexity
+In best case, the target is found at the first index, thus the best case is `O(1)`.
+
+Assuming uniform distribution of the target value, the average case is  If each element is equally likely to be searched, then linear search has an average case of $ \frac{n+1}{2}$ comparisons. Thus, the average case is `O(n)`.
 
 The space complexity of the above algorithm is `O(1)` since we are not using any extra space.
-
-## References
-
-- [Wikipedia](https://en.wikipedia.org/wiki/Linear_search)
