@@ -56,7 +56,8 @@ For $i$ from $1$ to $n-1$: \
     \
 end For
 
-``` -->
+``` 
+-->
 
 ## Implementation
 
