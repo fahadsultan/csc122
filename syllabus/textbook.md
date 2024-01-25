@@ -40,6 +40,8 @@
 
 ### Video Course
 
+* **[Algorithms and Data Structures Tutorial - Full Course for Beginners](https://www.youtube.com/watch?v=8hly31xKli0)**, freeCodeCamp.org _(YouTube video)_
+
 * [**Data Structures and Algorithms in Python - Full Course for Beginners**](https://www.youtube.com/watch?v=pkYVOmU3MgA&ab_channel=freeCodeCamp.org), freeCodeCamp.org _(YouTube video)_
 
 * [**Algorithms** by Jeff Erickson](http://jeffe.cs.illinois.edu/teaching/algorithms/) _(free, open textbook)_
