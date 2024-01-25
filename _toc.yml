@@ -33,12 +33,12 @@ parts:
       sections: 
         - file: algos/search_linear
         - file: algos/bogo
-    - file: tmp/greedy
-    # - file: algos/reduce_conquer
-      # sections: 
-      #   - file: algos/sort_bubble
-        # - file: algos/sort_selection
-        # - file: algos/sort_insertion
+    # - file: tmp/greedy
+    - file: algos/decrease_conquer
+      sections: 
+        # - file: algos/sort_bubble
+        - file: algos/sort_selection
+        - file: algos/sort_insertion
     # - file: tmp/divide_conquer
     - file: algos/divide_conquer
       sections: 
