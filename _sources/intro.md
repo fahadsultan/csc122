@@ -82,7 +82,7 @@ My office hours this semester are **10 - 11:30 AM** on **Mondays** and **Wednesd
 
 I have an **Open door policy**. I am in my office during work hours most weekdays and my door is only closed if I am in a class or in a meeting. So please drop by. 
 
-You can also **schedule a meeting [using this link](https://calendly.com/ssultan-dpq/15-minute-meeting)** if you want to absolutely make sure that I am available.
+You can also **schedule a meeting [using this link](https://calendly.com/ssultan-dpq/)** if you want to absolutely make sure that I am available.
 
 ```{figure} assets/office.png
 ---
