@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Insertion Sort &#8212; My sample book</title>
+    <title>3.2. Insertion Sort &#8212; My sample book</title>
   
   
   
@@ -67,6 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'algos/sort_insertion';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Divide and Conquer" href="divide_conquer.html" />
+    <link rel="prev" title="3.1. Selection Sort" href="sort_selection.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -175,7 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="time.html">1.4. Time Complexity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="space.html">1.5. Space Complexity</a></li>
@@ -186,8 +188,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="bogo.html">2.2. Bogosort</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">3. Greedy Algorithms</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="decrease_conquer.html">3. Decrease and Conquer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sort_selection.html">3.1. Selection Sort</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2. Insertion Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="search_binary.html">4.1. Binary Search</a></li>
 </ul>
 </li>
@@ -402,19 +408,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">Steps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-example">Worked Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace-table">Trace Table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psuedocode">Psuedocode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">Complexity</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-complexity">Time Complexity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-complexity">Space Complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">3.2.1. Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psuedocode">3.2.2. Psuedocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">3.2.3. Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-selection-sort">3.2.4. Comparison with Selection Sort</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarities">3.2.4.1. Similarities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differences">3.2.4.2. Differences</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animation">Animation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages">Disadvantages</a></li>
 </ul>
             </nav>
         </div>
@@ -426,12 +427,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <img align="right" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Sorting_insertion_sort_anim.gif">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Sorting_insertion_sort_anim.gif" align="right" width="25%">
 <section class="tex2jax_ignore mathjax_ignore" id="insertion-sort">
-<h1>Insertion Sort<a class="headerlink" href="#insertion-sort" title="Permalink to this headline">#</a></h1>
-<p>Insertion sort is a simple sorting algorithm that works the way we sort playing cards in our hands.</p>
+<h1><span class="section-number">3.2. </span>Insertion Sort<a class="headerlink" href="#insertion-sort" title="Permalink to this headline">#</a></h1>
+<p><strong>Insertion sort</strong> is a simple sorting algorithm that works the way we sort playing cards in our hands.</p>
+<p>The algorithm works by maintaining two sublists in a given array:</p>
+<ol class="arabic simple">
+<li><p>The sublist which is already sorted.</p></li>
+<li><p>Remaining sublist which is unsorted.</p></li>
+</ol>
+<img width="23%" align="right" src="https://upload.wikimedia.org/wikipedia/commons/2/25/Insertion_sort_animation.gif">
+<p>The algorithm iteratively <em>“inserts”</em> the next element from the unsorted sublist into the correct position in the sorted sublist. This process continues until the unsorted sublist is empty.</p>
+<p>Similar to selection sort, the algorithm does not require any extra space the two sublists are maintained by a single variables tracking the first element of the unsorted sublist. Everything before this variable is sorted and everything after it is unsorted.</p>
+<figure class="align-default" id="selection-sort">
+<a class="reference internal image-reference" href="https://miro.medium.com/v2/resize:fit:1102/1*qc-KD7DII1K097jnvOWqsg.gif"><img alt="https://miro.medium.com/v2/resize:fit:1102/1*qc-KD7DII1K097jnvOWqsg.gif" src="https://miro.medium.com/v2/resize:fit:1102/1*qc-KD7DII1K097jnvOWqsg.gif" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Insertion Sort is similar to how we sort playing cards in our hands. We iteratively insert the next element from the unsorted sublist into the correct position in the sorted sublist.</span><a class="headerlink" href="#selection-sort" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <section id="steps">
-<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.2.1. </span>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">#</a></h2>
 <p>The algorithm works as follows:</p>
 <ol class="arabic simple">
 <li><p>Initialize a iterator <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
@@ -441,102 +456,79 @@ document.write(`
 <li><p>Set <span class="math notranslate nohighlight">\(L[j+1]\)</span> to <span class="math notranslate nohighlight">\(key\)</span>.</p></li>
 <li><p>Increment <span class="math notranslate nohighlight">\(i\)</span> by <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
 </ol>
-</section>
-<section id="worked-example">
-<h2>Worked Example<a class="headerlink" href="#worked-example" title="Permalink to this headline">#</a></h2>
-<p>Here is a worked example of the algorithm:</p>
-</section>
-<section id="trace-table">
-<h2>Trace Table<a class="headerlink" href="#trace-table" title="Permalink to this headline">#</a></h2>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="https://miro.medium.com/v2/resize:fit:1280/1*jdXtqXw0EQVpqdZZoGnwsQ.gif"><img alt="https://miro.medium.com/v2/resize:fit:1280/1*jdXtqXw0EQVpqdZZoGnwsQ.gif" src="https://miro.medium.com/v2/resize:fit:1280/1*jdXtqXw0EQVpqdZZoGnwsQ.gif" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Insertion Sort is similar to how we sort playing cards in our hands. We iteratively insert the next element from the unsorted sublist into the correct position in the sorted sublist. Note that the animation above is sorting in descending order.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="psuedocode">
-<h2>Psuedocode<a class="headerlink" href="#psuedocode" title="Permalink to this headline">#</a></h2>
-<!-- 
-```{prf:algorithm} Insertion Sort Algorithm
-:label: my-algorithm
-
-**Inputs** Given a list of numbers $L$ of length $n$
-
-**Output** A sorted list of numbers $L$ of length $n$
-
-$n$ $\leftarrow$ length(L)
-
-For $i$ from $1$ to $n-1$: \
-    \
-    $key$ $\leftarrow$ $L[i]$ \
-    \
-    $j$ $\leftarrow$ $i-1$ \
-    \
-    While $j \geq 0$ and $L[j] > key$: \
-    \
-        $L[j+1]$ $\leftarrow$ $L[j]$ \
-    \
-        $j$ $\leftarrow$ $j-1$ \
-    \
-    end While \
-    \
-    $L[j+1]$ $\leftarrow$ $key$ \
-    \
-end For
-
-``` 
--->
+<h2><span class="section-number">3.2.2. </span>Psuedocode<a class="headerlink" href="#psuedocode" title="Permalink to this headline">#</a></h2>
+<div class="proof algorithm admonition" id="my-algorithm">
+<p class="admonition-title"><span class="caption-number">Algorithm 3.2 </span> (Insertion Sort Algorithm)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Inputs</strong> Given a list of numbers <span class="math notranslate nohighlight">\(L\)</span> of length <span class="math notranslate nohighlight">\(n\)</span></p>
+<p><strong>Output</strong> A sorted list of numbers <span class="math notranslate nohighlight">\(L\)</span> of length <span class="math notranslate nohighlight">\(n\)</span></p>
+<img align="right" width="60%" src="https://he-s3.s3.amazonaws.com/media/uploads/46bfac9.png">
+<p><span class="math notranslate nohighlight">\(n\)</span> <span class="math notranslate nohighlight">\(\leftarrow\)</span> length(L)</p>
+<p>For <span class="math notranslate nohighlight">\(i\)</span> from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(n-1\)</span>: <br />
+  <span class="math notranslate nohighlight">\(key\)</span> <span class="math notranslate nohighlight">\(\leftarrow\)</span> <span class="math notranslate nohighlight">\(L[i]\)</span> <br />
+  <span class="math notranslate nohighlight">\(j\)</span> <span class="math notranslate nohighlight">\(\leftarrow\)</span> <span class="math notranslate nohighlight">\(i-1\)</span> <br />
+  While <span class="math notranslate nohighlight">\(j \geq 0\)</span> and <span class="math notranslate nohighlight">\(L[j] &gt; key\)</span>: <br />
+      <span class="math notranslate nohighlight">\(L[j+1]\)</span> <span class="math notranslate nohighlight">\(\leftarrow\)</span> <span class="math notranslate nohighlight">\(L[j]\)</span> <br />
+      <span class="math notranslate nohighlight">\(j\)</span> <span class="math notranslate nohighlight">\(\leftarrow\)</span> <span class="math notranslate nohighlight">\(j-1\)</span> <br />
+  end While <br />
+  <span class="math notranslate nohighlight">\(L[j+1]\)</span> <span class="math notranslate nohighlight">\(\leftarrow\)</span> <span class="math notranslate nohighlight">\(key\)</span> <br />
+end For</p>
 </section>
-<section id="implementation">
-<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># Python program for implementation of Insertion Sort</span>
-
-<span class="c1"># Function to do insertion sort</span>
-<span class="k">def</span> <span class="nf">insertionSort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-
-    <span class="c1"># Traverse through 1 to len(arr)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
-
-        <span class="n">key</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-
-        <span class="c1"># Move elements of arr[0..i-1], that are</span>
-        <span class="c1"># greater than key, to one position ahead</span>
-        <span class="c1"># of their current position</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span>
-        <span class="k">while</span> <span class="n">j</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">:</span>
-                <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-                <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
-</pre></div>
-</div>
+</div></section>
+<section id="analysis">
+<h2><span class="section-number">3.2.3. </span>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h2>
+<p>The time complexity of insertion sort depends on the initial order of the elements in the input array.</p>
+<p>In the worst case, the array is sorted in reverse order. In this case, the algorithm will perform <span class="math notranslate nohighlight">\(n\)</span> comparisons and <span class="math notranslate nohighlight">\(n(n-1)/2\)</span> swaps. Thus, the time complexity is <span class="math notranslate nohighlight">\(O(n^2)\)</span>.</p>
+<p>In the average case, the array is randomly ordered. In this case, the algorithm will perform <span class="math notranslate nohighlight">\(n\)</span> comparisons and <span class="math notranslate nohighlight">\(n(n-1)/4\)</span> swaps. Thus, the time complexity is <span class="math notranslate nohighlight">\(O(n^2)\)</span>.</p>
+<p>In the best case, the array is already sorted. In this case, the algorithm will perform <span class="math notranslate nohighlight">\(n\)</span> comparisons and <span class="math notranslate nohighlight">\(0\)</span> swaps. Thus, the time complexity is <span class="math notranslate nohighlight">\(O(n)\)</span>. Note that the best case of insertion sort is better than the best case of selection sort.</p>
+<p>The space complexity of insertion sort is <span class="math notranslate nohighlight">\(O(1)\)</span> in all cases as the algorithm does not require any extra space.</p>
 </section>
-<section id="complexity">
-<h2>Complexity<a class="headerlink" href="#complexity" title="Permalink to this headline">#</a></h2>
-<p>The complexity of the algorithm is <span class="math notranslate nohighlight">\(O(n^2)\)</span>.</p>
-<section id="time-complexity">
-<h3>Time Complexity<a class="headerlink" href="#time-complexity" title="Permalink to this headline">#</a></h3>
-<p>Time Complexity of insertion sort is <span class="math notranslate nohighlight">\(O(n^2)\)</span> in all cases.</p>
+<section id="comparison-with-selection-sort">
+<h2><span class="section-number">3.2.4. </span>Comparison with Selection Sort<a class="headerlink" href="#comparison-with-selection-sort" title="Permalink to this headline">#</a></h2>
+<p>Selection and Insertion sort are similar algorithms with some subtle but key differences.</p>
+<section id="similarities">
+<h3><span class="section-number">3.2.4.1. </span>Similarities<a class="headerlink" href="#similarities" title="Permalink to this headline">#</a></h3>
+<p>They are similar in that they are</p>
+<ul class="simple">
+<li><p>Both decrease and conquer sorting algorithms</p></li>
+<li><p>Both maintain two sublists in a given array:</p>
+<ul>
+<li><p>The sublist which is already sorted.</p></li>
+<li><p>Remaining sublist which is unsorted.</p></li>
+</ul>
+</li>
+<li><p>Both have a time complexity of <span class="math notranslate nohighlight">\(O(n^2)\)</span></p></li>
+<li><p>Both are in-place sorting algorithms</p></li>
+<li><p>The space complexity of both is <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
+</ul>
 </section>
-<section id="space-complexity">
-<h3>Space Complexity<a class="headerlink" href="#space-complexity" title="Permalink to this headline">#</a></h3>
-<p>Space Complexity of insertion sort is <span class="math notranslate nohighlight">\(O(1)\)</span> in all cases.</p>
-</section>
-</section>
-<section id="animation">
-<h2>Animation<a class="headerlink" href="#animation" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="advantages">
-<h2>Advantages<a class="headerlink" href="#advantages" title="Permalink to this headline">#</a></h2>
-<ol class="arabic simple">
-<li><p>Simple implementation</p></li>
-<li><p>Efficient for small data sets</p></li>
-<li><p>Adaptive, i.e., efficient for data sets that are already substantially sorted: the time complexity is <span class="math notranslate nohighlight">\(O(nk)\)</span> when each element in the input is no more than <span class="math notranslate nohighlight">\(k\)</span> places away from its sorted position</p></li>
-<li><p>Stable; i.e., does not change the relative order of elements with equal keys</p></li>
+<section id="differences">
+<h3><span class="section-number">3.2.4.2. </span>Differences<a class="headerlink" href="#differences" title="Permalink to this headline">#</a></h3>
+<p>They two key difference in that:</p>
+<ol class="arabic">
+<li><p>In selection sort, most of the work done is in “selecting” (finding) the smallest element in the unsorted sublist.</p>
+ <br/>
+<p>In insertion sort, most of the work is done in “inserting” the next element from the unsorted sublist into the correct position in the sorted sublist.</p>
+</li>
+</ol>
+<figure class="align-default" id="select-vs-insert">
+<a class="reference internal image-reference" href="../_images/select_vs_insert.png"><img alt="../_images/select_vs_insert.png" src="../_images/select_vs_insert.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">The key difference between Selection Sort and Insertion Sort is that most of the work done in Selection Sort is in tge “Select” (finding) step and most of the work done in Insertion Sort is in the “Insert” step.</span><a class="headerlink" href="#select-vs-insert" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Depending on the implementation and the data, insertion sort can, in the best case, be faster than selection sort.</p></li>
 </ol>
 </section>
-<section id="disadvantages">
-<h2>Disadvantages<a class="headerlink" href="#disadvantages" title="Permalink to this headline">#</a></h2>
-<ol class="arabic simple">
-<li><p>More efficient algorithms such as quicksort, heapsort, or merge sort are used by the library function <code class="docutils literal notranslate"><span class="pre">sort()</span></code></p></li>
-<li><p>Insertion sort is very slow for large data sets</p></li>
-<li><p>Insertion sort is not a practical sorting algorithm when <span class="math notranslate nohighlight">\(n\)</span> is large</p></li>
-</ol>
 </section>
 </section>
 
@@ -571,6 +563,24 @@ end For
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="sort_selection.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3.1. </span>Selection Sort</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="divide_conquer.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Divide and Conquer</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -589,19 +599,14 @@ end For
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">Steps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-example">Worked Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace-table">Trace Table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psuedocode">Psuedocode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">Complexity</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-complexity">Time Complexity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-complexity">Space Complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">3.2.1. Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psuedocode">3.2.2. Psuedocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">3.2.3. Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-selection-sort">3.2.4. Comparison with Selection Sort</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarities">3.2.4.1. Similarities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differences">3.2.4.2. Differences</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animation">Animation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages">Disadvantages</a></li>
 </ul>
   </nav></div>
 

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Selection Sort &#8212; My sample book</title>
+    <title>3.1. Selection Sort &#8212; My sample book</title>
   
   
   
@@ -67,6 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'algos/sort_selection';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.2. Insertion Sort" href="sort_insertion.html" />
+    <link rel="prev" title="3. Decrease and Conquer" href="decrease_conquer.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -175,7 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="time.html">1.4. Time Complexity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="space.html">1.5. Space Complexity</a></li>
@@ -186,8 +188,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="bogo.html">2.2. Bogosort</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/greedy.html">3. Greedy Algorithms</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="decrease_conquer.html">3. Decrease and Conquer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.1. Selection Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sort_insertion.html">3.2. Insertion Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="search_binary.html">4.1. Binary Search</a></li>
 </ul>
 </li>
@@ -402,20 +408,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-example">Worked Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace-table">Trace Table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psuedocode">Psuedocode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">Complexity</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-complexity">Time Complexity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-complexity">Space Complexity</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animation">Animation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-selection-sort">Advantages of Selection Sort</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-selection-sort">Disadvantages of Selection Sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">3.1.1. Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psuedocode">3.1.2. Psuedocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">3.1.3. Analysis</a></li>
 </ul>
             </nav>
         </div>
@@ -427,132 +422,71 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="selection-sort">
-<h1>Selection Sort<a class="headerlink" href="#selection-sort" title="Permalink to this headline">#</a></h1>
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Sorting_selection_sort_anim.gif" align="center">
-<p>Selection sort is a simple and efficient sorting algorithm that works by repeatedly selecting the smallest (or largest) element from the unsorted portion of the list and moving it to the sorted portion of the list. The algorithm maintains two sublists in a given array.</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Sorting_selection_sort_anim.gif" align="right" width="25%" >
+<section class="tex2jax_ignore mathjax_ignore" id="selection-sort">
+<h1><span class="section-number">3.1. </span>Selection Sort<a class="headerlink" href="#selection-sort" title="Permalink to this headline">#</a></h1>
+<p><strong>Selection sort</strong> is a simple decrease and conquer sorting algorithm that works by maintaining two sublists in a given array:</p>
 <ol class="arabic simple">
 <li><p>The sublist which is already sorted.</p></li>
 <li><p>Remaining sublist which is unsorted.</p></li>
 </ol>
-<p>In every iteration of selection sort, the minimum element from the unsorted sublist is picked and moved to the sorted sublist.</p>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">#</a></h2>
-<p>The algorithm works as follows:</p>
+<img width="23%" align="right" src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Selection_sort_animation.gif">
+<p>The algorithm iteratively <em>“selects”</em> the smallest (for ascending order) element from the unsorted sublist and appends it to the end of the sorted sublist. This process continues until the unsorted sublist is empty.</p>
+<p>Note that the algorithm does not require any extra space and is thus an in-place sorting algorithm. The two sublists are maintained by a single variables tracking the first element of the unsorted sublist. Everything before this variable is sorted and everything after it is unsorted.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="https://miro.medium.com/v2/resize:fit:1102/1*H2bCd6eoIONJIUnG5Jm9sQ.gif"><img alt="https://miro.medium.com/v2/resize:fit:1102/1*H2bCd6eoIONJIUnG5Jm9sQ.gif" src="https://miro.medium.com/v2/resize:fit:1102/1*H2bCd6eoIONJIUnG5Jm9sQ.gif" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Selection Sort iteratively selects the smallest element from the unsorted sublist and appends it to the end of the sorted sublist.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Selection sort <em>“conquers”</em> the sorting problem by <em>“decreasing”</em> the size of the unsorted sublist by one in each iteration.</p>
+<section id="algorithm">
+<h2><span class="section-number">3.1.1. </span>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">#</a></h2>
+<p>The selection sort algorithm, conceptually in broad steps, works as follows:</p>
 <ol class="arabic simple">
 <li><p>Initialize a iterator <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
-<li><p>Initialize a variable <span class="math notranslate nohighlight">\(min\)</span> to <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
-<li><p>Iterate over the list from <span class="math notranslate nohighlight">\(i+1\)</span> to <span class="math notranslate nohighlight">\(n-1\)</span>.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(L[min] &gt; L[j]\)</span>, set <span class="math notranslate nohighlight">\(min\)</span> to <span class="math notranslate nohighlight">\(j\)</span>.</p></li>
-<li><p>Swap <span class="math notranslate nohighlight">\(L[i]\)</span> and <span class="math notranslate nohighlight">\(L[min]\)</span>.</p></li>
+<li><p>Identify the smallest element in the unsorted sublist (from <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(n-1\)</span>).</p></li>
+<li><p>Swap the smallest element with the element at index <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
 <li><p>Increment <span class="math notranslate nohighlight">\(i\)</span> by <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
+<li><p>Repeat steps 2-4 until <span class="math notranslate nohighlight">\(i\)</span> is equal to <span class="math notranslate nohighlight">\(n-1\)</span>.</p></li>
 </ol>
-</section>
-<section id="worked-example">
-<h2>Worked Example<a class="headerlink" href="#worked-example" title="Permalink to this headline">#</a></h2>
-<p>Here is a worked example of the algorithm:</p>
-</section>
-<section id="trace-table">
-<h2>Trace Table<a class="headerlink" href="#trace-table" title="Permalink to this headline">#</a></h2>
+<center><img width="70%" src="https://miro.medium.com/v2/resize:fit:1144/1*5WXRN62ddiM_Gcf4GDdCZg.gif"></center>
+<!-- 
+```{figure} 
+---
+width: 75%
+name: selection-sort
+---
+Selection Sort
+``` 
+-->
 </section>
 <section id="psuedocode">
-<h2>Psuedocode<a class="headerlink" href="#psuedocode" title="Permalink to this headline">#</a></h2>
-<!-- ```{prf:algorithm} Bubble Sort Algorithm
-:label: my-algorithm
-
-**Inputs** Given a list of numbers $L$ of length $n$ 
-
-**Output** A sorted list of numbers $L$ of length $n$
-
-$n$ $\leftarrow$ length(L)
-
-For $i$ from $0$ to $n-1$: \
-    \
-    $min$ $\leftarrow$ $i$ \
-    \
-    For $j$ from $i+1$ to $n-1$: \
-    \
-        If $L[min] > L[j]$: \
-    \
-            $min$ $\leftarrow$ $j$ \
-    \
-        end If \
-    \
-    Swap $L[i]$ and $L[min]$ \
-    \
-end For
-
-``` -->
+<h2><span class="section-number">3.1.2. </span>Psuedocode<a class="headerlink" href="#psuedocode" title="Permalink to this headline">#</a></h2>
+<div class="proof algorithm admonition" id="my-algorithm">
+<p class="admonition-title"><span class="caption-number">Algorithm 3.1 </span> (Selection Sort Algorithm)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Inputs</strong> Given a list of numbers <span class="math notranslate nohighlight">\(L\)</span> of length <span class="math notranslate nohighlight">\(n\)</span></p>
+<p><strong>Output</strong> A sorted list of numbers <span class="math notranslate nohighlight">\(L\)</span> of length <span class="math notranslate nohighlight">\(n\)</span></p>
+<img width="60%" align="right" src="https://he-s3.s3.amazonaws.com/media/uploads/2888f5b.png">
+<p>For <span class="math notranslate nohighlight">\(i\)</span> from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(n-1\)</span>: <br />
+  <span class="math notranslate nohighlight">\(min\)</span> <span class="math notranslate nohighlight">\(\leftarrow\)</span> <span class="math notranslate nohighlight">\(i\)</span> <br />
+  For <span class="math notranslate nohighlight">\(j\)</span> from <span class="math notranslate nohighlight">\(i+1\)</span> to <span class="math notranslate nohighlight">\(n-1\)</span>: <br />
+    If <span class="math notranslate nohighlight">\(L[min] &gt; L[j]\)</span>: <br />
+      <span class="math notranslate nohighlight">\(min\)</span> <span class="math notranslate nohighlight">\(\leftarrow\)</span> <span class="math notranslate nohighlight">\(j\)</span> <br />
+    end If <br />
+  end For <br />
+  Swap <span class="math notranslate nohighlight">\(L[i]\)</span> and <span class="math notranslate nohighlight">\(L[min]\)</span> <br />
+end For</p>
 </section>
-<section id="implementation">
-<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">selectionSort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-     
-    <span class="c1"># Traverse through all array elements</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-         
-        <span class="c1"># Find the minimum element in remaining</span>
-        <span class="c1"># unsorted array</span>
-        <span class="n">min_idx</span> <span class="o">=</span> <span class="n">i</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">min_idx</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
-                <span class="n">min_idx</span> <span class="o">=</span> <span class="n">j</span>
-                 
-        <span class="c1"># Swap the found minimum element with</span>
-        <span class="c1"># the first element        </span>
-        <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">min_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">min_idx</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</pre></div>
-</div>
-</section>
-<section id="complexity">
-<h2>Complexity<a class="headerlink" href="#complexity" title="Permalink to this headline">#</a></h2>
-<p>The time complexity of selection sort is <span class="math notranslate nohighlight">\(O(n^2)\)</span> in all cases. The space complexity is <span class="math notranslate nohighlight">\(O(1)\)</span>.</p>
-<section id="time-complexity">
-<h3>Time Complexity<a class="headerlink" href="#time-complexity" title="Permalink to this headline">#</a></h3>
+</div></section>
+<section id="analysis">
+<h2><span class="section-number">3.1.3. </span>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h2>
 <p>Time Complexity of selection sort is <span class="math notranslate nohighlight">\(O(n^2)\)</span> in all cases.</p>
-<p>In the best case, the list is already sorted. In this case, the algorithm will perform <span class="math notranslate nohighlight">\(n\)</span> comparisons and <span class="math notranslate nohighlight">\(0\)</span> swaps. Thus, the time complexity is <span class="math notranslate nohighlight">\(O(n)\)</span>.</p>
 <p>In the worst case, the list is sorted in reverse order. In this case, the algorithm will perform <span class="math notranslate nohighlight">\(n\)</span> comparisons and <span class="math notranslate nohighlight">\(n\)</span> swaps. Thus, the time complexity is <span class="math notranslate nohighlight">\(O(n^2)\)</span>.</p>
+<p>In the best case, the list is already sorted. In this case, the algorithm still performs <span class="math notranslate nohighlight">\(n^2\)</span> comparisons but does <span class="math notranslate nohighlight">\(0\)</span> swaps. Thus, the time complexity is <span class="math notranslate nohighlight">\(O(n^2)\)</span>.</p>
 <p>In the average case, the list is not sorted. In this case, the algorithm will perform <span class="math notranslate nohighlight">\(n\)</span> comparisons and <span class="math notranslate nohighlight">\(n/2\)</span> swaps. Thus, the time complexity is <span class="math notranslate nohighlight">\(O(n^2)\)</span>.</p>
-</section>
-<section id="space-complexity">
-<h3>Space Complexity<a class="headerlink" href="#space-complexity" title="Permalink to this headline">#</a></h3>
 <p>Space Complexity of selection sort is <span class="math notranslate nohighlight">\(O(1)\)</span>. This is because the algorithm sorts the list in-place.</p>
-</section>
-</section>
-<section id="visualization">
-<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">#</a></h2>
-<figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="https://he-s3.s3.amazonaws.com/media/uploads/2888f5b.png"><img alt="https://he-s3.s3.amazonaws.com/media/uploads/2888f5b.png" src="https://he-s3.s3.amazonaws.com/media/uploads/2888f5b.png" style="height: 300px;" /></a>
-<figcaption>
-<p><span class="caption-text">Selection Sort</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="animation">
-<h2>Animation<a class="headerlink" href="#animation" title="Permalink to this headline">#</a></h2>
-<figure class="align-default" id="id2">
-<a class="reference internal image-reference" href="https://miro.medium.com/v2/resize:fit:1144/1*5WXRN62ddiM_Gcf4GDdCZg.gif"><img alt="https://miro.medium.com/v2/resize:fit:1144/1*5WXRN62ddiM_Gcf4GDdCZg.gif" src="https://miro.medium.com/v2/resize:fit:1144/1*5WXRN62ddiM_Gcf4GDdCZg.gif" style="height: 300px;" /></a>
-<figcaption>
-<p><span class="caption-text">Selection Sort</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="advantages-of-selection-sort">
-<h2>Advantages of Selection Sort<a class="headerlink" href="#advantages-of-selection-sort" title="Permalink to this headline">#</a></h2>
-<ol class="arabic simple">
-<li><p>Selection sort is simple to implement.</p></li>
-<li><p>Selection sort is efficient for small data sets.</p></li>
-<li><p>Selection sort is an in-place sorting algorithm. Thus, it does not require any extra space.</p></li>
-<li><p>Selection sort is a stable sorting algorithm.</p></li>
-</ol>
-</section>
-<section id="disadvantages-of-selection-sort">
-<h2>Disadvantages of Selection Sort<a class="headerlink" href="#disadvantages-of-selection-sort" title="Permalink to this headline">#</a></h2>
-<ol class="arabic simple">
-<li><p>Selection sort is inefficient for large data sets.</p></li>
-<li><p>Selection sort is not a practical sorting algorithm when compared to other sorting algorithms like quick sort, merge sort, etc.</p></li>
-</ol>
 </section>
 </section>
 
@@ -587,6 +521,24 @@ end For
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="decrease_conquer.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Decrease and Conquer</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sort_insertion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.2. </span>Insertion Sort</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -605,20 +557,9 @@ end For
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-example">Worked Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace-table">Trace Table</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psuedocode">Psuedocode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">Complexity</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-complexity">Time Complexity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-complexity">Space Complexity</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#animation">Animation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-selection-sort">Advantages of Selection Sort</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-selection-sort">Disadvantages of Selection Sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">3.1.1. Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psuedocode">3.1.2. Psuedocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">3.1.3. Analysis</a></li>
 </ul>
   </nav></div>
 

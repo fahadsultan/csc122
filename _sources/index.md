@@ -10,11 +10,11 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 👇🏾 Below, you can find important links and important announcements.
 
 ```{important}
-**[Programming Assignment 2](https://colab.research.google.com/drive/1Sg07q8Hg_BD1imXRNe2X4FYP965paikq?usp=sharing)** is due before next lab (January 26th). Please submit your work on Moodle.
+**Exam 1** will take place on Tuesday, **February 6th** during class time. <br/><br/>Please note that the exam will be on computer, so please don't forget to bring your laptops.
 ```
 
 ```{important}
-<b><a href="algos/written_assignment.html">Written Assignment 1</a></b> is due before Tuesday, January 23rd. Please submit your work on Moodle.
+**[Programming Assignment 2](https://colab.research.google.com/drive/1Sg07q8Hg_BD1imXRNe2X4FYP965paikq?usp=sharing)** is due before next lab (January 26th). Please submit your work on Moodle.
 ```
 
 ```{tip}
