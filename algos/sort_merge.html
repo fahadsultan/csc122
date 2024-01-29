@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Merge Sort &#8212; My sample book</title>
+    <title>4.2. Merge Sort &#8212; My sample book</title>
   
   
   
@@ -62,9 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'algos/sort_merge';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Data" href="../tmp/data.html" />
+    <link rel="prev" title="4.1. Binary Search" href="search_binary.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -173,7 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="time.html">1.4. Time Complexity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="space.html">1.5. Space Complexity</a></li>
@@ -189,8 +193,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="sort_insertion.html">3.2. Insertion Sort</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="divide_conquer.html">4. Divide and Conquer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="search_binary.html">4.1. Binary Search</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.2. Merge Sort</a></li>
 </ul>
 </li>
 </ul>
@@ -404,10 +409,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">Steps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">Complexity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-code">The Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">4.2.1. Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">4.2.2. Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">4.2.3. Complexity</a></li>
 </ul>
             </nav>
         </div>
@@ -420,26 +424,57 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="merge-sort">
-<h1>Merge Sort<a class="headerlink" href="#merge-sort" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4.2. </span>Merge Sort<a class="headerlink" href="#merge-sort" title="Permalink to this headline">#</a></h1>
+<img width="30%" align="right" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Merge_sort_animation2.gif">
 <p>Merge sort is a divide and conquer algorithm that was invented by John von Neumann in 1945. Merge sort is a comparison sort, meaning that it can sort items of any type for which a “less-than” relation (formally, a total order) is defined.</p>
 <p>It is an efficient, general-purpose, comparison-based sorting algorithm. Most implementations produce a stable sort, which means that the order of equal elements is the same in the input and output.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif"><img alt="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Merge sort algorithm example.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <section id="steps">
-<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.2.1. </span>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Divide the unsorted list into n sublists, each containing one element (a list of one element is considered sorted).</p></li>
 <li><p>Repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining. This will be the sorted list.</p></li>
 </ol>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/e/e6/Merge_sort_algorithm_diagram.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/e/e6/Merge_sort_algorithm_diagram.svg" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Merge_sort_algorithm_diagram.svg" width="60%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.6 </span><span class="caption-text">Merge sort algorithm example.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
+<section id="pseudocode">
+<h2><span class="section-number">4.2.2. </span>Pseudocode<a class="headerlink" href="#pseudocode" title="Permalink to this headline">#</a></h2>
+<div class="proof algorithm admonition" id="my-algorithm">
+<p class="admonition-title"><span class="caption-number">Algorithm 4.2 </span> (Merge Sort Algorithm)</p>
+<section class="algorithm-content" id="proof-content">
+<p>procedure mergesort( var a as array )
+if ( n == 1 ) return a</p>
+<p>var l1 as array = a[0] … a[n/2]
+var l2 as array = a[n/2+1] … a[n]</p>
+<p>l1 = mergesort( l1 )
+l2 = mergesort( l2 )</p>
+<p>return merge( l1, l2 )
+end procedure</p>
+</section>
+</div></section>
 <section id="complexity">
-<h2>Complexity<a class="headerlink" href="#complexity" title="Permalink to this headline">#</a></h2>
-<p>The analysis</p>
-</section>
-<section id="visualization">
-<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">#</a></h2>
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Merge_sort_algorithm_diagram.svg">
-</section>
-<section id="the-code">
-<h2>The Code<a class="headerlink" href="#the-code" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.2.3. </span>Complexity<a class="headerlink" href="#complexity" title="Permalink to this headline">#</a></h2>
+<p>The analysis  of merge sort can be done in terms of the number of comparisons performed during the sort. This is because every comparison results in a swap, and a swap takes time proportional to the number of items being swapped. The number of comparisons, C(n), performed by a merge sort on n bitonic sequences is bounded by</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{n}{2} \log_2 n + 2n - \frac{3}{2}
+\]</div>
+<p>The number of swaps required by merge sort on n bitonic sequences is bounded by</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{n}{2} \log_2 n + \frac{n}{2} - 2
+\]</div>
+<p>The number of comparisons made by merge sort in the worst case is given by the sorting numbers. The number of comparisons made by merge sort in the average case is given by the sorting numbers. The number of comparisons made by merge sort in the best case is given by the sorting numbers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merge sort </span>
@@ -511,6 +546,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="search_binary.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.1. </span>Binary Search</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../tmp/data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -529,10 +582,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">Steps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">Complexity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-code">The Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">4.2.1. Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">4.2.2. Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">4.2.3. Complexity</a></li>
 </ul>
   </nav></div>
 
