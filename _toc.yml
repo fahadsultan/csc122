@@ -43,7 +43,7 @@ parts:
     - file: algos/divide_conquer
       sections: 
         - file: algos/search_binary
-        # - file: algos/sort_merge
+        - file: algos/sort_merge
     # - file: algos/dynamic
   - caption: Basic Elements of Programming
     numbered: true

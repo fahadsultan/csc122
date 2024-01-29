@@ -14,8 +14,9 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 ```
 
 ```{important}
-**[Programming Assignment 2](https://colab.research.google.com/drive/1Sg07q8Hg_BD1imXRNe2X4FYP965paikq?usp=sharing)** is due before next lab (January 26th). Please submit your work on Moodle.
+**[Programming Assignment 3.1](https://colab.research.google.com/drive/1DD-kS40aeGmQH8lc6Uh7uTRSfAUGAHmU?usp=sharing)**, **[Programming Assignment 3.2](https://colab.research.google.com/drive/1nEKr6x2muSmkGztMc7tD537VL_i41uaW?usp=sharing)** and  **[Written Assignment 2](https://docs.google.com/document/d/1JhJrMueeOICI3rZGRLejm1crr3yn7kr5T6GDxV3cvkk/edit?usp=sharing)**  <br/>are all due on **Friday, February 2nd**. Please submit your work on Moodle.
 ```
+
 
 ```{tip}
 I have an **Open-Door Policy** and am in my office (_Riley Hall 200-D_) between 9 AM - 5 PM most weekdays. Please drop by with your questions or just to say hi! <br/>
