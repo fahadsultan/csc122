@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'algos/sort_merge_iter';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Data" href="../tmp/data.html" />
+    <link rel="next" title="4.3. Quick Sort" href="sort_quick_iter.html" />
     <link rel="prev" title="4.1. Binary Search" href="search_binary.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -196,6 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="divide_conquer.html">4. Divide and Conquer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="search_binary.html">4.1. Binary Search</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">4.2. Merge Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sort_quick_iter.html">4.3. Quick Sort</a></li>
 </ul>
 </li>
 </ul>
@@ -410,7 +411,9 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">4.2.1. Steps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">4.2.2. Complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">4.2.2. Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">4.2.3. Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">4.2.4. Complexity</a></li>
 </ul>
             </nav>
         </div>
@@ -452,6 +455,42 @@ Merge sort algorithm example.
 <li><p class="sd-card-text"><em>Input</em>: <code class="docutils literal notranslate"><span class="pre">list1</span> <span class="pre">=</span> <span class="pre">[4]</span></code>, <code class="docutils literal notranslate"><span class="pre">list2</span> <span class="pre">=</span> <span class="pre">[0]</span></code> <em>Output</em>: <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">4]</span></code></p></li>
 </ul>
 <p class="sd-card-text">Note that the merge procedure is of linear time complexity and has space complexity of <code class="docutils literal notranslate"><span class="pre">O(n)</span></code> since it creates a new list of size <code class="docutils literal notranslate"><span class="pre">n</span></code> to store the merged list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot; Merge two given sorted lists into one sorted list &quot;&quot;&quot;</span>
+  <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+  <span class="n">merged</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="c1"># Merge the two lists until one of them is exhausted</span>
+  <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">list2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">list2</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+      <span class="n">merged</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+      <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">merged</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list2</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+      <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span>
+
+  <span class="c1"># Add the remaining elements of list1</span>
+  <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">):</span>
+    <span class="n">merged</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+  <span class="c1"># Add the remaining elements of list2</span>
+  <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">list2</span><span class="p">):</span>
+    <span class="n">merged</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list2</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
+
+  <span class="k">return</span> <span class="n">merged</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">merge</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>    <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>    <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="k">assert</span> <span class="n">merge</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="k">assert</span> <span class="n">merge</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="s2">&quot;Test case 3 failed&quot;</span>
+<span class="k">assert</span> <span class="n">merge</span><span class="p">([],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>           <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>             <span class="s2">&quot;Test case 4 failed&quot;</span>
+<span class="k">assert</span> <span class="n">merge</span><span class="p">([</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>                <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>                <span class="s2">&quot;Test case 5 failed&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All test cases passed successfully&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 <br/>
@@ -479,34 +518,62 @@ width: 60%
 Merge sort algorithm example.
 ``` 
 -->
-<!-- 
-## Pseudocode
+</section>
+<section id="pseudocode">
+<h2><span class="section-number">4.2.2. </span>Pseudocode<a class="headerlink" href="#pseudocode" title="Permalink to this headline">#</a></h2>
+<div class="proof algorithm admonition" id="my-algorithm">
+<p class="admonition-title"><span class="caption-number">Algorithm 4.2 </span> (Merge Sort Algorithm)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Inputs</strong> Given a list of numbers <span class="math notranslate nohighlight">\(L\)</span> of length <span class="math notranslate nohighlight">\(n\)</span></p>
+<p><strong>Output</strong> A sorted list <span class="math notranslate nohighlight">\(L\)</span> of numbers of length <span class="math notranslate nohighlight">\(n\)</span></p>
+<p><span class="math notranslate nohighlight">\(L^{\prime}\)</span> <span class="math notranslate nohighlight">\(\leftarrow\)</span> [[<span class="math notranslate nohighlight">\(x\)</span>] for <span class="math notranslate nohighlight">\(x \in L\)</span>]</p>
+<p><span class="math notranslate nohighlight">\(\text{while}~~length(L^{\prime}) &gt; 1\)</span> <br/>
+  <span class="math notranslate nohighlight">\(result \leftarrow [~]\)</span> <br/>
+  <span class="math notranslate nohighlight">\(i \leftarrow 0\)</span> <br/>
+  <span class="math notranslate nohighlight">\(\text{while}~~i &lt; length(L^{\prime})\)</span> <br/>
+      <span class="math notranslate nohighlight">\( merged~~\leftarrow~~merge(L^{\prime}_{~i}~~,~~L^{\prime}_{~i+1}) \)</span><br/>
+      Add merged to result <br/>
+      <span class="math notranslate nohighlight">\(i \leftarrow i + 2\)</span> <br/>
+  <span class="math notranslate nohighlight">\( L^{\prime} \leftarrow\)</span> result <br/>
+end while</p>
+</section>
+</div></section>
+<section id="implementation">
+<h2><span class="section-number">4.2.3. </span>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
 
+  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">])</span>
 
-```{prf:algorithm} Merge Sort Algorithm
-:label: my-algorithm
+  <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">newlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">):</span> 
+        <span class="n">newlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">list1</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">list2</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">merged</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">)</span>
+        <span class="n">newlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">merged</span><span class="p">)</span>
+      <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span>
 
-**Inputs** Given a list of numbers $L$ of length $n$
+    <span class="n">result</span> <span class="o">=</span> <span class="n">newlist</span>
 
-**Output** A sorted list $L$ of numbers of length $n$
-
-
-$L^{\prime}$ $\leftarrow$ [[$x$] for $x \in L$]
-
-$\text{while}~~length(L^{\prime}) > 1$ <br/>
-&nbsp; $result \leftarrow [~]$ <br/>
-&nbsp; $i \leftarrow 0$ <br/>
-&nbsp; $\text{while}~~i < length(L^{\prime})$ <br/>
-&nbsp; &nbsp; &nbsp; $ merged~~\leftarrow~~merge(L^{\prime}_{~i}~~,~~L^{\prime}_{~i+1}) $<br/>
-&nbsp; &nbsp; &nbsp; Add merged to result <br/>
-&nbsp; &nbsp; &nbsp; $i \leftarrow i + 2$ <br/>
-&nbsp; $ L^{\prime} \leftarrow$ result <br/>
-end while
-``` 
--->
+  <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">merge_sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="k">assert</span> <span class="n">merge_sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="k">assert</span> <span class="n">merge_sort</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;Test case 3 failed&quot;</span>
+<span class="k">assert</span> <span class="n">merge_sort</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;Test case 4 failed&quot;</span>
+<span class="k">assert</span> <span class="n">merge_sort</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;Test case 5 failed&quot;</span>
+</pre></div>
+</div>
 </section>
 <section id="complexity">
-<h2><span class="section-number">4.2.2. </span>Complexity<a class="headerlink" href="#complexity" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.2.4. </span>Complexity<a class="headerlink" href="#complexity" title="Permalink to this headline">#</a></h2>
 <p>The merge sort algorithm starts with <span class="math notranslate nohighlight">\(n\)</span> sublists of size 1 and ends with a 1 sorted list of size <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>In going from <span class="math notranslate nohighlight">\(n\)</span> sublists to 1 sublist, it repeatedly merges two sorted lists into one sorted list. That means, at each step the number of sorted lists is halved!</p>
 <p>Therefore, the number of steps required to reach a single sorted list is <span class="math notranslate nohighlight">\(\log_2 n\)</span> or <span class="math notranslate nohighlight">\(\log n\)</span>, if we ignore the base.</p>
@@ -557,11 +624,11 @@ end while
       </div>
     </a>
     <a class="right-next"
-       href="../tmp/data.html"
+       href="sort_quick_iter.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Data</p>
+        <p class="prev-next-title"><span class="section-number">4.3. </span>Quick Sort</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -584,7 +651,9 @@ end while
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">4.2.1. Steps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">4.2.2. Complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">4.2.2. Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">4.2.3. Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">4.2.4. Complexity</a></li>
 </ul>
   </nav></div>
 
