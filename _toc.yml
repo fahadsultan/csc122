@@ -45,25 +45,31 @@ parts:
         - file: algos/search_binary
         # - file: algos/sort_merge
         - file: algos/sort_merge_iter
+        - file: algos/sort_quick_iter
     # - file: algos/dynamic
-  - caption: Basic Elements of Programming
-    numbered: true
-    chapters:
-    # - file: basics/data
-    - file: tmp/data
-    # - file: basics/operations
-    - file: tmp/operations
-      # sections:
-      # - file: basics/math_operators
-      # - file: basics/precedence_associativity
-    # - file: basics/controls
-    - file: tmp/controls
-      # sections: 
-      # - file: basics/conditionals
-      # - file: basics/loops
+  # - caption: Basic Elements of Programming
+  #   numbered: true
+  #   chapters:
+  #   - file: basics/data
+  #   # - file: tmp/data
+  #   - file: basics/operations
+  #   # - file: tmp/operations
+  #     sections:
+  #     - file: basics/math_operators
+  #     - file: basics/precedence_associativity
+  #   - file: basics/controls
+  #   # - file: tmp/controls
+  #     sections: 
+  #     - file: basics/conditionals
+  #     - file: basics/loops
   - caption: Building Abstractions with Functions
     numbered: true
     chapters:
+    - file: functions/recursion
+    # - file: tmp/recursion
+      sections: 
+        - file: functions/head_tail
+        # - file: functions/tree_recursion
     # - file: functions/functions
     - file: tmp/functions
       # sections: 
@@ -71,11 +77,6 @@ parts:
       #   - file: functions/exceptions
       #   - file: functions/filesmodules
       #   - file: basics/file_io
-    # - file: functions/recursion
-    - file: tmp/recursion
-      # sections: 
-      #   - file: functions/head_tail
-      #   - file: functions/tree_recursion
     # - file: functions/functionalprogramming
     - file: tmp/functionalprogramming
   - caption: Building Abstractions with Data
