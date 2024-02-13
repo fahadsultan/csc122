@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Head/Tail Recursion &#8212; Data Structures and Algorithms</title>
+    <title>5.4. Head / Tail Recursion &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -62,9 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'functions/head_tail';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Functions" href="../tmp/functions.html" />
+    <link rel="prev" title="5. Recursion" href="recursion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -196,23 +200,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Elements of Programming</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/data.html">5. Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/operations.html">6. Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/controls.html">7. Controls</a></li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">8. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/recursion.html">9. Recursion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">10. Functional Programming</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="recursion.html">5. Recursion</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4. Head / Tail Recursion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">6. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">7. Functional Programming</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/oop.html">11. Object Oriented Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/datastructures.html">12. Native Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/structs.html">13. Custom Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/oop.html">8. Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/datastructures.html">9. Native Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/structs.html">10. Custom Data Structures</a></li>
 </ul>
 
     </div>
@@ -383,7 +384,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -394,11 +397,25 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Head/Tail Recursion</h1>
+    <h1>Head / Tail Recursion</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#head-recursion">5.4.1. Head Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tail-recursion">5.4.2. Tail Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion-vs-iteration">5.4.3. Recursion vs. Iteration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-head-recursion-to-tail-recursion">5.4.4. Converting Head Recursion to Tail Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-head-tail-recursion">5.4.5. Avoiding Head / Tail Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorials-a-positive-example">5.4.6. Factorials: A Positive Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">5.4.7. Practice Problems</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -409,7 +426,267 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="head-tail-recursion">
-<h1>Head/Tail Recursion<a class="headerlink" href="#head-tail-recursion" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">5.4. </span>Head / Tail Recursion<a class="headerlink" href="#head-tail-recursion" title="Permalink to this headline">#</a></h1>
+<p>Head and tail recursion are two types of recursion. In head recursion, the recursive call is the first statement in the function. In tail recursion, the recursive call is the last statement in the function.</p>
+<p>In this notebook, we will discuss the difference between head and tail recursion and how to convert head recursion to tail recursion.</p>
+<section id="head-recursion">
+<h2><span class="section-number">5.4.1. </span>Head Recursion<a class="headerlink" href="#head-recursion" title="Permalink to this headline">#</a></h2>
+<p>In head recursion, the recursive call is the first statement in the function. The function does some work before making the recursive call. The recursive call is made with the same arguments as the original call.</p>
+<p>Here is an example of head recursion:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">head_recursion</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> 
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="c1">#Base case</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blastoff! 🚀&quot;</span><span class="p">)</span>  
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Recursive case of Head recursion : </span>
+        <span class="c1"># recursive call before anything else </span>
+        <span class="n">head_recursion</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">head_recursion</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Blastoff! 🚀
+1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, the function <code class="docutils literal notranslate"><span class="pre">head_recursion</span></code> does some work before making the recursive call. The recursive call is made with the same arguments as the original call.</p>
+<p>Trace of the function <code class="docutils literal notranslate"><span class="pre">head_recursion(3)</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">head_recursion</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="n">head_recursion</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">head_recursion</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="n">head_recursion</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="head-tail">
+<a class="reference internal image-reference" href="https://i.ibb.co/z7hj2FD/head-tail.png"><img alt="https://i.ibb.co/z7hj2FD/head-tail.png" src="https://i.ibb.co/z7hj2FD/head-tail.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Comparison of Head vs. Tail Recursion. The rectangles represent recursive function calls, and circles represent other operations.</span><a class="headerlink" href="#head-tail" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="tail-recursion">
+<h2><span class="section-number">5.4.2. </span>Tail Recursion<a class="headerlink" href="#tail-recursion" title="Permalink to this headline">#</a></h2>
+<p>In tail recursion, the recursive call is the last statement in the function. The function does some work after making the recursive call. The recursive call is made with the modified arguments.</p>
+<p>Here is an example of tail recursion:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tail_recursion</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Base case</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Boomerang 🪃&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Recursive case of Tail recursion :</span>
+        <span class="c1"># recursive call is the last thing that happens</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">tail_recursion</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">tail_recursion</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+2
+1
+Boomerang 🪃
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, the function <code class="docutils literal notranslate"><span class="pre">tail_recursion</span></code> makes the recursive call with the modified arguments. The recursive call is the last statement in the function.</p>
+<p>Trace of the function <code class="docutils literal notranslate"><span class="pre">tail_recursion(3)</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tail_recursion</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="n">tail_recursion</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">tail_recursion</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            
+            <span class="n">tail_recursion</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="recursion-vs-iteration">
+<h2><span class="section-number">5.4.3. </span>Recursion vs. Iteration<a class="headerlink" href="#recursion-vs-iteration" title="Permalink to this headline">#</a></h2>
+<p>Recursion, in particular head or tail recursion, can be thought of as an alternative to iteration.</p>
+<p>Any iterative algorithm can be converted to a recursive algorithm and vice versa.</p>
+<p>For example, consider the following iterative function to add all numbers in a given list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_iterative</span><span class="p">(</span><span class="n">data</span><span class="p">):</span> 
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The recursive version of the above function is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_recursive</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="p">[]:</span>
+        <span class="c1"># base case</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># recursive case </span>
+        <span class="n">first_element</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">rest_of_list</span>  <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">sum_of_rest</span>   <span class="o">=</span> <span class="n">sum_recursive</span><span class="p">(</span><span class="n">rest_of_list</span><span class="p">)</span> <span class="c1"># recursive call</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">first_element</span> <span class="o">+</span> <span class="n">sum_of_rest</span>
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see if the two functions produce the same result for the same input:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">sum_iterative</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">==</span> <span class="n">sum_recursive</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]),</span>  <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="k">assert</span> <span class="n">sum_iterative</span><span class="p">([</span><span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>    <span class="o">==</span> <span class="n">sum_recursive</span><span class="p">([</span><span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">]),</span>     <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="k">assert</span> <span class="n">sum_iterative</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span> <span class="o">==</span> <span class="n">sum_recursive</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]),</span>  <span class="s2">&quot;Test case 3 failed&quot;</span>
+<span class="k">assert</span> <span class="n">sum_iterative</span><span class="p">([</span><span class="mi">10</span><span class="p">])</span>         <span class="o">==</span> <span class="n">sum_recursive</span><span class="p">([</span><span class="mi">10</span><span class="p">]),</span>          <span class="s2">&quot;Test case 4 failed&quot;</span>
+<span class="k">assert</span> <span class="n">sum_iterative</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>    <span class="o">==</span> <span class="n">sum_recursive</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]),</span>     <span class="s2">&quot;Test case 5 failed&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All test cases passed!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All test cases passed!
+</pre></div>
+</div>
+</div>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">sum_iterative</span></code> and <code class="docutils literal notranslate"><span class="pre">sum_recursive</span></code> produce the same result for the same input. The iterative function uses a loop to iterate through the list and add the numbers. The recursive function uses the head recursion to add the numbers.</p>
+</section>
+<section id="converting-head-recursion-to-tail-recursion">
+<h2><span class="section-number">5.4.4. </span>Converting Head Recursion to Tail Recursion<a class="headerlink" href="#converting-head-recursion-to-tail-recursion" title="Permalink to this headline">#</a></h2>
+<p>Head recursion can be converted to tail recursion by using an accumulator. The accumulator is a variable that stores the intermediate result. The accumulator is passed to each recursive call, and the recursive call is the last statement in the function.</p>
+<p>Here is the example of summing all numbers in a list using tail recursion:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_tail_recursive</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">current_sum</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="p">[]:</span>
+        <span class="c1"># base case</span>
+        <span class="k">return</span> <span class="n">current_sum</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># recursive case</span>
+        <span class="n">first_element</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">rest_of_list</span>  <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">new_sum</span> <span class="o">=</span> <span class="n">current_sum</span> <span class="o">+</span> <span class="n">first_element</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">sum_tail_recursive</span><span class="p">(</span><span class="n">rest_of_list</span><span class="p">,</span> <span class="n">new_sum</span><span class="p">)</span> <span class="c1"># recursive call</span>
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="avoiding-head-tail-recursion">
+<h2><span class="section-number">5.4.5. </span>Avoiding Head / Tail Recursion<a class="headerlink" href="#avoiding-head-tail-recursion" title="Permalink to this headline">#</a></h2>
+<p>Head and/or Tail recursion is considered a bad practice in Python, since the Python compiler does not handle optimization for tail recursive calls. The recursive solution in cases like this use more system resources than the equivalent iterative solution.</p>
+<p>In Python, it is better to use an iterative solution instead of a recursive solution. The iterative solution is more efficient and easier to understand, in most cases.</p>
+</section>
+<section id="factorials-a-positive-example">
+<h2><span class="section-number">5.4.6. </span>Factorials: A Positive Example<a class="headerlink" href="#factorials-a-positive-example" title="Permalink to this headline">#</a></h2>
+<p>Every recursive function we have seen so far is better implemented iteratively.</p>
+<p>However, there are some functions that are more naturally expressed recursively. The canonical example is the factorial function.</p>
+<p>Let’s consider the factorial function, defined by</p>
+<div class="math notranslate nohighlight">
+\[ n! = n \cdot (n–1) !~~\text{where}~~1! = 1 \]</div>
+<!-- 
+$$ n! = n \cdot (n–1) \cdot (n–2)···3·2·1$$
+
+for any positive integer n. For example, $4! = 4 · 3 · 2 · 1 = 24$
+
+There are many ways to compute factorials. One way is to make use of the observation that n! is equal to n times (n – 1)! for any positive integer n:
+
+$$ n! = n·[(n–1)·(n–2)···3·2·1] = n·(n–1)! $$
+
+Thus, we can compute $n!$ by computing $(n – 1)!$ and multiplying the result by n. If we add the stipulation that 1! is equal to 1, this observation translates directly into a computer function: -->
+<p>Note that the factorial function is naturally expressed recursively. Note how the function definition includes the recursive case as well as the base case.</p>
+<p>This means that the recursive implementation is more natural and easier to understand than the iterative implementation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can watch this function in action computing 6!, as shown in figure below:</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/recursion1.png"><img alt="../_images/recursion1.png" src="../_images/recursion1.png" style="width: 378.5px; height: 308.5px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.5 </span><span class="caption-text">A <b>linear recursive</b> process for computing 6!</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The iterative implementation of the factorial function requires taking a different perspective on computing factorials. We could describe a rule for computing n! by specifying that we first multiply 1 by 2, then multiply the result by 3, then by 4, and so on until we reach n. More formally, we maintain a running product, together with a counter that counts from 1 up to n. We can describe the computation by saying that the counter and the product simultaneously change from one step to the next according to the rule</p>
+<div class="math notranslate nohighlight">
+\[ \text{product} \leftarrow \text{counter} \cdot \text{product} \]</div>
+<div class="math notranslate nohighlight">
+\[ \text{counter} \leftarrow \text{counter} + 1 \]</div>
+<p>and stipulating that <span class="math notranslate nohighlight">\(n!\)</span> is the value of the product when the counter exceeds <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial_iterative</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">*</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>While the iterative implementation is equally correct, it is less natural and does not align with the mathematical definition of the mathematical function.</p>
+</section>
+<section id="practice-problems">
+<h2><span class="section-number">5.4.7. </span>Practice Problems<a class="headerlink" href="#practice-problems" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Write a recursive function to compute the product of the first n integers.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Write a recursive function that returns the maximum element in a list.</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>Write a recursive function that returns the input <code class="docutils literal notranslate"><span class="pre">base</span></code> raised to the input <code class="docutils literal notranslate"><span class="pre">exponent</span></code>.</p></li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>Write a function that returns True if <code class="docutils literal notranslate"><span class="pre">query</span></code> is in <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+</ol>
+<ol class="arabic simple" start="6">
+<li><p>Write a recursive function that returns the reverse of a list.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -443,6 +720,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="recursion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Recursion</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../tmp/functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -452,6 +747,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#head-recursion">5.4.1. Head Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tail-recursion">5.4.2. Tail Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion-vs-iteration">5.4.3. Recursion vs. Iteration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-head-recursion-to-tail-recursion">5.4.4. Converting Head Recursion to Tail Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-head-tail-recursion">5.4.5. Avoiding Head / Tail Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorials-a-positive-example">5.4.6. Factorials: A Positive Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">5.4.7. Practice Problems</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

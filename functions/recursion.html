@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Recursion &#8212; Data Structures and Algorithms</title>
+    <title>5. Recursion &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -67,6 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'functions/recursion';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.4. Head / Tail Recursion" href="head_tail.html" />
+    <link rel="prev" title="4.3. Quick Sort" href="../algos/sort_quick_iter.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -198,23 +200,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Elements of Programming</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/data.html">5. Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/operations.html">6. Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/controls.html">7. Controls</a></li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">8. Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/recursion.html">9. Recursion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">10. Functional Programming</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">5. Recursion</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="head_tail.html">5.4. Head / Tail Recursion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">6. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">7. Functional Programming</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/oop.html">11. Object Oriented Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/datastructures.html">12. Native Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/structs.html">13. Custom Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/oop.html">8. Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/datastructures.html">9. Native Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/structs.html">10. Custom Data Structures</a></li>
 </ul>
 
     </div>
@@ -408,14 +407,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-recursion">Tree Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-counting-change">Example: Counting Change</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-of-growth">Order of Growth</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentiation">Exponentiation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#greatest-common-divisors">Greatest Common Divisors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-book">Other Book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tail-recursion">Tail Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-mathematical-functions">Recursive mathematical functions¶</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atm-example">5.1. ATM Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-terms">5.2. Key Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons-of-recursion">5.3. Pros and Cons of Recursion</a></li>
 </ul>
             </nav>
         </div>
@@ -428,477 +422,112 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="recursion">
-<h1>Recursion<a class="headerlink" href="#recursion" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">5. </span>Recursion<a class="headerlink" href="#recursion" title="Permalink to this headline">#</a></h1>
 <figure class="align-right" id="id1">
 <a class="reference internal image-reference" href="../_images/recursion0.jpeg"><img alt="../_images/recursion0.jpeg" src="../_images/recursion0.jpeg" style="width: 226.5px; height: 301.5px;" /></a>
 <figcaption>
-<p><span class="caption-text">A visual form of recursion <br/> known as the Droste effect.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">A visual form of recursion <br/> known as the <a href="https://en.wikipedia.org/wiki/Droste_effect">Droste effect</a>. <br/> Note the image within the image.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In order to understand recursion, one must first understand recursion.</p>
 <p><strong>Recursion</strong> occurs when the definition of a concept or process depends on (a simpler or previous version of) itself.</p>
-<p>We begin by considering the factorial function, defined by</p>
-<div class="math notranslate nohighlight">
-\[ n! = n \cdot (n–1) \cdot (n–2)···3·2·1\]</div>
-<p>for any positive integer n. For example, <span class="math notranslate nohighlight">\(4! = 4 · 3 · 2 · 1 = 24\)</span></p>
-<p>There are many ways to compute factorials. One way is to make use of the observation that n! is equal to n times (n – 1)! for any positive integer n:</p>
-<div class="math notranslate nohighlight">
-\[ n! = n·[(n–1)·(n–2)···3·2·1] = n·(n–1)! \]</div>
-<p>Thus, we can compute n! by computing (n – 1)! and multiplying the result by n. If we add the stipulation that 1! is equal to 1, this observation translates directly into a computer function:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can use the substitution model of section 1.1.5 to watch this function in action computing 6!, as shown in figure below:</p>
-<figure class="align-center" id="id2">
-<a class="reference internal image-reference" href="../_images/recursion1.png"><img alt="../_images/recursion1.png" src="../_images/recursion1.png" style="width: 378.5px; height: 308.5px;" /></a>
-<figcaption>
-<p><span class="caption-text">A <b>linear recursive</b> process for computing 6!</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Now let’s take a different perspective on computing factorials. We could describe a rule for computing n! by specifying that we first multiply 1 by 2, then multiply the result by 3, then by 4, and so on until we reach n. More formally, we maintain a running product, together with a counter that counts from 1 up to n. We can describe the computation by saying that the counter and the product simultaneously change from one step to the next according to the rule</p>
-<div class="math notranslate nohighlight">
-\[ \text{product} \leftarrow \text{counter} \cdot \text{product} \]</div>
-<div class="math notranslate nohighlight">
-\[ \text{counter} \leftarrow \text{counter} + 1 \]</div>
-<p>and stipulating that <span class="math notranslate nohighlight">\(n!\)</span> is the value of the product when the counter exceeds <span class="math notranslate nohighlight">\(n\)</span>.</p>
-<p>Once again, we can recast our description as a function for computing factorials:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">fact_iter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span> 
-    
-<span class="k">def</span> <span class="nf">fact_iter</span><span class="p">(</span><span class="n">product</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">max_count</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;</span> <span class="n">max_count</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">product</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fact_iter</span><span class="p">(</span><span class="n">counter</span> <span class="o">*</span> <span class="n">product</span><span class="p">,</span>
-                         <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
-                         <span class="n">max_count</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>As before, we can use the substitution model to visualize the process of computing 6!, as shown in figure below:</p>
-<figure class="align-center" id="id3">
-<a class="reference internal image-reference" href="../_images/recursion2.png"><img alt="../_images/recursion2.png" src="../_images/recursion2.png" style="width: 244.2px; height: 246.6px;" /></a>
-<figcaption>
-<p><span class="caption-text">A <b>linear iterative</b> process for computing 6!</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Compare the two processes. From one point of view, they seem hardly different at all. Both compute the same mathematical function on the same domain, and each requires a number of steps proportional to n to compute n!. Indeed, both processes even carry out the same sequence of multiplications, obtaining the same sequence of partial products. On the other hand, when we consider the “shapes” of the two processes, we find that they evolve quite differently.</p>
-<p>Consider the first process. The substitution model reveals a shape of expansion followed by contraction, indicated by the arrow in figure 1.3. The expansion occurs as the process builds up a chain of <em>deferred operations</em> (in this case, a chain of multiplications). The contraction occurs as the operations are actually performed. This type of process, characterized by a chain of deferred operations, is called a <em>recursive process</em>. Carrying out this process requires that the interpreter keep track of the operations to be performed later on. In the computation of <span class="math notranslate nohighlight">\(n!\)</span>, the length of the chain of deferred multiplications, and hence the amount of information needed to keep track of it, grows linearly with n (is proportional to n), just like the number of steps. Such a process is called a <em>linear recursive process</em>.</p>
-<p>By contrast, the second process does not grow and shrink. At each step, all we need to keep track of, for any n, are the current values of the names product, counter, and max_count. We call this an <em>iterative process</em>. In general, an iterative process is one whose state can be summarized by a fixed number of <em>state variables</em>, together with a fixed rule that describes how the state variables should be updated as the process moves from state to state and an (optional) end test that specifies conditions under which the process should terminate. In computing n!, the number of steps required grows linearly with n. Such a process is called a <em>linear iterative process</em>.</p>
-<p>The contrast between the two processes can be seen in another way. In the it- erative case, the state variables provide a complete description of the state of the process at any point. If we stopped the computation between steps, all we would need to do to resume the computation is to supply the interpreter with the values of the three state variables. Not so with the recursive process. In this case there is some additional “hidden” information, maintained by the interpreter and not contained in the state variables, which indicates “where the process is” in negotiating the chain of deferred operations. The longer the chain, the more information must be maintained.</p>
-<p>In contrasting iteration and recursion, we must be careful not to confuse the notion of a recursive <em>process</em> with the notion of a recursive <em>function</em>. When we describe a function as recursive, we are referring to the syntactic fact that the function declaration refers (either directly or indirectly) to the function itself. But when we describe a process as following a pattern that is, say, linearly recursive, we are speaking about how the process evolves, not about the syntax of how a function is written. It may seem disturbing that we refer to a recursive function such as <code class="docutils literal notranslate"><span class="pre">fact_iter</span></code> as generating an iterative process. However, the process really is iterative: Its state is captured completely by its three state variables, and an interpreter need keep track of only three names in order to execute the process.</p>
-<p>One reason that the distinction between process and function may be confusing is that most implementations of common languages are designed in such a way that the interpretation of any recursive function consumes an amount of memory that grows with the number of function calls, even when the process described is, in principle, iterative. As a consequence, these languages can describe iterative processes only by resorting to special-purpose “looping constructs” such as do, repeat, until, for, and while. The implementation of JavaScript we shall consider in chapter 5 does not share this defect. It will execute an iterative process in constant space, even if the iterative process is described by a recursive function. An implementation with this property is called tail-recursive. With a tail- recursive implementation, iteration can be expressed using the ordinary function call mechanism, so that special iteration constructs are useful only as syntactic sugar.</p>
-<section id="tree-recursion">
-<h2>Tree Recursion<a class="headerlink" href="#tree-recursion" title="Permalink to this headline">#</a></h2>
-<p>Another common pattern of computation is called <em>tree recursion</em>. As an example, consider computing the sequence of Fibonacci numbers, in which each number is the sum of the preceding two:</p>
-<div class="math notranslate nohighlight">
-\[ 0,1,1,2,3,5,8,13,21,... \]</div>
-<p>In general, the Fibonacci numbers can be defined by the rule</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} \text{Fib}(n) = \begin{cases} 0 &amp; \text{if } n = 0 \\ 1 &amp; \text{if } n = 1 \\ \text{Fib}(n-1) + \text{Fib}(n-2) &amp; \text{otherwise} \end{cases} \end{split}\]</div>
-<p>We can immediately translate this definition into a recursive function for computing
-Fibonacci numbers:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Consider the pattern of this computation. To compute <code class="docutils literal notranslate"><span class="pre">fib(5)</span></code>, we compute <code class="docutils literal notranslate"><span class="pre">fib(4)</span></code> and <code class="docutils literal notranslate"><span class="pre">fib(3)</span></code>. To compute <code class="docutils literal notranslate"><span class="pre">fib(4)</span></code>, we compute <code class="docutils literal notranslate"><span class="pre">fib(3)</span></code> and <code class="docutils literal notranslate"><span class="pre">fib(2)</span></code>. In general, the evolved process looks like a tree, as shown in figure 1.5. Notice that the branches split into two at each level (except at the bottom); this reflects the fact that the fib function calls itself twice each time it is invoked.</p>
-<figure class="align-center" id="id4">
-<a class="reference internal image-reference" href="../_images/recursion3.png"><img alt="../_images/recursion3.png" src="../_images/recursion3.png" style="width: 485.6px; height: 282.40000000000003px;" /></a>
-<figcaption>
-<p><span class="caption-text">The tree-recursive process generated in computing fib(5).</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>This function is instructive as a prototypical tree recursion, but it is a terrible way to compute Fibonacci numbers because it does so much redundant computation. Notice in figure above that the entire computation of <code class="docutils literal notranslate"><span class="pre">fib(3)</span></code>—almost half the work—is duplicated. In fact, it is not hard to show that the number of times the function will compute <code class="docutils literal notranslate"><span class="pre">fib(1)</span></code> or <code class="docutils literal notranslate"><span class="pre">fib(0)</span></code> (the number of leaves in the above tree, in general) is precisely <span class="math notranslate nohighlight">\(\text{Fib}(n + 1)\)</span>. To get an idea of how bad this is, one can show that the value of <span class="math notranslate nohighlight">\(\text{Fib}(n)\)</span> grows exponentially with <span class="math notranslate nohighlight">\(n\)</span>. More precisely, <span class="math notranslate nohighlight">\(\text{Fib}(n)\)</span> is the closest integer to <span class="math notranslate nohighlight">\(\frac{\phi^n}{\sqrt{5}}\)</span>, where</p>
-<div class="math notranslate nohighlight">
-\[ \phi = \frac{1 + \sqrt{5}}{2} \approx 1.6180 \]</div>
-<p>is the golden ratio, which satisfies the equation</p>
-<div class="math notranslate nohighlight">
-\[ \phi^2 = \phi +1 \]</div>
-<p>Thus, the process uses a number of steps that grows exponentially with the input. On the other hand, the space required grows only linearly with the input, because we need keep track only of which nodes are above us in the tree at any point in the computation. In general, the number of steps required by a tree-recursive process will be proportional to the number of nodes in the tree, while the space required will be proportional to the maximum depth of the tree.</p>
-<p>We can also formulate an iterative process for computing the Fibonacci numbers. The idea is to use a pair of integers a and b, initialized to <span class="math notranslate nohighlight">\(\text{Fib}(1) = 1\)</span> and <span class="math notranslate nohighlight">\(\text{Fib}(0) = 0\)</span>, and to repeatedly apply the simultaneous transformations</p>
-<div class="math notranslate nohighlight">
-\[ a \leftarrow a + b \]</div>
-<div class="math notranslate nohighlight">
-\[ b \leftarrow a \]</div>
-<p>It is not hard to show that, after applying this transformation n times, a and b will be equal, respectively, to <span class="math notranslate nohighlight">\(\text{Fib}(n + 1)\)</span> and <span class="math notranslate nohighlight">\(\text{Fib}(n)\)</span>. Thus, we can compute Fibonacci numbers iteratively using the function</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">fib_iter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">fib_iter</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">b</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fib_iter</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This second method for computing Fib(n) is a linear iteration. The difference in number of steps required by the two methods—one linear in <span class="math notranslate nohighlight">\(n\)</span>, one growing as fast as <span class="math notranslate nohighlight">\(\text{Fib}(n)\)</span> itself—is enormous, even for small inputs.</p>
-<p>One should not conclude from this that tree-recursive processes are useless. When we consider processes that operate on hierarchically structured data rather than numbers, we will find that tree recursion is a natural and powerful tool. But even in numerical operations, tree-recursive processes can be useful in helping us to understand and design programs. For instance, although the first <code class="docutils literal notranslate"><span class="pre">fib</span></code> function is much less efficient than the second one, it is more straightforward, being little more than a translation into JavaScript of the definition of the Fibonacci sequence. To formulate the iterative algorithm required noticing that the computation could be recast as an iteration with three state variables.</p>
-</section>
-<section id="example-counting-change">
-<h2>Example: Counting Change<a class="headerlink" href="#example-counting-change" title="Permalink to this headline">#</a></h2>
-<p>It takes only a bit of cleverness to come up with the iterative Fibonacci algorithm. In contrast, consider the following problem: How many different ways can we make change of <span class="math notranslate nohighlight">\(\$1.00\)</span> (<span class="math notranslate nohighlight">\(100\)</span> cents), given half-dollars, quarters, dimes, nickels, and pennies (<span class="math notranslate nohighlight">\(50\)</span> cents, <span class="math notranslate nohighlight">\(25\)</span> cents, <span class="math notranslate nohighlight">\(10\)</span> cents, <span class="math notranslate nohighlight">\(5\)</span> cents, and <span class="math notranslate nohighlight">\(1\)</span> cent, respectively)? More generally, can we write a function to compute the number of ways to change any given amount of money?</p>
-<p>This problem has a simple solution as a recursive function. Suppose we think of the types of coins available as arranged in some order. Then the following relation holds:</p>
-<p>The number of ways to change amount <span class="math notranslate nohighlight">\(a\)</span> using <span class="math notranslate nohighlight">\(n\)</span> kinds of coins equals</p>
-<ul class="simple">
-<li><p>the number of ways to change amount <span class="math notranslate nohighlight">\(a\)</span> using all but the first kind of coin, plus</p></li>
-<li><p>the number of ways to change amount <span class="math notranslate nohighlight">\(a – d\)</span> using all n kinds of coins, where <span class="math notranslate nohighlight">\(d\)</span> is the denomination of the first kind of coin.</p></li>
-</ul>
-<p>To see why this is true, observe that the ways to make change can be divided into two groups: those that do not use any of the first kind of coin, and those that do. Therefore, the total number of ways to make change for some amount is equal to the number of ways to make change for the amount without using any of the first kind of coin, plus the number of ways to make change assuming that we do use the first kind of coin. But the latter number is equal to the number of ways to make change for the amount that remains after using a coin of the first kind.</p>
-<p>Thus, we can recursively reduce the problem of changing a given amount to problems of changing smaller amounts or using fewer kinds of coins. Consider this reduction rule carefully, and convince yourself that we can use it to describe an algorithm if we specify the following degenerate cases:</p>
-<ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\(a\)</span> is exactly 0, we should count that as 1 way to make change.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(a\)</span> is less than 0, we should count that as 0 ways to make change.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(n\)</span> is 0, we should count that as 0 ways to make change.</p></li>
-</ul>
-<p>We can easily translate this description into a recursive function:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_change</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">cc</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">cc</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">kinds_of_coins</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">amount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">amount</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">kinds_of_coins</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">cc</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">kinds_of_coins</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">cc</span><span class="p">(</span><span class="n">amount</span> <span class="o">-</span> <span class="n">first_denomination</span><span class="p">(</span><span class="n">kinds_of_coins</span><span class="p">),</span> <span class="n">kinds_of_coins</span><span class="p">)</span>
-    
-<span class="k">def</span> <span class="nf">first_denomination</span><span class="p">(</span><span class="n">kinds_of_coins</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">kinds_of_coins</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">kinds_of_coins</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">5</span>
-    <span class="k">elif</span> <span class="n">kinds_of_coins</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">10</span>
-    <span class="k">elif</span> <span class="n">kinds_of_coins</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">25</span>
-    <span class="k">elif</span> <span class="n">kinds_of_coins</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">50</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>(The first_denomination function takes as input the number of kinds of coins available and returns the denomination of the first kind. Here we are thinking of the coins as arranged in order from largest to smallest, but any order would do as well.) We can now answer our original question about changing a dollar:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_change</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>292
-</pre></div>
-</div>
-</div>
-</div>
-<p>The function <code class="docutils literal notranslate"><span class="pre">count_change</span></code> generates a tree-recursive process with redundancies similar to those in our first implementation of <code class="docutils literal notranslate"><span class="pre">fib</span></code>. On the other hand, it is not obvious how to design a better algorithm for computing the result, and we leave this problem as a challenge. The observation that a tree-recursive process may be highly inefficient but often easy to specify and understand has led people to propose that one could get the best of both worlds by designing a “smart compiler” that could transform tree-recursive functions into more efficient functions that compute the same result.</p>
-</section>
-<section id="order-of-growth">
-<h2>Order of Growth<a class="headerlink" href="#order-of-growth" title="Permalink to this headline">#</a></h2>
-<p>The previous examples illustrate that processes can differ considerably in the rates at which they consume computational resources. One convenient way to describe this difference is to use the notion of order of growth to obtain a gross measure of the resources required by a process as the inputs become larger.</p>
-<p>Let <span class="math notranslate nohighlight">\(n\)</span> be a parameter that measures the size of the problem, and let <span class="math notranslate nohighlight">\(R(n)\)</span> be the amount of resources the process requires for a problem of size n. In our previous examples we took n to be the number for which a given function is to be computed, but there are other possibilities. For instance, if our goal is to compute an approximation to the square root of a number, we might take <span class="math notranslate nohighlight">\(n\)</span> to be the number of digits accuracy required. For matrix multiplication we might take n to be the number of rows in the matrices. In general there are a number of properties of the problem with respect to which it will be desirable to analyze a given process. Similarly, <span class="math notranslate nohighlight">\(R(n)\)</span> might measure the number of internal storage registers used, the number of elementary machine operations performed, and so on. In computers that do only a fixed number of operations at a time, the time required will be proportional to the number of elementary machine operations performed.</p>
-<p>We say that <span class="math notranslate nohighlight">\(R(n)\)</span> has order of growth <span class="math notranslate nohighlight">\(\Theta(f (n))\)</span>, written <span class="math notranslate nohighlight">\(R(n) = \Theta(f (n))\)</span> (pronounced “theta of <span class="math notranslate nohighlight">\(f(n)\)</span>”), if there are positive constants <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_2\)</span> independent of <span class="math notranslate nohighlight">\(n\)</span> such that</p>
-<div class="math notranslate nohighlight">
-\[ k_1 f(n) \leq R(n) \leq k_2 f(n) \]</div>
-<p>for any sufficiently large value of <span class="math notranslate nohighlight">\(n\)</span>. (In other words, for large <span class="math notranslate nohighlight">\(n\)</span>, the value <span class="math notranslate nohighlight">\(R(n)\)</span> is sandwiched between k_1f(n) and k_2f(n).)</p>
-<p>For instance, with the linear recursive process for computing factorial described in section 1.2.1 the number of steps grows proportionally to the input n. Thus, the steps required for this process grows as <span class="math notranslate nohighlight">\(\Theta(n)\)</span>. We also saw that the space required grows as <span class="math notranslate nohighlight">\(\Theta(n)\)</span>. For the iterative factorial, the number of steps is still <span class="math notranslate nohighlight">\(\Theta(n)\)</span> but the space is <span class="math notranslate nohighlight">\(\Theta(1)\)</span>—that is, constant. The tree-recursive Fibonacci computation requires <span class="math notranslate nohighlight">\(\ThetaΘ(\phi n)\)</span> steps and space <span class="math notranslate nohighlight">\(\Theta(n)\)</span>, where <span class="math notranslate nohighlight">\(\phi\)</span> is the golden ratio described.</p>
-<p>Orders of growth provide only a crude description of the behavior of a process. For example, a process requiring n2 steps and a process requiring 1000n2 steps and a process requiring <span class="math notranslate nohighlight">\(3n^2 + 10n + 17\)</span> steps all have <span class="math notranslate nohighlight">\(\Theta(n2)\)</span> order of growth. On the other hand, order of growth provides a useful indication of how we may expect the behavior of the process to change as we change the size of the problem. For a <span class="math notranslate nohighlight">\(\Theta(n)\)</span> (linear) process, doubling the size will roughly double the amount of resources used. For an exponential process, each increment in problem size will multiply the resource utilization by a constant factor. In the remainder of section 1.2 we will examine two algorithms whose order of growth is logarithmic, so that doubling the problem size increases the resource requirement by a constant amount.</p>
-</section>
-<section id="exponentiation">
-<h2>Exponentiation<a class="headerlink" href="#exponentiation" title="Permalink to this headline">#</a></h2>
-<p>Consider the problem of computing the exponential of a given number. We would like a function that takes as arguments a base <span class="math notranslate nohighlight">\(b\)</span> and a positive integer exponent <span class="math notranslate nohighlight">\(n\)</span> and computes <span class="math notranslate nohighlight">\(b^n\)</span>. One way to do this is via the recursive definition</p>
-<div class="math notranslate nohighlight">
-\[ b^n = b \cdot b^{n-1} \]</div>
-<div class="math notranslate nohighlight">
-\[ b^0 = 1 \]</div>
-<p>which translates readily into the function</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">b</span> <span class="o">*</span> <span class="n">expt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This is a linear recursive process, which requires <span class="math notranslate nohighlight">\(\Theta(n)\)</span> steps and <span class="math notranslate nohighlight">\(\Theta(n)\)</span> space. Just as with factorial, we can readily formulate an equivalent linear iteration:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-   <span class="k">return</span> <span class="n">expt_iter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">expt_iter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">product</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">product</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">expt_iter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">counter</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">*</span> <span class="n">product</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This version requires Θ(n) steps and Θ(1) space.</p>
-<p>We can compute exponentials in fewer steps by using successive squaring. For instance, rather than computing <span class="math notranslate nohighlight">\(b^8\)</span> as</p>
-<p><span class="math notranslate nohighlight">\( b \cdot (b \cdot (b \cdot (b \cdot (b \cdot (b \cdot (b \cdot b)))))) \)</span></p>
-<p>we can compute it using three multiplications:</p>
-<div class="math notranslate nohighlight">
-\[ b^2 = b \cdot b \]</div>
-<div class="math notranslate nohighlight">
-\[ b^4 = b^2 \cdot b^2 \]</div>
-<div class="math notranslate nohighlight">
-\[ b^8 = b^4 \cdot b^4 \]</div>
-<p>This method works fine for exponents that are powers of 2. We can also take advantage of successive squaring in computing exponentials in general if we use the rule</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} b^n = \begin{cases} (b^{n/2})^2 &amp; \text{if } n \text{ is even} \\ b \cdot b^{n-1} &amp; \text{if } n \text{ is odd} \end{cases} \end{split}\]</div>
-<p>We can express this method as a function:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-
-<span class="k">def</span> <span class="nf">fast_expt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">square</span><span class="p">(</span><span class="n">fast_expt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">b</span> <span class="o">*</span> <span class="n">fast_expt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>where the predicate to test whether an integer is even is defined in terms of the operator <code class="docutils literal notranslate"><span class="pre">%</span></code>, which computes the remainder after integer division, by</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The process evolved by fast_expt grows logarithmically with <span class="math notranslate nohighlight">\(n\)</span> in both space and number of steps.</p>
-<p>To see this, observe that computing <span class="math notranslate nohighlight">\(b^{2n}\)</span> using <code class="docutils literal notranslate"><span class="pre">fast_expt</span></code> requires only one more multiplication than computing <span class="math notranslate nohighlight">\(b^n\)</span>. The size of the exponent we can compute therefore doubles (approximately) with every new multiplication we are allowed. Thus, the number of multiplications required for an exponent of <span class="math notranslate nohighlight">\(n\)</span> grows about as fast as the logarithm of <span class="math notranslate nohighlight">\(n\)</span> to the base 2. The process has <span class="math notranslate nohighlight">\(\Theta(log n)\)</span> growth.</p>
-<p>The difference between <span class="math notranslate nohighlight">\(\Theta(log n)\)</span> growth and <span class="math notranslate nohighlight">\(\Theta(n)\)</span> growth becomes striking as n becomes large. For example, fast_expt for <span class="math notranslate nohighlight">\(n = 1000\)</span> requires only 14 multiplications. It is also possible to use the idea of successive squaring to devise an iterative algorithm that computes exponentials with a logarithmic number of steps, although, as is often the case with iterative algorithms, this is not written down so straightforwardly as the recursive algorithm.</p>
-</section>
-<section id="greatest-common-divisors">
-<h2>Greatest Common Divisors<a class="headerlink" href="#greatest-common-divisors" title="Permalink to this headline">#</a></h2>
-<p>The greatest common divisor (GCD) of two integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is defined to be the largest integer that divides both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> with no remainder. For example, the GCD of <span class="math notranslate nohighlight">\(16\)</span> and <span class="math notranslate nohighlight">\(28\)</span> is <span class="math notranslate nohighlight">\(4\)</span>.</p>
-<p>In chapter 2, when we investigate how to implement rational- number arithmetic, we will need to be able to compute GCDs in order to reduce rational numbers to lowest terms. (To reduce a rational number to lowest terms, we must divide both the numerator and the denominator by their GCD. For example, 16/28 reduces to 4/7.) One way to find the GCD of two integers is to factor them and search for common factors, but there is a famous algorithm that is much more efficient.</p>
-<p>The idea of the algorithm is based on the observation that, if <span class="math notranslate nohighlight">\(r\)</span> is the remainder when a is divided by b, then the common divisors of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are precisely the same as the common divisors of b and r. Thus, we can use the equation</p>
-<div class="math notranslate nohighlight">
-\[ \text{GCD}(a,b) = \text{GCD}(b,r) \]</div>
-<p>to successively reduce the problem of computing a GCD to the problem of computing the GCD of smaller and smaller pairs of integers. For example,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} \text{GCD}(206,40)  \\= \text{GCD}(40,6) \\ = \text{GCD}(6,4) \\ = \text{GCD}(4,2) \\ = \text{GCD}(2,0) \\ = 2 \end{split}\]</div>
-<p>reduces GCD(206, 40) to GCD(2, 0), which is 2. It is possible to show that starting with any two positive integers and performing repeated reductions will always even- tually produce a pair where the second number is 0. Then the GCD is the other number in the pair. This method for computing the GCD is known as <em>Euclid’s Algorithm</em>.</p>
-<p>It is easy to express Euclid’s Algorithm as a function:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">a</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This generates an iterative process, whose number of steps grows as the logarithm of the numbers involved.</p>
-<p>The fact that the number of steps required by Euclid’s Algorithm has logarithmic growth bears an interesting relation to the Fibonacci numbers:</p>
-<p><strong>Lamé’s Theorem</strong>: If Euclid’s Algorithm requires <span class="math notranslate nohighlight">\(k\)</span> steps to compute the GCD of some pair, then the smaller number in the pair must be greater than or equal to the <span class="math notranslate nohighlight">\(k^{th}\)</span> Fibonacci number.</p>
-<p>We can use this theorem to get an order-of-growth estimate for Euclid’s Algorithm. Let n be the smaller of the two inputs to the function. If the process takes k steps, then we must have n≥Fib(k)≈φk/√5. Therefore the number of steps k grows as the logarithm (to the base φ ) of n. Hence, the order of growth is Θ(log n).</p>
-</section>
-<section id="other-book">
-<h2>Other Book<a class="headerlink" href="#other-book" title="Permalink to this headline">#</a></h2>
+<p>In the context of modern computer programming, recursion refers to <strong>functions calling themselves</strong>.</p>
+<p>These <em>“recursive calls”</em> are often made with <strong>smaller input data</strong>.</p>
 <hr/>
-<p>To sum all the numbers in our recursive nested number list we need to traverse the list, visiting each of the elements within its nested structure, adding any numeric elements to our sum, and repeating this process with any elements which are lists.</p>
-<p>Modern programming languages generally support <strong>recursion</strong>, which means that functions can call themselves within their definitions. Thanks to recursion, the Python code needed to sum the values of a nested number list is surprisingly short:</p>
+<p>As you may have gathered from previous sections, a big theme in programming, and problem solving in general, is the idea of <strong>breaking down a problem into smaller, more manageable subproblems</strong>.</p>
+<p>In case of decrease and conquer, we break down the problem into smaller subproblems in a manner that the subproblems are smaller than the original problem by a constant amount i.e. <span class="math notranslate nohighlight">\(n_{new} = n_{original} - k\)</span>, where k is a constant. In case of divide and conquer, we break down the problem into smaller subproblems in a manner that the subproblems are smaller than the original problem by a constant factor i.e. <span class="math notranslate nohighlight">\(n_{~new} = n_{~original} / k\)</span>, where k is a constant.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="https://i.ibb.co/HrdMFr7/decrease-conquer.png"><img alt="https://i.ibb.co/HrdMFr7/decrease-conquer.png" src="https://i.ibb.co/HrdMFr7/decrease-conquer.png" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">Decrease and conquer: Problem is broken down in a manner that the subproblems are smaller than the original problem by a constant amount i.e. <span class="math notranslate nohighlight">\(n_{~new} = n_{~original} - k\)</span>, where k is a constant.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="https://i.ibb.co/8Nj32P2/divide-conquer.png"><img alt="https://i.ibb.co/8Nj32P2/divide-conquer.png" src="https://i.ibb.co/8Nj32P2/divide-conquer.png" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Divide and conquer: Problem is broken down in a manner that the subproblems are smaller than the original problem by a constant factor i.e. <span class="math notranslate nohighlight">\(n_{~new} = n_{~original} / k\)</span>, where k is a constant.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This process is <strong>repeated until the problem cannot be broken down any further</strong>, at which point the solutions to the subproblems are combined to solve the original problem.</p>
+<p>In the context of lists, we reach this stage when the list is empty or has only one element.</p>
+<section id="atm-example">
+<h2><span class="section-number">5.1. </span>ATM Example<a class="headerlink" href="#atm-example" title="Permalink to this headline">#</a></h2>
+<p>Let’s understand recursion with the help of an analogy.</p>
+<p>Imagine you need some cash. You go to the ATM and see a long queue. The queue is so long that you can’t see the end of it.</p>
+<p><br/><br/></p>
+<img src="https://i.ibb.co/6rMXKNk/1.png">
+<p><br/><br/></p>
+<p>You decide to find out how many people are there in the queue in a recursive manner. So you ask the person in front of you what number are they. The person in front of you asks the person in front of them and so on. In recursion, this is known as the <strong>recursive step</strong>.</p>
+<br/>
+<img src="https://i.ibb.co/2YZ4r2v/2.png">
+<br/><br/>
+<p>This process continues until the person at the end of the queue is asked. This is known as the <strong>base case</strong> in recursion. The base case is the condition that stops the recursion. In this case, the base case is when the person at the end of the queue is asked.</p>
+<p><br/><br/>
+<img src="https://i.ibb.co/cQ7v2sn/3.png">
+<br/><br/></p>
+<p>The person at the end of the queue is asked and they reply that they are the first person in the queue.</p>
+<p><br/><br/>
+<img src="https://i.ibb.co/JsSJDcH/4.png">
+<br/><br/></p>
+<p>The person in front of them adds 1 to the number and tells the person in front of them. This process continues until the person in front of you tells you the number.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recursive_sum</span><span class="p">(</span><span class="n">nested_num_list</span><span class="p">):</span>
-    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">nested_num_list</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">([]):</span>
-            <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">recursive_sum</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">element</span>
-    <span class="k">return</span> <span class="nb">sum</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The body of recursive_sum consists mainly of a for loop that traverses nested_num_list. If element is a numerical value (the else branch), it is simply added to sum. If element is a list, then recursive_sum is called again, with the element as an argument. The statement inside the function definition in which the function calls itself is known as the <strong>recursive call</strong>.</p>
-<p>Recursion is truly one of the most beautiful and elegant tools in computer science.</p>
-<p>A slightly more complicated problem is finding the largest value in our nested number list:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recursive_max</span><span class="p">(</span><span class="n">nested_num_list</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">      &gt;&gt;&gt; recursive_max([2, 9, [1, 13], 8, 6])</span>
-<span class="sd">      13</span>
-<span class="sd">      &gt;&gt;&gt; recursive_max([2, [[100, 7], 90], [1, 13], 8, 6])</span>
-<span class="sd">      100</span>
-<span class="sd">      &gt;&gt;&gt; recursive_max([2, [[13, 7], 90], [1, 100], 8, 6])</span>
-<span class="sd">      100</span>
-<span class="sd">      &gt;&gt;&gt; recursive_max([[[13, 7], 90], 2, [1, 100], 8, 6])</span>
-<span class="sd">      100</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">largest</span> <span class="o">=</span> <span class="n">nested_num_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">while</span> <span class="nb">type</span><span class="p">(</span><span class="n">largest</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">([]):</span>
-        <span class="n">largest</span> <span class="o">=</span> <span class="n">largest</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">nested_num_list</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">([]):</span>
-            <span class="n">max_of_elem</span> <span class="o">=</span> <span class="n">recursive_max</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">largest</span> <span class="o">&lt;</span> <span class="n">max_of_elem</span><span class="p">:</span>
-                <span class="n">largest</span> <span class="o">=</span> <span class="n">max_of_elem</span>
-        <span class="k">else</span><span class="p">:</span>                           <span class="c1"># element is not a list</span>
-            <span class="k">if</span> <span class="n">largest</span> <span class="o">&lt;</span> <span class="n">element</span><span class="p">:</span>
-                <span class="n">largest</span> <span class="o">=</span> <span class="n">element</span>
-
-    <span class="k">return</span> <span class="n">largest</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Doctests are included to provide examples of recursive_max at work.</p>
-<p>The added twist to this problem is finding a numerical value for initializing largest. We can’t just use <code class="docutils literal notranslate"><span class="pre">nested_num_list[0]</span></code>, since that my be either a number or a list. To solve this problem we use a while loop that assigns largest to the first numerical value no matter how deeply it is nested.</p>
-<p>The two examples above each have a <strong>base case</strong> which does not lead to a recursive call: the case where the element is a number and not a list. Without a base case, you have <strong>infinite recursion</strong>, and your program will not work. Python stops after reaching a maximum recursion depth and returns a runtime error.</p>
-<p>Write the following in a file named <code class="docutils literal notranslate"><span class="pre">infinite_recursion.py</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="c1"># infinite_recursion.py</span>
-<span class="c1">#</span>
-<span class="k">def</span> <span class="nf">recursion_depth</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recursion depth number </span><span class="si">%d</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">number</span><span class="p">))</span>
-    <span class="n">recursion_depth</span><span class="p">(</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="n">recursion_depth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>At the unix command prompt in the same directory in which you saved your program, type the following:</p>
-<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">infinite_recursion.py</span></code></p>
-<p>After watching the messages flash by, you will be presented with the end of a long traceback that ends in with the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">...</span>
-  <span class="n">File</span> <span class="s2">&quot;infinite_recursion.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3</span><span class="p">,</span> <span class="ow">in</span> <span class="n">recursion_depth</span>
-    <span class="n">recursion_depth</span><span class="p">(</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="ne">RuntimeError</span><span class="p">:</span> <span class="n">maximum</span> <span class="n">recursion</span> <span class="n">depth</span> <span class="n">exceeded</span>
-</pre></div>
-</div>
-<p>We would certainly never want something like this to happen to a user of one of our programs, so before finishing the recursion discussion, let’s see how errors like this are handled in Python.</p>
-</section>
-<section id="tail-recursion">
-<h2>Tail Recursion<a class="headerlink" href="#tail-recursion" title="Permalink to this headline">#</a></h2>
-<p>When the only thing returned from a function is a recursive call, it is refered to as <strong>tail recursion</strong>.</p>
-<p>Here is a version of the countdown function from the Iteration chapter written using tail recursion:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">countdown</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blastoff!&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="n">countdown</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Any computation that can be made using iteration can also be made using recursion. Here is a version of find_max written using tail recursion:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_max</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">max_so_far</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">seq</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">max_so_far</span>
-    <span class="k">if</span> <span class="n">max_so_far</span> <span class="o">&lt;</span> <span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="n">find_max</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">find_max</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">max_so_far</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Tail recursion is considered a bad practice in Python, since the Python compiler does not handle optimization for tail recursive calls. The recursive solution in cases like this use more system resources than the equivalent iterative solution.</p>
-</section>
-<section id="recursive-mathematical-functions">
-<h2>Recursive mathematical functions¶<a class="headerlink" href="#recursive-mathematical-functions" title="Permalink to this headline">#</a></h2>
-<p>Several well known mathematical functions are defined recursively. Factorial, for example, is given the special operator, !, and is defined by:</p>
-<div class="math notranslate nohighlight">
-\[ 0! = 1\]</div>
-<div class="math notranslate nohighlight">
-\[ n! = n(n-1) \]</div>
-<p>We can easily code this into Python:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">queue</span><span class="p">):</span>
+    
+    <span class="c1"># BASE CASE: if there is only one person in the queue</span>
+    <span class="k">if</span> <span class="n">queue</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;person&quot;</span><span class="p">]:</span> 
         <span class="k">return</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Another well know recursive relation in mathematics is the fibonacci sequence, which is defined by:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">fibonacci</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+        
+        <span class="c1"># remove the first element</span>
+        <span class="n">subset</span> <span class="o">=</span> <span class="n">queue</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        
+        <span class="c1"># RECURSIVE STEP: count the number of people ahead</span>
+        <span class="n">count_ahead</span> <span class="o">=</span> <span class="n">count</span><span class="p">(</span><span class="n">subset</span><span class="p">)</span>
+
+        <span class="c1"># return 1 plus the number of people ahead</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">count_ahead</span>
+     
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">]</span>
+<span class="n">count</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]</span>
-    <span class="n">fibonacci</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="o">^</span>
-<span class="ne">SyntaxError</span>: cannot assign to function call
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
 </div>
-<p>This can also be written easily in Python:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span> <span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Calling factorial(1000) will exceed the maximum recursion depth. And try running fibonacci(35) and see how long it takes to complete (be patient, it will complete).</p>
-<p>You will be asked to write an iterative version of factorial as an exercise, and we will see a better way to handle fibonacci in the next chapter.</p>
 </section>
+<section id="key-terms">
+<h2><span class="section-number">5.2. </span>Key Terms<a class="headerlink" href="#key-terms" title="Permalink to this headline">#</a></h2>
+<p>In summary, recursion involves two key components:</p>
+<img style="border: 2px solid;" src="https://64.media.tumblr.com/a6a46934f6a899f92c78a72ad0a43806/tumblr_p8xo5oL0Ql1xp1nxxo1_1280.gif" width="35%" align="right">
+<ol class="arabic">
+<li><p><strong>Recursive Step</strong>: The step where the function calls itself, breaking down the input data into smaller subset(s).</p>
+<p>The number of times the function calls itself is known as the <strong>depth of recursion</strong>.</p>
+</li>
+<li><p><strong>Base Case</strong>: The case where the input data cannot be broken down any further. This is the condition that stops the recursion.</p>
+<p>Without a base case, the function would continue to call itself indefinitely, leading to an infinite loop. This is known as <strong>infinite recursion</strong>.</p>
+</li>
+</ol>
+</section>
+<section id="pros-and-cons-of-recursion">
+<h2><span class="section-number">5.3. </span>Pros and Cons of Recursion<a class="headerlink" href="#pros-and-cons-of-recursion" title="Permalink to this headline">#</a></h2>
+<p>Recursion is a powerful tool, but it’s not always the best tool for the job. Here are some pros and cons of using recursion.</p>
+<p>✅ <strong>Readable and Elegant</strong>: Recursive solutions are often more readable and elegant than their iterative counterparts.</p>
+<p>✅ <strong>Mathematical</strong>: Many mathematical ideas are naturally recursive, so recursion can be a more organic way to express these ideas in code. For example, the Fibonacci sequence is defined recursively i.e. <span class="math notranslate nohighlight">\(F(n) = F(n-1) + F(n-2)\)</span>. Similarly, the factorial of a number is defined recursively i.e. <span class="math notranslate nohighlight">\(n! = n \times (n-1)!\)</span>.</p>
+<p>✅ <strong>Divide and Conquer and Tree Structures</strong>: Recursive solutions are often well-suited for problems involving trees and graphs, which are ubiqutous in nature, sciences and particularly in computational problems. Since divide and conquer strategies yield a tree like structure, recursion is a natural fit for such problems.</p>
+<p>❌ <strong>Performance</strong>: Recursive solutions are often less efficient than iterative solutions due to the overhead of function calls and the potential for repeated work.</p>
+<p>❌ <strong>Debugging</strong>: Recursive solutions are often harder to debug than iterative solutions. This is because the state of the program is spread across many function calls, making it harder to reason about the program’s behavior.</p>
+<p>❌ <strong>Memory</strong>: Recursive solutions often require more memory than iterative solutions. This is because each function call requires memory to store the function’s state, and the depth of recursion can be quite large.</p>
+<p>❌ <strong>Convoluted</strong>: Recursive solutions can be harder to understand than iterative solutions, especially for people who are new to programming.</p>
+<br/>
+<br/>
+<hr/></section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -932,6 +561,24 @@ Fibonacci numbers:</p>
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../algos/sort_quick_iter.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.3. </span>Quick Sort</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="head_tail.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5.4. </span>Head / Tail Recursion</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -950,14 +597,9 @@ Fibonacci numbers:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-recursion">Tree Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-counting-change">Example: Counting Change</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-of-growth">Order of Growth</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentiation">Exponentiation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#greatest-common-divisors">Greatest Common Divisors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-book">Other Book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tail-recursion">Tail Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-mathematical-functions">Recursive mathematical functions¶</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atm-example">5.1. ATM Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-terms">5.2. Key Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons-of-recursion">5.3. Pros and Cons of Recursion</a></li>
 </ul>
   </nav></div>
 

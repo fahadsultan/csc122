@@ -22,7 +22,7 @@ fibonacci(1) = 1
 fibonacci(n) = fibonacci(n-1) + fibonacci(n-2)
 ------------------
 
-[0;36m  Input [0;32mIn [17][0;36m[0m
+[0;36m  Input [0;32mIn [5][0;36m[0m
 [0;31m    fibonacci(0) = 1[0m
 [0m    ^[0m
 [0;31mSyntaxError[0m[0;31m:[0m cannot assign to function call
