@@ -69,7 +69,7 @@ parts:
     # - file: tmp/recursion
       sections: 
         - file: functions/head_tail
-        # - file: functions/tree_recursion
+        - file: functions/tree_recursion
     # - file: functions/functions
     - file: tmp/functions
       # sections: 

@@ -9,6 +9,11 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 
 👇🏾 Below, you can find important links and important announcements.
 
+```{important}
+**Exam 2** is scheduled for **29th Feb**, the Thursday before Spring Break. 
+
+Similar to Exam 1, it will be during the regular class time and will on computer.
+```
 
 ```{tip}
 I have an **Open-Door Policy** and am in my office (_Riley Hall 200-D_) between 9 AM - 5 PM most weekdays. Please drop by with your questions or just to say hi! <br/>
