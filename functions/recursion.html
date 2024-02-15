@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'functions/recursion';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.4. Head / Tail Recursion" href="head_tail.html" />
+    <link rel="next" title="5.4. Linear Recursion" href="head_tail.html" />
     <link rel="prev" title="4.3. Quick Sort" href="../algos/sort_quick_iter.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -203,7 +203,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">5. Recursion</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="head_tail.html">5.4. Head / Tail Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="head_tail.html">5.4. Linear Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tree_recursion.html">5.5. Tree Recursion</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">6. Functions</a></li>
@@ -502,8 +503,8 @@ document.write(`
 </section>
 <section id="key-terms">
 <h2><span class="section-number">5.2. </span>Key Terms<a class="headerlink" href="#key-terms" title="Permalink to this headline">#</a></h2>
-<p>In summary, recursion involves two key components:</p>
 <img style="border: 2px solid;" src="https://64.media.tumblr.com/a6a46934f6a899f92c78a72ad0a43806/tumblr_p8xo5oL0Ql1xp1nxxo1_1280.gif" width="35%" align="right">
+<p>In summary, recursion involves two key components:</p>
 <ol class="arabic">
 <li><p><strong>Recursive Step</strong>: The step where the function calls itself, breaking down the input data into smaller subset(s).</p>
 <p>The number of times the function calls itself is known as the <strong>depth of recursion</strong>.</p>
@@ -511,6 +512,8 @@ document.write(`
 <li><p><strong>Base Case</strong>: The case where the input data cannot be broken down any further. This is the condition that stops the recursion.</p>
 <p>Without a base case, the function would continue to call itself indefinitely, leading to an infinite loop. This is known as <strong>infinite recursion</strong>.</p>
 </li>
+<li><p><strong>Descending down, towards base case</strong>: The process of breaking down the input data into smaller subset(s) is sometimes referred to as descending down recursion chain/tree. Other terms used are unfolding or decomposing the problem.</p></li>
+<li><p><strong>Ascending up, away from base case</strong>: The process of combining the solutions of the subproblems to solve the original problem is sometimes referred to as ascending up recursion. Other terms used are combining or unwinding the problem.</p></li>
 </ol>
 </section>
 <section id="pros-and-cons-of-recursion">
@@ -575,7 +578,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.4. </span>Head / Tail Recursion</p>
+        <p class="prev-next-title"><span class="section-number">5.4. </span>Linear Recursion</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

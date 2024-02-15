@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>5.4. Head / Tail Recursion &#8212; Data Structures and Algorithms</title>
+    <title>5.4. Linear Recursion &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'functions/head_tail';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Functions" href="../tmp/functions.html" />
+    <link rel="next" title="5.5. Tree Recursion" href="tree_recursion.html" />
     <link rel="prev" title="5. Recursion" href="recursion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -203,7 +203,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="recursion.html">5. Recursion</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4. Head / Tail Recursion</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4. Linear Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tree_recursion.html">5.5. Tree Recursion</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">6. Functions</a></li>
@@ -397,7 +398,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Head / Tail Recursion</h1>
+    <h1>Linear Recursion</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,13 +408,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#head-recursion">5.4.1. Head Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tail-recursion">5.4.2. Tail Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion-vs-iteration">5.4.3. Recursion vs. Iteration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-head-recursion-to-tail-recursion">5.4.4. Converting Head Recursion to Tail Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-head-tail-recursion">5.4.5. Avoiding Head / Tail Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorials-a-positive-example">5.4.6. Factorials: A Positive Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">5.4.7. Practice Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-structure-of-linear-recursion">5.4.1. Basic Structure of Linear Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#head-recursion">5.4.2. Head Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tail-recursion">5.4.3. Tail Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion-vs-iteration">5.4.4. Recursion vs. Iteration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-head-recursion-to-tail-recursion">5.4.5. Converting Head Recursion to Tail Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-linear-recursion">5.4.6. Avoiding Linear Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-example-factorials">5.4.7. Positive Example: <strong>Factorials</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">5.4.8. Practice Problems</a></li>
 </ul>
             </nav>
         </div>
@@ -425,13 +427,65 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="head-tail-recursion">
-<h1><span class="section-number">5.4. </span>Head / Tail Recursion<a class="headerlink" href="#head-tail-recursion" title="Permalink to this headline">#</a></h1>
-<p>Head and tail recursion are two types of recursion. In head recursion, the recursive call is the first statement in the function. In tail recursion, the recursive call is the last statement in the function.</p>
-<p>In this notebook, we will discuss the difference between head and tail recursion and how to convert head recursion to tail recursion.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="linear-recursion">
+<h1><span class="section-number">5.4. </span>Linear Recursion<a class="headerlink" href="#linear-recursion" title="Permalink to this headline">#</a></h1>
+<p>Linear recursion is a type of recursion where a function makes a single recursive call.</p>
+<p>There are two types of linear recursion:</p>
+<ol class="arabic simple">
+<li><p>Head recursion</p></li>
+<li><p>Tail recursion</p></li>
+</ol>
+<p>In head recursion, the recursive call is the first statement in the function. In tail recursion, the recursive call is the last statement in the function.</p>
+<p>Here we will discuss the difference between head and tail recursion and how to convert head recursion to tail recursion. But before that let’s discuss the basic structure of linear recursion.</p>
+<section id="basic-structure-of-linear-recursion">
+<h2><span class="section-number">5.4.1. </span>Basic Structure of Linear Recursion<a class="headerlink" href="#basic-structure-of-linear-recursion" title="Permalink to this headline">#</a></h2>
+<p>The basic structure of a linear recursive function includes the following:</p>
+<ol class="arabic simple">
+<li><p>Base case: The base case is the condition that stops the recursion. It is the simplest case of the problem that can be solved directly without recursion. This is generally an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement that checks if the input is small enough to solve directly.  The base case is also often the first statement in the function.</p></li>
+<li><p>Recursive case: The recursive case is the condition that makes the recursive call. It is the condition that reduces the problem to a smaller subproblem. This is generally an <code class="docutils literal notranslate"><span class="pre">else</span></code> statement that makes the recursive call.</p></li>
+<li><p>Before the recursive call: The statements before the recursive call are performed before the base case is reached. These statements are generally the same for all the recursive calls and often involve passing result of some operation down the recursion.</p></li>
+<li><p>After the recursive call: The statements after the recursive call are the operations that need to be performed after the recursive call. These operations are generally the same for all the recursive calls.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Base Case, n =&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Descending towards base case, n =&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+        <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># recursive call</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ascending away from base case, n =&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    
+<span class="n">f</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Descending towards base case, n = 5
+Descending towards base case, n = 4
+Descending towards base case, n = 3
+Descending towards base case, n = 2
+Descending towards base case, n = 1
+Base Case, n = 0
+Ascending away from base case, n = 1
+Ascending away from base case, n = 2
+Ascending away from base case, n = 3
+Ascending away from base case, n = 4
+Ascending away from base case, n = 5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="head-recursion">
-<h2><span class="section-number">5.4.1. </span>Head Recursion<a class="headerlink" href="#head-recursion" title="Permalink to this headline">#</a></h2>
-<p>In head recursion, the recursive call is the first statement in the function. The function does some work before making the recursive call. The recursive call is made with the same arguments as the original call.</p>
+<h2><span class="section-number">5.4.2. </span>Head Recursion<a class="headerlink" href="#head-recursion" title="Permalink to this headline">#</a></h2>
+<p>In head recursion, the recursive call is the first statement in the function. This means that most of the work is done after the recursive call i.e. while ascending back up away from the base case.</p>
 <p>Here is an example of head recursion:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -483,8 +537,8 @@ document.write(`
 </figure>
 </section>
 <section id="tail-recursion">
-<h2><span class="section-number">5.4.2. </span>Tail Recursion<a class="headerlink" href="#tail-recursion" title="Permalink to this headline">#</a></h2>
-<p>In tail recursion, the recursive call is the last statement in the function. The function does some work after making the recursive call. The recursive call is made with the modified arguments.</p>
+<h2><span class="section-number">5.4.3. </span>Tail Recursion<a class="headerlink" href="#tail-recursion" title="Permalink to this headline">#</a></h2>
+<p>In tail recursion, the recursive call is the last statement in the function. This means that most of the work is done before the recursive call i.e. before reaching the base case, while descending down towards in the recursion.</p>
 <p>Here is an example of tail recursion:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -530,7 +584,7 @@ Boomerang 🪃
 </div>
 </section>
 <section id="recursion-vs-iteration">
-<h2><span class="section-number">5.4.3. </span>Recursion vs. Iteration<a class="headerlink" href="#recursion-vs-iteration" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.4.4. </span>Recursion vs. Iteration<a class="headerlink" href="#recursion-vs-iteration" title="Permalink to this headline">#</a></h2>
 <p>Recursion, in particular head or tail recursion, can be thought of as an alternative to iteration.</p>
 <p>Any iterative algorithm can be converted to a recursive algorithm and vice versa.</p>
 <p>For example, consider the following iterative function to add all numbers in a given list:</p>
@@ -587,7 +641,7 @@ Boomerang 🪃
 <p>The function <code class="docutils literal notranslate"><span class="pre">sum_iterative</span></code> and <code class="docutils literal notranslate"><span class="pre">sum_recursive</span></code> produce the same result for the same input. The iterative function uses a loop to iterate through the list and add the numbers. The recursive function uses the head recursion to add the numbers.</p>
 </section>
 <section id="converting-head-recursion-to-tail-recursion">
-<h2><span class="section-number">5.4.4. </span>Converting Head Recursion to Tail Recursion<a class="headerlink" href="#converting-head-recursion-to-tail-recursion" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.4.5. </span>Converting Head Recursion to Tail Recursion<a class="headerlink" href="#converting-head-recursion-to-tail-recursion" title="Permalink to this headline">#</a></h2>
 <p>Head recursion can be converted to tail recursion by using an accumulator. The accumulator is a variable that stores the intermediate result. The accumulator is passed to each recursive call, and the recursive call is the last statement in the function.</p>
 <p>Here is the example of summing all numbers in a list using tail recursion:</p>
 <div class="cell docutils container">
@@ -608,13 +662,13 @@ Boomerang 🪃
 </div>
 </div>
 </section>
-<section id="avoiding-head-tail-recursion">
-<h2><span class="section-number">5.4.5. </span>Avoiding Head / Tail Recursion<a class="headerlink" href="#avoiding-head-tail-recursion" title="Permalink to this headline">#</a></h2>
-<p>Head and/or Tail recursion is considered a bad practice in Python, since the Python compiler does not handle optimization for tail recursive calls. The recursive solution in cases like this use more system resources than the equivalent iterative solution.</p>
+<section id="avoiding-linear-recursion">
+<h2><span class="section-number">5.4.6. </span>Avoiding Linear Recursion<a class="headerlink" href="#avoiding-linear-recursion" title="Permalink to this headline">#</a></h2>
+<p>Linear recursion is considered a bad practice in Python, since the Python compiler does not handle optimization for tail recursive calls. The recursive solution in cases like this use more system resources than the equivalent iterative solution.</p>
 <p>In Python, it is better to use an iterative solution instead of a recursive solution. The iterative solution is more efficient and easier to understand, in most cases.</p>
 </section>
-<section id="factorials-a-positive-example">
-<h2><span class="section-number">5.4.6. </span>Factorials: A Positive Example<a class="headerlink" href="#factorials-a-positive-example" title="Permalink to this headline">#</a></h2>
+<section id="positive-example-factorials">
+<h2><span class="section-number">5.4.7. </span>Positive Example: <strong>Factorials</strong><a class="headerlink" href="#positive-example-factorials" title="Permalink to this headline">#</a></h2>
 <p>Every recursive function we have seen so far is better implemented iteratively.</p>
 <p>However, there are some functions that are more naturally expressed recursively. The canonical example is the factorial function.</p>
 <p>Let’s consider the factorial function, defined by</p>
@@ -670,7 +724,7 @@ Thus, we can compute $n!$ by computing $(n – 1)!$ and multiplying the result b
 <p>While the iterative implementation is equally correct, it is less natural and does not align with the mathematical definition of the mathematical function.</p>
 </section>
 <section id="practice-problems">
-<h2><span class="section-number">5.4.7. </span>Practice Problems<a class="headerlink" href="#practice-problems" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.4.8. </span>Practice Problems<a class="headerlink" href="#practice-problems" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Write a recursive function to compute the product of the first n integers.</p></li>
 </ol>
@@ -730,11 +784,11 @@ Thus, we can compute $n!$ by computing $(n – 1)!$ and multiplying the result b
       </div>
     </a>
     <a class="right-next"
-       href="../tmp/functions.html"
+       href="tree_recursion.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Functions</p>
+        <p class="prev-next-title"><span class="section-number">5.5. </span>Tree Recursion</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -756,13 +810,14 @@ Thus, we can compute $n!$ by computing $(n – 1)!$ and multiplying the result b
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#head-recursion">5.4.1. Head Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tail-recursion">5.4.2. Tail Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion-vs-iteration">5.4.3. Recursion vs. Iteration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-head-recursion-to-tail-recursion">5.4.4. Converting Head Recursion to Tail Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-head-tail-recursion">5.4.5. Avoiding Head / Tail Recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorials-a-positive-example">5.4.6. Factorials: A Positive Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">5.4.7. Practice Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-structure-of-linear-recursion">5.4.1. Basic Structure of Linear Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#head-recursion">5.4.2. Head Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tail-recursion">5.4.3. Tail Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion-vs-iteration">5.4.4. Recursion vs. Iteration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-head-recursion-to-tail-recursion">5.4.5. Converting Head Recursion to Tail Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-linear-recursion">5.4.6. Avoiding Linear Recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-example-factorials">5.4.7. Positive Example: <strong>Factorials</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">5.4.8. Practice Problems</a></li>
 </ul>
   </nav></div>
 

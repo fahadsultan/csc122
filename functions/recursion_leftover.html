@@ -1,0 +1,812 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Example: Counting Change &#8212; Data Structures and Algorithms</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'functions/recursion_leftover';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    CSC-122 Data Structures & Algorithms (Spring 2024)
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Calendar</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../syllabus/index.html">Syllabus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/pathways.html">Purposeful Pathways (Spring ‘24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/textbook.html">Textbooks &amp; Other Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/mental_health.html">Mental Health Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/academic_success.html">Center for Academic Success</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/accomodations.html">Accomodations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/integrity.html">Academic Integrity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/title_9.html">Nondiscrimination Policy and Sexual Misconduct</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/time.html">1.4. Time Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/space.html">1.5. Space Complexity</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/brute.html">2. Brute Force</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/search_linear.html">2.1. Linear Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/bogo.html">2.2. Bogosort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/decrease_conquer.html">3. Decrease and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_selection.html">3.1. Selection Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_insertion.html">3.2. Insertion Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/search_binary.html">4.1. Binary Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_merge_iter.html">4.2. Merge Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_quick_iter.html">4.3. Quick Sort</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="head_tail.html">5.4. Linear Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tree_recursion.html">5.5. Tree Recursion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">6. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">7. Functional Programming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tmp/oop.html">8. Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/datastructures.html">9. Native Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tmp/structs.html">10. Custom Data Structures</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ffunctions/recursion_leftover.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/functions/recursion_leftover.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Example: Counting Change</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Example: Counting Change</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#leftover-stuff">Leftover stuff</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentiation">Exponentiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#greatest-common-divisors">Greatest Common Divisors</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="example-counting-change">
+<h1>Example: Counting Change<a class="headerlink" href="#example-counting-change" title="Permalink to this headline">#</a></h1>
+<p>It takes only a bit of cleverness to come up with the iterative Fibonacci algorithm. In contrast, consider the following problem: How many different ways can we make change of <span class="math notranslate nohighlight">\(\$1.00\)</span> (<span class="math notranslate nohighlight">\(100\)</span> cents), given half-dollars, quarters, dimes, nickels, and pennies (<span class="math notranslate nohighlight">\(50\)</span> cents, <span class="math notranslate nohighlight">\(25\)</span> cents, <span class="math notranslate nohighlight">\(10\)</span> cents, <span class="math notranslate nohighlight">\(5\)</span> cents, and <span class="math notranslate nohighlight">\(1\)</span> cent, respectively)? More generally, can we write a function to compute the number of ways to change any given amount of money?</p>
+<p>This problem has a simple solution as a recursive function. Suppose we think of the types of coins available as arranged in some order. Then the following relation holds:</p>
+<p>The number of ways to change amount <span class="math notranslate nohighlight">\(a\)</span> using <span class="math notranslate nohighlight">\(n\)</span> kinds of coins equals</p>
+<ul class="simple">
+<li><p>the number of ways to change amount <span class="math notranslate nohighlight">\(a\)</span> using all but the first kind of coin, plus</p></li>
+<li><p>the number of ways to change amount <span class="math notranslate nohighlight">\(a – d\)</span> using all n kinds of coins, where <span class="math notranslate nohighlight">\(d\)</span> is the denomination of the first kind of coin.</p></li>
+</ul>
+<p>To see why this is true, observe that the ways to make change can be divided into two groups: those that do not use any of the first kind of coin, and those that do. Therefore, the total number of ways to make change for some amount is equal to the number of ways to make change for the amount without using any of the first kind of coin, plus the number of ways to make change assuming that we do use the first kind of coin. But the latter number is equal to the number of ways to make change for the amount that remains after using a coin of the first kind.</p>
+<p>Thus, we can recursively reduce the problem of changing a given amount to problems of changing smaller amounts or using fewer kinds of coins. Consider this reduction rule carefully, and convince yourself that we can use it to describe an algorithm if we specify the following degenerate cases:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(a\)</span> is exactly 0, we should count that as 1 way to make change.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(a\)</span> is less than 0, we should count that as 0 ways to make change.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(n\)</span> is 0, we should count that as 0 ways to make change.</p></li>
+</ul>
+<p>We can easily translate this description into a recursive function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_change</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">cc</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">cc</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">kinds_of_coins</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">amount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">amount</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">kinds_of_coins</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cc</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">kinds_of_coins</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">cc</span><span class="p">(</span><span class="n">amount</span> <span class="o">-</span> <span class="n">first_denomination</span><span class="p">(</span><span class="n">kinds_of_coins</span><span class="p">),</span> <span class="n">kinds_of_coins</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">first_denomination</span><span class="p">(</span><span class="n">kinds_of_coins</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">kinds_of_coins</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">kinds_of_coins</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">5</span>
+    <span class="k">elif</span> <span class="n">kinds_of_coins</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">10</span>
+    <span class="k">elif</span> <span class="n">kinds_of_coins</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">25</span>
+    <span class="k">elif</span> <span class="n">kinds_of_coins</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">50</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(The first_denomination function takes as input the number of kinds of coins available and returns the denomination of the first kind. Here we are thinking of the coins as arranged in order from largest to smallest, but any order would do as well.) We can now answer our original question about changing a dollar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_change</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>292
+</pre></div>
+</div>
+</div>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">count_change</span></code> generates a tree-recursive process with redundancies similar to those in our first implementation of <code class="docutils literal notranslate"><span class="pre">fib</span></code>. On the other hand, it is not obvious how to design a better algorithm for computing the result, and we leave this problem as a challenge. The observation that a tree-recursive process may be highly inefficient but often easy to specify and understand has led people to propose that one could get the best of both worlds by designing a “smart compiler” that could transform tree-recursive functions into more efficient functions that compute the same result.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="leftover-stuff">
+<h1>Leftover stuff<a class="headerlink" href="#leftover-stuff" title="Permalink to this headline">#</a></h1>
+<p>Once again, we can recast our description as a function for computing factorials:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">fact_iter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span> 
+    
+<span class="k">def</span> <span class="nf">fact_iter</span><span class="p">(</span><span class="n">product</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">max_count</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;</span> <span class="n">max_count</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">product</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fact_iter</span><span class="p">(</span><span class="n">counter</span> <span class="o">*</span> <span class="n">product</span><span class="p">,</span>
+                         <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                         <span class="n">max_count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As before, we can use the substitution model to visualize the process of computing 6!, as shown in figure below:</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/recursion2.png"><img alt="../_images/recursion2.png" src="../_images/recursion2.png" style="width: 244.2px; height: 246.6px;" /></a>
+<figcaption>
+<p><span class="caption-text">A <b>linear iterative</b> process for computing 6!</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In contrasting iteration and recursion, we must be careful not to confuse the notion of a recursive <em>process</em> with the notion of a recursive <em>function</em>. When we describe a function as recursive, we are referring to the syntactic fact that the function declaration refers (either directly or indirectly) to the function itself. But when we describe a process as following a pattern that is, say, linearly recursive, we are speaking about how the process evolves, not about the syntax of how a function is written. It may seem disturbing that we refer to a recursive function such as <code class="docutils literal notranslate"><span class="pre">fact_iter</span></code> as generating an iterative process. However, the process really is iterative: Its state is captured completely by its three state variables, and an interpreter need keep track of only three names in order to execute the process.</p>
+<p>One reason that the distinction between process and function may be confusing is that most implementations of common languages are designed in such a way that the interpretation of any recursive function consumes an amount of memory that grows with the number of function calls, even when the process described is, in principle, iterative. As a consequence, these languages can describe iterative processes only by resorting to special-purpose “looping constructs” such as do, repeat, until, for, and while. The implementation of JavaScript we shall consider in chapter 5 does not share this defect. It will execute an iterative process in constant space, even if the iterative process is described by a recursive function. An implementation with this property is called tail-recursive. With a tail- recursive implementation, iteration can be expressed using the ordinary function call mechanism, so that special iteration constructs are useful only as syntactic sugar.</p>
+<p>Compare the two processes. From one point of view, they seem hardly different at all. Both compute the same mathematical function on the same domain, and each requires a number of steps proportional to n to compute n!. Indeed, both processes even carry out the same sequence of multiplications, obtaining the same sequence of partial products. On the other hand, when we consider the “shapes” of the two processes, we find that they evolve quite differently.</p>
+<p>Consider the first process. The substitution model reveals a shape of expansion followed by contraction, indicated by the arrow in figure 1.3. The expansion occurs as the process builds up a chain of <em>deferred operations</em> (in this case, a chain of multiplications). The contraction occurs as the operations are actually performed. This type of process, characterized by a chain of deferred operations, is called a <em>recursive process</em>. Carrying out this process requires that the interpreter keep track of the operations to be performed later on. In the computation of <span class="math notranslate nohighlight">\(n!\)</span>, the length of the chain of deferred multiplications, and hence the amount of information needed to keep track of it, grows linearly with n (is proportional to n), just like the number of steps. Such a process is called a <em>linear recursive process</em>.</p>
+<p>By contrast, the second process does not grow and shrink. At each step, all we need to keep track of, for any n, are the current values of the names product, counter, and max_count. We call this an <em>iterative process</em>. In general, an iterative process is one whose state can be summarized by a fixed number of <em>state variables</em>, together with a fixed rule that describes how the state variables should be updated as the process moves from state to state and an (optional) end test that specifies conditions under which the process should terminate. In computing n!, the number of steps required grows linearly with n. Such a process is called a <em>linear iterative process</em>.</p>
+<p>The contrast between the two processes can be seen in another way. In the it- erative case, the state variables provide a complete description of the state of the process at any point. If we stopped the computation between steps, all we would need to do to resume the computation is to supply the interpreter with the values of the three state variables. Not so with the recursive process. In this case there is some additional “hidden” information, maintained by the interpreter and not contained in the state variables, which indicates “where the process is” in negotiating the chain of deferred operations. The longer the chain, the more information must be maintained.</p>
+<hr/>
+<p>To sum all the numbers in our recursive nested number list we need to traverse the list, visiting each of the elements within its nested structure, adding any numeric elements to our sum, and repeating this process with any elements which are lists.</p>
+<p>Thanks to recursion, the Python code needed to sum the values of a nested number list is surprisingly short:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recursive_sum</span><span class="p">(</span><span class="n">nested_num_list</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">nested_num_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">([]):</span>
+            <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">recursive_sum</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">element</span>
+    <span class="k">return</span> <span class="nb">sum</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The body of recursive_sum consists mainly of a for loop that traverses nested_num_list. If element is a numerical value (the else branch), it is simply added to sum. If element is a list, then recursive_sum is called again, with the element as an argument. The statement inside the function definition in which the function calls itself is known as the <strong>recursive call</strong>.</p>
+<p>Recursion is truly one of the most beautiful and elegant tools in computer science.</p>
+<p>A slightly more complicated problem is finding the largest value in our nested number list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recursive_max</span><span class="p">(</span><span class="n">nested_num_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">      &gt;&gt;&gt; recursive_max([2, 9, [1, 13], 8, 6])</span>
+<span class="sd">      13</span>
+<span class="sd">      &gt;&gt;&gt; recursive_max([2, [[100, 7], 90], [1, 13], 8, 6])</span>
+<span class="sd">      100</span>
+<span class="sd">      &gt;&gt;&gt; recursive_max([2, [[13, 7], 90], [1, 100], 8, 6])</span>
+<span class="sd">      100</span>
+<span class="sd">      &gt;&gt;&gt; recursive_max([[[13, 7], 90], 2, [1, 100], 8, 6])</span>
+<span class="sd">      100</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">largest</span> <span class="o">=</span> <span class="n">nested_num_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">while</span> <span class="nb">type</span><span class="p">(</span><span class="n">largest</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">([]):</span>
+        <span class="n">largest</span> <span class="o">=</span> <span class="n">largest</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">nested_num_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">([]):</span>
+            <span class="n">max_of_elem</span> <span class="o">=</span> <span class="n">recursive_max</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">largest</span> <span class="o">&lt;</span> <span class="n">max_of_elem</span><span class="p">:</span>
+                <span class="n">largest</span> <span class="o">=</span> <span class="n">max_of_elem</span>
+        <span class="k">else</span><span class="p">:</span>                           <span class="c1"># element is not a list</span>
+            <span class="k">if</span> <span class="n">largest</span> <span class="o">&lt;</span> <span class="n">element</span><span class="p">:</span>
+                <span class="n">largest</span> <span class="o">=</span> <span class="n">element</span>
+
+    <span class="k">return</span> <span class="n">largest</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Doctests are included to provide examples of recursive_max at work.</p>
+<p>The added twist to this problem is finding a numerical value for initializing largest. We can’t just use <code class="docutils literal notranslate"><span class="pre">nested_num_list[0]</span></code>, since that my be either a number or a list. To solve this problem we use a while loop that assigns largest to the first numerical value no matter how deeply it is nested.</p>
+<p>The two examples above each have a <strong>base case</strong> which does not lead to a recursive call: the case where the element is a number and not a list. Without a base case, you have <strong>infinite recursion</strong>, and your program will not work. Python stops after reaching a maximum recursion depth and returns a runtime error.</p>
+<p>Write the following in a file named <code class="docutils literal notranslate"><span class="pre">infinite_recursion.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># infinite_recursion.py</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">recursion_depth</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recursion depth number </span><span class="si">%d</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">number</span><span class="p">))</span>
+    <span class="n">recursion_depth</span><span class="p">(</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">recursion_depth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>At the unix command prompt in the same directory in which you saved your program, type the following:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">infinite_recursion.py</span></code></p>
+<p>After watching the messages flash by, you will be presented with the end of a long traceback that ends in with the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">...</span>
+  <span class="n">File</span> <span class="s2">&quot;infinite_recursion.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3</span><span class="p">,</span> <span class="ow">in</span> <span class="n">recursion_depth</span>
+    <span class="n">recursion_depth</span><span class="p">(</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="ne">RuntimeError</span><span class="p">:</span> <span class="n">maximum</span> <span class="n">recursion</span> <span class="n">depth</span> <span class="n">exceeded</span>
+</pre></div>
+</div>
+<p>We would certainly never want something like this to happen to a user of one of our programs, so before finishing the recursion discussion, let’s see how errors like this are handled in Python.</p>
+<section id="exponentiation">
+<h2>Exponentiation<a class="headerlink" href="#exponentiation" title="Permalink to this headline">#</a></h2>
+<p>Consider the problem of computing the exponential of a given number. We would like a function that takes as arguments a base <span class="math notranslate nohighlight">\(b\)</span> and a positive integer exponent <span class="math notranslate nohighlight">\(n\)</span> and computes <span class="math notranslate nohighlight">\(b^n\)</span>. One way to do this is via the recursive definition</p>
+<div class="math notranslate nohighlight">
+\[ b^n = b \cdot b^{n-1} \]</div>
+<div class="math notranslate nohighlight">
+\[ b^0 = 1 \]</div>
+<p>which translates readily into the function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span> <span class="o">*</span> <span class="n">expt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a linear recursive process, which requires <span class="math notranslate nohighlight">\(\Theta(n)\)</span> steps and <span class="math notranslate nohighlight">\(\Theta(n)\)</span> space. Just as with factorial, we can readily formulate an equivalent linear iteration:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+   <span class="k">return</span> <span class="n">expt_iter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">expt_iter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">product</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">product</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">expt_iter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">counter</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">*</span> <span class="n">product</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This version requires Θ(n) steps and Θ(1) space.</p>
+<p>We can compute exponentials in fewer steps by using successive squaring. For instance, rather than computing <span class="math notranslate nohighlight">\(b^8\)</span> as</p>
+<p><span class="math notranslate nohighlight">\( b \cdot (b \cdot (b \cdot (b \cdot (b \cdot (b \cdot (b \cdot b)))))) \)</span></p>
+<p>we can compute it using three multiplications:</p>
+<div class="math notranslate nohighlight">
+\[ b^2 = b \cdot b \]</div>
+<div class="math notranslate nohighlight">
+\[ b^4 = b^2 \cdot b^2 \]</div>
+<div class="math notranslate nohighlight">
+\[ b^8 = b^4 \cdot b^4 \]</div>
+<p>This method works fine for exponents that are powers of 2. We can also take advantage of successive squaring in computing exponentials in general if we use the rule</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} b^n = \begin{cases} (b^{n/2})^2 &amp; \text{if } n \text{ is even} \\ b \cdot b^{n-1} &amp; \text{if } n \text{ is odd} \end{cases} \end{split}\]</div>
+<p>We can express this method as a function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">fast_expt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">square</span><span class="p">(</span><span class="n">fast_expt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span> <span class="o">*</span> <span class="n">fast_expt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>where the predicate to test whether an integer is even is defined in terms of the operator <code class="docutils literal notranslate"><span class="pre">%</span></code>, which computes the remainder after integer division, by</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The process evolved by fast_expt grows logarithmically with <span class="math notranslate nohighlight">\(n\)</span> in both space and number of steps.</p>
+<p>To see this, observe that computing <span class="math notranslate nohighlight">\(b^{2n}\)</span> using <code class="docutils literal notranslate"><span class="pre">fast_expt</span></code> requires only one more multiplication than computing <span class="math notranslate nohighlight">\(b^n\)</span>. The size of the exponent we can compute therefore doubles (approximately) with every new multiplication we are allowed. Thus, the number of multiplications required for an exponent of <span class="math notranslate nohighlight">\(n\)</span> grows about as fast as the logarithm of <span class="math notranslate nohighlight">\(n\)</span> to the base 2. The process has <span class="math notranslate nohighlight">\(\Theta(log n)\)</span> growth.</p>
+<p>The difference between <span class="math notranslate nohighlight">\(\Theta(log n)\)</span> growth and <span class="math notranslate nohighlight">\(\Theta(n)\)</span> growth becomes striking as n becomes large. For example, fast_expt for <span class="math notranslate nohighlight">\(n = 1000\)</span> requires only 14 multiplications. It is also possible to use the idea of successive squaring to devise an iterative algorithm that computes exponentials with a logarithmic number of steps, although, as is often the case with iterative algorithms, this is not written down so straightforwardly as the recursive algorithm.</p>
+</section>
+<section id="greatest-common-divisors">
+<h2>Greatest Common Divisors<a class="headerlink" href="#greatest-common-divisors" title="Permalink to this headline">#</a></h2>
+<p>The greatest common divisor (GCD) of two integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is defined to be the largest integer that divides both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> with no remainder. For example, the GCD of <span class="math notranslate nohighlight">\(16\)</span> and <span class="math notranslate nohighlight">\(28\)</span> is <span class="math notranslate nohighlight">\(4\)</span>.</p>
+<p>In chapter 2, when we investigate how to implement rational- number arithmetic, we will need to be able to compute GCDs in order to reduce rational numbers to lowest terms. (To reduce a rational number to lowest terms, we must divide both the numerator and the denominator by their GCD. For example, 16/28 reduces to 4/7.) One way to find the GCD of two integers is to factor them and search for common factors, but there is a famous algorithm that is much more efficient.</p>
+<p>The idea of the algorithm is based on the observation that, if <span class="math notranslate nohighlight">\(r\)</span> is the remainder when a is divided by b, then the common divisors of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are precisely the same as the common divisors of b and r. Thus, we can use the equation</p>
+<div class="math notranslate nohighlight">
+\[ \text{GCD}(a,b) = \text{GCD}(b,r) \]</div>
+<p>to successively reduce the problem of computing a GCD to the problem of computing the GCD of smaller and smaller pairs of integers. For example,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \text{GCD}(206,40)  \\= \text{GCD}(40,6) \\ = \text{GCD}(6,4) \\ = \text{GCD}(4,2) \\ = \text{GCD}(2,0) \\ = 2 \end{split}\]</div>
+<p>reduces GCD(206, 40) to GCD(2, 0), which is 2. It is possible to show that starting with any two positive integers and performing repeated reductions will always even- tually produce a pair where the second number is 0. Then the GCD is the other number in the pair. This method for computing the GCD is known as <em>Euclid’s Algorithm</em>.</p>
+<p>It is easy to express Euclid’s Algorithm as a function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This generates an iterative process, whose number of steps grows as the logarithm of the numbers involved.</p>
+<p>The fact that the number of steps required by Euclid’s Algorithm has logarithmic growth bears an interesting relation to the Fibonacci numbers:</p>
+<p><strong>Lamé’s Theorem</strong>: If Euclid’s Algorithm requires <span class="math notranslate nohighlight">\(k\)</span> steps to compute the GCD of some pair, then the smaller number in the pair must be greater than or equal to the <span class="math notranslate nohighlight">\(k^{th}\)</span> Fibonacci number.</p>
+<p>We can use this theorem to get an order-of-growth estimate for Euclid’s Algorithm. Let n be the smaller of the two inputs to the function. If the process takes k steps, then we must have n≥Fib(k)≈φk/√5. Therefore the number of steps k grows as the logarithm (to the base φ ) of n. Hence, the order of growth is Θ(log n).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./functions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Example: Counting Change</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#leftover-stuff">Leftover stuff</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentiation">Exponentiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#greatest-common-divisors">Greatest Common Divisors</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Syed Fahad Sultan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
