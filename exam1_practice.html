@@ -404,7 +404,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-0">Problem 0</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
 </ul>
             </nav>
         </div>
@@ -418,6 +423,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="practice-exam-for-data-structures-and-algorithms">
 <h1>Practice Exam for Data Structures and Algorithms<a class="headerlink" href="#practice-exam-for-data-structures-and-algorithms" title="Permalink to this headline">#</a></h1>
+<section id="problem-0">
+<h2>Problem 0<a class="headerlink" href="#problem-0" title="Permalink to this headline">#</a></h2>
+<p>For the figure above, match letter with one of the following set of functions:</p>
+<p>{ quadratic O(n^2), exponential O(2^n), logarithmic O(log n), linear O(n), constant (1), cubic O(n^3) }</p>
+<p>A:
+B:
+C:
+D:
+E:
+F:</p>
+</section>
 <section id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h2>
 <p>For the following lines of code, what is the time and space complexity?</p>
@@ -466,27 +482,19 @@ document.write(`
 </pre></div>
 </div>
 <p>1.5.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
-        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">data</span>
 </pre></div>
 </div>
 <p>1.6.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
-            <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">data</span>
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">loc</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>1.7.</p>
@@ -500,8 +508,90 @@ document.write(`
     <span class="k">return</span> <span class="n">data</span>
 </pre></div>
 </div>
-<p>1.8.</p>
+<p>1.6.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">new_data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">loc</span><span class="p">:</span>
+        <span class="n">new_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+<p>1.7.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+</section>
+<section id="problem-2">
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h2>
+<p>Write the most efficient function to find query in a descending list of numbers. The function should return the index of the query if it is in the list and -1 if it is not.</p>
+<p>Solution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_query</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">query</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mid</span>
+        <span class="k">elif</span> <span class="n">data</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">query</span><span class="p">:</span>
+            <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>What is the time and space complexity of your function?</p>
+</section>
+<section id="problem-3">
+<h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h2>
+<p>Write the most efficient function to find the maximum value in an ordered list of numbers.</p>
+<p>What is the time and space complexity of your function?</p>
+</section>
+<section id="problem-4">
+<h2>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h2>
+<p>Write a function that takes in a list of numbers and reverses the list. The function should be O(n) in time and O(1) in space.</p>
+</section>
+<section id="problem-5">
+<h2>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this headline">#</a></h2>
+<p>Write a function that takes in a list of numbers and returns the maximum difference between any two numbers in the list. The function should be O(n) in time and O(1) in space.</p>
+<p>For example, the maximum difference in [3, 1, 5, 2, 4]  is 4 since 5 - 1 = 4.</p>
+<p>Similarly, the maximum difference in [1, 1, 1, 2, 2, 2] is 1 since 2 - 1 = 1.</p>
+<p>Another example, the maximum difference in [-1, -20, -10] is 19 since -1 - (-20) = 19.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">find_max</span>
+
+<span class="k">def</span> <span class="nf">max_difference</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="n">min_value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">max_difference</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        <span class="n">max_difference</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_difference</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">min_value</span><span class="p">)</span>
+        <span class="n">min_value</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">min_value</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">max_difference</span>
+
+<span class="k">assert</span> <span class="n">max_difference</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="k">assert</span> <span class="n">max_difference</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="k">assert</span> <span class="n">max_difference</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Test case 3 failed&quot;</span>
+<span class="k">assert</span> <span class="n">max_difference</span><span class="p">([</span><span class="mi">99</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">99</span><span class="p">,</span> <span class="s2">&quot;Test case 4 failed&quot;</span>
+<span class="k">assert</span> <span class="n">max_difference</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Test case 5 failed&quot;</span>
+<span class="k">assert</span> <span class="n">max_difference</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">])</span> <span class="o">==</span> <span class="mi">19</span><span class="p">,</span> <span class="s2">&quot;Test case 6 failed&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -556,7 +646,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-0">Problem 0</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
 </ul>
   </nav></div>
 

@@ -19,16 +19,17 @@ PA: _Programming Assignment_
 |---------|----------------------------|---------|----------------------------|-----------------|-----|-------------------|
 | 1       | Introduction      |     GGT (Chapter 3)  |  **[Introduction](intro.md)**  | **[Analysis](algos/analysis.md)** | <b><a href="file:///Users/fsultan/Downloads/csc122/_build/html/algos/written_assignment.html">WA.1.</a></b> |   **[PA.1.](https://colab.research.google.com/drive/10T0eNTfBgqEeTUbqcq-z96Fkh_KMFVuJ?usp=sharing)**  |
 | 2       | Analysis      |   GGT (Chapter 3)    | **[Time Complexity](algos/time.md)** |  **[Space Complexity](algos/time.md)**  |     |     **[PA.2.](https://colab.research.google.com/drive/1Sg07q8Hg_BD1imXRNe2X4FYP965paikq?usp=sharing)**        | 
-| 3       | Brute Force + <br/>Decrease & Conquer   |      GGT (Chapter 12)     |   **[Brute Force](https://fahadsultan.com/csc122/algos/brute.html)**<br/> + <br/> **[Binary Search](https://fahadsultan.com/csc122/algos/search_binary.html)**  |  **[Insertion Sort](https://fahadsultan.com/csc122/algos/sort_insertion.html)** + <br/> **[Selection Sort](https://fahadsultan.com/csc122/algos/sort_selection.html)**   | **[WA.2.](https://docs.google.com/document/d/1JhJrMueeOICI3rZGRLejm1crr3yn7kr5T6GDxV3cvkk/edit?usp=sharing)**   |  **[PA 3.1.](https://colab.research.google.com/drive/1DD-kS40aeGmQH8lc6Uh7uTRSfAUGAHmU?usp=sharing)** <br/> **[PA 3.2](https://colab.research.google.com/drive/1nEKr6x2muSmkGztMc7tD537VL_i41uaW?usp=sharing)** |    
-| 4       | Divide & Conquer   |         |  **[Merge Sort](https://fahadsultan.com/csc122/algos/sort_merge_iter.html)**    |  **[Quick Sort](https://fahadsultan.com/csc122/algos/sort_quick_iter.html)**  |    |   
+| 3       | Brute Force + <br/>Decrease & Conquer   |      GGT (Chapter 12)     |   **[Brute Force](https://fahadsultan.com/csc122/algos/brute.html)**<br/> + <br/> **[Binary Search](https://fahadsultan.com/csc122/algos/search_binary.html)**  |  **[Insertion Sort](https://fahadsultan.com/csc122/algos/sort_insertion.html)** + <br/> **[Selection Sort](https://fahadsultan.com/csc122/algos/sort_selection.html)**   | **[WA.2.](https://docs.google.com/document/d/1JhJrMueeOICI3rZGRLejm1crr3yn7kr5T6GDxV3cvkk/edit?usp=sharing)**   |  **[PA 3.1.](https://colab.research.google.com/drive/1DD-kS40aeGmQH8lc6Uh7uTRSfAUGAHmU?usp=sharing)** <br>**[PA 3.2](https://colab.research.google.com/drive/1nEKr6x2muSmkGztMc7tD537VL_i41uaW?usp=sharing)** |    
+| 4       | Divide & Conquer   |    GGT (Chapter 12)     |  **[Merge Sort](https://fahadsultan.com/csc122/algos/sort_merge_iter.html)**    |  **[Quick Sort](https://fahadsultan.com/csc122/algos/sort_quick_iter.html)**  |    |   |
 
+<center><b><i><a href="https://colab.research.google.com/drive/14dZTAFYvDU6IECAnJI5r4rB8dneKAZs5?usp=sharing">Practice Exam 1</a></i></b><center>
 <center><b><i>EXAM 1</i></b><center>
 <br><br>
 <!-- <center><i>October: Mathematics for Data Science</i></center>         -->
 
 | #     | TOPIC                      | READING | MEETING 1                  | MEETING 2              | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
 |-------|----------------------------|---------|----------------------------|------------------------|-----|-------------------|
-| 5 | Building Abstractions with Functions  |   | |   |     |  |
+| 5 | Building Abstractions with Functions  |  GGT (Chapter 4)   | **[Recursion](functions/recursion.ipynb)** | **[Linear Recursion](functions/head_tail.ipynb)**  |     |  |
 | 6 | Building Abstractions with Functions  |         |                 |          |    |  |
 | 7 | Building Abstractions with Data  |         |                 |          |    |  |
 | 8 | Building Abstractions with Data  |         |                 |          |    |  |

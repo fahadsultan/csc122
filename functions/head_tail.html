@@ -415,7 +415,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-head-recursion-to-tail-recursion">5.4.5. Converting Head Recursion to Tail Recursion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-linear-recursion">5.4.6. Avoiding Linear Recursion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-example-factorials">5.4.7. Positive Example: <strong>Factorials</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">5.4.8. Practice Problems</a></li>
 </ul>
             </nav>
         </div>
@@ -642,7 +641,7 @@ Boomerang 🪃
 </section>
 <section id="converting-head-recursion-to-tail-recursion">
 <h2><span class="section-number">5.4.5. </span>Converting Head Recursion to Tail Recursion<a class="headerlink" href="#converting-head-recursion-to-tail-recursion" title="Permalink to this headline">#</a></h2>
-<p>Head recursion can be converted to tail recursion by using an accumulator. The accumulator is a variable that stores the intermediate result. The accumulator is passed to each recursive call, and the recursive call is the last statement in the function.</p>
+<p>Head recursion can be converted to tail recursion by using an <strong>accumulator</strong>. The accumulator is a variable that stores the intermediate result. The accumulator is passed to each recursive call, and the recursive call is the last statement in the function.</p>
 <p>Here is the example of summing all numbers in a list using tail recursion:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -657,6 +656,28 @@ Boomerang 🪃
         <span class="n">new_sum</span> <span class="o">=</span> <span class="n">current_sum</span> <span class="o">+</span> <span class="n">first_element</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">sum_tail_recursive</span><span class="p">(</span><span class="n">rest_of_list</span><span class="p">,</span> <span class="n">new_sum</span><span class="p">)</span> <span class="c1"># recursive call</span>
         <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the function above uses the <strong>optional argument</strong> <code class="docutils literal notranslate"><span class="pre">current_sum</span></code> to store the intermediate result. Optional arguments in python functions are arguments that you are not required to pass when calling the function. If you do not pass the optional argument, the <strong>default value</strong> is used. In this case, the default value of <code class="docutils literal notranslate"><span class="pre">current_sum</span></code> is 0. This means when you call the function <code class="docutils literal notranslate"><span class="pre">sum_tail_recursive</span></code> with just one input say <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>, the function will effectively be called as <code class="docutils literal notranslate"><span class="pre">sum_tail_recursive([1,</span> <span class="pre">2,</span> <span class="pre">3],</span> <span class="pre">0)</span></code>. In other words, the value of <code class="docutils literal notranslate"><span class="pre">current_sum</span></code> will be 0 in the first call. The value of <code class="docutils literal notranslate"><span class="pre">current_sum</span></code> will be updated in each recursive call and passed to the next recursive call.</p>
+<p>As an alternative to using an optional argument, you can define a <strong>helper function</strong> that takes an additional argument to store the intermediate result, when implementing a tail recursive function. The helper function takes an additional argument (the <em>accumulator</em>) and makes the recursive call. The main function simply calls the helper function with the initial value of the accumulator.</p>
+<p>A version of the <code class="docutils literal notranslate"><span class="pre">sum_tail_recursive</span></code> function, with a helper function, that does not use an optional argument is shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_tail_recursive</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">sum_tail_recursive_helper</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">sum_tail_recursive_helper</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">current_sum</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="p">[]:</span>
+        <span class="c1"># base case</span>
+        <span class="k">return</span> <span class="n">current_sum</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># recursive case</span>
+        <span class="n">first_element</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">rest_of_list</span>  <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">new_sum</span> <span class="o">=</span> <span class="n">current_sum</span> <span class="o">+</span> <span class="n">first_element</span>
+        <span class="k">return</span> <span class="n">sum_tail_recursive_helper</span><span class="p">(</span><span class="n">rest_of_list</span><span class="p">,</span> <span class="n">new_sum</span><span class="p">)</span> <span class="c1"># recursive call</span>
 </pre></div>
 </div>
 </div>
@@ -722,24 +743,6 @@ Thus, we can compute $n!$ by computing $(n – 1)!$ and multiplying the result b
 </div>
 </div>
 <p>While the iterative implementation is equally correct, it is less natural and does not align with the mathematical definition of the mathematical function.</p>
-</section>
-<section id="practice-problems">
-<h2><span class="section-number">5.4.8. </span>Practice Problems<a class="headerlink" href="#practice-problems" title="Permalink to this headline">#</a></h2>
-<ol class="arabic simple">
-<li><p>Write a recursive function to compute the product of the first n integers.</p></li>
-</ol>
-<ol class="arabic simple" start="2">
-<li><p>Write a recursive function that returns the maximum element in a list.</p></li>
-</ol>
-<ol class="arabic simple" start="3">
-<li><p>Write a recursive function that returns the input <code class="docutils literal notranslate"><span class="pre">base</span></code> raised to the input <code class="docutils literal notranslate"><span class="pre">exponent</span></code>.</p></li>
-</ol>
-<ol class="arabic simple" start="5">
-<li><p>Write a function that returns True if <code class="docutils literal notranslate"><span class="pre">query</span></code> is in <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
-</ol>
-<ol class="arabic simple" start="6">
-<li><p>Write a recursive function that returns the reverse of a list.</p></li>
-</ol>
 </section>
 </section>
 
@@ -817,7 +820,6 @@ Thus, we can compute $n!$ by computing $(n – 1)!$ and multiplying the result b
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-head-recursion-to-tail-recursion">5.4.5. Converting Head Recursion to Tail Recursion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-linear-recursion">5.4.6. Avoiding Linear Recursion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-example-factorials">5.4.7. Positive Example: <strong>Factorials</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">5.4.8. Practice Problems</a></li>
 </ul>
   </nav></div>
 
