@@ -207,7 +207,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion.html">5.5. Tree Recursion</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functions.html">6. Functions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../functions/stacks.html">6. Stacks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/call_stacks.html">6.2. Call Stacks</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">7. Functional Programming</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
@@ -430,7 +433,7 @@ document.write(`
   <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Sorting_insertion_sort_anim.gif" align="right" width="25%">
 <section class="tex2jax_ignore mathjax_ignore" id="insertion-sort">
 <h1><span class="section-number">3.2. </span>Insertion Sort<a class="headerlink" href="#insertion-sort" title="Permalink to this headline">#</a></h1>
-<p><strong>Insertion sort</strong> is a simple sorting algorithm that works the way we sort playing cards in our hands.</p>
+<p><strong>Insertion sort</strong> is a sorting algorithm that works the way we sort playing cards in our hands.</p>
 <p>The algorithm works by maintaining two sublists in a given array:</p>
 <ol class="arabic simple">
 <li><p>The sublist which is already sorted.</p></li>
@@ -450,11 +453,11 @@ document.write(`
 <p>The algorithm works as follows:</p>
 <ol class="arabic simple">
 <li><p>Initialize a iterator <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
-<li><p>Initialize a variable <span class="math notranslate nohighlight">\(key\)</span> to <span class="math notranslate nohighlight">\(L[i]\)</span>.</p></li>
-<li><p>Iterate over the list from <span class="math notranslate nohighlight">\(i-1\)</span> to <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(L[j] &gt; key\)</span>, set <span class="math notranslate nohighlight">\(L[j+1]\)</span> to <span class="math notranslate nohighlight">\(L[j]\)</span>.</p></li>
-<li><p>Set <span class="math notranslate nohighlight">\(L[j+1]\)</span> to <span class="math notranslate nohighlight">\(key\)</span>.</p></li>
-<li><p>Increment <span class="math notranslate nohighlight">\(i\)</span> by <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
+<li><p>Call the element at <span class="math notranslate nohighlight">\(i^{th}\)</span> location <span class="math notranslate nohighlight">\(key\)</span> i.e. <span class="math notranslate nohighlight">\(key \leftarrow L[i]\)</span>.</p></li>
+<li><p>Iterate over sublist to the left of <span class="math notranslate nohighlight">\(i\)</span> from right to left i.e. iterate over the list from <span class="math notranslate nohighlight">\(i-1\)</span> to <span class="math notranslate nohighlight">\(0\)</span> using an iterator called <span class="math notranslate nohighlight">\(j\)</span>. The sublist from <span class="math notranslate nohighlight">\(i-1\)</span> to <span class="math notranslate nohighlight">\(0\)</span> is the sorted sublist.</p></li>
+<li><p>For all values <span class="math notranslate nohighlight">\(L[j] &gt; key\)</span>, shift them one place to the right i.e. set <span class="math notranslate nohighlight">\(L[j+1]\)</span> to <span class="math notranslate nohighlight">\(L[j]\)</span> until <span class="math notranslate nohighlight">\(L[j] &gt; key\)</span>.</p></li>
+<li><p>Once you find a value <span class="math notranslate nohighlight">\(L[j] \leq key\)</span>, you’ve found the correct location of <span class="math notranslate nohighlight">\(key\)</span>. Set <span class="math notranslate nohighlight">\(L[j+1]\)</span> to <span class="math notranslate nohighlight">\(key\)</span>.</p></li>
+<li><p>Increment <span class="math notranslate nohighlight">\(i\)</span> by <span class="math notranslate nohighlight">\(1\)</span> and repeat steps 2-5 until <span class="math notranslate nohighlight">\(i\)</span> is equal to <span class="math notranslate nohighlight">\(n-1\)</span>.</p></li>
 </ol>
 <figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="https://miro.medium.com/v2/resize:fit:1280/1*jdXtqXw0EQVpqdZZoGnwsQ.gif"><img alt="https://miro.medium.com/v2/resize:fit:1280/1*jdXtqXw0EQVpqdZZoGnwsQ.gif" src="https://miro.medium.com/v2/resize:fit:1280/1*jdXtqXw0EQVpqdZZoGnwsQ.gif" style="width: 90%;" /></a>

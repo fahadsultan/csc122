@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2.2. Bogosort &#8212; Data Structures and Algorithms</title>
+    <title>6. Stacks &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -62,13 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'algos/bogo';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'functions/stacks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Decrease and Conquer" href="decrease_conquer.html" />
-    <link rel="prev" title="2.1. Linear Search" href="search_linear.html" />
+    <link rel="next" title="6.2. Call Stacks" href="call_stacks.html" />
+    <link rel="prev" title="5.5. Tree Recursion" href="tree_recursion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -177,38 +175,38 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="time.html">1.4. Time Complexity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="space.html">1.5. Space Complexity</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/time.html">1.4. Time Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/space.html">1.5. Space Complexity</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="brute.html">2. Brute Force</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="search_linear.html">2.1. Linear Search</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Bogosort</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/brute.html">2. Brute Force</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/search_linear.html">2.1. Linear Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/bogo.html">2.2. Bogosort</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="decrease_conquer.html">3. Decrease and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="sort_selection.html">3.1. Selection Sort</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sort_insertion.html">3.2. Insertion Sort</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/decrease_conquer.html">3. Decrease and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_selection.html">3.1. Selection Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_insertion.html">3.2. Insertion Sort</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="search_binary.html">4.1. Binary Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sort_merge_iter.html">4.2. Merge Sort</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sort_quick_iter.html">4.3. Quick Sort</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/search_binary.html">4.1. Binary Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_merge_iter.html">4.2. Merge Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_quick_iter.html">4.3. Quick Sort</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../functions/recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../functions/head_tail.html">5.4. Linear Recursion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion.html">5.5. Tree Recursion</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="head_tail.html">5.4. Linear Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tree_recursion.html">5.5. Tree Recursion</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../functions/stacks.html">6. Stacks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../functions/call_stacks.html">6.2. Call Stacks</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">6. Stacks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="call_stacks.html">6.2. Call Stacks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">7. Functional Programming</a></li>
@@ -289,7 +287,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Falgos/bogo.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ffunctions/stacks.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -319,7 +317,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/algos/bogo.ipynb" target="_blank"
+      <li><a href="../_sources/functions/stacks.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -401,7 +399,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Bogosort</h1>
+    <h1>Stacks</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -411,9 +409,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psuedocode">2.2.1. Psuedocode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">2.2.2. Implementation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">2.2.3. Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">6.1. Operations</a></li>
 </ul>
             </nav>
         </div>
@@ -425,62 +421,62 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="bogosort">
-<h1><span class="section-number">2.2. </span>Bogosort<a class="headerlink" href="#bogosort" title="Permalink to this headline">#</a></h1>
-<p><strong>Bogosort</strong> (also known as <strong>Permutation sort</strong> or <strong>Stupid sort</strong>) is the brute-force approach to sorting.</p>
-<p>It enumerates all permutations of the input until it finds the sorted version.</p>
-<figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="https://camo.githubusercontent.com/2ec148ae6d324f76e6560b167bebc98e13a02d47d4aae042a9777864032ab125/68747470733a2f2f73696d6f6e77616c64686572722e6769746875622e696f2f476f6c616e67536f7274696e6756697375616c697a6174696f6e2f736f72745f626f676f2e676966"><img alt="https://camo.githubusercontent.com/2ec148ae6d324f76e6560b167bebc98e13a02d47d4aae042a9777864032ab125/68747470733a2f2f73696d6f6e77616c64686572722e6769746875622e696f2f476f6c616e67536f7274696e6756697375616c697a6174696f6e2f736f72745f626f676f2e676966" src="https://camo.githubusercontent.com/2ec148ae6d324f76e6560b167bebc98e13a02d47d4aae042a9777864032ab125/68747470733a2f2f73696d6f6e77616c64686572722e6769746875622e696f2f476f6c616e67536f7274696e6756697375616c697a6174696f6e2f736f72745f626f676f2e676966" style="width: 40%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Bogosort goes through all permutations of the input until it finds a sorted version.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>The name comes from the word “bogus” because it is a bogus sorting algorithm.</p>
-<p>There are many variants of bogosort. The difference between the two most common variants is that of determinism and randomness. The deterministic version enumerates all permutations until it encounters a sorted one whereas the randomized version permutes its input randomly. Here, we are discussing the deterministic version.</p>
-<section id="psuedocode">
-<h2><span class="section-number">2.2.1. </span>Psuedocode<a class="headerlink" href="#psuedocode" title="Permalink to this headline">#</a></h2>
-<p>The pseudocode for bogosort is as follows:</p>
-<div class="proof algorithm admonition" id="my-algorithm">
-<p class="admonition-title"><span class="caption-number">Algorithm 2.2 </span> (Bogosort Algorithm)</p>
-<section class="algorithm-content" id="proof-content">
-<p><strong>Inputs</strong> A list <span class="math notranslate nohighlight">\(L\)</span> of length <span class="math notranslate nohighlight">\(n\)</span></p>
-<p><strong>Output</strong> The permutation of <span class="math notranslate nohighlight">\(L\)</span> that is sorted i.e. <span class="math notranslate nohighlight">\(L'\)</span> such that <span class="math notranslate nohighlight">\(L'[i] \leq L'[i+1]\)</span> for all <span class="math notranslate nohighlight">\(i\)</span> from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(n-1\)</span></p>
-<ol class="arabic">
-<li><p>Compute all permutations of <span class="math notranslate nohighlight">\(L\)</span></p></li>
-<li><p>For each permutation <span class="math notranslate nohighlight">\(P\)</span> of <span class="math notranslate nohighlight">\(L\)</span>:</p>
-<p>2.1. If <span class="math notranslate nohighlight">\(P\)</span> is sorted, return <span class="math notranslate nohighlight">\(P\)</span></p>
-</li>
-</ol>
-</section>
-</div><p>Note that computing all permutations of a given list is in itself a hard algorithmic problem. Here, we are assuming that we have a function that can compute all permutations of a given list.</p>
-</section>
-<section id="implementation">
-<h2><span class="section-number">2.2.2. </span>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h2>
-<p>The following is an implementation of bogosort in Python:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
-
-<span class="k">def</span> <span class="nf">is_sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">return</span> <span class="kc">True</span>
-
-<span class="k">def</span> <span class="nf">bogo_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-    <span class="n">all_permutations</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">permutation</span> <span class="ow">in</span> <span class="n">all_permutations</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">is_sorted</span><span class="p">(</span><span class="n">permutation</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">permutation</span>
-    <span class="k">return</span> <span class="kc">None</span>
-</pre></div>
+  <section class="tex2jax_ignore mathjax_ignore" id="stacks">
+<h1><span class="section-number">6. </span>Stacks<a class="headerlink" href="#stacks" title="Permalink to this headline">#</a></h1>
+<img src="https://i.ibb.co/kmD7VBq/stacks.png" align="right" width="40%">
+<p>A stack is a collection of objects set on top of each other.</p>
+<p>Note that this organization imposes constraints on the order in which objects can be removed. The last object placed on the stack is the first one to be removed. This is known as the <strong>Last-In-First-Out (LIFO) order</strong>.</p>
+<p>Stacks are integral to computer science. They are used to store and manage function calls, to implement certain types of algorithms, and to manage memory.</p>
+<section id="operations">
+<h2><span class="section-number">6.1. </span>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">#</a></h2>
+<p>Stacks are in essence defined by the operations they support. These operations are:</p>
+<center>
+<img src="https://cdn.programiz.com/sites/tutorial2program/files/stack.png" width="80%">
+</center>
+<ul class="simple">
+<li><p><strong>Empty</strong>: Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the stack is empty, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+</ul>
+<br/>
+<ul class="simple">
+<li><p><strong>Push</strong>: Adds a given element to the top of the stack.</p></li>
+</ul>
+<br/>
+<ul class="simple">
+<li><p><strong>Pop</strong>: Removes the top element from the stack.</p></li>
+</ul>
+<br/>
+<ul class="simple">
+<li><p><strong>Peek</strong>: Returns the top element of the stack, without removing it. <br />
+This operation is also known as <code class="docutils literal notranslate"><span class="pre">top</span></code> or <code class="docutils literal notranslate"><span class="pre">front</span></code> or <code class="docutils literal notranslate"><span class="pre">head</span></code>.</p></li>
+</ul>
+<br/>
+<ul class="simple">
+<li><p><strong>Size</strong>: Returns the number of elements in the stack. <br />
+This operation is also known as <code class="docutils literal notranslate"><span class="pre">length</span></code> or <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p></li>
+</ul>
+<br/>
+<center><img src="https://fullyunderstood.com/wp-content/uploads/2020/02/stack.gif" width="70%"></center>
+<p>Equally important to the operations that a stack supports is the operations that it does not support.</p>
+<p>In other words, stacks do not support:</p>
+<ul class="simple">
+<li><p>❌ Read elements at arbitrary positions. <br />
+✅ You can only access the element at the <em>top of the stack</em> using the <code class="docutils literal notranslate"><span class="pre">peek</span></code> operation.</p></li>
+</ul>
+<br/>
+<ul class="simple">
+<li><p>❌ Insert elements at arbitrary positions. <br />
+✅ You can only insert elements at the <em>top of the stack</em> using the <code class="docutils literal notranslate"><span class="pre">push</span></code> operation.</p></li>
+</ul>
+<br/>
+<ul class="simple">
+<li><p>❌ Remove elements from arbitrary positions. <br />
+✅ You can only remove elements from the <em>top of the stack</em> using the <code class="docutils literal notranslate"><span class="pre">pop</span></code> operation.</p></li>
+</ul>
+<br/>
+<p>Whether you are adding, removing, or accessing elements, you can only interact with the top of the stack.</p>
+<br/></section>
+<div class="toctree-wrapper compound">
 </div>
-<p>Note that the above implementation uses the built-in <code class="docutils literal notranslate"><span class="pre">itertools</span></code> library to compute all permutations of the input list.</p>
-</section>
-<section id="analysis">
-<h2><span class="section-number">2.2.3. </span>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h2>
-<p>Bogo Sort is extremely inefficient. It has an average runtime of <span class="math notranslate nohighlight">\(O(n \times n!)\)</span>.</p>
-<p>This is because the total number of permutations of an array of length <span class="math notranslate nohighlight">\(n\)</span> is <span class="math notranslate nohighlight">\(n!\)</span>. Each permutation takes <span class="math notranslate nohighlight">\(O(n)\)</span> time to check if it is sorted. Therefore, the total runtime is <span class="math notranslate nohighlight">\(O(n \times n!)\)</span>.</p>
-<p>Space complexity is O(1) because the algorithm sorts the array in place, without allocating memory for any new list.</p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -496,7 +492,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./algos"
+            path: "./functions"
         },
         predefinedOutput: true
     }
@@ -515,20 +511,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="search_linear.html"
+       href="tree_recursion.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.1. </span>Linear Search</p>
+        <p class="prev-next-title"><span class="section-number">5.5. </span>Tree Recursion</p>
       </div>
     </a>
     <a class="right-next"
-       href="decrease_conquer.html"
+       href="call_stacks.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Decrease and Conquer</p>
+        <p class="prev-next-title"><span class="section-number">6.2. </span>Call Stacks</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -550,9 +546,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#psuedocode">2.2.1. Psuedocode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">2.2.2. Implementation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">2.2.3. Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">6.1. Operations</a></li>
 </ul>
   </nav></div>
 
