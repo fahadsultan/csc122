@@ -66,12 +66,14 @@ parts:
     numbered: true
     chapters:
     - file: functions/recursion
-    # - file: tmp/recursion
       sections: 
         - file: functions/head_tail
         - file: functions/tree_recursion
+    - file: functions/stacks
+      sections: 
+        - file: functions/call_stacks
     # - file: functions/functions
-    - file: tmp/functions
+    # - file: tmp/functions
       # sections: 
       #   - file: functions/testdriven
       #   - file: functions/exceptions

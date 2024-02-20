@@ -10,6 +10,14 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 👇🏾 Below, you can find important links and important announcements.
 
 ```{important}
+**Programming Assignment 4.1.** is due on Friday, **23rd Feb** before next lab.
+```
+
+```{important}
+**Written Assignment 3** is due on Friday, **23rd Feb**
+```
+
+```{important}
 **Exam 2** is scheduled for **29th Feb**, the Thursday before Spring Break. 
 
 Similar to Exam 1, it will be during the regular class time and will on computer.

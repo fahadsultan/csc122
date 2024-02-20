@@ -3,7 +3,7 @@
 
 # Insertion Sort
 
-**Insertion sort** is a simple sorting algorithm that works the way we sort playing cards in our hands. 
+**Insertion sort** is a sorting algorithm that works the way we sort playing cards in our hands. 
 
 The algorithm works by maintaining two sublists in a given array:
 
@@ -32,15 +32,15 @@ The algorithm works as follows:
 
 1. Initialize a iterator $i$ to $1$.
 
-2. Initialize a variable $key$ to $L[i]$.
+2. Call the element at $i^{th}$ location $key$ i.e. $key \leftarrow L[i]$.
 
-3. Iterate over the list from $i-1$ to $0$.
+3. Iterate over sublist to the left of $i$ from right to left i.e. iterate over the list from $i-1$ to $0$ using an iterator called $j$. The sublist from $i-1$ to $0$ is the sorted sublist.
 
-4. If $L[j] > key$, set $L[j+1]$ to $L[j]$.
+4. For all values $L[j] > key$, shift them one place to the right i.e. set $L[j+1]$ to $L[j]$ until $L[j] > key$.
 
-5. Set $L[j+1]$ to $key$.
+5. Once you find a value $L[j] \leq key$, you've found the correct location of $key$. Set $L[j+1]$ to $key$.
 
-6. Increment $i$ by $1$.
+6. Increment $i$ by $1$ and repeat steps 2-5 until $i$ is equal to $n-1$.
 
 ``` {figure} https://miro.medium.com/v2/resize:fit:1280/1*jdXtqXw0EQVpqdZZoGnwsQ.gif
 ---
