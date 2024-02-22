@@ -10,11 +10,11 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 👇🏾 Below, you can find important links and important announcements.
 
 ```{important}
-**Programming Assignment 4.1.** is due on Friday, **23rd Feb** before next lab.
+**[Programming Assignment 4](https://colab.research.google.com/drive/1N-dZVVXzNrQowCWYmHpmTi9GjEQlxc3z)** is due on Friday, **23rd Feb** before next lab.
 ```
 
 ```{important}
-**Written Assignment 3** is due on Friday, **23rd Feb**
+**[Written Assignment 3](https://docs.google.com/document/d/1MZ1U_PbDTV69Ox9M7-6NEj_YKQqwYj7nFSNV2SZTFA4/edit?usp=sharing)** is due on Friday, **23rd Feb**
 ```
 
 ```{important}

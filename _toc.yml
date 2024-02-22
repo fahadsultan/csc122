@@ -69,9 +69,11 @@ parts:
       sections: 
         - file: functions/head_tail
         - file: functions/tree_recursion
+        - file: functions/tree_recursion2
     - file: functions/stacks
       sections: 
         - file: functions/call_stacks
+        - file: functions/stack_overflow
     # - file: functions/functions
     # - file: tmp/functions
       # sections: 
