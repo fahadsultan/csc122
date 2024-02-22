@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'functions/call_stacks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Functional Programming" href="../tmp/functionalprogramming.html" />
+    <link rel="next" title="6.3. Stack Trace" href="stack_overflow.html" />
     <link rel="prev" title="6. Stacks" href="stacks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -203,10 +203,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="head_tail.html">5.4. Linear Recursion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tree_recursion.html">5.5. Tree Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tree_recursion2.html">5.6. More Recursion</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="stacks.html">6. Stacks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">6.2. Call Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stack_overflow.html">6.3. Stack Trace</a></li>
+
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">7. Functional Programming</a></li>
@@ -409,7 +412,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-call-stack">6.2.1. What is a call stack?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-frame">6.2.1. Stack Frame</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-call-stack-work">6.2.2. How does the call stack work?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-the-call-stack-important">6.2.3. Why is the call stack important?</a></li>
 </ul>
@@ -433,12 +436,13 @@ document.write(`
 <center>
 <img src="https://miro.medium.com/v2/resize:fit:1400/1*rJ2sh-q1deQGGGVG5gYyIQ.png" width="90%">
 </center>
-<section id="what-is-a-call-stack">
-<h2><span class="section-number">6.2.1. </span>What is a call stack?<a class="headerlink" href="#what-is-a-call-stack" title="Permalink to this headline">#</a></h2>
-<p>A call stack is a stack data structure that stores information about the active subroutines of a computer program.</p>
-<p>A call stack is a stack of frames, with the top of the stack being the current point of execution. When a function is called, a new frame is pushed onto the stack. When a function returns, the frame is popped off the stack.</p>
+<section id="stack-frame">
+<h2><span class="section-number">6.2.1. </span>Stack Frame<a class="headerlink" href="#stack-frame" title="Permalink to this headline">#</a></h2>
+<p>A stack frame is a data structure that contains information about the state of a function (or subroutine or method or procedure).</p>
 <p>The call stack is used for several related purposes, but the main reason for having a call stack is to keep track of the point to which each active subroutine should return control when it finishes executing.</p>
-<img src="https://vaibhavguptame.files.wordpress.com/2018/01/callstack.gif?w=1100">
+<center>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Call_stack_layout.svg/342px-Call_stack_layout.svg.png" width="60%">
+</center>
 </section>
 <section id="how-does-the-call-stack-work">
 <h2><span class="section-number">6.2.2. </span>How does the call stack work?<a class="headerlink" href="#how-does-the-call-stack-work" title="Permalink to this headline">#</a></h2>
@@ -446,6 +450,9 @@ document.write(`
 <p>When a function is called, a new frame is pushed onto the stack. This frame contains information about the function, such as its arguments and local variables.</p>
 <p>When a function returns, the frame is popped off the stack. This allows the program to return to the point where the function was called.</p>
 <p>The call stack is used for several related purposes, but the main reason for having a call stack is to keep track of the point to which each active subroutine should return control when it finishes executing.</p>
+<center>
+<img src="https://vaibhavguptame.files.wordpress.com/2018/01/callstack.gif?w=1100" width="80%">
+</center>
 </section>
 <section id="why-is-the-call-stack-important">
 <h2><span class="section-number">6.2.3. </span>Why is the call stack important?<a class="headerlink" href="#why-is-the-call-stack-important" title="Permalink to this headline">#</a></h2>
@@ -496,11 +503,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../tmp/functionalprogramming.html"
+       href="stack_overflow.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Functional Programming</p>
+        <p class="prev-next-title"><span class="section-number">6.3. </span>Stack Trace</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -522,7 +529,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-call-stack">6.2.1. What is a call stack?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-frame">6.2.1. Stack Frame</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-call-stack-work">6.2.2. How does the call stack work?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-the-call-stack-important">6.2.3. Why is the call stack important?</a></li>
 </ul>

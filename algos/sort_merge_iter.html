@@ -205,10 +205,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../functions/recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../functions/head_tail.html">5.4. Linear Recursion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion.html">5.5. Tree Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion2.html">5.6. More Recursion</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../functions/stacks.html">6. Stacks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../functions/call_stacks.html">6.2. Call Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/stack_overflow.html">6.3. Stack Trace</a></li>
+
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">7. Functional Programming</a></li>
@@ -415,6 +418,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">4.2.2. Pseudocode</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">4.2.3. Implementation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">4.2.4. Complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-implementation">4.2.5. Recursive Implementation</a></li>
 </ul>
             </nav>
         </div>
@@ -581,6 +585,10 @@ end while</p>
 <p>The merge procedure scales linearly with the size of the input lists. Therefore, the time complexity of merge sort is <span class="math notranslate nohighlight">\(O(n\log n)\)</span>.</p>
 <p>Each pass requires <span class="math notranslate nohighlight">\(O(n)\)</span> comparisons for merging, so the overall complexity is <span class="math notranslate nohighlight">\(O(n\log n)\)</span>.</p>
 <p>The space complexity of merge sort is <span class="math notranslate nohighlight">\(O(n)\)</span>. The <code class="docutils literal notranslate"><span class="pre">merge</span></code> function requires an auxiliary array of size <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</section>
+<section id="recursive-implementation">
+<h2><span class="section-number">4.2.5. </span>Recursive Implementation<a class="headerlink" href="#recursive-implementation" title="Permalink to this headline">#</a></h2>
+<p>For recursive implementation, go to <strong><a class="reference external" href="https://fahadsultan.com/csc122/functions/tree_recursion.html#positive-example-merge-sort">Section 5.5.2</a></strong>.</p>
 <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif" align="center"> --></section>
 </section>
 
@@ -655,6 +663,7 @@ end while</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">4.2.2. Pseudocode</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">4.2.3. Implementation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">4.2.4. Complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-implementation">4.2.5. Recursive Implementation</a></li>
 </ul>
   </nav></div>
 
