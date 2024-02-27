@@ -30,10 +30,9 @@ PA: _Programming Assignment_
 | #     | TOPIC                      | READING | MEETING 1                  | MEETING 2              | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
 |-------|----------------------------|---------|----------------------------|------------------------|-----|-------------------|
 | 5 | Recursion  |  GGT (Chapter 4)   | **[Recursion](functions/recursion.ipynb)** | **[Linear Recursion](functions/head_tail.ipynb)**  |   **[WA.3.](https://docs.google.com/document/d/1MZ1U_PbDTV69Ox9M7-6NEj_YKQqwYj7nFSNV2SZTFA4/edit?usp=sharing)**  |  **[PA 4](https://colab.research.google.com/drive/1N-dZVVXzNrQowCWYmHpmTi9GjEQlxc3z?usp=sharing)** |
-| 6 | Recursion  |    GGT (Chapter 4)     |     **[Branch Recursion](functions/recursion.ipynb)**            |          |    |  |
-| 7 | Building Abstractions with Data  |         |                 |          |    |  |
-| 8 | Building Abstractions with Data  |         |                 |          |    |  |
+| 6 | Recursion  |    GGT (Chapter 4)     |     **[Branch Recursion](functions/recursion.ipynb)**            |    **[More Recursion](functions/recursion.ipynb)**      |    | **[PA 5](https://colab.research.google.com/drive/1mPlv1SQ-7P6aHBJybeSPBUrB1qtoUOFL?usp=sharing)** |
 
+<center><b><i><a href="https://colab.research.google.com/drive/1vOphr4otV9PV_-ZWdf2qjgUajaRRBdt9?usp=sharing">Practice Exam 2</a></i></b><center>
 <center><b><i>EXAM 2</i></b><center>
 <br><br>        
 <!-- <center><i>November: Problems, Models and Algorithms of Data Science</i></center>  -->
