@@ -9,18 +9,28 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 
 👇🏾 Below, you can find important links and important announcements.
 
-```{important}
-**[Programming Assignment 4](https://colab.research.google.com/drive/1N-dZVVXzNrQowCWYmHpmTi9GjEQlxc3z)** is due on Friday, **23rd Feb** before next lab.
+```{note}
+
+**Purposeful Pathways Events this week**
+
+1. How Good is Furman University? A Data Scientist Looks at College Rankings – Professional  Preparation Data Science Visiting Scholar Lecture Series (General audience lecture)  \
+Speaker: [Dr. Steven Skiena](https://en.wikipedia.org/wiki/Steven_Skiena), Stony Brook University \
+Thursday, March 14, 6:00-7:00pm \
+Patrick Lecture Hall (Plyler 126)
+
+_(Informal reception (with food!) at 5:30pm)_
+<!-- Jennifer McHan Good Collab (Riley 106) -->
+
+2. Word and Graph Embeddings for Machine Learning – Professional Preparation Data Science Visiting Scholar Lecture Series (major-specific lecture) \
+Speaker: [Dr. Steven Skiena](https://en.wikipedia.org/wiki/Steven_Skiena), Stony Brook University \
+Friday, March 15, 12:30-1:30 \
+Jennifer McHan Good Collab (Riley 106) 
+
+_(Free Lunch will be provided. [RSVP here](https://calendly.com/proftreu/data-science-visiting-scholar?month=2024-03) )_
 ```
 
 ```{important}
-**[Written Assignment 3](https://docs.google.com/document/d/1MZ1U_PbDTV69Ox9M7-6NEj_YKQqwYj7nFSNV2SZTFA4/edit?usp=sharing)** is due on Friday, **23rd Feb**
-```
-
-```{important}
-**Exam 2** is scheduled for **29th Feb**, the Thursday before Spring Break. 
-
-Similar to Exam 1, it will be during the regular class time and will on computer.
+**Final Exam** is scheduled for **April 29th** from **8:30 to 11:00 AM** in **(Riley 204)**
 ```
 
 ```{tip}

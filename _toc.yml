@@ -20,20 +20,17 @@ parts:
   - caption: 
     chapters:
     - file: intro
-  - caption: Designing Abstract Processes
+  - caption: Designing Abstract Processes (Algorithms)
     numbered: true
     chapters:
-    # - file: tmp/analysis
     - file: algos/analysis
       sections: 
         - file: algos/time
         - file: algos/space
     - file: algos/brute
-    # - file: tmp/brute
       sections: 
         - file: algos/search_linear
         - file: algos/bogo
-    # - file: tmp/greedy
     - file: algos/decrease_conquer
       sections: 
         # - file: algos/sort_bubble
@@ -46,6 +43,12 @@ parts:
         # - file: algos/sort_merge
         - file: algos/sort_merge_iter
         - file: algos/sort_quick_iter
+    - file: functions/recursion
+      sections: 
+        - file: functions/head_tail
+        - file: functions/tree_recursion
+        # - file: functions/tree_recursion2
+        - file: functions/stacks
     # - file: algos/dynamic
   # - caption: Basic Elements of Programming
   #   numbered: true
@@ -62,18 +65,18 @@ parts:
   #     sections: 
   #     - file: basics/conditionals
   #     - file: basics/loops
-  - caption: Building Abstractions with Functions
-    numbered: true
-    chapters:
-    - file: functions/recursion
-      sections: 
-        - file: functions/head_tail
-        - file: functions/tree_recursion
-        - file: functions/tree_recursion2
-    - file: functions/stacks
-      sections: 
-        - file: functions/call_stacks
-        - file: functions/stack_overflow
+  # - caption: Building Abstractions with Functions
+    # numbered: true
+    # chapters:
+    # - file: functions/recursion
+    #   sections: 
+    #     - file: functions/head_tail
+    #     - file: functions/tree_recursion
+    #     - file: functions/tree_recursion2
+    
+    #   sections: 
+    #     - file: functions/call_stacks
+    #     - file: functions/stack_overflow
     # - file: functions/functions
     # - file: tmp/functions
       # sections: 
@@ -82,34 +85,35 @@ parts:
       #   - file: functions/filesmodules
       #   - file: basics/file_io
     # - file: functions/functionalprogramming
-    - file: tmp/functionalprogramming
-  - caption: Building Abstractions with Data
+    # - file: tmp/functionalprogramming
+  - caption: Building Abstractions with Data (Data Structures)
     numbered: true
     chapters: 
-    # - file: data/oop
-    - file: tmp/oop
-      # sections: 
-      # - file: data/oop1
+    # - file: tmp/oop
+    - file: data/oop
+      sections: 
+      - file: data/native_structures
+      - file: data/oop1
       # - file: data/oop2
       # - file: data/oop3
       # - file: data/oop4
       # - file: data/oop5
       # - file: data/operator_overloading
+    # - file: tmp/datastructures
     # - file: data/datastructures
-    - file: tmp/datastructures
       # sections:
       # - file: data/strings
       # - file: data/lists
       # - file: data/tuples
       # - file: data/sets
       # - file: data/dictionaries
-      # - file: data/11_python
-    # - file: data/structs
-    - file: tmp/structs
+    # - file: tmp/structs
+    - file: data/stacks_queues
       # sections:
-      #   - file: data/linkedlists
-      #   - file: data/queue
       #   - file: data/stack
+      #   - file: data/queue
+    - file: data/linkedlists
+    - file: data/hashmaps
   # - caption: 
   #   numbered: false
   #   chapters: 
