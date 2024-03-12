@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Object-Oriented Programming &#8212; Data Structures and Algorithms</title>
+    <title>6. Object-Oriented Programming &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -62,9 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/oop';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.1. Native Data Structures" href="native_structures.html" />
+    <link rel="prev" title="5.6. Stacks" href="../functions/stacks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -172,7 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes (Algorithms)</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../algos/analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../algos/time.html">1.4. Time Complexity</a></li>
@@ -195,28 +199,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../algos/sort_quick_iter.html">4.3. Quick Sort</a></li>
 </ul>
 </li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../functions/recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../functions/head_tail.html">5.4. Linear Recursion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion.html">5.5. Tree Recursion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion2.html">5.6. More Recursion</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../functions/stacks.html">6. Stacks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../functions/call_stacks.html">6.2. Call Stacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/stack_overflow.html">6.3. Stack Trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/stacks.html">5.6. Stacks</a></li>
+
+
 
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">7. Functional Programming</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/oop.html">8. Object Oriented Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/datastructures.html">9. Native Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/structs.html">10. Custom Data Structures</a></li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">6. Object-Oriented Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="native_structures.html">6.1. Native Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop1.html">6.2. User-defined Structures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linkedlists.html">8. Linked Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hashmaps.html">9. Hash Maps</a></li>
 </ul>
 
     </div>
@@ -413,10 +415,100 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="object-oriented-programming">
-<h1>Object-Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">#</a></h1>
-<p>Python is an object-oriented programming language, which means that it provides features that support <a class="reference external" href="http://en.wikipedia.org/wiki/Object-oriented_programming">object-oriented programming</a> ( OOP).</p>
-<p>Object-oriented programming has its roots in the 1960s, but it wasn’t until the mid 1980s that it became the main <a class="reference external" href="http://en.wikipedia.org/wiki/Programming_paradigm">programming paradigm</a> used in the creation of new software. It was developed as a way to handle the rapidly increasing size and complexity of software systems, and to make it easier to modify these large and complex systems over time.</p>
-<p>Up to now we have been writing programs using a <a class="reference external" href="http://en.wikipedia.org/wiki/Procedural_programming">procedural programming</a> paradigm. In procedural programming the focus is on writing functions or procedures which operate on data. In object-oriented programming the focus is on the creation of objects which contain both data and functionality together.</p>
+<h1><span class="section-number">6. </span>Object-Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">#</a></h1>
+<p>Recall from the <a class="reference external" href="https://fahadsultan.com/csc122/intro.html#strike-data-structures-algrorithms-strike-br-complexity-abstraction-and-scalability">Introduction</a> that an average piece of software is measured in millions of lines of code.</p>
+<p>This code is written by many different people, and it is constantly changing. This is a complex and chaotic situation, and the only way to manage it is to impose structure.</p>
+<p>Object Oriented Programming (OOP) is a programming paradigm that aims to organize and structure code in a way that makes that makes large codebases more manageable and scalable.</p>
+<center>
+<img  src="https://www.orientsoftware.com/Themes/OrientSoftwareTheme/Content/Images/blog/2021-12-17/object-oriented-programming-languages.png" width="50%">
+</center>
+<br/>
+<p>It does this by combining data variables and functions into a single unit. This is a powerful and intuitive way to model the real world in code, and it is the foundation of modern software development.</p>
+<p>The core ideas of OOP are given in the figure on the right. Let’s begin with Abstraction.</p>
+<br/>
+<p>There are two primary abstractions in computer programming that you have already been using:</p>
+<ol class="arabic simple">
+<li><p><strong>Data abstractions</strong>: A way to refer to, store and manipulate data without having to understand the details of how it is implemented e.g. variables.</p></li>
+</ol>
+<br/>
+<ol class="arabic simple" start="2">
+<li><p><strong>Procedural abstractions</strong>: A way to refer to, store and manipulate procedures (functions) without having to understand the details of how they are implemented e.g. functions.</p></li>
+</ol>
+<br/><p><span style="font-size: 1.5em;"><strong>Data Abstractions</strong></span></p>
+<p>The atomic indivisible unit of data in computer programming is called a <strong>value</strong>. Values are the most basic things that a computer program manipulates or calculates. For example, the number <code class="docutils literal notranslate"><span class="pre">42</span></code> is a value. So is <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World!&quot;</span></code>.</p>
+<p>Each value belongs to a <strong>type</strong>. The type of a value determines its interpretation by the computer and the operations that can be performed on it.    For example, the value <code class="docutils literal notranslate"><span class="pre">42</span></code> is of type <code class="docutils literal notranslate"><span class="pre">int</span></code> (short for integer) and the value <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World!&quot;</span></code> is of type <code class="docutils literal notranslate"><span class="pre">str</span></code> (short for string, so-called because it contains a <em>string</em> of letters).</p>
+<p>One of the most powerful features of a programming language is the ability to manipulate <strong>variables</strong>.</p>
+<p>Similar to algebra, variables in computer programming are <strong>names that refer to values</strong>.</p>
+<p>In algebra, the following statement declares that the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> has the value <code class="docutils literal notranslate"><span class="pre">42</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[x = 42\]</div>
+<p>In Python, the following statement declares that the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> has the value <code class="docutils literal notranslate"><span class="pre">42</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+<p>In Python, a variable is a just a name. Values are somewhere else, and a variable refers to a value. Multiple names can refer to the same value. Python calls whatever is needed to refer to a value a reference. Assigning to a variable simply makes it refer to another value.</p>
+<p>Variables are the first means of abstraction in computer programming. They allow us to abstract away the details of the value and refer to computations in more general terms.</p>
+<!-- 
+Python comes with the following built-in data types:
+
+| Python Data Type | Description | Category | Mutable | Example Values |
+| :----------- | -----------: | -----------: | -----------: |-----------: |
+| `int` | Integers | Numeric | ❌ | `42`, `0`, `-1`,  `10000000000 ` |
+| `float` | Floating point numbers | Numeric | ❌ | `3.14159`, `0.0`, `-1.0`, `1.0e10` |
+| `complex` | Complex numbers | Numeric | ❌ | `3 + 4j`, `1j` |
+| `bool` | Boolean values | Boolean | ❌ | `True`, `False` |
+| `str` | String values | Text | ❌ | `"Hello World!"`, `"42"` |
+| `list` | Ordered mutable sequences of values | Sequence | ✅ | `[1, 2, 3]`, `["Hello", "World"]` |
+| `tuple` | Ordered immutable sequences of values | Sequence | ❌ | `(1, 2, 3)`, `("Hello", "World")` |
+| `range` | Immutable sequence of numbers | Sequence | ❌ | `range(10)`, `range(1, 10, 2)` |
+| `dict` | Unordered mapping of keys to values | Mapping | ✅ | `{"a": 1, "b": 2}` |
+| `set` | Unordered collection of unique values | Set | ✅ | `{1, 2, 3}` |
+| `frozenset` | Immutable set | Set | ❌ | `frozenset({1, 2, 3})` |
+| `bytes` | Sequence of bytes | Binary | ❌ | `b"Hello World!"` |
+| `bytearray` | Mutable sequence of bytes | Binary | ✅ | `bytearray(b"Hello World!")` |
+| `memoryview` | Memory view of bytes | Binary | ❌ | `memoryview(b"Hello World!")` |
+| `NoneType` | Special type indicating no value | NoneType | ❌ | `None` | -->
+<br/><p><span style="font-size: 1.5em;"><strong>Procedural Abstractions</strong></span></p>
+<p>The other primary means of abstraction in programming is the <strong>function</strong>. A function is a named sequence of statements that performs a computation. When you define a function, you specify the name and the sequence of statements. Later, you can “call” the function by name.</p>
+<p>Implementation details of a function are suppressed or abstracted away from the caller. This is called <strong>procedural abstraction</strong>. The <em>caller</em> of the functions needs to only be concerned with the function’s interface: what input(s) it takes and what output(s) it returns</p>
+<center>
+ <img width="50%" src="https://www.guru99.com/images/stories/blackbox.png">
+</center>
+<p>Code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">blackbox</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Math:</p>
+<div class="math notranslate nohighlight">
+\[ \text{y} = f(\text{x}) \]</div>
+<hr/>
+<p>Functions are the second means of abstraction in computer programming. They allow us to abstract away the details of the computation and refer to computations in more general terms.</p>
+<p>Python comes with many built-in functions such as <code class="docutils literal notranslate"><span class="pre">type(..)</span></code>, <code class="docutils literal notranslate"><span class="pre">abs(..)</span></code>, <code class="docutils literal notranslate"><span class="pre">round(..)</span></code>, <code class="docutils literal notranslate"><span class="pre">help(..)</span></code> etc.</p>
+<p>The interface of a function is defined by its name, the number of arguments it takes, and the type of its arguments. The interface of a function is called its <strong>signature</strong>.</p>
+<p>You can read the signature of a function by calling the <code class="docutils literal notranslate"><span class="pre">help</span></code> function with the function as an argument. For example, to read the signature of the <code class="docutils literal notranslate"><span class="pre">abs</span></code> function, you can call <code class="docutils literal notranslate"><span class="pre">help(abs)</span></code>.</p>
+<br/>
+<p><span style="font-size: 1.5em;"><strong>Object-Oriented Programming = Data + Procedural Abstraction</strong></span></p>
+<p>The basic idea of object-oriented programming is to <strong>encapsulate</strong> data abstractions and procedural abstractions into a single unit.</p>
+<p>In the context of object-oriented programming, this unit is called an <strong>object</strong>.</p>
+<p>The way in which this is done is by <strong>defining</strong> a new <strong>class</strong>.</p>
+<p>A particular class essentially <strong>defines a new user-defined data type</strong> detailing how a particular kind of data is going to be structured and how it can be manipulated.</p>
+<p>A class is a blueprint for creating objects. An object is an instance of a class, similar to how 7 is an instance of the <code class="docutils literal notranslate"><span class="pre">int</span></code> class and “Hello World!” is an instance of the <code class="docutils literal notranslate"><span class="pre">str</span></code> class.</p>
+<center>
+<img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CPT-OOP-objects_and_classes.svg/2560px-CPT-OOP-objects_and_classes.svg.png">
+</center>
+<br/>
+<center>
+<img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/9/98/CPT-OOP-objects_and_classes_-_attmeth.svg">
+</center>
+<br/>
+<p>In the context of object-oriented programming, a function that is part of a class is called a <strong>method</strong>. The data that is part of a class is called an <strong>attribute</strong>. The combination of methods and attributes is called a <strong>class</strong>.</p>
+<p>A class is a way to take a grouping of functions and data and place them inside a container so you can access them with the <code class="docutils literal notranslate"><span class="pre">.</span></code> operator. This is a really useful way to organize your code, especially when you start to get more and more functions and more and more data.</p>
+<p>Object-oriented programming is a way to design and implement data structures in a computer program. Data Structures are a way to store and organize data in a computer so that it can be used efficiently.</p>
+<p><strong>Encapsulation</strong> is the idea of combining data and the functions that operate on the data into a single unit. Encapsulation is a way to hide the implementation details of a class from the user of the class.</p>
+<center><img width="50%" src="https://storage.googleapis.com/algodailyrandomassets/curriculum/blogs/encapsulation.png"></center>
+<p>Before we define and create our own classes, let’s first look at the built-in data structures in Python.</p>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -450,6 +542,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../functions/stacks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5.6. </span>Stacks</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="native_structures.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.1. </span>Native Data Structures</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>

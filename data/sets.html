@@ -172,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes (Algorithms)</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../algos/analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../algos/time.html">1.4. Time Complexity</a></li>
@@ -195,28 +195,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../algos/sort_quick_iter.html">4.3. Quick Sort</a></li>
 </ul>
 </li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../functions/recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../functions/head_tail.html">5.4. Linear Recursion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion.html">5.5. Tree Recursion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion2.html">5.6. More Recursion</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../functions/stacks.html">6. Stacks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../functions/call_stacks.html">6.2. Call Stacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/stack_overflow.html">6.3. Stack Trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/stacks.html">5.6. Stacks</a></li>
+
+
 
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">7. Functional Programming</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/oop.html">8. Object Oriented Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/datastructures.html">9. Native Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/structs.html">10. Custom Data Structures</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="oop.html">6. Object-Oriented Programming</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="native_structures.html">6.1. Native Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop1.html">6.2. User-defined Structures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linkedlists.html">8. Linked Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hashmaps.html">9. Hash Maps</a></li>
 </ul>
 
     </div>
@@ -524,7 +522,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;blue&#39;, &#39;red&#39;}
 [&#39;blue&#39;, &#39;red&#39;, &#39;green&#39;]
 &lt;class &#39;set&#39;&gt;
 &lt;class &#39;list&#39;&gt;
@@ -548,7 +546,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;blue&#39;, &#39;red&#39;}
 </pre></div>
 </div>
 </div>
@@ -579,7 +577,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;blue&#39;, &#39;red&#39;}
 </pre></div>
 </div>
 </div>
@@ -602,7 +600,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;blue&#39;, &#39;red&#39;}
 3
 </pre></div>
 </div>
@@ -637,7 +635,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;blue&#39;, &#39;red&#39;}
 </pre></div>
 </div>
 </div>
@@ -673,7 +671,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{True, 34, &#39;abc&#39;, 40, &#39;male&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{True, 34, &#39;abc&#39;, &#39;male&#39;, 40}
 </pre></div>
 </div>
 </div>
@@ -722,7 +720,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;, &#39;orange&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;blue&#39;, &#39;orange&#39;, &#39;red&#39;}
 </pre></div>
 </div>
 </div>
@@ -751,8 +749,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;indigo&#39;, &#39;blue&#39;, &#39;orange&#39;, &#39;red&#39;, &#39;green&#39;, &#39;yellow&#39;}
-{&#39;indigo&#39;, &#39;yellow&#39;, &#39;orange&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;yellow&#39;, &#39;orange&#39;, &#39;red&#39;, &#39;indigo&#39;, &#39;blue&#39;}
+{&#39;yellow&#39;, &#39;orange&#39;, &#39;indigo&#39;}
 </pre></div>
 </div>
 </div>
@@ -773,7 +771,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;red&#39;}
 </pre></div>
 </div>
 </div>
@@ -787,7 +785,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;red&#39;}
 </pre></div>
 </div>
 </div>
@@ -829,7 +827,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, &#39;a&#39;, &#39;b&#39;, 3, &#39;c&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, 3, &#39;a&#39;, &#39;c&#39;, &#39;b&#39;}
 {1, 2, 3}
 </pre></div>
 </div>
@@ -896,7 +894,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;microsoft&#39;, &#39;cherry&#39;, &#39;google&#39;, &#39;banana&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;cherry&#39;, &#39;google&#39;, &#39;microsoft&#39;, &#39;banana&#39;}
 </pre></div>
 </div>
 </div>
@@ -915,7 +913,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;microsoft&#39;, &#39;google&#39;, &#39;cherry&#39;, &#39;banana&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;cherry&#39;, &#39;google&#39;, &#39;microsoft&#39;, &#39;banana&#39;}
 </pre></div>
 </div>
 </div>

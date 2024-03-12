@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'functions/tree_recursion';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.6. More Recursion" href="tree_recursion2.html" />
+    <link rel="next" title="5.6. Stacks" href="stacks.html" />
     <link rel="prev" title="5.4. Linear Recursion" href="head_tail.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -176,8 +176,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes</span></p>
-<ul class="nav bd-sidenav">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes (Algorithms)</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../algos/analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../algos/time.html">1.4. Time Complexity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../algos/space.html">1.5. Space Complexity</a></li>
@@ -199,28 +199,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../algos/sort_quick_iter.html">4.3. Quick Sort</a></li>
 </ul>
 </li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Functions</span></p>
-<ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="recursion.html">5. Recursion</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="head_tail.html">5.4. Linear Recursion</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">5.5. Tree Recursion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tree_recursion2.html">5.6. More Recursion</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="stacks.html">6. Stacks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="call_stacks.html">6.2. Call Stacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stack_overflow.html">6.3. Stack Trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stacks.html">5.6. Stacks</a></li>
+
+
 
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/functionalprogramming.html">7. Functional Programming</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tmp/oop.html">8. Object Oriented Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/datastructures.html">9. Native Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tmp/structs.html">10. Custom Data Structures</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data/oop.html">6. Object-Oriented Programming</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data/native_structures.html">6.1. Native Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/oop1.html">6.2. User-defined Structures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data/stacks_queues.html">7. Stacks and Queues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/linkedlists.html">8. Linked Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/hashmaps.html">9. Hash Maps</a></li>
 </ul>
 
     </div>
@@ -426,6 +424,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.5.2.3. Time and Space Complexity</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-sort">5.5.3. Quick Sort</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">5.5.3.1. Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">5.5.3.2. Implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">5.5.3.3. Complexity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tower-of-hanoi">5.5.4. Tower of Hanoi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.5.4.1. Implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5.5.4.2. Complexity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#legend">5.5.4.3. Legend</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -475,10 +485,10 @@ Fibonacci numbers:</p>
 <p>To compute <code class="docutils literal notranslate"><span class="pre">fib(5)</span></code>, we compute <code class="docutils literal notranslate"><span class="pre">fib(4)</span></code> and <code class="docutils literal notranslate"><span class="pre">fib(3)</span></code>.</p>
 <p>To compute <code class="docutils literal notranslate"><span class="pre">fib(4)</span></code>, we compute <code class="docutils literal notranslate"><span class="pre">fib(3)</span></code> and <code class="docutils literal notranslate"><span class="pre">fib(2)</span></code> and so on.</p>
 <p>In general, the evolved process looks like a tree, as shown in the figure below. Notice that the branches split into two at each level (except at the bottom); this reflects the fact that the <code class="docutils literal notranslate"><span class="pre">fib</span></code> function calls itself twice each time it is invoked.</p>
-<figure class="align-center" id="id2">
+<figure class="align-center" id="id5">
 <a class="reference internal image-reference" href="../_images/recursion3.png"><img alt="../_images/recursion3.png" src="../_images/recursion3.png" style="width: 607.0px; height: 353.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.6 </span><span class="caption-text">The tree-recursive process generated in computing <code class="docutils literal notranslate"><span class="pre">fib(5)</span></code>.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.6 </span><span class="caption-text">The tree-recursive process generated in computing <code class="docutils literal notranslate"><span class="pre">fib(5)</span></code>.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="time-and-space-complexity">
@@ -537,10 +547,10 @@ $$ \phi^2 = \phi +1 $$  -->
 <h2><span class="section-number">5.5.2. </span>Positive Example: <strong>Merge Sort</strong><a class="headerlink" href="#positive-example-merge-sort" title="Permalink to this headline">#</a></h2>
 <p>Another example of a tree-recursive process is merge sort.</p>
 <p>The idea behind merge sort is to divide the array into two halves, sort each of the halves, and then merge the sorted halves to produce a sorted whole.</p>
-<figure class="align-center" id="id3">
+<figure class="align-center" id="id6">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif"><img alt="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif" style="width: 70%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.7 </span><span class="caption-text">Animation of the merge sort algorithm.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.7 </span><span class="caption-text">Animation of the merge sort algorithm.</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The merge sort algorithm can be described as follows:</p>
@@ -551,10 +561,10 @@ $$ \phi^2 = \phi +1 $$  -->
 <li><p>Merge the two halves.</p></li>
 </ol>
 <p>The <code class="docutils literal notranslate"><span class="pre">merge</span></code> function is a helper function that merges two sorted arrays into a single sorted array.</p>
-<figure class="align-center" id="id4">
+<figure class="align-center" id="id7">
 <a class="reference internal image-reference" href="https://i.ibb.co/VQcVDkN/merge.png"><img alt="https://i.ibb.co/VQcVDkN/merge.png" src="https://i.ibb.co/VQcVDkN/merge.png" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.8 </span><span class="caption-text">The <code class="docutils literal notranslate"><span class="pre">merge</span></code> function merges two sorted arrays into a single sorted array and is central to the merge sort algorithm.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.8 </span><span class="caption-text">The <code class="docutils literal notranslate"><span class="pre">merge</span></code> function merges two sorted arrays into a single sorted array and is central to the merge sort algorithm.</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="cell docutils container">
@@ -595,10 +605,10 @@ $$ \phi^2 = \phi +1 $$  -->
 </div>
 </div>
 <p>The figure below shows the tree-recursive process generated in sorting the array <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">3,</span> <span class="pre">8,</span> <span class="pre">6,</span> <span class="pre">2,</span> <span class="pre">7,</span> <span class="pre">1,</span> <span class="pre">4]</span></code> using the merge sort algorithm.</p>
-<figure class="align-center" id="id5">
+<figure class="align-center" id="id8">
 <a class="reference internal image-reference" href="https://i.ibb.co/z7kf04t/Screen-Shot-2024-02-15-at-4-13-33-AM.png"><img alt="https://i.ibb.co/z7kf04t/Screen-Shot-2024-02-15-at-4-13-33-AM.png" src="https://i.ibb.co/z7kf04t/Screen-Shot-2024-02-15-at-4-13-33-AM.png" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.9 </span><span class="caption-text">The tree-recursive process generated in sorting the array <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">3,</span> <span class="pre">8,</span> <span class="pre">6,</span> <span class="pre">2,</span> <span class="pre">7,</span> <span class="pre">1,</span> <span class="pre">4]</span></code> using the merge sort algorithm.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.9 </span><span class="caption-text">The tree-recursive process generated in sorting the array <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">3,</span> <span class="pre">8,</span> <span class="pre">6,</span> <span class="pre">2,</span> <span class="pre">7,</span> <span class="pre">1,</span> <span class="pre">4]</span></code> using the merge sort algorithm.</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <br/>
@@ -641,6 +651,192 @@ $$ \phi^2 = \phi +1 $$  -->
 <p>The space and time complexity of merge sort algorithm remains unchanged whether it is implemented using a recursive or iterative processes.</p>
 <p>The time complexity of the merge sort algorithm is <span class="math notranslate nohighlight">\(O(n \log n)\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the number of elements in the array.</p>
 <p>The space complexity of the merge sort algorithm is <span class="math notranslate nohighlight">\(O(n)\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the number of elements in the array.</p>
+</section>
+</section>
+<section id="quick-sort">
+<h2><span class="section-number">5.5.3. </span>Quick Sort<a class="headerlink" href="#quick-sort" title="Permalink to this headline">#</a></h2>
+<p>Recall from <strong><a class="reference external" href="https://fahadsultan.com/csc122/algos/sort_quick_iter.html">Section 4.3.</a></strong> that <strong>Quick Sort</strong> is a sorting algorithm that uses a divide and conquer strategy. It works by selecting a <strong><code class="docutils literal notranslate"><span class="pre">pivot</span></code></strong> element from the array and partitioning the other elements into two sub-arrays according to whether they are less than or greater than the pivot. The sub-arrays are then sorted recursively.</p>
+<p>This can be done in-place, requiring a constant amount of extra memory and allowing the algorithm to be run in-place. In other words, the space complexity of Quick Sort is O(1) compared to O(n) for Merge Sort.</p>
+<section id="algorithm">
+<h3><span class="section-number">5.5.3.1. </span>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">#</a></h3>
+<p>The steps are:</p>
+<ol class="arabic simple">
+<li><p>Pick an element from the list and call it <strong>pivot</strong>. This is typically the <strong>last element</strong> in the list.</p></li>
+<li><p><strong>Partitioning</strong>: reorder the list so that all elements with values less than the pivot come before the pivot, while all elements with values greater than the pivot come after it (equal values can go either way). After this partitioning, the pivot is in its final position. This is called the partition operation.</p></li>
+<li><p>Recursively apply the above steps to two sub-lists: one to the left of pivot with elements that all have smaller values and separately to sub-list on the right of pivot containing elements with greater values.</p></li>
+</ol>
+<p>The base case of the recursion are arrays of size zero or one, which are in order by definition, so they never need to be sorted.</p>
+<p>The pivot selection and partitioning steps can be done in several different ways; the choice of specific implementation schemes greatly affects the algorithm’s performance.</p>
+</section>
+<section id="implementation">
+<h3><span class="section-number">5.5.3.2. </span>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h3>
+<p>The partitioning step, as described in the algorithm, is the most important part of the Quick Sort algorithm. The partitioning step is implemented using the following steps:</p>
+<br/>
+<ol class="arabic simple">
+<li><p>Initialize <code class="docutils literal notranslate"><span class="pre">pivot</span></code> to the last element of the array.</p></li>
+<li><p>Initialize <code class="docutils literal notranslate"><span class="pre">left</span></code> to start of the array and <code class="docutils literal notranslate"><span class="pre">right</span></code> to the second last element of the array.</p></li>
+<li><p>As the goal is to move all elements less than <code class="docutils literal notranslate"><span class="pre">pivot</span></code> to the left and all elements greater than <code class="docutils literal notranslate"><span class="pre">pivot</span></code> to the right, we need to do the following:
+3.1. Until the element at <code class="docutils literal notranslate"><span class="pre">left</span></code> is less than <code class="docutils literal notranslate"><span class="pre">pivot</span></code>, increment <code class="docutils literal notranslate"><span class="pre">left</span></code>
+3.2. Until the element at <code class="docutils literal notranslate"><span class="pre">right</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">pivot</span></code>, decrement <code class="docutils literal notranslate"><span class="pre">right</span></code>
+3.3. If element at <code class="docutils literal notranslate"><span class="pre">left</span></code> is less than element at <code class="docutils literal notranslate"><span class="pre">right</span></code>, swap them.
+3.4. Continue until <code class="docutils literal notranslate"><span class="pre">left</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">right</span></code>.</p></li>
+</ol>
+<br/>
+<br/>
+<center>
+<img width="80%" src="https://i.ibb.co/qBHQ6vn/partition3.png">
+</center>
+<br/>
+<br/>
+<br/><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">end</span><span class="p">]</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+
+        <span class="c1"># move left towards right</span>
+        <span class="k">while</span> <span class="n">data</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="p">:</span>
+            <span class="n">left</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="c1"># move right towards left</span>
+        <span class="k">while</span> <span class="n">right</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">pivot</span><span class="p">:</span>
+            <span class="n">right</span> <span class="o">=</span> <span class="n">right</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">right</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
+	
+    <span class="c1"># insert pivot into its correct place</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">end</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">left</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once we have the partititon function, the Quick Sort algorithm itself is fairly simple.</p>
+<p>The basic idea idea is to call <code class="docutils literal notranslate"><span class="pre">partition</span></code> on data which returns the new location of pivot.</p>
+<p>Using the new location of pivot, we recursively call <code class="docutils literal notranslate"><span class="pre">quicksort</span></code> on the sublists to the left and right of the pivot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">:</span>
+        <span class="n">pi</span> <span class="o">=</span> <span class="n">partition</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
+        <span class="n">quicksort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">pi</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">quicksort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pi</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-center" id="quicksort">
+<a class="reference internal image-reference" href="https://i.ibb.co/wYxHKFd/Quicksort-diagram-ann-svg.png"><img alt="https://i.ibb.co/wYxHKFd/Quicksort-diagram-ann-svg.png" src="https://i.ibb.co/wYxHKFd/Quicksort-diagram-ann-svg.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.10 </span><span class="caption-text">Quicksort diagram. Cells with dark backgrounds represent <code class="docutils literal notranslate"><span class="pre">pivot</span></code>. <br/><span style="color:red">Red boxes</span> correspond to <code class="docutils literal notranslate"><span class="pre">pi</span> <span class="pre">=</span> <span class="pre">partition(arr,</span> <span class="pre">low,</span> <span class="pre">high)</span></code>. <br/><span style="color:yellow">Yellow</span> boxes correspond to the first recursive call: <code class="docutils literal notranslate"><span class="pre">quicksort(arr,</span> <span class="pre">low,</span> <span class="pre">pi-1)</span></code>. <br/><span style="color:orange">Orange</span> boxes correspond to the second recursive call: <code class="docutils literal notranslate"><span class="pre">quicksort(arr,</span> <span class="pre">pi+1,</span> <span class="pre">high)</span></code>.</span><a class="headerlink" href="#quicksort" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="complexity">
+<h3><span class="section-number">5.5.3.3. </span>Complexity<a class="headerlink" href="#complexity" title="Permalink to this headline">#</a></h3>
+<p>As discussed before, the space complexity of Quick Sort is O(1) compared to O(n) for Merge Sort since no extra space is required that is dependent on the size of the input.</p>
+<p>The worst case time complexity of quick sort is <span class="math notranslate nohighlight">\(O(n^2)\)</span> and the average case time complexity is O(n log n). This is because the worst case occurs when the pivot is the smallest or largest element in the array.</p>
+<p>If the pivot is the smallest or largest element, then the partitioning step will only move one element to the left or right of the pivot. This means that the partitioning step will take O(n) time and we will have to do this for every element in the array.</p>
+</section>
+</section>
+<section id="tower-of-hanoi">
+<h2><span class="section-number">5.5.4. </span>Tower of Hanoi<a class="headerlink" href="#tower-of-hanoi" title="Permalink to this headline">#</a></h2>
+<p><strong>Tower of Hanoi</strong> is a mathematical puzzle where we have <strong>three towers</strong> (aka rods and pegs) and <strong>n disks</strong>.</p>
+<br/>
+<figure class="align-center" id="hanoi">
+<a class="reference internal image-reference" href="https://cdn.kastatic.org/ka-perseus-images/5b5fb2670c9a185b2666637461e40c805fcc9ea5.png"><img alt="https://cdn.kastatic.org/ka-perseus-images/5b5fb2670c9a185b2666637461e40c805fcc9ea5.png" src="https://cdn.kastatic.org/ka-perseus-images/5b5fb2670c9a185b2666637461e40c805fcc9ea5.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.11 </span><span class="caption-text">Tower of Hanoi with <strong>towers</strong> labeled <strong>A, B</strong>, and <strong>C</strong> from left to right. There are <strong>5 disks</strong> labeled 1 through 5 from top to bottom.</span><a class="headerlink" href="#hanoi" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<br/>
+<p>The <strong>goal</strong> of the puzzle is to move the entire stack of <strong>disks from tower A to tower C</strong>, obeying the following <strong>three simple rules</strong>:</p>
+<ol class="arabic simple">
+<li><p>Only one disk can be moved at a time.</p></li>
+<li><p>A disk can only be moved if it is the uppermost disk on a stack.</p></li>
+<li><p>No disk may be placed on top of a smaller disk.</p></li>
+</ol>
+<figure class="align-center" id="id2">
+<img alt="https://upload.wikimedia.org/wikipedia/en/e/e4/Tower_of_Hanoi_4_alt1.gif" src="https://upload.wikimedia.org/wikipedia/en/e/e4/Tower_of_Hanoi_4_alt1.gif" />
+<figcaption>
+<p><span class="caption-number">Fig. 5.12 </span><span class="caption-text">Optimal solution to Tower of Hanoi problem with <strong>4 disks</strong>. The number of steps required to solve a Tower of Hanoi puzzle is <span class="math notranslate nohighlight">\(2^n - 1\)</span>, where n is the number of disks.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The puzzle can be played with any number of disks, although many toy versions have around 7 to 9 of them. The minimum number of moves required to solve a Tower of Hanoi puzzle is <span class="math notranslate nohighlight">\(2^n - 1\)</span>, where n is the number of disks.</p>
+<!-- 
+<img width="30%" align="right" src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-981-16-7381-8_92/MediaObjects/517099_1_En_92_Fig12_HTML.png"> -->
+<section id="id3">
+<h3><span class="section-number">5.5.4.1. </span>Implementation<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>The Tower of Hanoi is a naturally recursive problem.</p>
+<p>The recursive solution is based on the observation that to move n disks from tower A to tower C:</p>
+<center> <img width="50%" src="https://i.ibb.co/nn8ZJBP/hanoi1.png"> </center>
+<br/>
+<p><strong>Step 1</strong>. We can move n-1 disks from tower A to tower B</p>
+<center> <img width="50%" src="https://i.ibb.co/C8X8J0W/hanoi2.png"> </center>
+<br/>
+<p><strong>Step 2</strong>. Then move the nth disk from tower A to tower C</p>
+<center> <img width="50%" src="https://i.ibb.co/ssG8pdb/hanoi3.png"> </center>
+<br/>
+<p><strong>Step 3</strong>. Finally move n-1 disks from tower B to tower C.</p>
+<br/>
+<center> <img width="50%" src="https://i.ibb.co/3WFRc55/hanoi4.png"> </center>
+<br/>
+<p>In python, these recursive steps can be implemented as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hanoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="n">disk</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Move n disks from source to destination, using buffer, as needed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Move disk&quot;</span><span class="p">,</span> <span class="n">disk</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="s2">&quot;to&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        
+        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>            <span class="c1"># step 1</span>
+        <span class="n">hanoi</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>   <span class="n">source</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="n">disk</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>    <span class="c1"># step 2</span>
+        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>            <span class="c1"># step 3</span>
+    
+<span class="n">hanoi</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 3 from A to C
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+</pre></div>
+</div>
+</div>
+</div>
+<p>The base case of the recursion is when there is only one disk to move. In this case, we simply move the disk from the source tower to the destination tower.</p>
+</section>
+<section id="id4">
+<h3><span class="section-number">5.5.4.2. </span>Complexity<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>The time complexity of the Tower of Hanoi is <span class="math notranslate nohighlight">\(O(2^n)\)</span> and the space complexity is O(n).</p>
+<p>The time complexity is exponential because the number of moves required to solve the puzzle is <span class="math notranslate nohighlight">\(2^n - 1\)</span>, where n is the number of disks.</p>
+</section>
+<section id="legend">
+<h3><span class="section-number">5.5.4.3. </span>Legend<a class="headerlink" href="#legend" title="Permalink to this headline">#</a></h3>
+<p>Accompanying the game was an instruction booklet, describing the game’s purported origins in <a class="reference external" href="https://en.wikipedia.org/wiki/Tonkin">Tonkin</a>, and claiming that according to legend Brahmins at a temple in <a class="reference external" href="https://en.wikipedia.org/wiki/Varanasi">Benares</a> have been carrying out the movement of the <em>“Sacred Tower of Brahma”</em>, consisting of 64 golden disks, according to the same rules as in the game, and that the completion of the tower would lead to the end of the world!</p>
+<br/>
+<center>
+<img src="https://mathematicscentre.com/taskcentre/photos/142towra.jpg">
+</center>
+<br/>
+<p>If the legend were true, and if the priests were able to move disks at a rate of one per second, using the smallest number of moves, it would take them <span class="math notranslate nohighlight">\(2^{64} − 1\)</span> seconds or roughly 585 billion years to finish, which is about 42 times the estimated current age of the universe 😅.</p>
 </section>
 </section>
 </section>
@@ -686,11 +882,11 @@ $$ \phi^2 = \phi +1 $$  -->
       </div>
     </a>
     <a class="right-next"
-       href="tree_recursion2.html"
+       href="stacks.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.6. </span>More Recursion</p>
+        <p class="prev-next-title"><span class="section-number">5.6. </span>Stacks</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -722,6 +918,18 @@ $$ \phi^2 = \phi +1 $$  -->
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-implementation">5.5.2.1. Recursive Implementation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-implementation">5.5.2.2. Iterative Implementation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.5.2.3. Time and Space Complexity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-sort">5.5.3. Quick Sort</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">5.5.3.1. Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">5.5.3.2. Implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity">5.5.3.3. Complexity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tower-of-hanoi">5.5.4. Tower of Hanoi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.5.4.1. Implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5.5.4.2. Complexity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#legend">5.5.4.3. Legend</a></li>
 </ul>
 </li>
 </ul>

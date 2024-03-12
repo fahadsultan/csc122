@@ -1,0 +1,817 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>6.1. Native Data Structures &#8212; Data Structures and Algorithms</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data/native_structures';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.2. User-defined Structures" href="oop1.html" />
+    <link rel="prev" title="6. Object-Oriented Programming" href="oop.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    CSC-122 Data Structures & Algorithms (Spring 2024)
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Calendar</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../syllabus/index.html">Syllabus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/pathways.html">Purposeful Pathways (Spring ‘24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/textbook.html">Textbooks &amp; Other Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/mental_health.html">Mental Health Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/academic_success.html">Center for Academic Success</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/accomodations.html">Accomodations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/integrity.html">Academic Integrity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/title_9.html">Nondiscrimination Policy and Sexual Misconduct</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes (Algorithms)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/time.html">1.4. Time Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/space.html">1.5. Space Complexity</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/brute.html">2. Brute Force</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/search_linear.html">2.1. Linear Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/bogo.html">2.2. Bogosort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/decrease_conquer.html">3. Decrease and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_selection.html">3.1. Selection Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_insertion.html">3.2. Insertion Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/search_binary.html">4.1. Binary Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_merge_iter.html">4.2. Merge Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_quick_iter.html">4.3. Quick Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../functions/recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/head_tail.html">5.4. Linear Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion.html">5.5. Tree Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/stacks.html">5.6. Stacks</a></li>
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="oop.html">6. Object-Oriented Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.1. Native Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop1.html">6.2. User-defined Structures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linkedlists.html">8. Linked Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hashmaps.html">9. Hash Maps</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdata/native_structures.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/data/native_structures.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Native Data Structures</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">6.1.1. Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crud-operations">6.1.2. CRUD Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutability">6.1.3. Mutability</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="native-data-structures">
+<h1><span class="section-number">6.1. </span>Native Data Structures<a class="headerlink" href="#native-data-structures" title="Permalink to this headline">#</a></h1>
+<p>All computer programs are designed to process data.</p>
+<p>The atomic unit of data is a <strong>value</strong>. Each value has a <strong>type</strong> that determines what operations can be performed on it. You can check a variable’s data type using the built-in function <code class="docutils literal notranslate"><span class="pre">type</span></code></p>
+<p>Python comes pre-packaged with two broad categories of data types: <strong>elementary data types</strong> and <strong>compound data structures</strong>.</p>
+<p><strong>Elementary data types</strong> are the basic data types that are built into the Python language. These types are used to <strong>represent single values</strong>, and include:</p>
+<ul class="simple">
+<li><p>Integers <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p>Floats <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p>Booleans <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p>Strings <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p>None <code class="docutils literal notranslate"><span class="pre">NoneType</span></code></p></li>
+</ul>
+<p><strong>Compound data structures</strong> are used to <strong>group together multiple values</strong>. These types are used to represent collections of data.</p>
+<p>Data Structures, as the same suggests, are structures designed for organizing, processing, manipulating, retrieving and storing data.</p>
+<p>Most programming languages provide a set of native data structures to:
+1. Facilitate commmon programming tasks
+2. Improve programming efficiency for the programmer
+3. Improve time and memory efficiency through optimized internal implementations</p>
+<p>Five most commonly used  compound data structures that come built-in in Python include:</p>
+<ol class="arabic simple">
+<li><p><strong>Lists</strong> <code class="docutils literal notranslate"><span class="pre">list</span></code></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Tuples</strong> <code class="docutils literal notranslate"><span class="pre">tuple</span></code></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<center><img width="70%" src="https://i.ibb.co/3Cp31qv/list-tuple.png"></center>
+<br/>
+<ol class="arabic simple" start="3">
+<li><p><strong>Strings</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="s2">&quot;RAINBOW&quot;</span>
+</pre></div>
+</div>
+<center><img width="70%" src="https://i.ibb.co/vv33zjk/str.png"></center>
+<br/>
+<ol class="arabic simple" start="4">
+<li><p><strong>Sets</strong> <code class="docutils literal notranslate"><span class="pre">set</span></code></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<center><img width="70%" src="https://i.ibb.co/7kwJs6S/set.png"></center>
+<br/>
+<ol class="arabic simple" start="5">
+<li><p><strong>Dictionaries</strong> <code class="docutils literal notranslate"><span class="pre">dict</span></code></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Red&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">:</span><span class="mf">72.0</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">:</span><span class="s2">&quot;Trees&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">:</span><span class="s2">&quot;Sad&quot;</span><span class="p">,</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">:</span><span class="s2">&quot;56&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">:</span><span class="kc">None</span><span class="p">}</span>
+</pre></div>
+</div>
+<center><img width="70%" src="https://i.ibb.co/XDfC0vw/dict.png"></center>
+<br/>
+<p>Each data structure corresponds to a particular organization of data. This organization imposes constraints and affordances on the retrieval and processing of data.</p>
+<p>For the five built-in data structures in Python, the following table summarizes the key characteristics of each data structure:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>Type</p></th>
+<th class="text-center head"><p>Collection</p></th>
+<th class="text-center head"><p>Syntax</p></th>
+<th class="text-center head"><p>Ordered</p></th>
+<th class="text-center head"><p>Indexed</p></th>
+<th class="text-center head"><p>Mutable</p></th>
+<th class="text-center head"><p>Passed By</p></th>
+<th class="text-center head"><p>Duplicates Allowed</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">strings</span></code></p></td>
+<td class="text-center"><p>characters</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&quot;c1c2c3&quot;</span></code></p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✗</p></td>
+<td class="text-center"><p>value</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+<td class="text-center"><p>any data type</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[v1,</span> <span class="pre">v2..</span> <span class="pre">vn]</span></code></p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>reference</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code></p></td>
+<td class="text-center"><p>any data type</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">(v1,</span> <span class="pre">v2..</span> <span class="pre">vn)</span></code></p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✗</p></td>
+<td class="text-center"><p>value</p></td>
+<td class="text-center"><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">set</span></code></p></td>
+<td class="text-center"><p>immutable types</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">{v1,</span> <span class="pre">v2..</span> <span class="pre">vn}</span></code></p></td>
+<td class="text-center"><p>✗</p></td>
+<td class="text-center"><p>✗</p></td>
+<td class="text-center"><p>✗</p></td>
+<td class="text-center"><p>value</p></td>
+<td class="text-center"><p>✗</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">dictionaries</span></code></p></td>
+<td class="text-center"><p>any data type *</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">{k1:v1,k2:v2..</span> <span class="pre">kn:vn}</span></code></p></td>
+<td class="text-center"><p>✗</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>reference</p></td>
+<td class="text-center"><p>✗**</p></td>
+</tr>
+</tbody>
+</table>
+<p>* <em><strong>keys</strong> can only be immutable type; <strong>values</strong> can be any data type</em> <br />
+** <em><strong>keys</strong> can not be duplicate; <strong>values</strong> can be duplicate</em></p>
+<!-- <img src="../assets/arr1.png"> -->
+<section id="methods">
+<h2><span class="section-number">6.1.1. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>List:</p>
+<ul class="simple">
+<li><p>append, clear, copy, count, extend, index, insert, pop, remove, reverse, sort</p></li>
+</ul>
+</li>
+<li><p>Tuple:</p>
+<ul class="simple">
+<li><p>count, index</p></li>
+</ul>
+</li>
+<li><p>String:</p>
+<ul class="simple">
+<li><p>capitalize, casefold, center, count, encode, endswith, expandtabs, find, format, format_map, index, isalnum, isalpha, isascii, isdecimal, isdigit, isidentifier, islower, isnumeric, isprintable, isspace, istitle, isupper, join, ljust, lower, lstrip, maketrans, partition, replace, rfind, rindex, rjust, rpartition, rsplit, rstrip, split, splitlines, startswith, strip, swapcase, title, translate, upper, zfill</p></li>
+</ul>
+</li>
+<li><p>Set:</p>
+<ul class="simple">
+<li><p>add, clear, copy, difference, difference_update, discard, intersection, intersection_update, isdisjoint, issubset, issuperset, pop, remove, symmetric_difference, symmetric_difference_update, union, update</p></li>
+</ul>
+</li>
+<li><p>Dictionary:</p>
+<ul class="simple">
+<li><p>clear, copy, fromkeys, get, items, keys, pop, popitem, setdefault, update, values</p></li>
+</ul>
+</li>
+</ol>
+<br/>
+<hr/>
+<br/></section>
+<section id="crud-operations">
+<h2><span class="section-number">6.1.2. </span>CRUD Operations<a class="headerlink" href="#crud-operations" title="Permalink to this headline">#</a></h2>
+<p>A LOT of problems in computer science can be <em>‘reduced’</em> to a very small set of fundamental problems.</p>
+<p>Create, Read, Update, Delete (CRUD)</p>
+<p><strong>Create</strong>: Adding a record to a database, inserting a node into a linked list, and inserting an element into a priority queue are all examples of the insert problem. Other names of this problem include: <em>Insert, Add, Post</em></p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="https://fahadsultan.com/csc122/_images/crud.png"><img alt="https://fahadsultan.com/csc122/_images/crud.png" src="https://fahadsultan.com/csc122/_images/crud.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Every modern application performs these four essential operations on data: Create, Read, Update, and Delete. These operations are commonly referred to as CRUD operations.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Read</strong>:  Reading or accessing data is the most fundamental problem in computer science. Other names of this problem include: <em>Access, Get, Fetch, Retrieve</em></p>
+<p><strong>Update</strong>: For each of the following problems, we are given a set of N records, each record containing a key and some associated data, and we are given a particular key K. The problem is to modify the record containing K in some way. Other names of this problem include: <em>Modify, Edit, Patch</em></p>
+<p><strong>Delete</strong>:  Deleting a record from a database, deleting a node from a linked list, and deleting an element from a priority queue are all examples of the delete problem.  Other names of this problem include: <em>Remove, Drop</em></p>
+<img align="right" src="" width="30%">
+<p>The table below summarizes the CRUD operations for each of the five built-in data structures in Python:</p>
+<!-- 
+
+Type | Create | Read | Update | Delete | 
+:---: | :---:|:---:|:---:|:----:| 
+`strings` | `foo = "c1c2c3"` | `foo[idx]` |  **N/A**<br/>_`foo.replace(val1, val2)`_ | <span style="{color:red}">**N/A**</span><br/>_`foo.replace(val, "")`_
+`list` | `foo = [v1, v2.. vn]`  | `foo[idx]` | `foo[idx] = val` |`foo.remove(val)` or `foo.pop(idx)`
+`tuple` | `foo = (v1, v2.. vn)` | `foo[idx]` | **N/A**<br/>_Convert to list_ | **N/A**<br/>_Convert to list_ |  &cross; | value | &check;
+`set` |  `foo = {v1, v2.. vn}` | **N/A**<br/>_`val in foo`_ | **N/A** | `foo.pop()` or `foo.remove()` | 
+`dictionaries` | `foo = {k1:v1,.. kn:vn}` | `foo[key]` | `foo[key] = val` | `foo.pop(key)` |  --><!-- 
+
+Type | Create | Read | Update | Delete | 
+:---: | :---:|:---:|:---:|:----:| 
+`strings` | `"c1c2c3"` | `foo[idx]` |  **N/A**<br/><br/>_`foo.replace(v1, v2)`_ | **N/A**<br/><br/>_`foo.replace(val, "")`_
+`list` | `[v1,.. vn]`  | `foo[idx]` | `foo[idx] = val` |`foo.remove(val)` or `foo.pop(idx)`
+`tuple` | `(v1,.. vn)` | `foo[idx]` | **N/A**<br/><br/>_Convert to list_ | **N/A**<br/><br/>_Convert to list_ |  &cross; | value | &check;
+`set` |  `{v1,.. vn}` | **N/A**<br/><br/>_`val in foo`_ | **N/A** | `foo.pop()` or `foo.remove()` | 
+`dictionaries` | `{k1:v1,.. kn:vn}` | `foo[key]` | `foo[key] = val` | `foo.pop(key)` |  --><table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>Type</p></th>
+<th class="text-center head"><p>Create</p></th>
+<th class="text-center head"><p>Insert</p></th>
+<th class="text-center head"><p>Read</p></th>
+<th class="text-center head"><p>Update</p></th>
+<th class="text-center head"><p>Delete</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">strings</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&quot;c1c2c3&quot;</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo</span> <span class="pre">+</span> <span class="pre">&quot;a&quot;</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo[idx]</span></code></p></td>
+<td class="text-center"><p><strong>N/A</strong></p></td>
+<td class="text-center"><p><strong>N/A</strong></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[v1,..</span> <span class="pre">vn]</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo.append(val)</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo[idx]</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo[idx]</span> <span class="pre">=</span> <span class="pre">val</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo.remove(val)</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">(v1,..</span> <span class="pre">vn)</span></code></p></td>
+<td class="text-center"><p><strong>N/A</strong></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo[idx]</span></code></p></td>
+<td class="text-center"><p><strong>N/A</strong></p></td>
+<td class="text-center"><p><strong>N/A</strong></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">set</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">{v1,..</span> <span class="pre">vn}</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo.add(val)</span></code></p></td>
+<td class="text-center"><p><strong>N/A</strong></p></td>
+<td class="text-center"><p><strong>N/A</strong></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo.remove(val)</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">dictionaries</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">{k1:v1,..</span> <span class="pre">kn:vn}</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo[key]</span> <span class="pre">=</span> <span class="pre">val</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo[key]</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo[key]</span> <span class="pre">=</span> <span class="pre">val</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">foo.pop(key)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<hr/></section>
+<section id="mutability">
+<h2><span class="section-number">6.1.3. </span>Mutability<a class="headerlink" href="#mutability" title="Permalink to this headline">#</a></h2>
+<p>Mutability is a concept in computer science that refers to whether or not a data structure can be modified after it has been created.</p>
+<p>A data structure is said to be <strong>mutable</strong> if it can be modified after it has been created. Conversely, a data structure is said to be <strong>immutable</strong> if it cannot be modified after it has been created.</p>
+<p>All elementary data types in Python are immutable. This means that once a value is created, it cannot be modified. This might seem counterintuitive since we can modify the value of a variable.</p>
+<p>However, under the hood, when we modify the value of a variable, we are actually creating a new value and assigning it to the variable.</p>
+<center><img src="https://i.ibb.co/44SZG0V/mutability1.png"></center>
+<br/>
+<p>Soon afterward in the figure above refers to a process called <strong>Garbage Collection</strong>. When a new value is assigned to a variable, the old value is not actually modified. Instead, a new value is created and assigned to the variable. Once the new value has been assigned to the variable, the old value is no longer needed and is removed from memory.</p>
+<p>Immutable objects don’t change their value even when they are updated. Instead, they create a new object with the updated value as shown in the figure below.</p>
+<br/>
+<center><img src="https://i.ibb.co/kqPYRyP/mutability2.png"></center>
+<br/>
+<p>The immutability of elementary data types has some important implications. For example, it means that we can safely pass these data types to functions without worrying that the function will modify the value of the variable that was passed to it. This is because immutable data types are passed to functions by value, not by reference.</p>
+<p>In contrast to elementary data types, some native data structures such as lists, sets, and dictionaries are mutable. This means that we can modify the contents of these data structures after they have been created.</p>
+<p>This is the reason why we can modify the contents of a list, set, or dictionary without creating a new data structure and assigning it to the variable.</p>
+<p>e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">]</span>
+<span class="n">rainbow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Pink&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that since lists are mutable, <code class="docutils literal notranslate"><span class="pre">.append</span></code> method does not return a new list. Instead, it modifies the original list in place.</p>
+<p>In contrast, the <code class="docutils literal notranslate"><span class="pre">.replace</span></code> method for strings does not modify the original string. Instead, it returns a new string with the specified replacement.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="s2">&quot;RAINBOW&quot;</span>
+<span class="n">rainbow</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is because strings are immutable.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="oop.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Object-Oriented Programming</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="oop1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.2. </span>User-defined Structures</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">6.1.1. Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crud-operations">6.1.2. CRUD Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutability">6.1.3. Mutability</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Syed Fahad Sultan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
