@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/oop';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.1. Native Data Structures" href="native_structures.html" />
+    <link rel="next" title="6.1. Native Data Types" href="native_structures.html" />
     <link rel="prev" title="5.6. Stacks" href="../functions/stacks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -212,8 +212,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">6. Object-Oriented Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="native_structures.html">6.1. Native Data Structures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oop1.html">6.2. User-defined Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="native_structures.html">6.1. Native Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop1.html">6.2. User-defined Types</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a></li>
@@ -424,7 +424,8 @@ document.write(`
 </center>
 <br/>
 <p>It does this by combining data variables and functions into a single unit. This is a powerful and intuitive way to model the real world in code, and it is the foundation of modern software development.</p>
-<p>The core ideas of OOP are given in the figure on the right. Let’s begin with Abstraction.</p>
+<p>Combininig data and functions into a single unit <strong>reduces complexity</strong> by allows for <strong>more modular, reusable and readable</strong> code.</p>
+<p>The core ideas of OOP are given in the figure above. Let’s begin with Abstraction and Encapsulation.</p>
 <br/>
 <p>There are two primary abstractions in computer programming that you have already been using:</p>
 <ol class="arabic simple">
@@ -432,81 +433,46 @@ document.write(`
 </ol>
 <br/>
 <ol class="arabic simple" start="2">
-<li><p><strong>Procedural abstractions</strong>: A way to refer to, store and manipulate procedures (functions) without having to understand the details of how they are implemented e.g. functions.</p></li>
+<li><p><strong>Procedural abstractions</strong>: A way to refer to, invoke and execute common behaviors without having to understand the details of how they are implemented e.g. functions.</p></li>
 </ol>
 <br/><p><span style="font-size: 1.5em;"><strong>Data Abstractions</strong></span></p>
 <p>The atomic indivisible unit of data in computer programming is called a <strong>value</strong>. Values are the most basic things that a computer program manipulates or calculates. For example, the number <code class="docutils literal notranslate"><span class="pre">42</span></code> is a value. So is <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World!&quot;</span></code>.</p>
-<p>Each value belongs to a <strong>type</strong>. The type of a value determines its interpretation by the computer and the operations that can be performed on it.    For example, the value <code class="docutils literal notranslate"><span class="pre">42</span></code> is of type <code class="docutils literal notranslate"><span class="pre">int</span></code> (short for integer) and the value <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World!&quot;</span></code> is of type <code class="docutils literal notranslate"><span class="pre">str</span></code> (short for string, so-called because it contains a <em>string</em> of letters).</p>
-<p>One of the most powerful features of a programming language is the ability to manipulate <strong>variables</strong>.</p>
-<p>Similar to algebra, variables in computer programming are <strong>names that refer to values</strong>.</p>
-<p>In algebra, the following statement declares that the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> has the value <code class="docutils literal notranslate"><span class="pre">42</span></code>:</p>
-<div class="math notranslate nohighlight">
-\[x = 42\]</div>
-<p>In Python, the following statement declares that the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> has the value <code class="docutils literal notranslate"><span class="pre">42</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
-</pre></div>
-</div>
-<p>In Python, a variable is a just a name. Values are somewhere else, and a variable refers to a value. Multiple names can refer to the same value. Python calls whatever is needed to refer to a value a reference. Assigning to a variable simply makes it refer to another value.</p>
 <p>Variables are the first means of abstraction in computer programming. They allow us to abstract away the details of the value and refer to computations in more general terms.</p>
-<!-- 
-Python comes with the following built-in data types:
-
-| Python Data Type | Description | Category | Mutable | Example Values |
-| :----------- | -----------: | -----------: | -----------: |-----------: |
-| `int` | Integers | Numeric | ❌ | `42`, `0`, `-1`,  `10000000000 ` |
-| `float` | Floating point numbers | Numeric | ❌ | `3.14159`, `0.0`, `-1.0`, `1.0e10` |
-| `complex` | Complex numbers | Numeric | ❌ | `3 + 4j`, `1j` |
-| `bool` | Boolean values | Boolean | ❌ | `True`, `False` |
-| `str` | String values | Text | ❌ | `"Hello World!"`, `"42"` |
-| `list` | Ordered mutable sequences of values | Sequence | ✅ | `[1, 2, 3]`, `["Hello", "World"]` |
-| `tuple` | Ordered immutable sequences of values | Sequence | ❌ | `(1, 2, 3)`, `("Hello", "World")` |
-| `range` | Immutable sequence of numbers | Sequence | ❌ | `range(10)`, `range(1, 10, 2)` |
-| `dict` | Unordered mapping of keys to values | Mapping | ✅ | `{"a": 1, "b": 2}` |
-| `set` | Unordered collection of unique values | Set | ✅ | `{1, 2, 3}` |
-| `frozenset` | Immutable set | Set | ❌ | `frozenset({1, 2, 3})` |
-| `bytes` | Sequence of bytes | Binary | ❌ | `b"Hello World!"` |
-| `bytearray` | Mutable sequence of bytes | Binary | ✅ | `bytearray(b"Hello World!")` |
-| `memoryview` | Memory view of bytes | Binary | ❌ | `memoryview(b"Hello World!")` |
-| `NoneType` | Special type indicating no value | NoneType | ❌ | `None` | -->
+<p>For instance, <span class="math notranslate nohighlight">\(\pi\)</span> is a value that is approximately <code class="docutils literal notranslate"><span class="pre">3.14159</span></code>. We can refer to this value by the name <code class="docutils literal notranslate"><span class="pre">pi</span></code> and use it in calculations without having to remember the value <code class="docutils literal notranslate"><span class="pre">3.14159</span></code>.</p>
+<p>Similarly, variables allow us to write equations such as</p>
+<div class="math notranslate nohighlight">
+\[ \text{area of circle} = \pi r^2 \]</div>
+<p>without having to remember the value of <span class="math notranslate nohighlight">\(\pi\)</span> or concern ourselves with any particular value of <span class="math notranslate nohighlight">\(r\)</span>.</p>
 <br/><p><span style="font-size: 1.5em;"><strong>Procedural Abstractions</strong></span></p>
 <p>The other primary means of abstraction in programming is the <strong>function</strong>. A function is a named sequence of statements that performs a computation. When you define a function, you specify the name and the sequence of statements. Later, you can “call” the function by name.</p>
 <p>Implementation details of a function are suppressed or abstracted away from the caller. This is called <strong>procedural abstraction</strong>. The <em>caller</em> of the functions needs to only be concerned with the function’s interface: what input(s) it takes and what output(s) it returns</p>
 <center>
  <img width="50%" src="https://www.guru99.com/images/stories/blackbox.png">
 </center>
-<p>Code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">blackbox</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Math:</p>
-<div class="math notranslate nohighlight">
-\[ \text{y} = f(\text{x}) \]</div>
+<p>Code: <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">=</span> <span class="pre">blackbox(input)</span></code></p>
+<p>Math:  <span class="math notranslate nohighlight">\( \text{y} = f(\text{x}) \)</span></p>
 <hr/>
 <p>Functions are the second means of abstraction in computer programming. They allow us to abstract away the details of the computation and refer to computations in more general terms.</p>
-<p>Python comes with many built-in functions such as <code class="docutils literal notranslate"><span class="pre">type(..)</span></code>, <code class="docutils literal notranslate"><span class="pre">abs(..)</span></code>, <code class="docutils literal notranslate"><span class="pre">round(..)</span></code>, <code class="docutils literal notranslate"><span class="pre">help(..)</span></code> etc.</p>
-<p>The interface of a function is defined by its name, the number of arguments it takes, and the type of its arguments. The interface of a function is called its <strong>signature</strong>.</p>
-<p>You can read the signature of a function by calling the <code class="docutils literal notranslate"><span class="pre">help</span></code> function with the function as an argument. For example, to read the signature of the <code class="docutils literal notranslate"><span class="pre">abs</span></code> function, you can call <code class="docutils literal notranslate"><span class="pre">help(abs)</span></code>.</p>
+<p>Python comes with many built-in functions such as <code class="docutils literal notranslate"><span class="pre">type(..)</span></code>, <code class="docutils literal notranslate"><span class="pre">abs(..)</span></code>, <code class="docutils literal notranslate"><span class="pre">round(..)</span></code>, <code class="docutils literal notranslate"><span class="pre">help(..)</span></code>, <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> etc.</p>
+<p>Take <code class="docutils literal notranslate"><span class="pre">sorted</span></code> for example. We can use the <code class="docutils literal notranslate"><span class="pre">sorted</span></code> function to sort a list of numbers without having to understand the details of how the sorting is implemented. Internally, <code class="docutils literal notranslate"><span class="pre">sorted</span></code> might be using mergesort or selection sort or quicksort or any other sorting algorithm. In fact, it is using a sorting algorithm called <a class="reference external" href="https://en.wikipedia.org/wiki/Timsort">Timsort</a>. We don’t need to know anything about Timsort to use <code class="docutils literal notranslate"><span class="pre">sorted</span></code>.</p>
+<p>We only need to know the <strong>interface</strong> of <code class="docutils literal notranslate"><span class="pre">sorted</span></code>. The interface of a function is defined by its name, the number of arguments it takes, and the type of its arguments. The interface of <code class="docutils literal notranslate"><span class="pre">sorted</span></code> is <code class="docutils literal notranslate"><span class="pre">sorted(iterable,</span> <span class="pre">*,</span> <span class="pre">key=None,</span> <span class="pre">reverse=False)</span> <span class="pre">-&gt;</span> <span class="pre">list</span></code>. This means that <code class="docutils literal notranslate"><span class="pre">sorted</span></code> takes an iterable as its first argument and returns a list. The other two arguments are optional.</p>
+<p>We can see any function’s interface by calling the <code class="docutils literal notranslate"><span class="pre">help</span></code> function with the function as an argument. For example, to read the interface of the <code class="docutils literal notranslate"><span class="pre">abs</span></code> function, you can call <code class="docutils literal notranslate"><span class="pre">help(abs)</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">abs</span><span class="p">)</span>
+</pre></div>
+</div>
 <br/>
 <p><span style="font-size: 1.5em;"><strong>Object-Oriented Programming = Data + Procedural Abstraction</strong></span></p>
-<p>The basic idea of object-oriented programming is to <strong>encapsulate</strong> data abstractions and procedural abstractions into a single unit.</p>
-<p>In the context of object-oriented programming, this unit is called an <strong>object</strong>.</p>
-<p>The way in which this is done is by <strong>defining</strong> a new <strong>class</strong>.</p>
-<p>A particular class essentially <strong>defines a new user-defined data type</strong> detailing how a particular kind of data is going to be structured and how it can be manipulated.</p>
-<p>A class is a blueprint for creating objects. An object is an instance of a class, similar to how 7 is an instance of the <code class="docutils literal notranslate"><span class="pre">int</span></code> class and “Hello World!” is an instance of the <code class="docutils literal notranslate"><span class="pre">str</span></code> class.</p>
-<center>
-<img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CPT-OOP-objects_and_classes.svg/2560px-CPT-OOP-objects_and_classes.svg.png">
-</center>
+<p>The basic idea of object-oriented programming is to <strong>encapsulate</strong> data abstractions and procedural abstractions into a single super-abstraction called an <strong>Object</strong>.</p>
+<center><img width="50%" src="https://storage.googleapis.com/algodailyrandomassets/curriculum/blogs/encapsulation.png">
 <br/>
-<center>
-<img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/9/98/CPT-OOP-objects_and_classes_-_attmeth.svg">
+<figure class="align-center" id="encapsulation">
+<a class="reference internal image-reference" href="https://i.ibb.co/3ywmcdx/encapsulation-in-python-with-example-scientech-easy-v0-E59jufo-DZyo-Xpk-Foql-Vtbw3b-75uv-Xhup-B5bn-X.webp"><img alt="https://i.ibb.co/3ywmcdx/encapsulation-in-python-with-example-scientech-easy-v0-E59jufo-DZyo-Xpk-Foql-Vtbw3b-75uv-Xhup-B5bn-X.webp" src="https://i.ibb.co/3ywmcdx/encapsulation-in-python-with-example-scientech-easy-v0-E59jufo-DZyo-Xpk-Foql-Vtbw3b-75uv-Xhup-B5bn-X.webp" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.1 </span><span class="caption-text">The process of bundling up data and methods associated with that data into a single unit is called Encapsulation.</span><a class="headerlink" href="#encapsulation" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </center>
-<br/>
-<p>In the context of object-oriented programming, a function that is part of a class is called a <strong>method</strong>. The data that is part of a class is called an <strong>attribute</strong>. The combination of methods and attributes is called a <strong>class</strong>.</p>
-<p>A class is a way to take a grouping of functions and data and place them inside a container so you can access them with the <code class="docutils literal notranslate"><span class="pre">.</span></code> operator. This is a really useful way to organize your code, especially when you start to get more and more functions and more and more data.</p>
-<p>Object-oriented programming is a way to design and implement data structures in a computer program. Data Structures are a way to store and organize data in a computer so that it can be used efficiently.</p>
-<p><strong>Encapsulation</strong> is the idea of combining data and the functions that operate on the data into a single unit. Encapsulation is a way to hide the implementation details of a class from the user of the class.</p>
-<center><img width="50%" src="https://storage.googleapis.com/algodailyrandomassets/curriculum/blogs/encapsulation.png"></center>
-<p>Before we define and create our own classes, let’s first look at the built-in data structures in Python.</p>
+<p>In other words, <strong>encapsulation</strong> is the idea of combining data and the functions that operate on the data into the same single unit. It is a way to hide the implementation details of a class from the user of the class.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -556,7 +522,7 @@ Python comes with the following built-in data types:
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6.1. </span>Native Data Structures</p>
+        <p class="prev-next-title"><span class="section-number">6.1. </span>Native Data Types</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

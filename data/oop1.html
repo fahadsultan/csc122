@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>6.2. User-defined Structures &#8212; Data Structures and Algorithms</title>
+    <title>6.2. User-defined Types &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7. Stacks and Queues" href="stacks_queues.html" />
-    <link rel="prev" title="6.1. Native Data Structures" href="native_structures.html" />
+    <link rel="prev" title="6.1. Native Data Types" href="native_structures.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -210,8 +210,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="oop.html">6. Object-Oriented Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="native_structures.html">6.1. Native Data Structures</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.2. User-defined Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="native_structures.html">6.1. Native Data Types</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.2. User-defined Types</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a></li>
@@ -400,7 +400,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>User-defined Structures</h1>
+    <h1>User-defined Types</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -410,12 +410,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">6.2.1. Attributes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-initialization-method-and-self">6.2.2. The initialization method and <code class="docutils literal notranslate"><span class="pre">self</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instances-as-parameters">6.2.3. Instances as parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time">6.2.4. Time</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-functions">6.2.5. Pure functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers">6.2.6. Modifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-operator">6.2.1. Dot <code class="docutils literal notranslate"><span class="pre">.</span></code> operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-point">6.2.2. Example 1: Point</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">6.2.3. Attributes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-init-initialization-method-and-self-variable">6.2.4. The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> initialization method and <code class="docutils literal notranslate"><span class="pre">self</span></code> variable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instances-as-parameters">6.2.5. Instances as parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-time">6.2.6. Example 2: Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-functions">6.2.7. Pure functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers">6.2.8. Modifiers</a></li>
 </ul>
             </nav>
         </div>
@@ -427,10 +429,33 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="user-defined-structures">
-<h1><span class="section-number">6.2. </span>User-defined Structures<a class="headerlink" href="#user-defined-structures" title="Permalink to this headline">#</a></h1>
-<!-- ## User-defined compound types -->
-<p>A class in essence defines a new data type. We have been using several of Python’s built-in types throughout this book, we are now ready to create our own user-defined type: the <code class="docutils literal notranslate"><span class="pre">Point</span></code>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="user-defined-types">
+<h1><span class="section-number">6.2. </span>User-defined Types<a class="headerlink" href="#user-defined-types" title="Permalink to this headline">#</a></h1>
+<p>Most modern programming languages provide a way to define new data types through the use of classes.</p>
+<p>A particular <strong>class</strong> essentially <strong>defines a new user-defined data type</strong> detailing how a particular kind of data is going to be structured and how it can be manipulated.</p>
+<p>A class therefore, at its essence, is a <strong>blueprint for creating objects</strong> (of that class). An object is an instance of a class, similar to how 7 is an instance of the <code class="docutils literal notranslate"><span class="pre">int</span></code> class and “Hello World!” is an instance of the <code class="docutils literal notranslate"><span class="pre">str</span></code> class.</p>
+<center>
+<img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/9/98/CPT-OOP-objects_and_classes_-_attmeth.svg">
+</center>
+<br/>
+<!-- <center>
+<img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CPT-OOP-objects_and_classes.svg/2560px-CPT-OOP-objects_and_classes.svg.png"> -->
+<figure class="align-default" id="oop">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CPT-OOP-objects_and_classes.svg/2560px-CPT-OOP-objects_and_classes.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CPT-OOP-objects_and_classes.svg/2560px-CPT-OOP-objects_and_classes.svg.png" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CPT-OOP-objects_and_classes.svg/2560px-CPT-OOP-objects_and_classes.svg.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">A class defines a new data type and an object is an instance of a class.</span><a class="headerlink" href="#oop" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<!-- </center> -->
+<br/>
+<section id="dot-operator">
+<h2><span class="section-number">6.2.1. </span>Dot <code class="docutils literal notranslate"><span class="pre">.</span></code> operator<a class="headerlink" href="#dot-operator" title="Permalink to this headline">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">.</span></code> operator is used to access the attributes and methods of a class.</p>
+<p>A class is a way to take a grouping of functions and data and place them inside a container so you can access them with the <code class="docutils literal notranslate"><span class="pre">.</span></code> operator. This is a really useful way to organize your code, especially when you start to get more and more functions and more and more data.</p>
+<p>A class in essence defines a new data type. We have been using several of Python’s built-in types throughout, we are now ready to create our own user-defined type: the <code class="docutils literal notranslate"><span class="pre">Point</span></code>.</p>
+</section>
+<section id="example-1-point">
+<h2><span class="section-number">6.2.2. </span>Example 1: Point<a class="headerlink" href="#example-1-point" title="Permalink to this headline">#</a></h2>
 <p>Consider the concept of a mathematical point. In two dimensions, a point is two numbers (coordinates) that are treated collectively as a single object. In mathematical notation, points are often written in parentheses with a comma separating the coordinates. For example, <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0)</span></code> represents the origin, and <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> represents the point x units to the right and y units up from the origin.</p>
 <p>A natural way to represent a point in Python is with two numeric values. The question, then, is how to group these two values into a compound object. The quick and dirty solution is to use a list or tuple, and for some applications that might be the best choice.</p>
 <p>An alternative is to define a new user-defined compound type, also called a class. This approach involves a bit more effort, but it has advantages that will be apparent soon.</p>
@@ -457,8 +482,9 @@ document.write(`
 </div>
 <p>The variable p is assigned a reference to a new <code class="docutils literal notranslate"><span class="pre">Point</span></code> object.</p>
 <p>It may be helpful to think of a class as a factory for making objects, so our <code class="docutils literal notranslate"><span class="pre">Point</span></code> class is a factory for making points. The class itself isn’t an instance of a point, but it contains the machinary to make point instances.</p>
+</section>
 <section id="attributes">
-<h2><span class="section-number">6.2.1. </span>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.2.3. </span>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h2>
 <p>Like real world objects, object instances have both form and function. The form consists of data elements contained within the instance.</p>
 <p>We can add new data elements to an instance using dot notation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
@@ -485,8 +511,8 @@ document.write(`
 </div>
 <p>The first line outputs <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">4)</span></code>; the second line calculates the value 25.</p>
 </section>
-<section id="the-initialization-method-and-self">
-<h2><span class="section-number">6.2.2. </span>The initialization method and <code class="docutils literal notranslate"><span class="pre">self</span></code><a class="headerlink" href="#the-initialization-method-and-self" title="Permalink to this headline">#</a></h2>
+<section id="the-init-initialization-method-and-self-variable">
+<h2><span class="section-number">6.2.4. </span>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> initialization method and <code class="docutils literal notranslate"><span class="pre">self</span></code> variable<a class="headerlink" href="#the-init-initialization-method-and-self-variable" title="Permalink to this headline">#</a></h2>
 <p>Since our <code class="docutils literal notranslate"><span class="pre">Point</span></code> class is intended to represent two dimensional mathematical points, <em>all</em> point instances ought to have <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> attributes, but that is not yet so with our Point objects.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p2</span><span class="o">.</span><span class="n">x</span>
@@ -541,7 +567,7 @@ document.write(`
 <p>When defining a method, the first parameter refers to the instance being created. It is customary to name this parameter <strong>self</strong>. In the example session above, the <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter refers to the instances p, q, and r respectively.</p>
 </section>
 <section id="instances-as-parameters">
-<h2><span class="section-number">6.2.3. </span>Instances as parameters<a class="headerlink" href="#instances-as-parameters" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.2.5. </span>Instances as parameters<a class="headerlink" href="#instances-as-parameters" title="Permalink to this headline">#</a></h2>
 <p>You can pass an instance as a parameter to a function in the usual way. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_point</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)))</span>
@@ -551,8 +577,8 @@ document.write(`
 <br/>
 <hr/>
 </section>
-<section id="time">
-<h2><span class="section-number">6.2.4. </span>Time<a class="headerlink" href="#time" title="Permalink to this headline">#</a></h2>
+<section id="example-2-time">
+<h2><span class="section-number">6.2.6. </span>Example 2: Time<a class="headerlink" href="#example-2-time" title="Permalink to this headline">#</a></h2>
 <p>As another example of a user-defined type, we’ll define a class called Time that records the time of day. The class definition looks like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Time</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span>
@@ -569,7 +595,7 @@ document.write(`
 <img src="https://www.cs.swarthmore.edu/courses/CS21Book/_images/time.png">
 </section>
 <section id="pure-functions">
-<h2><span class="section-number">6.2.5. </span>Pure functions<a class="headerlink" href="#pure-functions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.2.7. </span>Pure functions<a class="headerlink" href="#pure-functions" title="Permalink to this headline">#</a></h2>
 <p>In the next few sections, we’ll write two versions of a function called add_time, which calculates the sum of two Times. They will demonstrate two kinds of functions: pure functions and modifiers.</p>
 <p>The following is a rough version of <code class="docutils literal notranslate"><span class="pre">add_time</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_time</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
@@ -618,7 +644,7 @@ document.write(`
 <p>Although this function is correct, it is starting to get big. Later we will suggest an alternative approach that yields shorter code.</p>
 </section>
 <section id="modifiers">
-<h2><span class="section-number">6.2.6. </span>Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.2.8. </span>Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">#</a></h2>
 <p>There are times when it is useful for a function to modify one or more of the objects it gets as parameters. Usually, the caller keeps a reference to the objects it passes, so any changes the function makes are visible to the caller. Functions that work this way are called <strong>modifiers</strong>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">increment</span></code>, which adds a given number of seconds to a Time object, would be written most naturally as a modifier. A rough draft of the function looks like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">seconds</span><span class="p">):</span>
@@ -818,7 +844,7 @@ attribute
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6.1. </span>Native Data Structures</p>
+        <p class="prev-next-title"><span class="section-number">6.1. </span>Native Data Types</p>
       </div>
     </a>
     <a class="right-next"
@@ -848,12 +874,14 @@ attribute
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">6.2.1. Attributes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-initialization-method-and-self">6.2.2. The initialization method and <code class="docutils literal notranslate"><span class="pre">self</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instances-as-parameters">6.2.3. Instances as parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time">6.2.4. Time</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-functions">6.2.5. Pure functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers">6.2.6. Modifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-operator">6.2.1. Dot <code class="docutils literal notranslate"><span class="pre">.</span></code> operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-point">6.2.2. Example 1: Point</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">6.2.3. Attributes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-init-initialization-method-and-self-variable">6.2.4. The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> initialization method and <code class="docutils literal notranslate"><span class="pre">self</span></code> variable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instances-as-parameters">6.2.5. Instances as parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-time">6.2.6. Example 2: Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-functions">6.2.7. Pure functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers">6.2.8. Modifiers</a></li>
 </ul>
   </nav></div>
 

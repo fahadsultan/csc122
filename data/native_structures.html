@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>6.1. Native Data Structures &#8212; Data Structures and Algorithms</title>
+    <title>6.1. Native Data Types &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/native_structures';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.2. User-defined Structures" href="oop1.html" />
+    <link rel="next" title="6.2. User-defined Types" href="oop1.html" />
     <link rel="prev" title="6. Object-Oriented Programming" href="oop.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -210,8 +210,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="oop.html">6. Object-Oriented Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.1. Native Data Structures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oop1.html">6.2. User-defined Structures</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.1. Native Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop1.html">6.2. User-defined Types</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a></li>
@@ -400,7 +400,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Native Data Structures</h1>
+    <h1>Native Data Types</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -410,9 +410,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">6.1.1. Methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crud-operations">6.1.2. CRUD Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutability">6.1.3. Mutability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-insert-read-update-and-delete-operations">6.1.1. Create, Insert, Read, Update and Delete Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutability">6.1.2. Mutability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-value-vs-pass-by-reference">6.1.2.1. Pass by Value vs Pass by Reference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-vs-deep-copy">6.1.2.2. Shallow vs Deep Copy</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -424,10 +427,45 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="native-data-structures">
-<h1><span class="section-number">6.1. </span>Native Data Structures<a class="headerlink" href="#native-data-structures" title="Permalink to this headline">#</a></h1>
-<p>All computer programs are designed to process data.</p>
-<p>The atomic unit of data is a <strong>value</strong>. Each value has a <strong>type</strong> that determines what operations can be performed on it. You can check a variable’s data type using the built-in function <code class="docutils literal notranslate"><span class="pre">type</span></code></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="native-data-types">
+<h1><span class="section-number">6.1. </span>Native Data Types<a class="headerlink" href="#native-data-types" title="Permalink to this headline">#</a></h1>
+<p>All computer programs are designed to process data and the atomic unit of all data is a <strong>value</strong>.</p>
+<p><u>In Python, <em>EVERY</em> value is an <strong>object</strong></u>. This means that every value satisfies the following three properties that every object must satisfy:</p>
+<ol class="arabic simple">
+<li><p>Every object has a <strong>type</strong>. You can check a variable’s data type using the built-in function <code class="docutils literal notranslate"><span class="pre">type</span></code></p></li>
+<li><p>Every object has an <strong>internal data representation</strong>.</p></li>
+<li><p>Every object has a <strong>set of procedures</strong> for interacting with it.</p></li>
+</ol>
+<p>Every value is an <strong>instance</strong> of a type. For example, the value <code class="docutils literal notranslate"><span class="pre">3</span></code> is an instance of the type <code class="docutils literal notranslate"><span class="pre">int</span></code> and the value <code class="docutils literal notranslate"><span class="pre">3.0</span></code> is an instance of the type <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+<br/><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="mf">3.14</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;3.14&#39;</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(int, float, str, bool, NoneType)
+</pre></div>
+</div>
+</div>
+</div>
+<br/>
+<p>Even type is an object in Python. The type of <code class="docutils literal notranslate"><span class="pre">int</span></code> is <code class="docutils literal notranslate"><span class="pre">type</span></code> and the type of <code class="docutils literal notranslate"><span class="pre">type</span></code> is <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type
+</pre></div>
+</div>
+</div>
+</div>
+<br/>
+<hr/>
 <p>Python comes pre-packaged with two broad categories of data types: <strong>elementary data types</strong> and <strong>compound data structures</strong>.</p>
 <p><strong>Elementary data types</strong> are the basic data types that are built into the Python language. These types are used to <strong>represent single values</strong>, and include:</p>
 <ul class="simple">
@@ -438,6 +476,9 @@ document.write(`
 <li><p>None <code class="docutils literal notranslate"><span class="pre">NoneType</span></code></p></li>
 </ul>
 <p><strong>Compound data structures</strong> are used to <strong>group together multiple values</strong>. These types are used to represent collections of data.</p>
+<p>The procedures associated with an object are individually called <strong>methods</strong> and collectively constitute the <strong>interface</strong> for manipulating the object.</p>
+<p>In the context of object-oriented programming, procedures that are associated with objects are called <strong>methods</strong> and data that associated with an object is called an <strong>attribute</strong>.</p>
+<p>Before we define and create our own classes, let’s first look at the built-in data structures in Python.</p>
 <p>Data Structures, as the same suggests, are structures designed for organizing, processing, manipulating, retrieving and storing data.</p>
 <p>Most programming languages provide a set of native data structures to:
 1. Facilitate commmon programming tasks
@@ -450,13 +491,26 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
+<p><em>Methods</em>:</p>
+<ul class="simple">
+<li><p>append, clear, copy, count, extend, index, insert, pop, remove, reverse, sort</p></li>
+</ul>
+<br/>
+<hr/>
+<br/>
 <ol class="arabic simple" start="2">
 <li><p><strong>Tuples</strong> <code class="docutils literal notranslate"><span class="pre">tuple</span></code></p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><em>Methods</em>:</p>
+<ul class="simple">
+<li><p>count, index</p></li>
+</ul>
 <center><img width="70%" src="https://i.ibb.co/3Cp31qv/list-tuple.png"></center>
+<br/>
+<hr/>
 <br/>
 <ol class="arabic simple" start="3">
 <li><p><strong>Strings</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
@@ -464,7 +518,13 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="s2">&quot;RAINBOW&quot;</span>
 </pre></div>
 </div>
+<p><em>Methods</em>:</p>
+<ul class="simple">
+<li><p>capitalize, casefold, center, count, encode, endswith, expandtabs, find, format, format_map, index, isalnum, isalpha, isascii, isdecimal, isdigit, isidentifier, islower, isnumeric, isprintable, isspace, istitle, isupper, join, ljust, lower, lstrip, maketrans, partition, replace, rfind, rindex, rjust, rpartition, rsplit, rstrip, split, splitlines, startswith, strip, swapcase, title, translate, upper, zfill</p></li>
+</ul>
 <center><img width="70%" src="https://i.ibb.co/vv33zjk/str.png"></center>
+<br/>
+<hr/>
 <br/>
 <ol class="arabic simple" start="4">
 <li><p><strong>Sets</strong> <code class="docutils literal notranslate"><span class="pre">set</span></code></p></li>
@@ -472,7 +532,13 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
+<p><em>Methods</em>:</p>
+<ul class="simple">
+<li><p>add, clear, copy, difference, difference_update, discard, intersection, intersection_update, isdisjoint, issubset, issuperset, pop, remove, symmetric_difference, symmetric_difference_update, union, update</p></li>
+</ul>
 <center><img width="70%" src="https://i.ibb.co/7kwJs6S/set.png"></center>
+<br/>
+<hr/>
 <br/>
 <ol class="arabic simple" start="5">
 <li><p><strong>Dictionaries</strong> <code class="docutils literal notranslate"><span class="pre">dict</span></code></p></li>
@@ -480,7 +546,13 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Red&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">:</span><span class="mf">72.0</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">:</span><span class="s2">&quot;Trees&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">:</span><span class="s2">&quot;Sad&quot;</span><span class="p">,</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">:</span><span class="s2">&quot;56&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">:</span><span class="kc">None</span><span class="p">}</span>
 </pre></div>
 </div>
+<p><em>Methods</em>:</p>
+<ul class="simple">
+<li><p>clear, copy, fromkeys, get, items, keys, pop, popitem, setdefault, update, values</p></li>
+</ul>
 <center><img width="70%" src="https://i.ibb.co/XDfC0vw/dict.png"></center>
+<br/>
+<hr/>
 <br/>
 <p>Each data structure corresponds to a particular organization of data. This organization imposes constraints and affordances on the retrieval and processing of data.</p>
 <p>For the five built-in data structures in Python, the following table summarizes the key characteristics of each data structure:</p>
@@ -546,51 +618,19 @@ document.write(`
 </table>
 <p>* <em><strong>keys</strong> can only be immutable type; <strong>values</strong> can be any data type</em> <br />
 ** <em><strong>keys</strong> can not be duplicate; <strong>values</strong> can be duplicate</em></p>
-<!-- <img src="../assets/arr1.png"> -->
-<section id="methods">
-<h2><span class="section-number">6.1.1. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h2>
-<ol class="arabic simple">
-<li><p>List:</p>
-<ul class="simple">
-<li><p>append, clear, copy, count, extend, index, insert, pop, remove, reverse, sort</p></li>
-</ul>
-</li>
-<li><p>Tuple:</p>
-<ul class="simple">
-<li><p>count, index</p></li>
-</ul>
-</li>
-<li><p>String:</p>
-<ul class="simple">
-<li><p>capitalize, casefold, center, count, encode, endswith, expandtabs, find, format, format_map, index, isalnum, isalpha, isascii, isdecimal, isdigit, isidentifier, islower, isnumeric, isprintable, isspace, istitle, isupper, join, ljust, lower, lstrip, maketrans, partition, replace, rfind, rindex, rjust, rpartition, rsplit, rstrip, split, splitlines, startswith, strip, swapcase, title, translate, upper, zfill</p></li>
-</ul>
-</li>
-<li><p>Set:</p>
-<ul class="simple">
-<li><p>add, clear, copy, difference, difference_update, discard, intersection, intersection_update, isdisjoint, issubset, issuperset, pop, remove, symmetric_difference, symmetric_difference_update, union, update</p></li>
-</ul>
-</li>
-<li><p>Dictionary:</p>
-<ul class="simple">
-<li><p>clear, copy, fromkeys, get, items, keys, pop, popitem, setdefault, update, values</p></li>
-</ul>
-</li>
-</ol>
-<br/>
+<!-- <img src="../assets/arr1.png"> --><br/>
 <hr/>
-<br/></section>
-<section id="crud-operations">
-<h2><span class="section-number">6.1.2. </span>CRUD Operations<a class="headerlink" href="#crud-operations" title="Permalink to this headline">#</a></h2>
+<br/><section id="create-insert-read-update-and-delete-operations">
+<h2><span class="section-number">6.1.1. </span>Create, Insert, Read, Update and Delete Operations<a class="headerlink" href="#create-insert-read-update-and-delete-operations" title="Permalink to this headline">#</a></h2>
 <p>A LOT of problems in computer science can be <em>‘reduced’</em> to a very small set of fundamental problems.</p>
-<p>Create, Read, Update, Delete (CRUD)</p>
-<p><strong>Create</strong>: Adding a record to a database, inserting a node into a linked list, and inserting an element into a priority queue are all examples of the insert problem. Other names of this problem include: <em>Insert, Add, Post</em></p>
+<p><strong>Create</strong>: Adding value(s) to a structure, inserting a node into a linked list, and inserting an element into a priority queue are all examples of the insert problem. Other names of this problem include: <em>Insert, Add, Post</em></p>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="https://fahadsultan.com/csc122/_images/crud.png"><img alt="https://fahadsultan.com/csc122/_images/crud.png" src="https://fahadsultan.com/csc122/_images/crud.png" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Every modern application performs these four essential operations on data: Create, Read, Update, and Delete. These operations are commonly referred to as CRUD operations.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Every modern application performs these four essential operations on data: Create, Read, Update, and Delete. These operations are commonly referred to as CRUD operations.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p><strong>Read</strong>:  Reading or accessing data is the most fundamental problem in computer science. Other names of this problem include: <em>Access, Get, Fetch, Retrieve</em></p>
+<p><strong>Read</strong>:  Reading or accessing value(s) is the most fundamental problem in computer science. Other names of this problem include: <em>Access, Get, Fetch, Retrieve</em></p>
 <p><strong>Update</strong>: For each of the following problems, we are given a set of N records, each record containing a key and some associated data, and we are given a particular key K. The problem is to modify the record containing K in some way. Other names of this problem include: <em>Modify, Edit, Patch</em></p>
 <p><strong>Delete</strong>:  Deleting a record from a database, deleting a node from a linked list, and deleting an element from a priority queue are all examples of the delete problem.  Other names of this problem include: <em>Remove, Drop</em></p>
 <img align="right" src="" width="30%">
@@ -661,17 +701,29 @@ Type | Create | Read | Update | Delete |
 </table>
 <hr/></section>
 <section id="mutability">
-<h2><span class="section-number">6.1.3. </span>Mutability<a class="headerlink" href="#mutability" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.1.2. </span>Mutability<a class="headerlink" href="#mutability" title="Permalink to this headline">#</a></h2>
 <p>Mutability is a concept in computer science that refers to whether or not a data structure can be modified after it has been created.</p>
 <p>A data structure is said to be <strong>mutable</strong> if it can be modified after it has been created. Conversely, a data structure is said to be <strong>immutable</strong> if it cannot be modified after it has been created.</p>
 <p>All elementary data types in Python are immutable. This means that once a value is created, it cannot be modified. This might seem counterintuitive since we can modify the value of a variable.</p>
 <p>However, under the hood, when we modify the value of a variable, we are actually creating a new value and assigning it to the variable.</p>
-<center><img src="https://i.ibb.co/44SZG0V/mutability1.png"></center>
+<!-- <center><img src="https://i.ibb.co/44SZG0V/mutability1.png"></center> -->
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="https://i.ibb.co/44SZG0V/mutability1.png"><img alt="https://i.ibb.co/44SZG0V/mutability1.png" src="https://i.ibb.co/44SZG0V/mutability1.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.3 </span><span class="caption-text">When a new value is assigned to a variable, the old value is not actually modified. Instead, a new value is created and assigned to the variable. Once the new value has been assigned to the variable, the old value is no longer needed and is removed from memory.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <br/>
 <p>Soon afterward in the figure above refers to a process called <strong>Garbage Collection</strong>. When a new value is assigned to a variable, the old value is not actually modified. Instead, a new value is created and assigned to the variable. Once the new value has been assigned to the variable, the old value is no longer needed and is removed from memory.</p>
 <p>Immutable objects don’t change their value even when they are updated. Instead, they create a new object with the updated value as shown in the figure below.</p>
 <br/>
-<center><img src="https://i.ibb.co/kqPYRyP/mutability2.png"></center>
+<!-- <center><img src="https://i.ibb.co/kqPYRyP/mutability2.png"></center> -->
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="https://i.ibb.co/kqPYRyP/mutability2.png"><img alt="https://i.ibb.co/kqPYRyP/mutability2.png" src="https://i.ibb.co/kqPYRyP/mutability2.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Immutable objects don’t change their value even when they are updated. Instead, they create a new object with the updated value.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <br/>
 <p>The immutability of elementary data types has some important implications. For example, it means that we can safely pass these data types to functions without worrying that the function will modify the value of the variable that was passed to it. This is because immutable data types are passed to functions by value, not by reference.</p>
 <p>In contrast to elementary data types, some native data structures such as lists, sets, and dictionaries are mutable. This means that we can modify the contents of these data structures after they have been created.</p>
@@ -688,6 +740,41 @@ Type | Create | Read | Update | Delete |
 </pre></div>
 </div>
 <p>This is because strings are immutable.</p>
+<section id="pass-by-value-vs-pass-by-reference">
+<h3><span class="section-number">6.1.2.1. </span>Pass by Value vs Pass by Reference<a class="headerlink" href="#pass-by-value-vs-pass-by-reference" title="Permalink to this headline">#</a></h3>
+<p>In Python, all mutable data types are passed to functions by reference, while all immutable data types are passed to functions by value.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="https://i.ibb.co/MsjxRw6/pass-by.png"><img alt="https://i.ibb.co/MsjxRw6/pass-by.png" src="https://i.ibb.co/MsjxRw6/pass-by.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.5 </span><span class="caption-text">In Python, all mutable data types are passed to functions by reference, while all immutable data types are passed to functions by value.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When an immutable data type is passed to a function, the function cannot modify the original data structure. This is because the function is given a copy of the original data structure, not a reference to the original data structure.</p>
+<p>When a mutable data type is passed to a function, the function can modify the original data structure. This is because the function is given a reference to the original data structure, not a copy of the data structure.</p>
+</section>
+<section id="shallow-vs-deep-copy">
+<h3><span class="section-number">6.1.2.2. </span>Shallow vs Deep Copy<a class="headerlink" href="#shallow-vs-deep-copy" title="Permalink to this headline">#</a></h3>
+<p>When we create a new list, set, or dictionary by copying an existing list, set, or dictionary, we can create a <strong>shallow copy</strong> or a <strong>deep copy</strong>.</p>
+<p>A <strong>shallow copy</strong> is a new data structure that contains references to the same objects as the original data structure. This means that if we modify an object in the original data structure, the same object in the new data structure will also be modified.</p>
+<center>
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/shallow-copy.jpg" width="50%">
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/deep-copy.jpg" width="70%">
+</center>
+<p>A <strong>deep copy</strong> is a new data structure that contains new objects that are copies of the objects in the original data structure. This means that if we modify an object in the original data structure, the same object in the new data structure will not be modified.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">]</span>
+<span class="n">rainbow_copy</span> <span class="o">=</span> <span class="n">rainbow</span>
+<span class="n">rainbow_copy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Pink&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rainbow</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the code above, <code class="docutils literal notranslate"><span class="pre">rainbow_copy</span></code> is a shallow copy of <code class="docutils literal notranslate"><span class="pre">rainbow</span></code>. This means that <code class="docutils literal notranslate"><span class="pre">rainbow_copy</span></code> contains references to the same objects as <code class="docutils literal notranslate"><span class="pre">rainbow</span></code>. As a result, when we modify <code class="docutils literal notranslate"><span class="pre">rainbow_copy</span></code>, we also modify <code class="docutils literal notranslate"><span class="pre">rainbow</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rainbow</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">]</span>
+<span class="n">rainbow_copy</span> <span class="o">=</span> <span class="n">rainbow</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">rainbow_copy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Pink&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rainbow</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -736,7 +823,7 @@ Type | Create | Read | Update | Delete |
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6.2. </span>User-defined Structures</p>
+        <p class="prev-next-title"><span class="section-number">6.2. </span>User-defined Types</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -758,9 +845,12 @@ Type | Create | Read | Update | Delete |
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">6.1.1. Methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crud-operations">6.1.2. CRUD Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutability">6.1.3. Mutability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-insert-read-update-and-delete-operations">6.1.1. Create, Insert, Read, Update and Delete Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutability">6.1.2. Mutability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-value-vs-pass-by-reference">6.1.2.1. Pass by Value vs Pass by Reference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-vs-deep-copy">6.1.2.2. Shallow vs Deep Copy</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
