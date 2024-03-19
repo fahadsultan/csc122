@@ -17,18 +17,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-p1 = Point(3, 4)
-p2 = Point(5, 7)
-print(multadd (2, p1, p2)), print(multadd (p1, p2, 1))
+p2 = Point()
+p2.x
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [3][0m, in [0;36m<cell line: 1>[0;34m()[0m
-[0;32m----> 1[0m p1 [38;5;241m=[39m [43mPoint[49m([38;5;241m3[39m, [38;5;241m4[39m)
-[1;32m      2[0m p2 [38;5;241m=[39m Point([38;5;241m5[39m, [38;5;241m7[39m)
-[1;32m      3[0m [38;5;28mprint[39m(multadd ([38;5;241m2[39m, p1, p2)), [38;5;28mprint[39m(multadd (p1, p2, [38;5;241m1[39m))
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Input [0;32mIn [8][0m, in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m p2 [38;5;241m=[39m Point()
+[0;32m----> 2[0m [43mp2[49m[38;5;241;43m.[39;49m[43mx[49m
 
-[0;31mNameError[0m: name 'Point' is not defined
-NameError: name 'Point' is not defined
+[0;31mAttributeError[0m: 'Point' object has no attribute 'x'
+AttributeError: 'Point' object has no attribute 'x'
 

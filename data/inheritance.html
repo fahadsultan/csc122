@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 10.3. &#8212; Data Structures and Algorithms</title>
+    <title>6.3. Extending Types &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -62,9 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'data/Lecture 10.3';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data/inheritance';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.4. Extending Operators" href="operator_overloading.html" />
+    <link rel="prev" title="6.2. User-defined Types" href="oop1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -206,11 +208,11 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="oop.html">6. Object-Oriented Programming</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="oop.html">6. Object-Oriented Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="native_structures.html">6.1. Native Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="oop1.html">6.2. User-defined Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inheritance.html">6.3. Extending Types</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.3. Extending Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operator_overloading.html">6.4. Extending Operators</a></li>
 </ul>
 </li>
@@ -289,7 +291,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdata/Lecture 10.3.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdata/inheritance.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -319,7 +321,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/data/Lecture 10.3.ipynb" target="_blank"
+      <li><a href="../_sources/data/inheritance.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -401,7 +403,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture 10.3.</h1>
+    <h1>Extending Types</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -411,14 +413,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lecture 10.3.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#friday-nov-4th">Friday, Nov 4th</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-and-tuples">Sets and Tuples</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structures-in-python">10.2.0. Data Structures, in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">6.3.1. Inheritance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rectangle-and-square">6.3.1.1. Example: <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> and <code class="docutils literal notranslate"><span class="pre">Square</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polymorphism">6.3.2. Polymorphism</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -429,130 +429,145 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-10-3">
-<h1>Lecture 10.3.<a class="headerlink" href="#lecture-10-3" title="Permalink to this headline">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="friday-nov-4th">
-<h1>Friday, Nov 4th<a class="headerlink" href="#friday-nov-4th" title="Permalink to this headline">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="sets-and-tuples">
-<h1>Sets and Tuples<a class="headerlink" href="#sets-and-tuples" title="Permalink to this headline">#</a></h1>
-<section id="data-structures-in-python">
-<h2>10.2.0. Data Structures, in Python<a class="headerlink" href="#data-structures-in-python" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Python has <strong>4 built-in data types</strong> used to store collections of data:</p>
-<ol class="arabic simple">
-<li><p>Lists  (Week 9)</p></li>
-<li><p><strong>Tuples</strong> (Week 10)</p></li>
-<li><p><strong>Sets</strong>   (Week 10)</p></li>
-<li><p>Dictionary (Week 13)</p></li>
-</ol>
-</li>
-<li><p>Each of the data structures have different qualities and usage.</p></li>
-</ul>
-<ul class="simple">
-<li><p>So far, we have seen only two compound types: 1) <strong>Strings</strong> and 2) <strong>Lists</strong></p></li>
-<li><p>One of the primary differences we noted is that:</p>
-<ul>
-<li><p><strong>Elements of a list can be modified</strong> (mutable)</p></li>
-<li><p><strong>Characters in a string cannot be changed</strong> (immutable).</p></li>
-</ul>
-</li>
-</ul>
-<br/>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-center head"><p>Structure</p></th>
-<th class="text-center head"><p>Collection</p></th>
-<th class="text-center head"><p>Syntax</p></th>
-<th class="text-center head"><p>Ordered</p></th>
-<th class="text-center head"><p>Indexed</p></th>
-<th class="text-center head"><p>Mutable</p></th>
-<th class="text-center head"><p>Passed By</p></th>
-<th class="text-center head"><p>Duplicates Allowed</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">strings</span></code></p></td>
-<td class="text-center"><p>characters</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code></p></td>
-<td class="text-center"><p>✓</p></td>
-<td class="text-center"><p>✓</p></td>
-<td class="text-center"><p>✗</p></td>
-<td class="text-center"><p>value</p></td>
-<td class="text-center"><p>✓</p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
-<td class="text-center"><p>any data type</p></td>
-<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code></p></td>
-<td class="text-center"><p>✓</p></td>
-<td class="text-center"><p>✓</p></td>
-<td class="text-center"><p>✓</p></td>
-<td class="text-center"><p>reference</p></td>
-<td class="text-center"><p>✓</p></td>
-</tr>
-</tbody>
-</table>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
-    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="s2">&quot;4&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside func&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    
-<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;4&quot;</span>
-<span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inside func 44
-4
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Strings are immutable</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;south&quot;</span>
-<span class="c1"># string[0] = &quot;m&quot;</span>
-<span class="n">new_string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">new_string</span><span class="p">)</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="extending-types">
+<h1><span class="section-number">6.3. </span>Extending Types<a class="headerlink" href="#extending-types" title="Permalink to this headline">#</a></h1>
+<p>In addition to creating our own classes, we can also extend the functionality of existing classes. This is done through inheritance.</p>
+<section id="inheritance">
+<h2><span class="section-number">6.3.1. </span>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">#</a></h2>
+<p>Inheritance is the process by which one class takes on the attributes and methods of another. Newly formed classes are called child classes, and the classes that child classes are derived from are called parent classes.</p>
+<p>It’s important to note that child classes override or extend the functionality (e.g., attributes and behaviors) of parent classes. In other words, child classes inherit all of the parent’s attributes and behaviors but can also specify different behavior to follow. The most basic type of class is an object, which generally all other classes inherit as their parent.</p>
+<center><img src="https://cdn-images-1.medium.com/v2/resize:fit:1080/1*gRily1Y6mlrOETJeKRgvgw.png" width="60%"></center>
+<p>Inheritance is a powerful feature in object oriented programming. It refers to defining a new class with little</p>
+<p>or no modification to an existing class. The new class is called derived (or child) class and the one from which it is derived is called the base (or parent) class.</p>
+<p>The derived class inherits all the features from the base class and can have additional features of its own.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ParentClass</span><span class="p">:</span>
+    <span class="c1"># class definition</span>
+    <span class="k">pass</span>
 
-<span class="sd">&quot;&quot;&quot;Lists are mutable&quot;&quot;&quot;</span>
-<span class="n">listt</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">listt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">listt</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ChildClass</span><span class="p">(</span><span class="n">ParentClass</span><span class="p">):</span>
+    <span class="c1"># class definition</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>In the above example, <code class="docutils literal notranslate"><span class="pre">ChildClass</span></code> is derived from <code class="docutils literal notranslate"><span class="pre">ParentClass</span></code>. The derived class <code class="docutils literal notranslate"><span class="pre">ChildClass</span></code> inherits all the features from the base class <code class="docutils literal notranslate"><span class="pre">ParentClass</span></code>.</p>
+<section id="example-rectangle-and-square">
+<h3><span class="section-number">6.3.1.1. </span>Example: <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> and <code class="docutils literal notranslate"><span class="pre">Square</span></code><a class="headerlink" href="#example-rectangle-and-square" title="Permalink to this headline">#</a></h3>
+<p>In this example, we have a class <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> and a class <code class="docutils literal notranslate"><span class="pre">Square</span></code> that inherits from <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
+
+    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">side</span><span class="p">,</span> <span class="n">side</span><span class="p">)</span>
+</pre></div>
+</div>
+<br/>
+<center><img src="https://cdn-images-1.medium.com/v2/resize:fit:1080/1*gvHEf4lT2m_dHyH6c0UC1Q.png" width="70%"></center>
+<br/></section>
+</section>
+<section id="polymorphism">
+<h2><span class="section-number">6.3.2. </span>Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this headline">#</a></h2>
+<p>Most of the methods we have written only work for a specific type. When you create a new object, you write methods that operate on that type.</p>
+<p>But there are certain operations that you will want to apply to many types, such as the arithmetic operations in the previous sections. If many types support the same set of operations, you can write functions that work on any of those types.</p>
+<p>For example, the <code class="docutils literal notranslate"><span class="pre">multadd</span></code> operation (which is common in linear algebra) takes three parameters; it multiplies the first two and then adds the third. We can write it in Python like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multadd</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This method will work for any values of x and y that can be multiplied and for any value of z that can be added to the product.</p>
+<p>We can invoke it with numeric values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">multadd</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>south mouth
-[&#39;m&#39;, 2, 3]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 </div>
 </div>
+<p>Or with <code class="docutils literal notranslate"><span class="pre">Points</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multadd</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)),</span> <span class="nb">print</span><span class="p">(</span><span class="n">multadd</span> <span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">multadd</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)),</span> <span class="nb">print</span><span class="p">(</span><span class="n">multadd</span> <span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;Point&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the first case, the <code class="docutils literal notranslate"><span class="pre">Point</span></code> is multiplied by a scalar and then added to another <code class="docutils literal notranslate"><span class="pre">Point</span></code>. In the second case, the dot product yields a numeric value, so the third parameter also has to be a numeric value.</p>
+<p>A function like this that can take parameters with different types is called <strong>polymorphic</strong>.</p>
+<p>As another example, consider the method <code class="docutils literal notranslate"><span class="pre">front_and_back</span></code>, which prints a list twice, forward and backward:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">front_and_back</span><span class="p">(</span><span class="n">front</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">copy</span>
+    <span class="n">back</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">front</span><span class="p">)</span>
+    <span class="n">back</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">front</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">back</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because the <code class="docutils literal notranslate"><span class="pre">reverse</span></code> method is a modifier, we make a copy of the list before reversing it. That way, this method doesn’t modify the list it gets as a parameter.</p>
+<p>Here’s an example that applies <code class="docutils literal notranslate"><span class="pre">front_and_back</span></code> to a list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">front_and_back</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Of course, we intended to apply this function to lists, so it is not surprising that it works. What would be surprising is if we could apply it to a <code class="docutils literal notranslate"><span class="pre">Point</span></code>.</p>
+<p>To determine whether a function can be applied to a new type, we apply the fundamental rule of polymorphism: If all of the operations inside the function can be applied to the type, the function can be applied to the type. The operations in the method include <code class="docutils literal notranslate"><span class="pre">copy</span></code>, <code class="docutils literal notranslate"><span class="pre">reverse</span></code>, and <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">copy</span></code> works on any object, and we have already written a <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method for <code class="docutils literal notranslate"><span class="pre">Points</span></code>, so all we need is a <code class="docutils literal notranslate"><span class="pre">reverse</span></code> method in the <code class="docutils literal notranslate"><span class="pre">Point</span></code> class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we can pass <code class="docutils literal notranslate"><span class="pre">Points</span></code> to <code class="docutils literal notranslate"><span class="pre">front_and_back</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">front_and_back</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The best kind of polymorphism is the unintentional kind, where you discover that a function you have already written can be applied to a type for which you never planned.</p>
 </section>
 </section>
 
@@ -587,6 +602,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="oop1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6.2. </span>User-defined Types</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="operator_overloading.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.4. </span>Extending Operators</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -605,14 +638,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lecture 10.3.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#friday-nov-4th">Friday, Nov 4th</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-and-tuples">Sets and Tuples</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structures-in-python">10.2.0. Data Structures, in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">6.3.1. Inheritance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rectangle-and-square">6.3.1.1. Example: <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> and <code class="docutils literal notranslate"><span class="pre">Square</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polymorphism">6.3.2. Polymorphism</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

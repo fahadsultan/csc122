@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Files and Modules &#8212; Data Structures and Algorithms</title>
+    <title>10. Files and Modules &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -65,6 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'functions/filesmodules';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="9. Hash Maps" href="../data/hashmaps.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -206,15 +207,18 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../data/oop.html">6. Object-Oriented Programming</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../data/native_structures.html">6.1. Native Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../data/oop1.html">6.2. User-defined Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/inheritance.html">6.3. Extending Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/operator_overloading.html">6.4. Extending Operators</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data/stacks_queues.html">7. Stacks and Queues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/linkedlists.html">8. Linked Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/hashmaps.html">9. Hash Maps</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Files and Modules</a></li>
 </ul>
 
     </div>
@@ -408,9 +412,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-modules">Creating modules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">Namespaces</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes-and-the-dot-operator">Attributes and the dot operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-modules">10.1. Creating modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">10.2. Namespaces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes-and-the-dot-operator">10.3. Attributes and the dot operator</a></li>
 </ul>
             </nav>
         </div>
@@ -423,9 +427,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="files-and-modules">
-<h1>Files and Modules<a class="headerlink" href="#files-and-modules" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">10. </span>Files and Modules<a class="headerlink" href="#files-and-modules" title="Permalink to this headline">#</a></h1>
 <section id="creating-modules">
-<h2>Creating modules<a class="headerlink" href="#creating-modules" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.1. </span>Creating modules<a class="headerlink" href="#creating-modules" title="Permalink to this headline">#</a></h2>
 <p>All we need to create a module is a text file with a .py extension on the filename:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -456,7 +460,7 @@ document.write(`
 <p>The use of modules makes it possible to break up very large programs into manageable sized parts, and to keep related parts together.</p>
 </section>
 <section id="namespaces">
-<h2>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.2. </span>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">#</a></h2>
 <p>A <strong>namespace</strong> is a syntactic container which permits the same name to be used in different modules or functions (and as we will see soon, in classes and methods).</p>
 <p>Each module determines its own namespace, so we can use the same name in multiple modules without causing an identification problem.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># module1.py</span>
@@ -515,7 +519,7 @@ document.write(`
 <p>Namespaces permit several programmers to work on the same project without having naming collisions.</p>
 </section>
 <section id="attributes-and-the-dot-operator">
-<h2>Attributes and the dot operator<a class="headerlink" href="#attributes-and-the-dot-operator" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.3. </span>Attributes and the dot operator<a class="headerlink" href="#attributes-and-the-dot-operator" title="Permalink to this headline">#</a></h2>
 <p>Variables defined inside a module are called attributes of the module. They are accessed by using the dot operator ( .). The question attribute of module1 and module2 are accessed using module1.question and module2.question.</p>
 <p>Modules contain functions as well as attributes, and the dot operator is used to access them in the same way. seqtools.remove_at refers to the remove_at function in the seqtools module.</p>
 <p>In the Strings chapter we introduced the find function from the string module. The string module contains many other useful functions:</p>
@@ -566,6 +570,15 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../data/hashmaps.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Hash Maps</p>
+      </div>
+    </a>
 </div></div>
   
 </div>
@@ -584,9 +597,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-modules">Creating modules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">Namespaces</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes-and-the-dot-operator">Attributes and the dot operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-modules">10.1. Creating modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">10.2. Namespaces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes-and-the-dot-operator">10.3. Attributes and the dot operator</a></li>
 </ul>
   </nav></div>
 

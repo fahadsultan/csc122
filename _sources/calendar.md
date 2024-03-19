@@ -39,8 +39,8 @@ PA: _Programming Assignment_
 
 | #     | TOPIC                      | READING | MEETING 1                  | MEETING 2              | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
 |-------|----------------------------|---------|----------------------------|------------------------|-----|-------------------|
-| 9    | Building Abstractions with Data  |         |        |    |     | 
-| 10   | Building Abstractions with Data |     |      |             |          | 
+| 9    | Building Abstractions with Data  |         |    **[OOP](data/oop.ipynb)**    |  **[Built-in Data Types](data/native_structures.ipynb)**  |     | 
+| 10   | Building Abstractions with Data |     |   **[Custom Data Types]()**   |             |          | 
 | 12      | Building Abstractions with Data  |        |                       |                        |
 | 13      | Building Abstractions with Data  |                            |                        |
 

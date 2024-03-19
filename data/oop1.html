@@ -62,10 +62,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/oop1';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Stacks and Queues" href="stacks_queues.html" />
+    <link rel="next" title="6.3. Extending Types" href="inheritance.html" />
     <link rel="prev" title="6.1. Native Data Types" href="native_structures.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -212,11 +214,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="oop.html">6. Object-Oriented Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="native_structures.html">6.1. Native Data Types</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">6.2. User-defined Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inheritance.html">6.3. Extending Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operator_overloading.html">6.4. Extending Operators</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linkedlists.html">8. Linked Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hashmaps.html">9. Hash Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
 </ul>
 
     </div>
@@ -410,14 +415,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-operator">6.2.1. Dot <code class="docutils literal notranslate"><span class="pre">.</span></code> operator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-point">6.2.2. Example 1: Point</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">6.2.3. Attributes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-init-initialization-method-and-self-variable">6.2.4. The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> initialization method and <code class="docutils literal notranslate"><span class="pre">self</span></code> variable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instances-as-parameters">6.2.5. Instances as parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-time">6.2.6. Example 2: Time</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-functions">6.2.7. Pure functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers">6.2.8. Modifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-keyword">6.2.1. <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-operator">6.2.2. Dot <code class="docutils literal notranslate"><span class="pre">.</span></code> operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">6.2.3. Attributes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instance-attributes">6.2.3.1. Instance attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-attributes">6.2.3.2. Class Attributes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">6.2.4. Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instance-methods">6.2.4.1. Instance Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#self">6.2.4.1.1. <code class="docutils literal notranslate"><span class="pre">self</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#init">6.2.4.1.2. <code class="docutils literal notranslate"><span class="pre">__init__</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#getters-and-setters">6.2.4.1.3. Getters and Setters</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staticmethod">6.2.4.2. <code class="docutils literal notranslate"><span class="pre">@staticmethod</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classmethod">6.2.4.3. <code class="docutils literal notranslate"><span class="pre">@classmethod</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#public-protected-and-private-access-levels">6.2.5. Public, Protected and Private Access Levels</a></li>
 </ul>
             </nav>
         </div>
@@ -433,7 +449,6 @@ document.write(`
 <h1><span class="section-number">6.2. </span>User-defined Types<a class="headerlink" href="#user-defined-types" title="Permalink to this headline">#</a></h1>
 <p>Most modern programming languages provide a way to define new data types through the use of classes.</p>
 <p>A particular <strong>class</strong> essentially <strong>defines a new user-defined data type</strong> detailing how a particular kind of data is going to be structured and how it can be manipulated.</p>
-<p>A class therefore, at its essence, is a <strong>blueprint for creating objects</strong> (of that class). An object is an instance of a class, similar to how 7 is an instance of the <code class="docutils literal notranslate"><span class="pre">int</span></code> class and “Hello World!” is an instance of the <code class="docutils literal notranslate"><span class="pre">str</span></code> class.</p>
 <center>
 <img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/9/98/CPT-OOP-objects_and_classes_-_attmeth.svg">
 </center>
@@ -448,88 +463,217 @@ document.write(`
 </figure>
 <!-- </center> -->
 <br/>
-<section id="dot-operator">
-<h2><span class="section-number">6.2.1. </span>Dot <code class="docutils literal notranslate"><span class="pre">.</span></code> operator<a class="headerlink" href="#dot-operator" title="Permalink to this headline">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">.</span></code> operator is used to access the attributes and methods of a class.</p>
-<p>A class is a way to take a grouping of functions and data and place them inside a container so you can access them with the <code class="docutils literal notranslate"><span class="pre">.</span></code> operator. This is a really useful way to organize your code, especially when you start to get more and more functions and more and more data.</p>
-<p>A class in essence defines a new data type. We have been using several of Python’s built-in types throughout, we are now ready to create our own user-defined type: the <code class="docutils literal notranslate"><span class="pre">Point</span></code>.</p>
-</section>
-<section id="example-1-point">
-<h2><span class="section-number">6.2.2. </span>Example 1: Point<a class="headerlink" href="#example-1-point" title="Permalink to this headline">#</a></h2>
-<p>Consider the concept of a mathematical point. In two dimensions, a point is two numbers (coordinates) that are treated collectively as a single object. In mathematical notation, points are often written in parentheses with a comma separating the coordinates. For example, <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0)</span></code> represents the origin, and <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> represents the point x units to the right and y units up from the origin.</p>
+<p>A class therefore, at its essence, is a <strong>blueprint for creating objects</strong> (of that class). An object is an instance of a class, similar to how 7 is an instance of the <code class="docutils literal notranslate"><span class="pre">int</span></code> class and “Hello World!” is an instance of the <code class="docutils literal notranslate"><span class="pre">str</span></code> class.</p>
+<section id="class-keyword">
+<h2><span class="section-number">6.2.1. </span><code class="docutils literal notranslate"><span class="pre">class</span></code> keyword<a class="headerlink" href="#class-keyword" title="Permalink to this headline">#</a></h2>
+<img width="40%" src="https://www.splashlearn.com/math-vocabulary/wp-content/uploads/2023/01/Solved-Examples-5.png" align="right">
+<p>Consider the concept of a <strong>Point</strong> in euclidean space.</p>
+<p>In two dimensions, a point is two numbers (coordinates) that are treated collectively as a single object. In mathematical notation, points are often written in parentheses with a comma separating the coordinates. For example, <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0)</span></code> represents the origin, and <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> represents the point <span class="math notranslate nohighlight">\(x\)</span> units to the right and <span class="math notranslate nohighlight">\(y\)</span> units up from the origin.</p>
 <p>A natural way to represent a point in Python is with two numeric values. The question, then, is how to group these two values into a compound object. The quick and dirty solution is to use a list or tuple, and for some applications that might be the best choice.</p>
 <p>An alternative is to define a new user-defined compound type, also called a class. This approach involves a bit more effort, but it has advantages that will be apparent soon.</p>
-<p>A class definition looks like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+<p>A <strong>class definition</strong> looks like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Represents a point in 2-D space.&quot;&quot;&quot;</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
-<p>Class definitions can appear anywhere in a program, but they are usually near the beginning (after the <code class="docutils literal notranslate"><span class="pre">import</span></code> statements). The syntax rules for a class definition are the same as for other compound statements. There is a header which begins with the keyword, <code class="docutils literal notranslate"><span class="pre">class</span></code>, followed by the name of the class, and ending with a colon.</p>
+</div>
+</div>
+<p>Class definitions can appear anywhere in a program, but they are usually near the beginning (after the <code class="docutils literal notranslate"><span class="pre">import</span></code> statements). The syntax rules for a class definition are the same as for other compound statements. <u>There is a header which begins with the keyword, <code class="docutils literal notranslate"><span class="pre">class</span></code>, followed by the name of the class, and ending with a colon</u>.</p>
 <p>This definition creates a new class called <code class="docutils literal notranslate"><span class="pre">Point</span></code>. The <strong>pass</strong> statement has no effect; it is only necessary because a compound statement must have something in its body. A docstring could serve the same purpose:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
     <span class="s2">&quot;Point class for storing mathematical points.&quot;</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
+</div>
+</div>
 <p>By creating the Point class, we created a new type, also called <code class="docutils literal notranslate"><span class="pre">Point</span></code>. The members of this type are called <strong>instances</strong> of the type or <strong>objects</strong>. Creating a new instance is called instantiation, and is accomplished by calling the class. Classes, like functions, are callable, and we instantiate a Point object by calling the Point class:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">Point</span><span class="p">)</span>
-<span class="go">&lt;type &#39;classobj&#39;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="go">&lt;type &#39;instance&#39;&gt;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">Point</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The variable p is assigned a reference to a new <code class="docutils literal notranslate"><span class="pre">Point</span></code> object.</p>
-<p>It may be helpful to think of a class as a factory for making objects, so our <code class="docutils literal notranslate"><span class="pre">Point</span></code> class is a factory for making points. The class itself isn’t an instance of a point, but it contains the machinary to make point instances.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__main__.Point
+</pre></div>
+</div>
+</div>
+</div>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">p</span></code> is assigned a reference to a new <code class="docutils literal notranslate"><span class="pre">Point</span></code> object.</p>
+<p>It may be helpful to think of a <strong>class as a factory for making objects</strong>, so our <code class="docutils literal notranslate"><span class="pre">Point</span></code> class is a factory for making points. The class itself isn’t an instance of a point, but it contains the machinary to make point instances.</p>
+</section>
+<section id="dot-operator">
+<h2><span class="section-number">6.2.2. </span>Dot <code class="docutils literal notranslate"><span class="pre">.</span></code> operator<a class="headerlink" href="#dot-operator" title="Permalink to this headline">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">.</span></code> operator is used to access the attributes and methods of a class.</p>
+<p>The dot operator is the <strong>primary means of interaction</strong> with the objects of a class. It is used to:</p>
+<ul class="simple">
+<li><p>access the values of attributes</p></li>
+<li><p>assign values to attributes</p></li>
+<li><p>modify attributes values</p></li>
+<li><p>call the methods of the class</p></li>
+</ul>
+<p>Examples of the use of the dot operator are given in following sections.</p>
 </section>
 <section id="attributes">
 <h2><span class="section-number">6.2.3. </span>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h2>
-<p>Like real world objects, object instances have both form and function. The form consists of data elements contained within the instance.</p>
-<p>We can add new data elements to an instance using dot notation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+<p>Like real world objects, object instances have both form and function. The form consists of data elements contained within the instance. These data elements are called <strong>attributes</strong> (also known as <em>variables</em> or <em>properties</em>).</p>
+<p>There are two types of data attributes in Python:</p>
+<ol class="arabic simple">
+<li><p><strong>Instance attributes / variables</strong> are attributes that are unique to each instance. They are defined inside the constructor method <code class="docutils literal notranslate"><span class="pre">__init__</span></code> and are prefixed with <code class="docutils literal notranslate"><span class="pre">self</span></code> keyword.</p></li>
+<li><p><strong>Class attributes / variables</strong> are attributes that have the same value for all class instances. We define class attributes outside all the methods, usually they are placed at the top, right below the class header.</p></li>
+</ol>
+<center><img src="https://miro.medium.com/v2/resize:fit:2000/1*pGmNqM1bvCZexV8rskqIKg.png" width="70%"></center>
+<section id="instance-attributes">
+<h3><span class="section-number">6.2.3.1. </span>Instance attributes<a class="headerlink" href="#instance-attributes" title="Permalink to this headline">#</a></h3>
+<p>The attributes of an object are also called <strong>instance variables</strong> because they are associated with a particular instance of the class. These variables are not shared by all instances of the class, and they are not defined until the instance is created.</p>
+<p>We can add new data elements to an instance using <strong>dot operator</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
 </pre></div>
 </div>
-<p>This syntax is similar to the syntax for selecting a variable from a module, such as math.pi or string.uppercase. Both modules and instances create their own namespaces, and the syntax for accessing names contained in each, called <strong>attributes</strong>, is the same. In this case the attribute we are selecting is a data item from an instance.</p>
+</div>
+</div>
+<p>This syntax is similar to the syntax for selecting a variable from a module, such as <code class="docutils literal notranslate"><span class="pre">list.append</span></code> or <code class="docutils literal notranslate"><span class="pre">string.lower</span></code>. In this case the attribute we are selecting is a data item from an instance.</p>
 <p>The following state diagram shows the result of these assignments:</p>
 <img src="https://www.cs.swarthmore.edu/courses/CS21Book/_images/point.png">
-<p>The variable p refers to a Point object, which contains two attributes. Each attribute refers to a number.</p>
+<br/><br/>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">p</span></code> refers to a <code class="docutils literal notranslate"><span class="pre">Point</span></code> object, which contains two attributes. Each attribute refers to a number.</p>
 <p>We can read the value of an attribute using the same syntax:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-<span class="go">4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">3</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The expression p.x means, “Go to the object p refers to and get the value of x”. In this case, we assign that value to a variable named x. There is no conflict between the variable x and the attribute x. The purpose of dot notation is to identify which variable you are referring to unambiguously.</p>
-<p>You can use dot notation as part of any expression, so the following statements are legal:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(</span><span class="si">%d</span><span class="s1">, </span><span class="si">%d</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p>The expression <code class="docutils literal notranslate"><span class="pre">p.x</span></code> means, <em>“Go to the object <code class="docutils literal notranslate"><span class="pre">p</span></code> refers to and get the value of <code class="docutils literal notranslate"><span class="pre">x</span></code>”</em>. In this case, we assign that value to a variable named <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Note that there is no conflict between the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and the attribute <code class="docutils literal notranslate"><span class="pre">x</span></code>. The purpose of dot operator is to identify which variable you are referring to unambiguously.</p>
+<p>You can use dot operator as part of any expression, so the following statements are legal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(</span><span class="si">%d</span><span class="s1">, </span><span class="si">%d</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
 <span class="n">distance_squared</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span>
 </pre></div>
 </div>
-<p>The first line outputs <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">4)</span></code>; the second line calculates the value 25.</p>
-</section>
-<section id="the-init-initialization-method-and-self-variable">
-<h2><span class="section-number">6.2.4. </span>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> initialization method and <code class="docutils literal notranslate"><span class="pre">self</span></code> variable<a class="headerlink" href="#the-init-initialization-method-and-self-variable" title="Permalink to this headline">#</a></h2>
-<p>Since our <code class="docutils literal notranslate"><span class="pre">Point</span></code> class is intended to represent two dimensional mathematical points, <em>all</em> point instances ought to have <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> attributes, but that is not yet so with our Point objects.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p2</span><span class="o">.</span><span class="n">x</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">?</span>
-<span class="gr">AttributeError</span>: <span class="n">Point instance has no attribute &#39;x&#39;</span>
-<span class="go">&gt;&gt;&gt;</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 4)
 </pre></div>
 </div>
-<p>To solve this problem we add an <strong>initialization method</strong> to our class.</p>
+</div>
+</div>
+<p>The first line outputs <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">4)</span></code>; the second line calculates the value 25.</p>
+<p>Now that we have defined a new custom type, we can create instances of that type and manipulate them as we would an object of any native type. For example, you can pass objects of custom type as an argument to a function in the usual way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_point</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">print_point</span></code> takes a point as an argument and displays it in the standard format. If you call <code class="docutils literal notranslate"><span class="pre">print_point(p)</span></code> with point <code class="docutils literal notranslate"><span class="pre">p</span></code> as defined previously, the output is <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">4)</span></code>.</p>
+<br>
+<hr>
+<br></section>
+<section id="class-attributes">
+<h3><span class="section-number">6.2.3.2. </span>Class Attributes<a class="headerlink" href="#class-attributes" title="Permalink to this headline">#</a></h3>
+<p>Not all attributes are instance attributes. Some attributes are shared by all instances of a class. These attributes are called <strong>class attributes</strong>.</p>
+<p>Class attributes are defined within the class definition but outside any of the class’s methods. They are not tied to any particular instance of the class, but rather are shared by all instances of the class.</p>
+<p>For example, in the <code class="docutils literal notranslate"><span class="pre">Point</span></code> class, we could add a class attribute to keep track of how many points have been created. We’ll call this class attribute <code class="docutils literal notranslate"><span class="pre">n</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="n">Point</span><span class="o">.</span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">n</span></code> attribute is created when the <code class="docutils literal notranslate"><span class="pre">Point</span></code> class is defined, and it is accessed using dot operator. The following code demonstrates how the <code class="docutils literal notranslate"><span class="pre">n</span></code> attribute is used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">n</span><span class="p">)</span> <span class="c1"># 1</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">n</span><span class="p">)</span> <span class="c1"># 2</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">n</span></code> attribute is shared by all instances of the <code class="docutils literal notranslate"><span class="pre">Point</span></code> class. Any changes made to the <code class="docutils literal notranslate"><span class="pre">n</span></code> attribute are reflected in all instances of the class.</p>
+<br/>
+<hr/>
+<br/></section>
+</section>
+<section id="methods">
+<h2><span class="section-number">6.2.4. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h2>
+<p>The second part of the class definition is a suite of methods. A <u>method is a function that is associated with a particular class </u>. As examples below show, the syntax for defining a method is the same as for defining a function.</p>
+<center><img width="75%" src="https://pynative.com/wp-content/uploads/2021/08/python_class_method_vs_static_method_vs_instance_method.png"></center>
+<br/>
+<section id="instance-methods">
+<h3><span class="section-number">6.2.4.1. </span>Instance Methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">#</a></h3>
+<p>Instance methods are defined inside the body of the class definition. They are <u>used to perform operations and manipulate the instance attributes</u> of our objects. The vast majority of the methods in a class are instance methods.</p>
+<p>The first input to all instance methods is <code class="docutils literal notranslate"><span class="pre">self</span></code>, which is a reference to the specific instance (object) of the class on which the method is called.</p>
+<section id="self">
+<h4><span class="section-number">6.2.4.1.1. </span><code class="docutils literal notranslate"><span class="pre">self</span></code><a class="headerlink" href="#self" title="Permalink to this headline">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter is a reference to the instance of the class. It is used to access variables that belong to the class. <u>It does not have to be named <code class="docutils literal notranslate"><span class="pre">self</span></code>, you can call it whatever you like</u>, but <strong>it has to be the <u>first parameter</u> of any function in the class</strong>.</p>
+<p>When you create a new instance of the class, Python automatically determines what <code class="docutils literal notranslate"><span class="pre">self</span></code> is (the instance of the class) and passes it to the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method.</p>
+</section>
+<section id="init">
+<h4><span class="section-number">6.2.4.1.2. </span><code class="docutils literal notranslate"><span class="pre">__init__</span></code><a class="headerlink" href="#init" title="Permalink to this headline">#</a></h4>
+<p>Since our <code class="docutils literal notranslate"><span class="pre">Point</span></code> class is intended to represent two dimensional mathematical points, <em>ALL</em> point instances ought to have <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> attributes, but that is not yet so with our <code class="docutils literal notranslate"><span class="pre">Point</span></code> objects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">Input In [8],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">p2</span><span class="o">.</span><span class="n">x</span>
+
+<span class="ne">AttributeError</span>: &#39;Point&#39; object has no attribute &#39;x&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To solve this problem we add an <strong>initialization method</strong> to our class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
 </pre></div>
 </div>
-<p>A <strong>method</strong> behaves like a function but it is part of an object. Like a data attribute it is accessed using dot notation. The initialization method is called automatically when the class is called.</p>
+</div>
+</div>
+<p>A <strong>method</strong> behaves like a function but <u>it is part of an object</u>. Like a data attribute it is accessed using dot notation. The initialization method is called automatically when the class is called.</p>
 <p>Let’s add another method, distance_from_origin, to see better how methods work:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
@@ -566,115 +710,217 @@ document.write(`
 </div>
 <p>When defining a method, the first parameter refers to the instance being created. It is customary to name this parameter <strong>self</strong>. In the example session above, the <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter refers to the instances p, q, and r respectively.</p>
 </section>
-<section id="instances-as-parameters">
-<h2><span class="section-number">6.2.5. </span>Instances as parameters<a class="headerlink" href="#instances-as-parameters" title="Permalink to this headline">#</a></h2>
-<p>You can pass an instance as a parameter to a function in the usual way. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_point</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)))</span>
+<section id="getters-and-setters">
+<h4><span class="section-number">6.2.4.1.3. </span>Getters and Setters<a class="headerlink" href="#getters-and-setters" title="Permalink to this headline">#</a></h4>
+<p>In general it is considered bad practice to access and modify the attributes of an object directly.</p>
+<p>Instead, it is better to use <strong>getter</strong> and <strong>setter</strong> methods to access and modify the attributes of an object.</p>
+<p>A <strong>getter</strong> method is a method that returns the value of an attribute of an object. A <strong>setter</strong> method is a method that sets the value of an attribute of an object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">get_x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span>
+
+    <span class="k">def</span> <span class="nf">set_x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+    <span class="k">def</span> <span class="nf">get_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">set_y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">print_point</span></code> takes a point as an argument and displays it in the standard format. If you call <code class="docutils literal notranslate"><span class="pre">print_point(p)</span></code> with point <code class="docutils literal notranslate"><span class="pre">p</span></code> as defined previously, the output is <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">4)</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">get_x</span></code> and <code class="docutils literal notranslate"><span class="pre">get_y</span></code> methods are getter methods for the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> attributes respectively. The <code class="docutils literal notranslate"><span class="pre">set_x</span></code> and <code class="docutils literal notranslate"><span class="pre">set_y</span></code> methods are setter methods for the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> attributes respectively.</p>
+<p>The following code demonstrates how to use the getter and setter methods:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p.x: &quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p.y: &quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">get_y</span><span class="p">())</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">set_x</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">set_y</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p.x: &quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p.y: &quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">get_y</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="staticmethod">
+<h3><span class="section-number">6.2.4.2. </span><code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code><a class="headerlink" href="#staticmethod" title="Permalink to this headline">#</a></h3>
+<p><strong>Static methods</strong> are methods that are <u><strong>not</strong> bound to an instance</u> of a class.</p>
+<p>Static methods are defined using the <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code> decorator. They do <u>NOT take the <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter</u> and can be called on the class itself.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">distance_from_origin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+</section>
+<section id="classmethod">
+<h3><span class="section-number">6.2.4.3. </span><code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code><a class="headerlink" href="#classmethod" title="Permalink to this headline">#</a></h3>
+<p>A <strong>class method</strong> is a method that is bound to the class and not the object of the class. They have the access to the state of the class as it takes a class parameter that points to the class and not the object instance.</p>
+<p>They can modify a class state that would apply across all the instances of the class. For example it can modify a class variable that will be applicable to all the instances.</p>
+<p>Class methods are defined using the <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code> decorator. They take a <code class="docutils literal notranslate"><span class="pre">cls</span></code> parameter that points to the class and not the object instance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="n">Point</span><span class="o">.</span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_n</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">n</span>
+</pre></div>
+</div>
 <br/>
 <hr/>
 </section>
-<section id="example-2-time">
-<h2><span class="section-number">6.2.6. </span>Example 2: Time<a class="headerlink" href="#example-2-time" title="Permalink to this headline">#</a></h2>
-<p>As another example of a user-defined type, we’ll define a class called Time that records the time of day. The class definition looks like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Time</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">pass</span>
-</pre></div>
-</div>
-<p>We can create a new Time object and assign attributes for hours, minutes, and seconds:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">()</span>
-<span class="n">time</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">11</span>
-<span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">59</span>
-<span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="mi">30</span>
-</pre></div>
-</div>
-<p>The state diagram for the <code class="docutils literal notranslate"><span class="pre">Time</span></code> object looks like this:</p>
-<img src="https://www.cs.swarthmore.edu/courses/CS21Book/_images/time.png">
 </section>
-<section id="pure-functions">
-<h2><span class="section-number">6.2.7. </span>Pure functions<a class="headerlink" href="#pure-functions" title="Permalink to this headline">#</a></h2>
-<p>In the next few sections, we’ll write two versions of a function called add_time, which calculates the sum of two Times. They will demonstrate two kinds of functions: pure functions and modifiers.</p>
-<p>The following is a rough version of <code class="docutils literal notranslate"><span class="pre">add_time</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_time</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
-    <span class="nb">sum</span> <span class="o">=</span> <span class="n">Time</span><span class="p">()</span>
-    <span class="nb">sum</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">hours</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="n">hours</span>
-    <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">minutes</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="n">minutes</span>
-    <span class="nb">sum</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">seconds</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="n">seconds</span>
-    <span class="k">return</span> <span class="nb">sum</span>
+<section id="public-protected-and-private-access-levels">
+<h2><span class="section-number">6.2.5. </span>Public, Protected and Private Access Levels<a class="headerlink" href="#public-protected-and-private-access-levels" title="Permalink to this headline">#</a></h2>
+<p>In Python, there are 3 types of access levels:</p>
+<ul class="simple">
+<li><p><strong>Public</strong> attributes can be accessed by anyone.</p></li>
+<li><p><strong>Protected</strong> attributes are those attributes that follow the single underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> convention. These attributes should not be accessed directly. However, they can be accessed and modified in a derived class. Accessing protected attributes directly is not considered a good practice.</p></li>
+<li><p><strong>Private</strong> attributes are those attributes that follow the double underscore <code class="docutils literal notranslate"><span class="pre">__</span></code> convention. These attributes should not be accessed directly. However, they can be accessed and modified in a derived class. Accessing private attributes directly is not allowed and will result in an AttributeError.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__maxspeed</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="s2">&quot;Supercar&quot;</span>
+
+    <span class="k">def</span> <span class="nf">drive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;driving. maxspeed &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__maxspeed</span><span class="p">))</span>
+
+<span class="n">car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">car</span><span class="o">.</span><span class="n">drive</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car</span><span class="o">.</span><span class="n">_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car</span><span class="o">.</span><span class="n">__maxspeed</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The function creates a new <code class="docutils literal notranslate"><span class="pre">Time</span></code> object, initializes its attributes, and returns a reference to the new object. This is called a <strong>pure function</strong> because it does not modify any of the objects passed to it as parameters and it has no side effects, such as displaying a value or getting user input.</p>
-<p>Here is an example of how to use this function. We’ll create two Time objects: <code class="docutils literal notranslate"><span class="pre">current_time</span></code>, which contains the current time; and <code class="docutils literal notranslate"><span class="pre">bread_time</span></code>, which contains the amount of time it takes for a breadmaker to make bread. Then we’ll use <code class="docutils literal notranslate"><span class="pre">add_time</span></code> to figure out when the bread will be done. If you haven’t finished writing <code class="docutils literal notranslate"><span class="pre">print_time</span></code> yet, take a look ahead to Section before you try this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">current_time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">current_time</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">9</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">current_time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">14</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">current_time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span>  <span class="mi">30</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">bread_time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">bread_time</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">bread_time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">35</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">bread_time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">done_time</span> <span class="o">=</span> <span class="n">add_time</span><span class="p">(</span><span class="n">current_time</span><span class="p">,</span> <span class="n">bread_time</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">print_time</span><span class="p">(</span><span class="n">done_time</span><span class="p">)</span>
-<span class="go">12:49:30</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>driving. maxspeed 200
+Supercar
 </pre></div>
 </div>
-<p>The output of this program is <code class="docutils literal notranslate"><span class="pre">12:49:30</span></code>, which is correct. On the other hand, there are cases where the result is not correct. Can you think of one?</p>
-<p>The problem is that this function does not deal with cases where the number of seconds or minutes adds up to more than sixty. When that happens, we have to carry the extra seconds into the minutes column or the extra minutes into the hours column.</p>
-<p>Here’s a second corrected version of the function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_time</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
-    <span class="nb">sum</span> <span class="o">=</span> <span class="n">Time</span><span class="p">()</span>
-    <span class="nb">sum</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">hours</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="n">hours</span>
-    <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">minutes</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="n">minutes</span>
-    <span class="nb">sum</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">seconds</span> <span class="o">+</span> <span class="n">t2</span><span class="o">.</span><span class="n">seconds</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 
-    <span class="k">if</span> <span class="nb">sum</span><span class="o">.</span><span class="n">seconds</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
-        <span class="nb">sum</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">.</span><span class="n">seconds</span> <span class="o">-</span> <span class="mi">60</span>
-        <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
 
-    <span class="k">if</span> <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
-        <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">.</span><span class="n">minutes</span> <span class="o">-</span> <span class="mi">60</span>
-        <span class="nb">sum</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">.</span><span class="n">hours</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
 
-    <span class="k">return</span> <span class="nb">sum</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">car</span><span class="o">.</span><span class="n">drive</span><span class="p">()</span>
+
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="n">car</span><span class="o">.</span><span class="n">_name</span><span class="p">)</span>
+
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="n">car</span><span class="o">.</span><span class="n">__maxspeed</span><span class="p">)</span>
+
+
+
+<span class="ne">AttributeError</span>: &#39;Car&#39; object has no attribute &#39;__maxspeed&#39;
 </pre></div>
 </div>
-<p>Although this function is correct, it is starting to get big. Later we will suggest an alternative approach that yields shorter code.</p>
-</section>
-<section id="modifiers">
-<h2><span class="section-number">6.2.8. </span>Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">#</a></h2>
-<p>There are times when it is useful for a function to modify one or more of the objects it gets as parameters. Usually, the caller keeps a reference to the objects it passes, so any changes the function makes are visible to the caller. Functions that work this way are called <strong>modifiers</strong>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">increment</span></code>, which adds a given number of seconds to a Time object, would be written most naturally as a modifier. A rough draft of the function looks like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">seconds</span><span class="p">):</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">+</span> <span class="n">seconds</span>
-
-    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">-</span> <span class="mi">60</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">+</span> <span class="mi">1</span>
-
-    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">-</span> <span class="mi">60</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">hours</span> <span class="o">+</span> <span class="mi">1</span>
-</pre></div>
 </div>
-<p>The first line performs the basic operation; the remainder deals with the special cases we saw before.</p>
-<p>Is this function correct? What happens if the parameter <code class="docutils literal notranslate"><span class="pre">seconds</span></code> is much greater than sixty? In that case, it is not enough to carry once; we have to keep doing it until seconds is less than sixty. One solution is to replace the <code class="docutils literal notranslate"><span class="pre">if</span></code> statements with <code class="docutils literal notranslate"><span class="pre">while</span></code> statements:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">seconds</span><span class="p">):</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">+</span> <span class="n">seconds</span>
-
-    <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">-</span> <span class="mi">60</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">+</span> <span class="mi">1</span>
-
-    <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">-</span> <span class="mi">60</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">hours</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">hours</span> <span class="o">+</span> <span class="mi">1</span>
-
-</pre></div>
 </div>
+<!-- 
+## Example 2: Time 
+
+As another example of a user-defined type, we’ll define a class called Time that records the time of day. The class definition looks like this:
+
+```python
+class Time(object):
+    pass
+```
+
+We can create a new Time object and assign attributes for hours, minutes, and seconds:
+
+
+```python
+time = Time()
+time.hours = 11
+time.minutes = 59
+time.seconds = 30
+```
+
+The state diagram for the `Time` object looks like this:
+
+<img src="https://www.cs.swarthmore.edu/courses/CS21Book/_images/time.png"> -->
+<!-- 
+## Pure functions
+
+In the next few sections, we’ll write two versions of a function called add_time, which calculates the sum of two Times. They will demonstrate two kinds of functions: pure functions and modifiers.
+
+The following is a rough version of `add_time`:
+
+```python
+def add_time(t1, t2):
+    sum = Time()
+    sum.hours = t1.hours + t2.hours
+    sum.minutes = t1.minutes + t2.minutes
+    sum.seconds = t1.seconds + t2.seconds
+    return sum
+```
+
+The function creates a new `Time` object, initializes its attributes, and returns a reference to the new object. This is called a **pure function** because it does not modify any of the objects passed to it as parameters and it has no side effects, such as displaying a value or getting user input.
+
+Here is an example of how to use this function. We’ll create two Time objects: `current_time`, which contains the current time; and `bread_time`, which contains the amount of time it takes for a breadmaker to make bread. Then we’ll use `add_time` to figure out when the bread will be done. If you haven’t finished writing `print_time` yet, take a look ahead to Section before you try this:
+
+
+```python
+>>> current_time = Time()
+>>> current_time.hours = 9
+>>> current_time.minutes = 14
+>>> current_time.seconds =  30
+>>> bread_time = Time()
+>>> bread_time.hours = 3
+>>> bread_time.minutes = 35
+>>> bread_time.seconds = 0
+>>> done_time = add_time(current_time, bread_time)
+>>> print_time(done_time)
+12:49:30
+```
+
+The output of this program is `12:49:30`, which is correct. On the other hand, there are cases where the result is not correct. Can you think of one?
+
+The problem is that this function does not deal with cases where the number of seconds or minutes adds up to more than sixty. When that happens, we have to carry the extra seconds into the minutes column or the extra minutes into the hours column.
+
+Here’s a second corrected version of the function:
+
+```python
+def add_time(t1, t2):
+    sum = Time()
+    sum.hours = t1.hours + t2.hours
+    sum.minutes = t1.minutes + t2.minutes
+    sum.seconds = t1.seconds + t2.seconds
+
+    if sum.seconds >= 60:
+        sum.seconds = sum.seconds - 60
+        sum.minutes = sum.minutes + 1
+
+    if sum.minutes >= 60:
+        sum.minutes = sum.minutes - 60
+        sum.hours = sum.hours + 1
+
+    return sum
+```
+
+Although this function is correct, it is starting to get big. Later we will suggest an alternative approach that yields shorter code.
+
+## Class and Instance Attributes -->
 <!--
 This function is now correct, but it is not very efficient. In Section we will see a faster alternative.
 
@@ -848,11 +1094,11 @@ attribute
       </div>
     </a>
     <a class="right-next"
-       href="stacks_queues.html"
+       href="inheritance.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Stacks and Queues</p>
+        <p class="prev-next-title"><span class="section-number">6.3. </span>Extending Types</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -874,14 +1120,25 @@ attribute
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-operator">6.2.1. Dot <code class="docutils literal notranslate"><span class="pre">.</span></code> operator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-point">6.2.2. Example 1: Point</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">6.2.3. Attributes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-init-initialization-method-and-self-variable">6.2.4. The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> initialization method and <code class="docutils literal notranslate"><span class="pre">self</span></code> variable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instances-as-parameters">6.2.5. Instances as parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-time">6.2.6. Example 2: Time</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-functions">6.2.7. Pure functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers">6.2.8. Modifiers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-keyword">6.2.1. <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-operator">6.2.2. Dot <code class="docutils literal notranslate"><span class="pre">.</span></code> operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">6.2.3. Attributes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instance-attributes">6.2.3.1. Instance attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-attributes">6.2.3.2. Class Attributes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">6.2.4. Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instance-methods">6.2.4.1. Instance Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#self">6.2.4.1.1. <code class="docutils literal notranslate"><span class="pre">self</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#init">6.2.4.1.2. <code class="docutils literal notranslate"><span class="pre">__init__</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#getters-and-setters">6.2.4.1.3. Getters and Setters</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staticmethod">6.2.4.2. <code class="docutils literal notranslate"><span class="pre">@staticmethod</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classmethod">6.2.4.3. <code class="docutils literal notranslate"><span class="pre">@classmethod</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#public-protected-and-private-access-levels">6.2.5. Public, Protected and Private Access Levels</a></li>
 </ul>
   </nav></div>
 

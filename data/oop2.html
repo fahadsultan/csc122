@@ -210,11 +210,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="oop.html">6. Object-Oriented Programming</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="native_structures.html">6.1. Native Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="oop1.html">6.2. User-defined Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inheritance.html">6.3. Extending Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operator_overloading.html">6.4. Extending Operators</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linkedlists.html">8. Linked Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hashmaps.html">9. Hash Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
 </ul>
 
     </div>
@@ -408,14 +411,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary"><em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises"><em>Exercises</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time">Time</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-functions">Pure functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers">Modifiers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prototype-development-versus-planning">Prototype development versus planning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization">Generalization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary"><em>Glossary</em></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises"><em>Exercises</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><em>Exercises</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><em>Exercises</em></a></li>
 </ul>
             </nav>
         </div>
@@ -429,6 +436,44 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="classes-and-functions">
 <h1>Classes and functions<a class="headerlink" href="#classes-and-functions" title="Permalink to this headline">#</a></h1>
+<hr/>
+<section id="glossary">
+<h2><em>Glossary</em><a class="headerlink" href="#glossary" title="Permalink to this headline">#</a></h2>
+<dl class="glossary simple">
+<dt id="term-object-oriented-language">object-oriented language<a class="headerlink" href="#term-object-oriented-language" title="Permalink to this term">#</a></dt><dd><p>A language that provides features, such as user-defined classes and inheritance, that facilitate object-oriented programming.</p>
+</dd>
+<dt id="term-object-oriented-programming">object-oriented programming<a class="headerlink" href="#term-object-oriented-programming" title="Permalink to this term">#</a></dt><dd><p>A style of programming in which data and the operations that manipulate it are organized into classes and methods.</p>
+</dd>
+<dt id="term-method">method<a class="headerlink" href="#term-method" title="Permalink to this term">#</a></dt><dd><p>A function that is defined inside a class definition and is invoked on instances of that class. :override:: To replace a default. Examples include replacing a default parameter with a particular argument and replacing a default method by providing a new method with the same name.</p>
+</dd>
+<dt id="term-initialization-method">initialization method<a class="headerlink" href="#term-initialization-method" title="Permalink to this term">#</a></dt><dd><p>A special method that is invoked automatically when a new object is created and that initializes the object’s attributes.</p>
+</dd>
+<dt id="term-operator-overloading">operator overloading<a class="headerlink" href="#term-operator-overloading" title="Permalink to this term">#</a></dt><dd><p>Extending built-in operators ( +, -, *, &gt;, &lt;, etc.) so that they work with user-defined types.</p>
+</dd>
+<dt id="term-dot-product">dot product<a class="headerlink" href="#term-dot-product" title="Permalink to this term">#</a></dt><dd><p>An operation defined in linear algebra that multiplies two Points and yields a numeric value.</p>
+</dd>
+<dt id="term-scalar-multiplication">scalar multiplication<a class="headerlink" href="#term-scalar-multiplication" title="Permalink to this term">#</a></dt><dd><p>An operation defined in linear algebra that multiplies each of the coordinates of a Point by a numeric value.</p>
+</dd>
+<dt id="term-polymorphic">polymorphic<a class="headerlink" href="#term-polymorphic" title="Permalink to this term">#</a></dt><dd><p>A function that can operate on more than one type. If all the operations in a function can be applied to a type, then the function can be applied to a type.</p>
+</dd>
+</dl>
+</section>
+<section id="exercises">
+<h2><em>Exercises</em><a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Convert the function <code class="docutils literal notranslate"><span class="pre">convertToSeconds</span></code>:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convertToSeconds</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">minutes</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">hours</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="n">minutes</span>
+    <span class="n">seconds</span> <span class="o">=</span> <span class="n">minutes</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="n">seconds</span>
+    <span class="k">return</span> <span class="n">seconds</span>
+</pre></div>
+</div>
+<p>to a method in the <code class="docutils literal notranslate"><span class="pre">Time</span></code> class.</p>
+<ol class="arabic simple" start="2">
+<li><p>Add a fourth parameter, <code class="docutils literal notranslate"><span class="pre">end</span></code>, to the <code class="docutils literal notranslate"><span class="pre">find</span></code> function that specifies where to stop looking. Warning: This exercise is a bit tricky. The default value of <code class="docutils literal notranslate"><span class="pre">end</span></code> should be <code class="docutils literal notranslate"><span class="pre">len(str)</span></code>, but that doesn’t work. The default values are evaluated when the function is defined, not when it is called. When <code class="docutils literal notranslate"><span class="pre">find</span></code> is defined, <code class="docutils literal notranslate"><span class="pre">str</span></code> doesn’t exist yet, so you can’t find its length.</p></li>
+</ol>
+</section>
 <section id="time">
 <h2>Time<a class="headerlink" href="#time" title="Permalink to this headline">#</a></h2>
 <p>As another example of a user-defined type, we’ll define a class called Time that records the time of day. The class definition looks like this:</p>
@@ -579,8 +624,8 @@ document.write(`
 <p>Some of the things that people do naturally, without difficulty or conscious thought, are the hardest to express algorithmically. Understanding natural language is a good example. We all do it, but so far no one has been able to explain <em>how</em> we do it, at least not in the form of an algorithm.</p>
 <hr/>
 </section>
-<section id="glossary">
-<h2><em>Glossary</em><a class="headerlink" href="#glossary" title="Permalink to this headline">#</a></h2>
+<section id="id1">
+<h2><em>Glossary</em><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <dl class="glossary simple">
 <dt id="term-pure-function">pure function<a class="headerlink" href="#term-pure-function" title="Permalink to this term">#</a></dt><dd><p>A function that does not modify any of the objects it receives as parameters. Most pure functions are fruitful.</p>
 </dd>
@@ -596,13 +641,51 @@ document.write(`
 </dd>
 </dl>
 </section>
-<section id="exercises">
-<h2><em>Exercises</em><a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<section id="id2">
+<h2><em>Exercises</em><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Write a function <code class="docutils literal notranslate"><span class="pre">print_time</span></code> that takes a <code class="docutils literal notranslate"><span class="pre">Time</span></code> object as an argument and prints it in the form <code class="docutils literal notranslate"><span class="pre">hours:minutes:seconds</span></code>.</p></li>
 <li><p>Write a boolean function <code class="docutils literal notranslate"><span class="pre">after</span></code> that takes two <code class="docutils literal notranslate"><span class="pre">Time</span></code> objects, <code class="docutils literal notranslate"><span class="pre">t1</span></code> and <code class="docutils literal notranslate"><span class="pre">t2</span></code>, as arguments, and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">t1</span></code> follows <code class="docutils literal notranslate"><span class="pre">t2</span></code> chronologically and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
 <li><p>Rewrite the <code class="docutils literal notranslate"><span class="pre">increment</span></code> function so that it doesn’t contain any loops.</p></li>
 <li><p>Now rewrite <code class="docutils literal notranslate"><span class="pre">increment</span></code> as a pure function, and write function calls to both versions.</p></li>
+</ol>
+<hr/>
+</section>
+<section id="id3">
+<h2><em>Glossary</em><a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<dl class="glossary simple">
+<dt id="term-0">object-oriented language<a class="headerlink" href="#term-0" title="Permalink to this term">#</a></dt><dd><p>A language that provides features, such as user-defined classes and inheritance, that facilitate object-oriented programming.</p>
+</dd>
+<dt id="term-1">object-oriented programming<a class="headerlink" href="#term-1" title="Permalink to this term">#</a></dt><dd><p>A style of programming in which data and the operations that manipulate it are organized into classes and methods.</p>
+</dd>
+<dt id="term-2">method<a class="headerlink" href="#term-2" title="Permalink to this term">#</a></dt><dd><p>A function that is defined inside a class definition and is invoked on instances of that class. :override:: To replace a default. Examples include replacing a default parameter with a particular argument and replacing a default method by providing a new method with the same name.</p>
+</dd>
+<dt id="term-3">initialization method<a class="headerlink" href="#term-3" title="Permalink to this term">#</a></dt><dd><p>A special method that is invoked automatically when a new object is created and that initializes the object’s attributes.</p>
+</dd>
+<dt id="term-4">operator overloading<a class="headerlink" href="#term-4" title="Permalink to this term">#</a></dt><dd><p>Extending built-in operators ( +, -, *, &gt;, &lt;, etc.) so that they work with user-defined types.</p>
+</dd>
+<dt id="term-5">dot product<a class="headerlink" href="#term-5" title="Permalink to this term">#</a></dt><dd><p>An operation defined in linear algebra that multiplies two Points and yields a numeric value.</p>
+</dd>
+<dt id="term-6">scalar multiplication<a class="headerlink" href="#term-6" title="Permalink to this term">#</a></dt><dd><p>An operation defined in linear algebra that multiplies each of the coordinates of a Point by a numeric value.</p>
+</dd>
+<dt id="term-7">polymorphic<a class="headerlink" href="#term-7" title="Permalink to this term">#</a></dt><dd><p>A function that can operate on more than one type. If all the operations in a function can be applied to a type, then the function can be applied to a type.</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2><em>Exercises</em><a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Convert the function <code class="docutils literal notranslate"><span class="pre">convertToSeconds</span></code>:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convertToSeconds</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">minutes</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">hours</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="n">minutes</span>
+    <span class="n">seconds</span> <span class="o">=</span> <span class="n">minutes</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="n">seconds</span>
+    <span class="k">return</span> <span class="n">seconds</span>
+</pre></div>
+</div>
+<p>to a method in the <code class="docutils literal notranslate"><span class="pre">Time</span></code> class.</p>
+<ol class="arabic simple" start="2">
+<li><p>Add a fourth parameter, <code class="docutils literal notranslate"><span class="pre">end</span></code>, to the <code class="docutils literal notranslate"><span class="pre">find</span></code> function that specifies where to stop looking. Warning: This exercise is a bit tricky. The default value of <code class="docutils literal notranslate"><span class="pre">end</span></code> should be <code class="docutils literal notranslate"><span class="pre">len(str)</span></code>, but that doesn’t work. The default values are evaluated when the function is defined, not when it is called. When <code class="docutils literal notranslate"><span class="pre">find</span></code> is defined, <code class="docutils literal notranslate"><span class="pre">str</span></code> doesn’t exist yet, so you can’t find its length.</p></li>
 </ol>
 </section>
 </section>
@@ -656,14 +739,18 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary"><em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises"><em>Exercises</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time">Time</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-functions">Pure functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers">Modifiers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prototype-development-versus-planning">Prototype development versus planning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization">Generalization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms">Algorithms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary"><em>Glossary</em></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises"><em>Exercises</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><em>Exercises</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><em>Exercises</em></a></li>
 </ul>
   </nav></div>
 

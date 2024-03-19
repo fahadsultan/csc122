@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Operator Overloading &#8212; Data Structures and Algorithms</title>
+    <title>6.4. Extending Operators &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/operator_overloading';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Stacks and Queues" href="stacks_queues.html" />
+    <link rel="prev" title="6.3. Extending Types" href="inheritance.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -206,15 +208,18 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="oop.html">6. Object-Oriented Programming</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="oop.html">6. Object-Oriented Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="native_structures.html">6.1. Native Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="oop1.html">6.2. User-defined Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inheritance.html">6.3. Extending Types</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.4. Extending Operators</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linkedlists.html">8. Linked Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hashmaps.html">9. Hash Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
 </ul>
 
     </div>
@@ -398,7 +403,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Operator Overloading</h1>
+    <h1>Extending Operators</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -408,11 +413,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Operator Overloading</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-overloading-methods">Operator Overloading Methods</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-overloading-examples">Operator Overloading Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-methods">6.4.1. Special Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-overloading-methods">6.4.2. Operator Overloading Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-overloading-examples">6.4.3. Operator Overloading Examples</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -423,11 +427,39 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="operator-overloading">
-<h1>Operator Overloading<a class="headerlink" href="#operator-overloading" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="extending-operators">
+<h1><span class="section-number">6.4. </span>Extending Operators<a class="headerlink" href="#extending-operators" title="Permalink to this headline">#</a></h1>
+<p>Some languages make it possible to change the definition of the built- in operators when they are applied to user-defined types. This feature is called <strong>operator overloading</strong>. It is especially useful when defining new mathematical types.</p>
+<p>For example, to override the addition operator +, we provide a method named <code class="docutils literal notranslate"><span class="pre">__add__</span></code>:</p>
+<p>As usual, the first parameter is the object on which the method is invoked. The second parameter is conveniently named other to distinguish it from self. To add two Points, we create and return a new Point that contains the sum of the x coordinates and the sum of the y coordinates.</p>
+<p>Now, when we apply the + operator to Point objects, Python invokes <code class="docutils literal notranslate"><span class="pre">__add__</span></code>:
+p1 = Point(3, 4)
+p2 = Point(5, 7)
+p3 = p1 + p2
+print(p3)
+The expression p1 + p2 is equivalent to p1.<strong>add</strong>(p2), but obviously more elegant. As an exercise, add a method <strong>sub</strong>(self, other) that overloads the subtraction operator, and try it out. There are several ways to override the behavior of the multiplication operator: by defining a method named <strong>mul</strong>, or <strong>rmul</strong>, or both.</p>
+<p>If the left operand of * is a Point, Python invokes <strong>mul</strong>, which assumes that the other operand is also a Point. It computes the dot product of the two points, defined according to the rules of linear algebra:
+def <strong>mul</strong>(self, other):
+return self.x * other.x + self.y * other.y
+If the left operand of * is a primitive type and the right operand is a Point, Python invokes <strong>rmul</strong>, which performs <strong>scalar multiplication</strong>:
+def <strong>rmul</strong>(self, other):
+return Point(other * self.x,  other * self.y)
+The result is a new Point whose coordinates are a multiple of the original coordinates. If other is a type that cannot be multiplied by a floating-point number, then <strong>rmul</strong> will yield an error.</p>
+<p>This example demonstrates both kinds of multiplication:
+p1 = Point(3, 4)
+p2 = Point(5, 7)
+print(p1 * p2), print(2 * p2)
+What happens if we try to evaluate p2 * 2? Since the first parameter is a Point, Python invokes <strong>mul</strong> with 2 as the second argument. Inside <strong>mul</strong>, the program tries to access the x coordinate of other, which fails because an integer has no attributes:
+print(p2 * 2)
+Unfortunately, the error message is a bit opaque. This example demonstrates some of the difficulties of object-oriented programming. Sometimes it is hard enough just to figure out what code is running.</p>
+<p>For a more complete example of operator overloading, see Appendix (reference overloading).</p>
+<section id="special-methods">
+<h2><span class="section-number">6.4.1. </span>Special Methods<a class="headerlink" href="#special-methods" title="Permalink to this headline">#</a></h2>
+<p>Python has a set of special methods that are automatically called when certain operations are performed on objects. These methods are called <strong>magic methods</strong>.</p>
+<p>For example, the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is called automatically when a new instance of a class is created. The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is called the <strong>constructor</strong> of the class.</p>
 </section>
 <section id="operator-overloading-methods">
-<h1>Operator Overloading Methods<a class="headerlink" href="#operator-overloading-methods" title="Permalink to this headline">#</a></h1>
+<h2><span class="section-number">6.4.2. </span>Operator Overloading Methods<a class="headerlink" href="#operator-overloading-methods" title="Permalink to this headline">#</a></h2>
 <p>The following table lists the operator overloading methods in Python. These methods are called when an operator is used on an object.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -529,7 +561,7 @@ document.write(`
 </table>
 </section>
 <section id="operator-overloading-examples">
-<h1>Operator Overloading Examples<a class="headerlink" href="#operator-overloading-examples" title="Permalink to this headline">#</a></h1>
+<h2><span class="section-number">6.4.3. </span>Operator Overloading Examples<a class="headerlink" href="#operator-overloading-examples" title="Permalink to this headline">#</a></h2>
 <p>The following table lists the operator overloading examples in Python. These examples show how to use the operator overloading methods.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -653,6 +685,7 @@ document.write(`
 </tbody>
 </table>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -685,6 +718,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="inheritance.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6.3. </span>Extending Types</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="stacks_queues.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Stacks and Queues</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -703,11 +754,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Operator Overloading</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-overloading-methods">Operator Overloading Methods</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-overloading-examples">Operator Overloading Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-methods">6.4.1. Special Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-overloading-methods">6.4.2. Operator Overloading Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-overloading-examples">6.4.3. Operator Overloading Examples</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
