@@ -11,22 +11,14 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 
 ```{note}
 
-**Purposeful Pathways Events this week**
+**Upcoming Purposeful Pathways Events**
 
-1. How Good is Furman University? A Data Scientist Looks at College Rankings – Professional  Preparation Data Science Visiting Scholar Lecture Series (General audience lecture)  \
-Speaker: [Dr. Steven Skiena](https://en.wikipedia.org/wiki/Steven_Skiena), Stony Brook University \
-Thursday, March 14, 6:00-7:00pm \
-Patrick Lecture Hall (Plyler 126)
+1. **Data Mania @ Furman University** March 22nd to 24th.<br/><br/>
 
-_(Informal reception (with food!) at 5:30pm)_
-<!-- Jennifer McHan Good Collab (Riley 106) -->
+2. **[ASA DataFest 2024](https://sites.google.com/wfu.edu/datafest2020/home)** April 5th to April 7th at Wake Forest University.
 
-2. Word and Graph Embeddings for Machine Learning – Professional Preparation Data Science Visiting Scholar Lecture Series (major-specific lecture) \
-Speaker: [Dr. Steven Skiena](https://en.wikipedia.org/wiki/Steven_Skiena), Stony Brook University \
-Friday, March 15, 12:30-1:30 \
-Jennifer McHan Good Collab (Riley 106) 
+Contact [Data Science and Machine Learning club](https://furman.campuslabs.com/engage/organization/datascience) for more details
 
-_(Free Lunch will be provided. [RSVP here](https://calendly.com/proftreu/data-science-visiting-scholar?month=2024-03) )_
 ```
 
 ```{important}

@@ -82,7 +82,7 @@ parts:
       # sections: 
       #   - file: functions/testdriven
       #   - file: functions/exceptions
-      #   - file: functions/filesmodules
+  
       #   - file: basics/file_io
     # - file: functions/functionalprogramming
     # - file: tmp/functionalprogramming
@@ -94,11 +94,11 @@ parts:
       sections: 
       - file: data/native_structures
       - file: data/oop1
+      - file: data/inheritance
       # - file: data/oop2
-      # - file: data/oop3
       # - file: data/oop4
       # - file: data/oop5
-      # - file: data/operator_overloading
+      - file: data/operator_overloading
     # - file: tmp/datastructures
     # - file: data/datastructures
       # sections:
@@ -114,6 +114,7 @@ parts:
       #   - file: data/queue
     - file: data/linkedlists
     - file: data/hashmaps
+    - file: functions/filesmodules
   # - caption: 
   #   numbered: false
   #   chapters: 
