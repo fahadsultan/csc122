@@ -10,19 +10,39 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 👇🏾 Below, you can find important links and important announcements.
 
 ```{note}
+_[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_  event: **Data Mania @ Furman University** from **March 22 - 24**. <br/>Contact [Data Science and Machine Learning club](https://furman.campuslabs.com/engage/organization/datascience) for more details. 
 
-**Upcoming Purposeful Pathways Events**
-
-1. **Data Mania @ Furman University** March 22nd to 24th.<br/><br/>
-
-2. **[ASA DataFest 2024](https://sites.google.com/wfu.edu/datafest2020/home)** April 5th to April 7th at Wake Forest University.
-
-Contact [Data Science and Machine Learning club](https://furman.campuslabs.com/engage/organization/datascience) for more details
-
+**Last day** to submit the two required **reflections** for this course is the last day of class: Tuesday, April 23rd by 11:59 PM.
 ```
 
+```{note}
+_[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_  event: **[ASA DataFest 2024](https://sites.google.com/wfu.edu/datafest2020/home)** **April 5th to April 7th** at Wake Forest University. <br/>Contact [Data Science and Machine Learning club](https://furman.campuslabs.com/engage/organization/datascience) for more details.
+
+**Last day** to submit the two required **reflections** for this course is the last day of class: Tuesday, April 23rd by 11:59 PM.
+```
+
+
+```{note}
+_[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_ event: **Paladin Pitch Competition** – Professional Preparation
+**Thursday, April 11, 4:00 – 5:30pm** in (Watkins Room, Trone Student Center)
+For additional information, [click here](https://www.furman.edu/innovation-entrepreneurship/innovation-entrepreneurship/paladin-pitch-competition/)
+```
+
+```{note}
+_[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_  event:
+**Furman Engaged** is on Friday, **April 12th**. If you attend a session at Furman Engaged, you can submit a reflection on that session as well towards one of two required reflections. 
+```
+
+
+```{note}
+_[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_  event: **PowerPoint Night** is on **April 16, 6-7:30 PM** Jennifer McHan Good Collab in **Riley 106**
+
+**Last day** to submit the two required **reflections** for this course is the last day of class: Tuesday, April 23rd by 11:59 PM.
+```
+
+
 ```{important}
-**Final Exam** is scheduled for **April 29th** from **8:30 to 11:00 AM** in **(Riley 204)**
+**Final Exam** is scheduled for **Monday, April 29th** from **8:30 to 11:00 AM** in **(Riley 204)**
 ```
 
 ```{tip}
