@@ -429,8 +429,8 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#getters-and-setters">6.2.4.1.3. Getters and Setters</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staticmethod">6.2.4.2. <code class="docutils literal notranslate"><span class="pre">@staticmethod</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classmethod">6.2.4.3. <code class="docutils literal notranslate"><span class="pre">@classmethod</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-methods">6.2.4.2. Class Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-methods">6.2.4.3. Static Methods</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#public-protected-and-private-access-levels">6.2.5. Public, Protected and Private Access Levels</a></li>
@@ -532,6 +532,14 @@ document.write(`
 <li><p>call the methods of the class</p></li>
 </ul>
 <p>Examples of the use of the dot operator are given in following sections.</p>
+<!-- <center><img src="https://i.ibb.co/YbpDxmC/oop-hierarchy.png"></center> -->
+<p><br><br></p>
+<figure class="align-center" id="oop-hierarchy">
+<a class="reference internal image-reference" href="https://i.ibb.co/YbpDxmC/oop-hierarchy.png"><img alt="https://i.ibb.co/YbpDxmC/oop-hierarchy.png" src="https://i.ibb.co/YbpDxmC/oop-hierarchy.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Class definitions in Python are comprised primarily of attributes and methods. There are two types of attributes: instance attributes and class attributes. There are three types of methods: instance methods, class methods, and static methods.</span><a class="headerlink" href="#oop-hierarchy" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="attributes">
 <h2><span class="section-number">6.2.3. </span>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h2>
@@ -542,6 +550,7 @@ document.write(`
 <li><p><strong>Class attributes / variables</strong> are attributes that have the same value for all class instances. We define class attributes outside all the methods, usually they are placed at the top, right below the class header.</p></li>
 </ol>
 <center><img src="https://miro.medium.com/v2/resize:fit:2000/1*pGmNqM1bvCZexV8rskqIKg.png" width="70%"></center>
+<p><br><br></p>
 <section id="instance-attributes">
 <h3><span class="section-number">6.2.3.1. </span>Instance attributes<a class="headerlink" href="#instance-attributes" title="Permalink to this headline">#</a></h3>
 <p>The attributes of an object are also called <strong>instance variables</strong> because they are associated with a particular instance of the class. These variables are not shared by all instances of the class, and they are not defined until the instance is created.</p>
@@ -751,23 +760,8 @@ document.write(`
 </div>
 </section>
 </section>
-<section id="staticmethod">
-<h3><span class="section-number">6.2.4.2. </span><code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code><a class="headerlink" href="#staticmethod" title="Permalink to this headline">#</a></h3>
-<p><strong>Static methods</strong> are methods that are <u><strong>not</strong> bound to an instance</u> of a class.</p>
-<p>Static methods are defined using the <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code> decorator. They do <u>NOT take the <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter</u> and can be called on the class itself.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">distance_from_origin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">((</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span>
-</pre></div>
-</div>
-</section>
-<section id="classmethod">
-<h3><span class="section-number">6.2.4.3. </span><code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code><a class="headerlink" href="#classmethod" title="Permalink to this headline">#</a></h3>
+<section id="class-methods">
+<h3><span class="section-number">6.2.4.2. </span>Class Methods<a class="headerlink" href="#class-methods" title="Permalink to this headline">#</a></h3>
 <p>A <strong>class method</strong> is a method that is bound to the class and not the object of the class. They have the access to the state of the class as it takes a class parameter that points to the class and not the object instance.</p>
 <p>They can modify a class state that would apply across all the instances of the class. For example it can modify a class variable that will be applicable to all the instances.</p>
 <p>Class methods are defined using the <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code> decorator. They take a <code class="docutils literal notranslate"><span class="pre">cls</span></code> parameter that points to the class and not the object instance.</p>
@@ -781,6 +775,21 @@ document.write(`
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">get_n</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">n</span>
+</pre></div>
+</div>
+</section>
+<section id="static-methods">
+<h3><span class="section-number">6.2.4.3. </span>Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">#</a></h3>
+<p><strong>Static methods</strong> are methods that are <u><strong>not</strong> bound to an instance</u> of a class.</p>
+<p>Static methods are defined using the <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code> decorator. They do <u>NOT take the <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter</u> and can be called on the class itself.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">distance_from_origin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span>
 </pre></div>
 </div>
 <br/>
@@ -1134,8 +1143,8 @@ attribute
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#getters-and-setters">6.2.4.1.3. Getters and Setters</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staticmethod">6.2.4.2. <code class="docutils literal notranslate"><span class="pre">@staticmethod</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classmethod">6.2.4.3. <code class="docutils literal notranslate"><span class="pre">@classmethod</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-methods">6.2.4.2. Class Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-methods">6.2.4.3. Static Methods</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#public-protected-and-private-access-levels">6.2.5. Public, Protected and Private Access Levels</a></li>

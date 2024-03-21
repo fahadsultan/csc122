@@ -89,6 +89,16 @@ Jennifer McHan Good Collab (Riley 106)
 
 _(Free Lunch will be provided. [RSVP here](https://calendly.com/proftreu/data-science-visiting-scholar?month=2024-03) )_
 
+
+* **Leveraging CliftonStrengths for CS and IT Interviews**  will be held in the **Good Collab (Riley 106)** on **March 20th** at **12:30 PM**. A short description of the event is as follows:
+
+_Worried about upcoming interviews? Interested in developing strategies to overcome mental blocks and manage stress? This workshop will equip you with the language and tools to present your best self through the lens of your unique talent DNA - your top 5 CliftonStrengths. By understanding how you most naturally absorb and analyze information through your strengths, you can develop a specialized toolkit to handle new situations, think through tough problems, and convey the behaviors that make you a unique and qualified applicant. An understanding of what you are most naturally good at will allow you to leverage those innate talents in any situation thrown your way, including the search for a job, internship, or graduate program. Please review your top 5 CliftonStrengths for Students report at [https://login.gallup.com/](https://login.gallup.com/) in advance of this workshop. This workshop is open to any major who has previously completed the Gallup CliftonStrengths assessment._
+
+Please note that you must have access to your CliftonStrengths for Students report, taken during your 1st and 2nd year Pathways course. 
+
+**Lunch** will be provided. If you plan to attend, please RSVP here ASAP: [https://calendly.com/proftreu/cliftonstrengths-for-cs-and-it](https://calendly.com/proftreu/cliftonstrengths-for-cs-and-it)
+
+
 ## April
 
 * Paladin Pitch Competition – Professional Preparation \
