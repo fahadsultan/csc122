@@ -9,11 +9,6 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 
 👇🏾 Below, you can find important links and important announcements.
 
-```{note}
-_[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_  event: **Data Mania @ Furman University** from **March 22 - 24**. <br/>Contact [Data Science and Machine Learning club](https://furman.campuslabs.com/engage/organization/datascience) for more details. 
-
-**Last day** to submit the two required **reflections** for this course is the last day of class: Tuesday, April 23rd by 11:59 PM.
-```
 
 ```{note}
 _[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_  event: **[ASA DataFest 2024](https://sites.google.com/wfu.edu/datafest2020/home)** **April 5th to April 7th** at Wake Forest University. <br/>Contact [Data Science and Machine Learning club](https://furman.campuslabs.com/engage/organization/datascience) for more details.

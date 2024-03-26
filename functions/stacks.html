@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>5.6. Stacks &#8212; Data Structures and Algorithms</title>
+    <title>7.1. Stacks &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'functions/stacks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Object-Oriented Programming" href="../data/oop.html" />
-    <link rel="prev" title="5.5. Tree Recursion" href="tree_recursion.html" />
+    <link rel="next" title="7.2. Queues" href="../data/queue.html" />
+    <link rel="prev" title="7. Stacks and Queues" href="../data/stacks_queues.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes (Algorithms)</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../algos/analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../algos/time.html">1.4. Time Complexity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../algos/space.html">1.5. Space Complexity</a></li>
@@ -197,18 +197,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../algos/sort_quick_iter.html">4.3. Quick Sort</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="recursion.html">5. Recursion</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="head_tail.html">5.4. Linear Recursion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tree_recursion.html">5.5. Tree Recursion</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.6. Stacks</a></li>
-
-
-
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../data/oop.html">6. Object-Oriented Programming</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../data/native_structures.html">6.1. Native Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../data/oop1.html">6.2. User-defined Types</a></li>
@@ -216,7 +212,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../data/operator_overloading.html">6.4. Extending Operators</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../data/stacks_queues.html">7. Stacks and Queues</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../data/stacks_queues.html">7. Stacks and Queues</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.1. Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/queue.html">7.2. Queues</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../data/linkedlists.html">8. Linked Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/hashmaps.html">9. Hash Maps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="filesmodules.html">10. Files and Modules</a></li>
@@ -413,20 +413,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">5.6. Stacks</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">5.6.1. Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">7.1.1. Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-1-call-stacks">7.1.2. Application 1: Call Stacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-frame">7.1.2.1. Stack Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-trace">7.1.2.2. Stack Trace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-overflow">7.1.2.3. Stack Overflow</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#call-stacks">5.7. Call Stacks</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-frame">5.7.1. Stack Frame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-call-stack-work">5.7.2. How does the call stack work?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-the-call-stack-important">5.7.3. Why is the call stack important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-2-undo-and-history">7.1.3. Application 2: Undo and History</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-3-parsing">7.1.4. Application 3: Parsing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">7.1.5. Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#space-and-time-complexity">7.1.6. Space and Time Complexity</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-trace">5.8. Stack Trace</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-overflow">5.9. Stack Overflow</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -438,36 +436,37 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="stacks">
-<h1><span class="section-number">5.6. </span>Stacks<a class="headerlink" href="#stacks" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">7.1. </span>Stacks<a class="headerlink" href="#stacks" title="Permalink to this headline">#</a></h1>
 <img src="https://i.ibb.co/kmD7VBq/stacks.png" align="right" width="40%">
 <p>A stack is a collection of objects set on top of each other.</p>
 <p>Note that this organization imposes constraints on the order in which objects can be removed. The last object placed on the stack is the first one to be removed. This is known as the <strong>Last-In-First-Out (LIFO) order</strong>.</p>
 <p>Stacks are integral to computer science. They are used to store and manage function calls, to implement certain types of algorithms, and to manage memory.</p>
 <section id="operations">
-<h2><span class="section-number">5.6.1. </span>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.1.1. </span>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">#</a></h2>
 <p>Stacks are in essence defined by the operations they support. These operations are:</p>
 <center>
 <img src="https://cdn.programiz.com/sites/tutorial2program/files/stack.png" width="80%">
 </center>
-<ul class="simple">
-<li><p><strong>Empty</strong>: Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the stack is empty, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
-</ul>
 <br/>
 <ul class="simple">
-<li><p><strong>Push</strong>: Adds a given element to the top of the stack.</p></li>
+<li><p><span style="font-size:20px"><strong>Push</strong></span>: Adds a given element to the top of the stack.</p></li>
 </ul>
-<br/>
+<!-- <br/> -->
 <ul class="simple">
-<li><p><strong>Pop</strong>: Removes the top element from the stack.</p></li>
+<li><p><span style="font-size:20px"><strong>Pop</strong></span>: Removes the top element from the stack.</p></li>
 </ul>
-<br/>
+<!-- <br/> -->
 <ul class="simple">
-<li><p><strong>Peek</strong>: Returns the top element of the stack, without removing it. <br />
+<li><p><span style="font-size:20px"><strong>Empty</strong></span>: Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the stack is empty, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+</ul>
+<!-- <br/> -->
+<ul class="simple">
+<li><p><span style="font-size:20px"><strong>Peek</strong></span>: Returns the top element of the stack, without removing it. <br />
 This operation is also known as <code class="docutils literal notranslate"><span class="pre">top</span></code> or <code class="docutils literal notranslate"><span class="pre">front</span></code> or <code class="docutils literal notranslate"><span class="pre">head</span></code>.</p></li>
 </ul>
-<br/>
+<!-- <br/> -->
 <ul class="simple">
-<li><p><strong>Size</strong>: Returns the number of elements in the stack. <br />
+<li><p><span style="font-size:20px"><strong>Size</strong></span>: Returns the number of elements in the stack. <br />
 This operation is also known as <code class="docutils literal notranslate"><span class="pre">length</span></code> or <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p></li>
 </ul>
 <br/>
@@ -491,44 +490,28 @@ This operation is also known as <code class="docutils literal notranslate"><span
 <br/>
 <p>Whether you are adding, removing, or accessing elements, you can only interact with the top of the stack.</p>
 <br/></section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="call-stacks">
-<h1><span class="section-number">5.7. </span>Call Stacks<a class="headerlink" href="#call-stacks" title="Permalink to this headline">#</a></h1>
-<p>Call stacks are a fundamental concept in computer science. They are used to manage functions and their variables.</p>
-<p>A call stack is a stack data structure that stores information about the active subroutines of a computer program.</p>
-<p>This kind of stack is also known as an execution stack, control stack, run-time stack, or machine stack, and is often shortened to just “the stack”.</p>
-<p>The call stack is used for several related purposes, but the main reason for having a call stack is to keep track of the point to which each active subroutine should return control when it finishes executing.</p>
-<p>In this notebook, we will discuss the call stack and how it works.</p>
+<section id="application-1-call-stacks">
+<h2><span class="section-number">7.1.2. </span>Application 1: Call Stacks<a class="headerlink" href="#application-1-call-stacks" title="Permalink to this headline">#</a></h2>
+<p>A <strong>Call Stack</strong> is a stack data structure that keeps track of and manages active function (or subroutine or method or procedure) in a computer program at any given time.</p>
+<p>This kind of stack is also known as an <em>“execution stack”, “control stack”, “run-time stack”, or “machine stack”</em>, and is often shortened to just <em>“the stack”</em>.</p>
+<p>The call stack is used for several related purposes, but the main reason for having a call stack is to keep track of the point to which each active function should jump to when it finishes executing.</p>
+<p><br/><br/></p>
 <center>
-<img src="https://miro.medium.com/v2/resize:fit:1400/1*rJ2sh-q1deQGGGVG5gYyIQ.png" width="90%">
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*rJ2sh-q1deQGGGVG5gYyIQ.png" width="80%">
 </center>
 <section id="stack-frame">
-<h2><span class="section-number">5.7.1. </span>Stack Frame<a class="headerlink" href="#stack-frame" title="Permalink to this headline">#</a></h2>
-<p>A stack frame is a data structure that contains information about the state of a function (or subroutine or method or procedure).</p>
-<p>The call stack is used for several related purposes, but the main reason for having a call stack is to keep track of the point to which each active subroutine should return control when it finishes executing.</p>
+<h3><span class="section-number">7.1.2.1. </span>Stack Frame<a class="headerlink" href="#stack-frame" title="Permalink to this headline">#</a></h3>
+<p>A <strong>Stack Frame</strong> is a data structure that contains information about the state of a function (or subroutine or method or procedure).</p>
 <center>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Call_stack_layout.svg/342px-Call_stack_layout.svg.png" width="60%">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Call_stack_layout.svg/342px-Call_stack_layout.svg.png" width="40%">
 </center>
-</section>
-<section id="how-does-the-call-stack-work">
-<h2><span class="section-number">5.7.2. </span>How does the call stack work?<a class="headerlink" href="#how-does-the-call-stack-work" title="Permalink to this headline">#</a></h2>
-<p>The call stack is a stack data structure that stores information about the active subroutines of a computer program.</p>
 <p>When a function is called, a new frame is pushed onto the stack. This frame contains information about the function, such as its arguments and local variables.</p>
 <p>When a function returns, the frame is popped off the stack. This allows the program to return to the point where the function was called.</p>
-<p>The call stack is used for several related purposes, but the main reason for having a call stack is to keep track of the point to which each active subroutine should return control when it finishes executing.</p>
 <center>
 <img src="https://vaibhavguptame.files.wordpress.com/2018/01/callstack.gif?w=1100" width="80%">
-</center>
-</section>
-<section id="why-is-the-call-stack-important">
-<h2><span class="section-number">5.7.3. </span>Why is the call stack important?<a class="headerlink" href="#why-is-the-call-stack-important" title="Permalink to this headline">#</a></h2>
-<p>The call stack is important because it allows the program to keep track of the point to which each active subroutine should return control when it finishes executing.</p>
-<p>This is important because it allows the program to keep track of the state of the program, and to ensure that the program is executing correctly.</p>
-<p>The call stack is also important because it allows the program to keep track of the state of the program, and to ensure that the program is executing correctly.</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="stack-trace">
-<h1><span class="section-number">5.8. </span>Stack Trace<a class="headerlink" href="#stack-trace" title="Permalink to this headline">#</a></h1>
+</center></section>
+<section id="stack-trace">
+<h3><span class="section-number">7.1.2.2. </span>Stack Trace<a class="headerlink" href="#stack-trace" title="Permalink to this headline">#</a></h3>
 <p><strong>Stack trace</strong> (also known as <strong>stack back track</strong> or <strong>stack trace back</strong>) is a list of the function calls, and their corresponding stack frames, at some point in the execution of a program.</p>
 <p>Any time a program crashes, most programming languages will print a stack trace to the console. This is a list of all the functions that were called up to the point of the crash, and it is a very useful tool for debugging. By examining the stack trace, you can determine the sequence of function calls that led to the crash.</p>
 <p>As an example, the following Python program contains an error.</p>
@@ -583,8 +566,8 @@ This operation is also known as <code class="docutils literal notranslate"><span
 </div>
 <img width="10%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Stack_Overflow_icon.svg/768px-Stack_Overflow_icon.svg.png" align="right">
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="stack-overflow">
-<h1><span class="section-number">5.9. </span>Stack Overflow<a class="headerlink" href="#stack-overflow" title="Permalink to this headline">#</a></h1>
+<section id="stack-overflow">
+<h3><span class="section-number">7.1.2.3. </span>Stack Overflow<a class="headerlink" href="#stack-overflow" title="Permalink to this headline">#</a></h3>
 <p>Stack overflow is a common problem in recursive programs. It occurs when the stack is full and there is no more space to push new function calls. In this notebook, we will also implement a simple stack overflow detection mechanism.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -644,6 +627,83 @@ This operation is also known as <code class="docutils literal notranslate"><span
 </div>
 </div>
 </section>
+</section>
+<section id="application-2-undo-and-history">
+<h2><span class="section-number">7.1.3. </span>Application 2: Undo and History<a class="headerlink" href="#application-2-undo-and-history" title="Permalink to this headline">#</a></h2>
+<p>Stacks are also used to implement undo functionality in many applications.</p>
+<p>For example, when you type text into a text editor, the editor keeps track of the changes you make. If you make a mistake, you can undo the changes by pressing <code class="docutils literal notranslate"><span class="pre">Ctrl+Z</span></code>.</p>
+<p>The editor does this by storing the changes in a stack. When you press <code class="docutils literal notranslate"><span class="pre">Ctrl+Z</span></code>, the editor pops the last change off the stack and applies it to the text.</p>
+<p>This is a simple example of how stacks can be used to implement undo functionality. Stacks can also be used to implement history functionality, where you can navigate through the changes you have made to a document.</p>
+<center><img src="https://i.ibb.co/vqyGGdK/Copy-of-6-4-Undo-Redo-Stacks-0.jpg" width="50%"></center>
+<p>Similarly, stacks can be used to implement the forward and back buttons in a web browser. When you click on a link, the browser pushes the current page onto a stack and loads the new page. If you click the back button, the browser pops the last page off the stack and loads it.</p>
+</section>
+<section id="application-3-parsing">
+<h2><span class="section-number">7.1.4. </span>Application 3: Parsing<a class="headerlink" href="#application-3-parsing" title="Permalink to this headline">#</a></h2>
+<p>Stacks are also used in parsing and expression evaluation.</p>
+<p>For example, when you write a program in a programming language, the compiler or interpreter uses a stack to keep track of the order of operations in the program.</p>
+<p>Similarly, when you evaluate an expression, such as <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">4</span> <span class="pre">*</span> <span class="pre">5</span></code>, the computer uses a stack to keep track of the order of operations.</p>
+<p>Some problems that can be solved using stacks are:</p>
+<ul class="simple">
+<li><p><strong>Balanced Parentheses</strong>: Check if a given expression has balanced parentheses. For example, <code class="docutils literal notranslate"><span class="pre">((()))</span></code> is balanced, while <code class="docutils literal notranslate"><span class="pre">(()))</span></code> is not.</p></li>
+<li><p><strong>Infix to Postfix</strong>: Convert an infix expression to a postfix expression. For example, convert <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">4</span> <span class="pre">*</span> <span class="pre">5</span></code> to <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">4</span> <span class="pre">5</span> <span class="pre">*</span> <span class="pre">+</span></code>.</p></li>
+<li><p><strong>Evaluate Postfix</strong>: Evaluate a postfix expression. For example, evaluate <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">4</span> <span class="pre">5</span> <span class="pre">*</span> <span class="pre">+</span></code> to <code class="docutils literal notranslate"><span class="pre">23</span></code>.</p></li>
+</ul>
+</section>
+<section id="implementation">
+<h2><span class="section-number">7.1.5. </span>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Stack</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">)</span>
+    
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span>  <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span>          <span class="s2">&quot;Test case 3 failed&quot;</span>
+<span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span>         <span class="s2">&quot;Test case 4 failed&quot;</span>
+<span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span>          <span class="s2">&quot;Test case 5 failed&quot;</span>
+<span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span>  <span class="s2">&quot;Test case 6 failed&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All test cases passed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All test cases passed
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="space-and-time-complexity">
+<h2><span class="section-number">7.1.6. </span>Space and Time Complexity<a class="headerlink" href="#space-and-time-complexity" title="Permalink to this headline">#</a></h2>
+<p>The space complexity of a stack is <code class="docutils literal notranslate"><span class="pre">O(n)</span></code>, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the number of elements in the stack. This is because the stack stores each element in a separate node.</p>
+<p>The time complexity of the <code class="docutils literal notranslate"><span class="pre">push</span></code>, <code class="docutils literal notranslate"><span class="pre">pop</span></code>, <code class="docutils literal notranslate"><span class="pre">peek</span></code>, <code class="docutils literal notranslate"><span class="pre">empty</span></code>, and <code class="docutils literal notranslate"><span class="pre">size</span></code> operations is <code class="docutils literal notranslate"><span class="pre">O(1)</span></code>. This is because these operations only involve updating the top of the stack, which can be done in constant time.</p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -677,20 +737,20 @@ This operation is also known as <code class="docutils literal notranslate"><span
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="tree_recursion.html"
+       href="../data/stacks_queues.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5.5. </span>Tree Recursion</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Stacks and Queues</p>
       </div>
     </a>
     <a class="right-next"
-       href="../data/oop.html"
+       href="../data/queue.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Object-Oriented Programming</p>
+        <p class="prev-next-title"><span class="section-number">7.2. </span>Queues</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -712,20 +772,18 @@ This operation is also known as <code class="docutils literal notranslate"><span
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">5.6. Stacks</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">5.6.1. Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">7.1.1. Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-1-call-stacks">7.1.2. Application 1: Call Stacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-frame">7.1.2.1. Stack Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-trace">7.1.2.2. Stack Trace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-overflow">7.1.2.3. Stack Overflow</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#call-stacks">5.7. Call Stacks</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-frame">5.7.1. Stack Frame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-call-stack-work">5.7.2. How does the call stack work?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-the-call-stack-important">5.7.3. Why is the call stack important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-2-undo-and-history">7.1.3. Application 2: Undo and History</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-3-parsing">7.1.4. Application 3: Parsing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">7.1.5. Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#space-and-time-complexity">7.1.6. Space and Time Complexity</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-trace">5.8. Stack Trace</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stack-overflow">5.9. Stack Overflow</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

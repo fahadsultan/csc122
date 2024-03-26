@@ -39,10 +39,11 @@ PA: _Programming Assignment_
 
 | #     | TOPIC                      | READING | MEETING 1                  | MEETING 2              | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
 |-------|----------------------------|---------|----------------------------|------------------------|-----|-------------------|
-| 9    | Building Abstractions with Data  |         |    **[OOP](data/oop.ipynb)**    |  **[Built-in Data Types](data/native_structures.ipynb)**  |     | 
-| 10   | Building Abstractions with Data |     |   **[User-defined Types](data/oop1.ipynb)**   |  **[Extending Types](data/inheritance.ipynb)**         |          | 
-| 12      | Building Abstractions with Data  |        |                       |                        |
-| 13      | Building Abstractions with Data  |                            |                        |
+| 9    | Object Oriented Programming 1  |    GGT (Chapter 2)     |    **[OOP](data/oop.ipynb)**    |  **[Built-in Data Types](data/native_structures.ipynb)**  |     | **[PA 6](https://colab.research.google.com/drive/1E6eShaKYR-a5cRevMmwviTHES9uiK5e1?usp=sharing)** | 
+| 10   | Object Oriented Programming 2 |   GGT (Chapter 2)   |   **[User-defined Types](data/oop1.ipynb)**   |  **[Extending Types](data/inheritance.ipynb)**         |     | **[PA 7](https://colab.research.google.com/drive/1tsoLLD6nbdmEPBEvjo4kyUjEZdnhvl_D?usp=sharing)** | 
+| 12      | Stacks and Queues  |  GGT (Chapter 6)       |     **[Stacks and Queues](data/stacks_queues.md)**                  |                        |
+| 13      | Linked Lists  |                            |                        |
+| 14      | Hash Maps  |                            |                        |
 
 <center><b><i>FINAL EXAM</i></b></center>
 

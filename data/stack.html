@@ -198,10 +198,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../functions/recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../functions/head_tail.html">5.4. Linear Recursion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion.html">5.5. Tree Recursion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/stacks.html">5.6. Stacks</a></li>
-
-
-
 </ul>
 </li>
 </ul>
@@ -214,7 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="operator_overloading.html">6.4. Extending Operators</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/stacks.html">7.1. Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queue.html">7.2. Queues</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="linkedlists.html">8. Linked Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hashmaps.html">9. Hash Maps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
@@ -421,6 +421,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clients-and-providers">Clients and providers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary"><em>Glossary</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises"><em>Exercises</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improved-linked-queue">Improved Linked Queue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#priority-queue">Priority queue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-golfer-class">The Golfer class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><em>Exercises</em></a></li>
 </ul>
             </nav>
         </div>
@@ -649,6 +654,208 @@ document.write(`
 <li><p>Write a postfix expression that is equivalent to <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code>.</p></li>
 </ol>
 </section>
+<section id="improved-linked-queue">
+<h2>Improved Linked Queue<a class="headerlink" href="#improved-linked-queue" title="Permalink to this headline">#</a></h2>
+<p>We would like an implementation of the Queue ADT that can perform all operations in constant time. One way to do that is to modify the Queue class so that it maintains a reference to both the first and the last node, as shown in the figure:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ImprovedQueue</span></code> implementation looks like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ImprovedQueue</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span>   <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last</span>   <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So far, the only change is the attribute <code class="docutils literal notranslate"><span class="pre">last</span></code>. It is used in <code class="docutils literal notranslate"><span class="pre">insert</span></code> and <code class="docutils literal notranslate"><span class="pre">remove</span></code> methods:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ImprovedQueue</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cargo</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">cargo</span><span class="p">)</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># if list is empty, the new node is head and last</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># find the last node</span>
+            <span class="n">last</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span>
+            <span class="c1"># append the new node</span>
+            <span class="n">last</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">last</span></code> keeps track of the last node, we don’t have to search for it. As a result, this method is constant time.</p>
+<p>There is a price to pay for that speed. We have to add a special case to <code class="docutils literal notranslate"><span class="pre">remove</span></code> to set <code class="docutils literal notranslate"><span class="pre">last</span></code> to <code class="docutils literal notranslate"><span class="pre">None</span></code> when the last node is removed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ImprovedQueue</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cargo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">cargo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">next</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">cargo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This implementation is more complicated than the Linked Queue implementation, and it is more difficult to demonstrate that it is correct. The advantage is that we have achieved the goal – both <code class="docutils literal notranslate"><span class="pre">insert</span></code> and <code class="docutils literal notranslate"><span class="pre">remove</span></code> are constant-time operations.</p>
+</section>
+<section id="priority-queue">
+<h2>Priority queue<a class="headerlink" href="#priority-queue" title="Permalink to this headline">#</a></h2>
+<p>The Priority Queue ADT has the same interface as the Queue ADT, but different semantics. Again, the interface is:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code>
+Initialize a new empty queue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">insert</span></code>
+Add a new item to the queue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove</span></code>
+Remove and return an item from the queue. The item that is returned is the one with the highest priority.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_empty</span></code>
+Check whether the queue is empty.</p></li>
+</ul>
+<p>The semantic difference is that the item that is removed from the queue is not necessarily the first one that was added. Rather, it is the item in the queue that has the highest priority. What the priorities are and how they compare to each other are not specified by the Priority Queue implementation. It depends on which items are in the queue.</p>
+<p>For example, if the items in the queue have names, we might choose them in alphabetical order. If they are bowling scores, we might go from highest to lowest, but if they are golf scores, we would go from lowest to highest. As long as we can compare the items in the queue, we can find and remove the one with the highest priority.</p>
+<p>This implementation of Priority Queue has as an attribute a Python list that contains the items in the queue.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PriorityQueue</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">==</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The initialization method, <code class="docutils literal notranslate"><span class="pre">is_empty</span></code>, and <code class="docutils literal notranslate"><span class="pre">insert</span></code> are all veneers on list operations. The only interesting method is <code class="docutils literal notranslate"><span class="pre">remove</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PriorityQueue</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">maxi</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">maxi</span><span class="p">]:</span> <span class="n">maxi</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">maxi</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">maxi</span><span class="p">:</span><span class="n">maxi</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="n">item</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>At the beginning of each iteration, <code class="docutils literal notranslate"><span class="pre">maxi</span></code> holds the index of the biggest item (highest priority) we have seen <em>so far</em>. Each time through the loop, the program compares the <code class="docutils literal notranslate"><span class="pre">i</span></code>-eth item to the champion. If the new item is bigger, the value of <code class="docutils literal notranslate"><span class="pre">maxi</span></code> if set to <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement completes, <code class="docutils literal notranslate"><span class="pre">maxi</span></code> is the index of the biggest item. This item is removed from the list and returned.</p>
+<p>Let’s test the implementation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">PriorityQueue</span><span class="p">()</span>
+<span class="n">q</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">q</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span> <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">remove</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If the queue contains simple numbers or strings, they are removed in numerical or alphabetical order, from highest to lowest. Python can find the biggest integer or string because it can compare them using the built-in comparison operators.</p>
+<p>If the queue contains an object type, it has to provide a <code class="docutils literal notranslate"><span class="pre">__cmp__</span></code> method. When <code class="docutils literal notranslate"><span class="pre">remove</span></code> uses the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> operator to compare items, it invokes the <code class="docutils literal notranslate"><span class="pre">__cmp__</span></code> for one of the items and passes the other as a parameter. As long as the <code class="docutils literal notranslate"><span class="pre">__cmp__</span></code> method works correctly, the Priority Queue will work.</p>
+</section>
+<section id="the-golfer-class">
+<h2>The Golfer class<a class="headerlink" href="#the-golfer-class" title="Permalink to this headline">#</a></h2>
+<p>As an example of an object with an unusual definition of priority, let’s implement a class called <code class="docutils literal notranslate"><span class="pre">Golfer</span></code> that keeps track of the names and scores of golfers. As usual, we start by defining <code class="docutils literal notranslate"><span class="pre">__init__</span></code> and <code class="docutils literal notranslate"><span class="pre">__str__</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Golfer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">score</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="o">=</span> <span class="n">score</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%-16s</span><span class="s2">: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">__str__</span></code> uses the format operator to put the names and scores in neat columns.</p>
+<p>Next we define a version of <code class="docutils literal notranslate"><span class="pre">__cmp__</span></code> where the lowest score gets highest priority. As always, <code class="docutils literal notranslate"><span class="pre">__cmp__</span></code> returns 1 if self is greater than <code class="docutils literal notranslate"><span class="pre">other</span></code>, -1 if <code class="docutils literal notranslate"><span class="pre">self</span></code> is less than other, and 0 if they are equal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Golfer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">__cmp__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">score</span><span class="p">:</span> <span class="k">return</span>  <span class="mi">1</span>   <span class="c1"># less is more</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">score</span><span class="p">:</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we are ready to test the priority queue with the <code class="docutils literal notranslate"><span class="pre">Golfer</span></code> class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tiger</span> <span class="o">=</span> <span class="n">Golfer</span><span class="p">(</span><span class="s2">&quot;Tiger Woods&quot;</span><span class="p">,</span>    <span class="mi">61</span><span class="p">)</span>
+<span class="n">phil</span>  <span class="o">=</span> <span class="n">Golfer</span><span class="p">(</span><span class="s2">&quot;Phil Mickelson&quot;</span><span class="p">,</span> <span class="mi">72</span><span class="p">)</span>
+<span class="n">hal</span>   <span class="o">=</span> <span class="n">Golfer</span><span class="p">(</span><span class="s2">&quot;Hal Sutton&quot;</span><span class="p">,</span>     <span class="mi">69</span><span class="p">)</span>
+
+<span class="n">pq</span> <span class="o">=</span> <span class="n">PriorityQueue</span><span class="p">()</span>
+<span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">tiger</span><span class="p">)</span>
+<span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">phil</span><span class="p">)</span>
+<span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">hal</span><span class="p">)</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">pq</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span> <span class="nb">print</span><span class="p">(</span><span class="n">pq</span><span class="o">.</span><span class="n">remove</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br/>
+<hr/>
+</section>
+<section id="id1">
+<h2><em>Glossary</em><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<dl class="glossary simple">
+<dt id="term-queue">queue<a class="headerlink" href="#term-queue" title="Permalink to this term">#</a></dt><dd><p>An ordered set of objects waiting for a service of some kind.</p>
+</dd>
+<dt id="term-Queue">Queue<a class="headerlink" href="#term-Queue" title="Permalink to this term">#</a></dt><dd><p>An ADT that performs the operations one might perform on a queue.</p>
+</dd>
+<dt id="term-queueing-policy">queueing policy<a class="headerlink" href="#term-queueing-policy" title="Permalink to this term">#</a></dt><dd><p>The rules that determine which member of a queue is removed next.</p>
+</dd>
+<dt id="term-FIFO">FIFO<a class="headerlink" href="#term-FIFO" title="Permalink to this term">#</a></dt><dd><p>First In, First Out, a queueing policy in which the first member to arrive is the first to be removed.</p>
+</dd>
+<dt id="term-priority-queue">priority queue<a class="headerlink" href="#term-priority-queue" title="Permalink to this term">#</a></dt><dd><p>A queueing policy in which each member has a priority determined by external factors. The member with the highest priority is the first to be removed.</p>
+</dd>
+<dt id="term-Priority-Queue">Priority Queue<a class="headerlink" href="#term-Priority-Queue" title="Permalink to this term">#</a></dt><dd><p>An ADT that defines the operations one might perform on a priority queue.</p>
+</dd>
+<dt id="term-linked-queue">linked queue<a class="headerlink" href="#term-linked-queue" title="Permalink to this term">#</a></dt><dd><p>An implementation of a queue using a linked list.</p>
+</dd>
+<dt id="term-constant-time">constant time<a class="headerlink" href="#term-constant-time" title="Permalink to this term">#</a></dt><dd><p>An operation whose runtime does not depend on the size of the data structure.</p>
+</dd>
+<dt id="term-linear-time">linear time<a class="headerlink" href="#term-linear-time" title="Permalink to this term">#</a></dt><dd><p>An operation whose runtime is a linear function of the size of the data structure.</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h2><em>Exercises</em><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Write an implementation of the Queue ADT using a Python list. Compare the performance of this implementation to the <code class="docutils literal notranslate"><span class="pre">ImprovedQueue</span></code> for a range of queue lengths. #. Write an implementation of the Priority Queue ADT using a linked list. You should keep the list sorted so that removal is a constant time operation. Compare the performance of this implementation with the Python list implementation.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -710,6 +917,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clients-and-providers">Clients and providers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary"><em>Glossary</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises"><em>Exercises</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improved-linked-queue">Improved Linked Queue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#priority-queue">Priority queue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-golfer-class">The Golfer class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><em>Exercises</em></a></li>
 </ul>
   </nav></div>
 

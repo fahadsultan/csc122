@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/stacks_queues';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. Linked Lists" href="linkedlists.html" />
+    <link rel="next" title="7.1. Stacks" href="../functions/stacks.html" />
     <link rel="prev" title="6.4. Extending Operators" href="operator_overloading.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -200,10 +200,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../functions/recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../functions/head_tail.html">5.4. Linear Recursion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion.html">5.5. Tree Recursion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/stacks.html">5.6. Stacks</a></li>
-
-
-
 </ul>
 </li>
 </ul>
@@ -216,7 +212,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="operator_overloading.html">6.4. Extending Operators</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Stacks and Queues</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">7. Stacks and Queues</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/stacks.html">7.1. Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queue.html">7.2. Queues</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="linkedlists.html">8. Linked Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hashmaps.html">9. Hash Maps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
@@ -321,7 +321,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/data/stacks_queues.md" target="_blank"
+      <li><a href="../_sources/data/stacks_queues.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +331,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -417,6 +417,29 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="stacks-and-queues">
 <h1><span class="section-number">7. </span>Stacks and Queues<a class="headerlink" href="#stacks-and-queues" title="Permalink to this headline">#</a></h1>
+<p>An <strong>Abstract Data Type</strong> (ADT) is a type (or class) for objects whose behavior is defined by a set of value and a set of operations.</p>
+<p>The definition of ADT only mentions <strong>what operations</strong> are to be performed but <strong>NOT how</strong> these operations will be <strong>implemented</strong>.</p>
+<p>It does NOT specify how data will be organized in memory and what algorithms will be used for implementing the operations. It is called <em>“abstract”</em> because it gives an <strong>implementation-independent view</strong>, thus providing only the essentials and hiding the details.</p>
+<p><br/><br/></p>
+<center><img src="https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1206/lectures/stacks-queues/img/stacks-queues.png" width="65%">
+<img src="https://gohighbrow.com/wp-content/uploads/2018/07/Computer-science-fundamentals_6.1.png" width="65%">
+</center>
+<p><br/><br/></p>
+<p>Stacks and Queues are two ADTs that are used to store data in a particular order.</p>
+<p>A <strong>Stack</strong> is a collection of elements, with two main principal operations:</p>
+<ol class="arabic simple">
+<li><p><em>Push</em>, which adds an element to the collection, and</p></li>
+<li><p><em>Pop</em>, which removes the most recently added element that was not yet removed.</p></li>
+</ol>
+<p>The order in which elements come off a stack gives rise to its alternative name, <strong>LIFO: Last In, First Out</strong>.</p>
+<p>A <strong>Queue</strong> is a collection of elements, with two main principal operations:</p>
+<ol class="arabic simple">
+<li><p><em>Enqueue</em>, which adds an element to the collection, and</p></li>
+<li><p><em>Dequeue</em>, which removes the earliest added element that was not yet removed.</p></li>
+</ol>
+<p>The order in which elements are removed from a queue gives rise to its alternative name, <strong>FIFO: First In, First Out</strong>.</p>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -460,11 +483,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="linkedlists.html"
+       href="../functions/stacks.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Linked Lists</p>
+        <p class="prev-next-title"><span class="section-number">7.1. </span>Stacks</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

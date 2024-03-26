@@ -198,10 +198,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../functions/recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../functions/head_tail.html">5.4. Linear Recursion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion.html">5.5. Tree Recursion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../functions/stacks.html">5.6. Stacks</a></li>
-
-
-
 </ul>
 </li>
 </ul>
@@ -214,7 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="operator_overloading.html">6.4. Extending Operators</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/stacks.html">7.1. Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queue.html">7.2. Queues</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="linkedlists.html">8. Linked Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hashmaps.html">9. Hash Maps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
@@ -525,7 +525,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;red&#39;, &#39;blue&#39;}
 [&#39;blue&#39;, &#39;red&#39;, &#39;green&#39;]
 &lt;class &#39;set&#39;&gt;
 &lt;class &#39;list&#39;&gt;
@@ -549,7 +549,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;red&#39;, &#39;blue&#39;}
 </pre></div>
 </div>
 </div>
@@ -580,7 +580,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;red&#39;, &#39;blue&#39;}
 </pre></div>
 </div>
 </div>
@@ -603,7 +603,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;red&#39;, &#39;blue&#39;}
 3
 </pre></div>
 </div>
@@ -638,7 +638,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;red&#39;, &#39;blue&#39;}
 </pre></div>
 </div>
 </div>
@@ -674,7 +674,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{True, 34, &#39;abc&#39;, 40, &#39;male&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{True, 34, 40, &#39;male&#39;, &#39;abc&#39;}
 </pre></div>
 </div>
 </div>
@@ -723,7 +723,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;, &#39;orange&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;red&#39;, &#39;blue&#39;, &#39;orange&#39;}
 </pre></div>
 </div>
 </div>
@@ -752,8 +752,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;indigo&#39;, &#39;yellow&#39;, &#39;red&#39;, &#39;blue&#39;, &#39;orange&#39;}
-{&#39;indigo&#39;, &#39;orange&#39;, &#39;yellow&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;red&#39;, &#39;blue&#39;, &#39;indigo&#39;, &#39;yellow&#39;, &#39;orange&#39;}
+{&#39;yellow&#39;, &#39;orange&#39;, &#39;indigo&#39;}
 </pre></div>
 </div>
 </div>
@@ -774,7 +774,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;red&#39;}
 </pre></div>
 </div>
 </div>
@@ -788,7 +788,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;, &#39;green&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;green&#39;, &#39;red&#39;}
 </pre></div>
 </div>
 </div>
@@ -830,7 +830,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, 3, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, 3, &#39;c&#39;, &#39;b&#39;, &#39;a&#39;}
 {1, 2, 3}
 </pre></div>
 </div>
@@ -897,7 +897,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;microsoft&#39;, &#39;google&#39;, &#39;banana&#39;, &#39;cherry&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;microsoft&#39;, &#39;google&#39;, &#39;cherry&#39;}
 </pre></div>
 </div>
 </div>
@@ -916,7 +916,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;microsoft&#39;, &#39;google&#39;, &#39;banana&#39;, &#39;cherry&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;microsoft&#39;, &#39;google&#39;, &#39;cherry&#39;}
 </pre></div>
 </div>
 </div>
