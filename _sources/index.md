@@ -16,6 +16,18 @@ _[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_  
 **Last day** to submit the two required **reflections** for this course is the last day of class: Tuesday, April 23rd by 11:59 PM.
 ```
 
+```{important}
+**[Written Assigment 4](https://docs.google.com/document/d/1P_MGH7yveQICcZqCmyjPdkpHx7b52JJPreTadTBoPdU/edit?usp=sharing)** is due on **April 4th** at **11:59 PM**. 
+```
+
+```{important}
+**[Programming Assigment 8](https://colab.research.google.com/drive/1HsMQ30kpNtRodwGeQHQYrZSJv9wnJmp2?usp=sharing)** is due on **April 5th** at **2:30 PM**. 
+```
+
+
+```{important}
+An optional **Exam 3** is scheduled for **Thursday, April 11th** from **2:30 to 4:30 PM** in **(Riley 204)**. 
+```
 
 ```{note}
 _[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_ event: **Paladin Pitch Competition** – Professional Preparation

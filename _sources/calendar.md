@@ -40,8 +40,8 @@ PA: _Programming Assignment_
 | #     | TOPIC                      | READING | MEETING 1                  | MEETING 2              | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
 |-------|----------------------------|---------|----------------------------|------------------------|-----|-------------------|
 | 9    | Object Oriented Programming 1  |    GGT (Chapter 2)     |    **[OOP](data/oop.ipynb)**    |  **[Built-in Data Types](data/native_structures.ipynb)**  |     | **[PA 6](https://colab.research.google.com/drive/1E6eShaKYR-a5cRevMmwviTHES9uiK5e1?usp=sharing)** | 
-| 10   | Object Oriented Programming 2 |   GGT (Chapter 2)   |   **[User-defined Types](data/oop1.ipynb)**   |  **[Extending Types](data/inheritance.ipynb)**         |     | **[PA 7](https://colab.research.google.com/drive/1tsoLLD6nbdmEPBEvjo4kyUjEZdnhvl_D?usp=sharing)** | 
-| 12      | Stacks and Queues  |  GGT (Chapter 6)       |     **[Stacks and Queues](data/stacks_queues.md)**                  |                        |
+| 10   | Object Oriented Programming 2 |   GGT (Chapter 2)   |   **[User-defined Types](data/oop1.ipynb)**   |  **[Extending Types](data/inheritance.ipynb)**         |   **[Written Assignment 4](https://docs.google.com/document/d/1P_MGH7yveQICcZqCmyjPdkpHx7b52JJPreTadTBoPdU/edit?usp=sharing)**  | **[PA 7](https://colab.research.google.com/drive/1tsoLLD6nbdmEPBEvjo4kyUjEZdnhvl_D?usp=sharing)** | 
+| 12      | Stacks and Queues  |  GGT (Chapter 6)       |     **[Stacks](data/stacks_queues.md)**                  |       **[Queues](data/queue.md)**     |            | **[Programming Assignment 8](https://colab.research.google.com/drive/1HsMQ30kpNtRodwGeQHQYrZSJv9wnJmp2?usp=sharing)**
 | 13      | Linked Lists  |                            |                        |
 | 14      | Hash Maps  |                            |                        |
 

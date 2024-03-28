@@ -540,10 +540,6 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The methods <code class="docutils literal notranslate"><span class="pre">is_empty</span></code> and <code class="docutils literal notranslate"><span class="pre">remove</span></code> are identical to the <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> methods <code class="docutils literal notranslate"><span class="pre">is_empty</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_first</span></code>. The <code class="docutils literal notranslate"><span class="pre">insert</span></code> method is new and a bit more complicated.</p>
-<p>We want to insert new items at the end of the list. If the queue is empty, we just set <code class="docutils literal notranslate"><span class="pre">head</span></code> to refer to the new node.</p>
-<p>Otherwise, we traverse the list to the last node and tack the new node on the end. We can identify the last node because its <code class="docutils literal notranslate"><span class="pre">next</span></code> attribute is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>There are two invariants for a properly formed <code class="docutils literal notranslate"><span class="pre">Queue</span></code> object. The value of <code class="docutils literal notranslate"><span class="pre">length</span></code> should be the number of nodes in the queue, and the last node should have <code class="docutils literal notranslate"><span class="pre">next</span></code> equal to <code class="docutils literal notranslate"><span class="pre">None</span></code>. Convince yourself that this method preserves both invariants.</p>
 </section>
 <section id="space-and-time-complexity">
 <h2><span class="section-number">7.2.6. </span>Space and Time Complexity<a class="headerlink" href="#space-and-time-complexity" title="Permalink to this headline">#</a></h2>

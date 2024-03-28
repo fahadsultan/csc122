@@ -439,11 +439,11 @@ document.write(`
 <h1><span class="section-number">7.1. </span>Stacks<a class="headerlink" href="#stacks" title="Permalink to this headline">#</a></h1>
 <img src="https://i.ibb.co/kmD7VBq/stacks.png" align="right" width="40%">
 <p>A stack is a collection of objects set on top of each other.</p>
-<p>Note that this organization imposes constraints on the order in which objects can be removed. The last object placed on the stack is the first one to be removed. This is known as the <strong>Last-In-First-Out (LIFO) order</strong>.</p>
+<p>Note that this organization imposes constraints on the order in which objects can be added or removed. That is, the last object placed on the stack is the first one to be removed. This is known as the <strong>Last-In-First-Out (LIFO) order</strong>.</p>
 <p>Stacks are integral to computer science. They are used to store and manage function calls, to implement certain types of algorithms, and to manage memory.</p>
 <section id="operations">
 <h2><span class="section-number">7.1.1. </span>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">#</a></h2>
-<p>Stacks are in essence defined by the operations they support. These operations are:</p>
+<p>Stacks, in essence, are defined by the operations they support. These operations are:</p>
 <center>
 <img src="https://cdn.programiz.com/sites/tutorial2program/files/stack.png" width="80%">
 </center>
@@ -473,23 +473,26 @@ This operation is also known as <code class="docutils literal notranslate"><span
 <center><img src="https://fullyunderstood.com/wp-content/uploads/2020/02/stack.gif" width="70%"></center>
 <p>Equally important to the operations that a stack supports is the operations that it does not support.</p>
 <p>In other words, stacks do not support:</p>
-<ul class="simple">
-<li><p>❌ Read elements at arbitrary positions. <br />
-✅ You can only access the element at the <em>top of the stack</em> using the <code class="docutils literal notranslate"><span class="pre">peek</span></code> operation.</p></li>
-</ul>
+<p>❌ Reading, inserting and removing elements from/at <strong>arbitrary positions</strong>. <br />
+✅ You can access, insert or remove the element at the <strong><em>top of the stack only</em></strong>.</p>
+<!-- using the `peek` operation.
+
 <br/>
-<ul class="simple">
-<li><p>❌ Insert elements at arbitrary positions. <br />
-✅ You can only insert elements at the <em>top of the stack</em> using the <code class="docutils literal notranslate"><span class="pre">push</span></code> operation.</p></li>
-</ul>
+
+* ❌ Insert elements at arbitrary positions. \
+✅ You can only insert elements at the _top of the stack_ using the `push` operation.
+
 <br/>
-<ul class="simple">
-<li><p>❌ Remove elements from arbitrary positions. <br />
-✅ You can only remove elements from the <em>top of the stack</em> using the <code class="docutils literal notranslate"><span class="pre">pop</span></code> operation.</p></li>
-</ul>
+
+* ❌ Remove elements from arbitrary positions. \
+✅ You can only remove elements from the _top of the stack_ using the `pop` operation.
+
+
 <br/>
-<p>Whether you are adding, removing, or accessing elements, you can only interact with the top of the stack.</p>
-<br/></section>
+
+Whether you are adding, removing, or accessing elements, you can only interact with the top of the stack. 
+
+<br/> --></section>
 <section id="application-1-call-stacks">
 <h2><span class="section-number">7.1.2. </span>Application 1: Call Stacks<a class="headerlink" href="#application-1-call-stacks" title="Permalink to this headline">#</a></h2>
 <p>A <strong>Call Stack</strong> is a stack data structure that keeps track of and manages active function (or subroutine or method or procedure) in a computer program at any given time.</p>
@@ -508,7 +511,7 @@ This operation is also known as <code class="docutils literal notranslate"><span
 <p>When a function is called, a new frame is pushed onto the stack. This frame contains information about the function, such as its arguments and local variables.</p>
 <p>When a function returns, the frame is popped off the stack. This allows the program to return to the point where the function was called.</p>
 <center>
-<img src="https://vaibhavguptame.files.wordpress.com/2018/01/callstack.gif?w=1100" width="80%">
+<img src="https://vaibhavguptame.files.wordpress.com/2018/01/callstack.gif?w=1100" width="70%">
 </center></section>
 <section id="stack-trace">
 <h3><span class="section-number">7.1.2.2. </span>Stack Trace<a class="headerlink" href="#stack-trace" title="Permalink to this headline">#</a></h3>
@@ -564,11 +567,12 @@ This operation is also known as <code class="docutils literal notranslate"><span
 </div>
 </div>
 </div>
-<img width="10%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Stack_Overflow_icon.svg/768px-Stack_Overflow_icon.svg.png" align="right">
 </section>
 <section id="stack-overflow">
 <h3><span class="section-number">7.1.2.3. </span>Stack Overflow<a class="headerlink" href="#stack-overflow" title="Permalink to this headline">#</a></h3>
-<p>Stack overflow is a common problem in recursive programs. It occurs when the stack is full and there is no more space to push new function calls. In this notebook, we will also implement a simple stack overflow detection mechanism.</p>
+<p>Stack overflow is a common problem in recursive programs. It occurs when the stack is full and there is no more space to push new function calls.</p>
+<center><img width="25%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Stack_Overflow_icon.svg/768px-Stack_Overflow_icon.svg.png" ></center>
+<p>This can happen if a recursive function calls itself too many times, or if the function has a large number of local variables. When a stack overflow occurs, the program will crash with a “stack overflow” error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
