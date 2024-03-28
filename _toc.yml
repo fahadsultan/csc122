@@ -48,7 +48,6 @@ parts:
         - file: functions/head_tail
         - file: functions/tree_recursion
         # - file: functions/tree_recursion2
-        - file: functions/stacks
     # - file: algos/dynamic
   # - caption: Basic Elements of Programming
   #   numbered: true
@@ -109,9 +108,10 @@ parts:
       # - file: data/dictionaries
     # - file: tmp/structs
     - file: data/stacks_queues
-      # sections:
+      sections:
+        - file: functions/stacks
       #   - file: data/stack
-      #   - file: data/queue
+        - file: data/queue
     - file: data/linkedlists
     - file: data/hashmaps
     - file: functions/filesmodules
