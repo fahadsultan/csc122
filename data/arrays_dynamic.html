@@ -1,0 +1,770 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>8.2. Dynamic Arrays and Amortization &#8212; Data Structures and Algorithms</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data/arrays_dynamic';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. Linked Lists" href="linkedlists.html" />
+    <link rel="prev" title="8.1. Low-Level Arrays" href="arrays_lowlevel.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    CSC-122 Data Structures & Algorithms (Spring 2024)
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Calendar</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../syllabus/index.html">Syllabus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/pathways.html">Purposeful Pathways (Spring ‘24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/textbook.html">Textbooks &amp; Other Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/mental_health.html">Mental Health Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/academic_success.html">Center for Academic Success</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/accomodations.html">Accomodations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/integrity.html">Academic Integrity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../syllabus/title_9.html">Nondiscrimination Policy and Sexual Misconduct</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes (Algorithms)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/time.html">1.4. Time Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/space.html">1.5. Space Complexity</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/brute.html">2. Brute Force</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/search_linear.html">2.1. Linear Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/bogo.html">2.2. Bogosort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/decrease_conquer.html">3. Decrease and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_selection.html">3.1. Selection Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_insertion.html">3.2. Insertion Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algos/divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algos/search_binary.html">4.1. Binary Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_merge_iter.html">4.2. Merge Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algos/sort_quick_iter.html">4.3. Quick Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../functions/recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/head_tail.html">5.4. Linear Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/tree_recursion.html">5.5. Tree Recursion</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="oop.html">6. Object-Oriented Programming</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="native_structures.html">6.1. Native Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop1.html">6.2. User-defined Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inheritance.html">6.3. Extending Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operator_overloading.html">6.4. Extending Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="stacks_queues.html">7. Stacks and Queues</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/stacks.html">7.1. Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queue.html">7.2. Queues</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="arrays.html">8. Arrays</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="arrays_lowlevel.html">8.1. Low-Level Arrays</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.2. Dynamic Arrays and Amortization</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="linkedlists.html">9. Linked Lists</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_singly.html">9.3. Singly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_doubly.html">9.4. Doubly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_circular.html">9.5. Circular Linked Lists</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdata/arrays_dynamic.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/data/arrays_dynamic.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dynamic Arrays and Amortization</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-dynamic-array">8.2.1. Implementing a Dynamic Array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amortized-analysis-of-dynamic-arrays">8.2.2. Amortized Analysis of Dynamic Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-increase-in-capacity">8.2.2.1. Geometric Increase in Capacity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beware-of-arithmetic-progression">8.2.2.2. Beware of Arithmetic Progression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-2-fixed-increment-rightarrow-n-2">8.2.2.3. Proposition 2: Fixed increment <span class="math notranslate nohighlight">\(\rightarrow Ω(n^2)\)</span></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="dynamic-arrays-and-amortization">
+<h1><span class="section-number">8.2. </span>Dynamic Arrays and Amortization<a class="headerlink" href="#dynamic-arrays-and-amortization" title="Permalink to this headline">#</a></h1>
+<p>When creating a low-level array in a computer system, the precise size of that array must be explicitly declared in order for the system to properly allocate a consecutive piece of memory for its storage. For example, Figure 5.11 displays an array of 12 bytes that might be stored in memory locations 2146 through 2157.</p>
+<figure class="align-center" id="figure-5-11">
+<a class="reference internal image-reference" href="https://i.ibb.co/ggpDSqz/array12.png"><img alt="https://i.ibb.co/ggpDSqz/array12.png" src="https://i.ibb.co/ggpDSqz/array12.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8.12 </span><span class="caption-text">An array of 12 bytes allocated in memory locations 2146 through 2157</span><a class="headerlink" href="#figure-5-11" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Because the system might dedicate neighboring memory locations to store other data, the capacity of an array cannot trivially be increased by expanding into sub- sequent cells. In the context of representing a Python tuple or str instance, this constraint is no problem. Instances of those classes are immutable, so the correct size for an underlying array can be fixed when the object is instantiated.</p>
+<p>Python’s list class presents a more interesting abstraction. Although a list has a particular length when constructed, the class allows us to add elements to the list, with no apparent limit on the overall capacity of the list. To provide this abstraction, Python relies on an algorithmic sleight of hand known as a <strong>dynamic array</strong>.</p>
+<p>The first key to providing the semantics of a dynamic array is that a list instance maintains an underlying array that often has greater capacity than the current length of the list. For example, while a user may have created a list with five elements, the system may have reserved an underlying array capable of storing eight object references (rather than only five). This extra capacity makes it easy to append a new element to the list by using the next available cell of the array.</p>
+<p>If a user continues to append elements to a list, any reserved capacity will eventually be exhausted. In that case, the class requests a new, larger array from the system, and initializes the new array so that its prefix matches that of the existing smaller array. At that point in time, the old array is no longer needed, so it is reclaimed by the system. Intuitively, this strategy is much like that of the hermit crab, which moves into a larger shell when it outgrows its previous one.</p>
+<p>We give empirical evidence that Python’s list class is based upon such a strategy. The source code for our experiment is displayed in Code Fragment 5.1, and a sample output of that program is given in Code Fragment 5.2. We rely on a function named <code class="docutils literal notranslate"><span class="pre">getsizeof</span></code> that is available from the <code class="docutils literal notranslate"><span class="pre">sys</span></code> module. This function reports the number of bytes that are being used to store an object in Python. For a list, it reports the number of bytes devoted to the array and other instance variables of the list, but not any space devoted to elements referenced by the list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>  <span class="c1"># provides getsizeof function</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">27</span>
+<span class="n">data</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>          <span class="c1"># note: must fix choice of n </span>
+    <span class="n">a</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>           <span class="c1"># number of elements</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1"># actual size in bytes </span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length: </span><span class="si">{0:3d}</span><span class="s1">; Size in bytes: </span><span class="si">{1:4d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>       <span class="c1"># increase length by one</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Length:   0; Size in bytes:   56
+Length:   1; Size in bytes:   88
+Length:   2; Size in bytes:   88
+Length:   3; Size in bytes:   88
+Length:   4; Size in bytes:   88
+Length:   5; Size in bytes:  120
+Length:   6; Size in bytes:  120
+Length:   7; Size in bytes:  120
+Length:   8; Size in bytes:  120
+Length:   9; Size in bytes:  184
+Length:  10; Size in bytes:  184
+Length:  11; Size in bytes:  184
+Length:  12; Size in bytes:  184
+Length:  13; Size in bytes:  184
+Length:  14; Size in bytes:  184
+Length:  15; Size in bytes:  184
+Length:  16; Size in bytes:  184
+Length:  17; Size in bytes:  248
+Length:  18; Size in bytes:  248
+Length:  19; Size in bytes:  248
+Length:  20; Size in bytes:  248
+Length:  21; Size in bytes:  248
+Length:  22; Size in bytes:  248
+Length:  23; Size in bytes:  248
+Length:  24; Size in bytes:  248
+Length:  25; Size in bytes:  312
+Length:  26; Size in bytes:  312
+</pre></div>
+</div>
+</div>
+</div>
+<p>In evaluating the results of the experiment, we draw attention to the first line of output from Code Fragment 5.2. We see that an empty list instance already requires a certain number of bytes of memory (72 on our system). In fact, each object in Python maintains some state, for example, a reference to denote the class to which it belongs. Although we cannot directly access private instance variables for a list, we can speculate that in some form it maintains state information akin to:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_n</span></code>: The number of actual elements currently stored in the list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_capacity</span></code>: The maximum number of elements that could be stored in the currently allocated array.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_A</span></code>: The reference to the currently allocated array (initially <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+</ul>
+<p>As soon as the first element is inserted into the list, we detect a change in the underlying size of the structure. In particular, we see the number of bytes jump from 72 to 104, an increase of exactly 32 bytes. Our experiment was run on a 64-bit machine architecture, meaning that each memory address is a 64-bit number (i.e., 8 bytes). We speculate that the increase of 32 bytes reflects the allocation of an underlying array capable of storing four object references. This hypothesis is consistent with the fact that we do not see any underlying change in the memory usage after inserting the second, third, or fourth element into the list.</p>
+<p>After the fifth element has been added to the list, we see the memory usage jump from 104 bytes to 136 bytes. If we assume the original base usage of 72 bytes for the list, the total of 136 suggests an additional 64 = 8 × 8 bytes that provide capacity for up to eight object references. Again, this is consistent with the experiment, as the memory usage does not increase again until the ninth insertion. At that point, the 200 bytes can be viewed as the original 72 plus an additional 128-byte array to store 16 object references. The 17th insertion pushes the overall memory usage to 272 = 72 + 200 = 72 + 25 × 8, hence enough to store up to 25 element references</p>
+<p>Because a list is a referential structure, the result of getsizeof for a list instance only includes the size for representing its primary structure; it does not account for memory used by the objects that are elements of the list. In our experiment, we repeatedly append None to the list, because we do not care about the contents, but we could append any type of object without affecting the number of bytes reported by getsizeof(data).</p>
+<p>If we were to continue such an experiment for further iterations, we might try to discern the pattern for how large of an array Python creates each time the ca- pacity of the previous array is exhausted (see Exercises R-5.2 and C-5.13). Before exploring the precise sequence of capacities used by Python, we continue in this section by describing a general approach for implementing dynamic arrays and for performing an asymptotic analysis of their performance.</p>
+<section id="implementing-a-dynamic-array">
+<h2><span class="section-number">8.2.1. </span>Implementing a Dynamic Array<a class="headerlink" href="#implementing-a-dynamic-array" title="Permalink to this headline">#</a></h2>
+<p>Although the Python <code class="docutils literal notranslate"><span class="pre">list</span></code> class provides a highly optimized implementation of dynamic arrays, it is instructive to see how such a class might be implemented.</p>
+<p>The key is to provide means to grow the array <code class="docutils literal notranslate"><span class="pre">A</span></code> that stores the elements of a list. Of course, we cannot actually grow that array, as its capacity is fixed. If an element is appended to a list at a time when the underlying array is full, we perform the following steps:</p>
+<ol class="arabic simple">
+<li><p>Allocate a new array <code class="docutils literal notranslate"><span class="pre">B</span></code> with larger capacity.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">B[i]</span> <span class="pre">=</span> <span class="pre">A[i]</span></code>, for <span class="math notranslate nohighlight">\(i = 0,...,n−1\)</span>, where n denotes current number of items.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">B</span></code>, that is, we henceforth use <code class="docutils literal notranslate"><span class="pre">B</span></code> as the array supporting the list.</p></li>
+<li><p>Insert the new element in the new array.</p></li>
+</ol>
+<figure class="align-center" id="figure-5-12">
+<a class="reference internal image-reference" href="https://i.ibb.co/gdktfcN/array13.png"><img alt="https://i.ibb.co/gdktfcN/array13.png" src="https://i.ibb.co/gdktfcN/array13.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8.13 </span><span class="caption-text">An illustration of the three steps for “growing” a dynamic array: (a) create new array <code class="docutils literal notranslate"><span class="pre">B</span></code>; (b) store elements of <code class="docutils literal notranslate"><span class="pre">A</span></code> in <code class="docutils literal notranslate"><span class="pre">B</span></code>; (c) reassign reference A to the new array. Not shown is the future garbage collection of the old array, or the insertion of the new element.</span><a class="headerlink" href="#figure-5-12" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The remaining issue to consider is how large of a new array to create. A com- monly used rule is for the new array to have twice the capacity of the existing array that has been filled.</p>
+<p>The code cell below offers a concrete implementation of dynamic arrays in Python. Our <code class="docutils literal notranslate"><span class="pre">DynamicArray</span></code> class is designed using ideas described in this section. While consistent with the interface of a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> class, we provide only limited functionality in the form of an <code class="docutils literal notranslate"><span class="pre">append</span></code> method, and accessors <code class="docutils literal notranslate"><span class="pre">__len__</span></code> and <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>. Support for creating low-level arrays is provided by a module named <code class="docutils literal notranslate"><span class="pre">ctypes</span></code>. Because we will not typically use such a low-level structure in the remain- der of this book, we omit a detailed explanation of the <code class="docutils literal notranslate"><span class="pre">ctypes</span></code> module. Instead, we wrap the necessary command for declaring the raw array within a private utility method <code class="docutils literal notranslate"><span class="pre">_make_array</span></code>. The hallmark expansion procedure is performed in our nonpublic <code class="docutils literal notranslate"><span class="pre">_resize</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctypes</span> 
+
+<span class="k">class</span> <span class="nc">DynamicArray</span><span class="p">:</span> 
+    <span class="sd">&#39;&#39;&#39;A dynamic array class akin to a simplified Python list.&#39;&#39;&#39;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Create an empty array.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n</span> <span class="o">=</span> <span class="mi">0</span>                                    <span class="c1"># count actual elements</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span> <span class="o">=</span> <span class="mi">1</span>                             <span class="c1"># default array capacity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_A</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span><span class="p">)</span>     <span class="c1"># low-level array</span>
+        
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return number of elements stored in the array.&#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n</span>
+    
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return element at index k.&#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s1">&#39;invalid index&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>                              <span class="c1"># retrieve from array</span>
+    
+    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Add object to end of the array.&#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span><span class="p">:</span>                  <span class="c1"># not enough room</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_resize</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span><span class="p">)</span>           <span class="c1"># so double capacity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_n</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+    <span class="k">def</span> <span class="nf">_resize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>                              <span class="c1"># nonpublic utitity</span>
+        <span class="sd">&#39;&#39;&#39;Resize internal array to capacity c.&#39;&#39;&#39;</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_array</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>                        <span class="c1"># new (bigger) array</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n</span><span class="p">):</span>                       <span class="c1"># for each existing value</span>
+            <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_A</span> <span class="o">=</span> <span class="n">B</span>                                    <span class="c1"># use the bigger array</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span> <span class="o">=</span> <span class="n">c</span>
+        
+    <span class="k">def</span> <span class="nf">_make_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>                          <span class="c1"># nonpublic utitity</span>
+        <span class="sd">&#39;&#39;&#39;Return new array with capacity c.&#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">py_object</span><span class="p">)()</span>                <span class="c1"># see ctypes documentation</span>
+    
+    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Insert value at index k, shifting subsequent values rightward.&#39;&#39;&#39;</span>
+        <span class="c1"># (for simplicity, we assume 0 &lt;= k &lt;= n in this verion)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span><span class="p">:</span>                  <span class="c1"># not enough room</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_resize</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span><span class="p">)</span>           <span class="c1"># so double capacity</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>                <span class="c1"># shift rightmost first</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_A</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>                             <span class="c1"># store newest element</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Remove first occurrence of value (or raise ValueError).&#39;&#39;&#39;</span>
+        <span class="c1"># (for simplicity, we do not consider shrinking the dynamic array in this version)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="amortized-analysis-of-dynamic-arrays">
+<h2><span class="section-number">8.2.2. </span>Amortized Analysis of Dynamic Arrays<a class="headerlink" href="#amortized-analysis-of-dynamic-arrays" title="Permalink to this headline">#</a></h2>
+<p>In this section, we perform a detailed analysis of the running time of operations on dynamic arrays. We use the big-Omega notation introduced in Section 3.3.1 to give an asymptotic lower bound on the running time of an algorithm or step within it.</p>
+<p>The strategy of replacing an array with a new, larger array might at first seem slow, because a single append operation may require <code class="docutils literal notranslate"><span class="pre">Ω(n)</span></code> time to perform, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the current number of elements in the array. However, notice that by doubling the capacity during an array replacement, our new array allows us to add <code class="docutils literal notranslate"><span class="pre">n</span></code> new elements before the array must be replaced again. In this way, there are many simple <code class="docutils literal notranslate"><span class="pre">append</span></code> operations for each expensive one (see Figure 5.13). This fact allows us to show that performing a series of operations on an initially empty dynamic array is efficient in terms of its total running time.</p>
+<p>Using an algorithmic design pattern called amortization, we can show that per- forming a sequence of such append operations on a dynamic array is actually quite efficient.</p>
+<figure class="align-center" id="figure-5-13">
+<a class="reference internal image-reference" href="https://i.ibb.co/KL5QG1q/array14.png"><img alt="https://i.ibb.co/KL5QG1q/array14.png" src="https://i.ibb.co/KL5QG1q/array14.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8.14 </span><span class="caption-text">Running times of a series of append operations on a dynamic array.</span><a class="headerlink" href="#figure-5-13" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Let S be a sequence implemented by means of a dynamic array with initial capacity one, using the strategy of doubling the array size when full. The total time to perform a series of n append operations in S, starting from S being empty, is O(n).</p>
+<p>The proof of this result is based on the following observations:</p>
+<ol class="arabic simple">
+<li><p>The first append operation takes O(1) time.</p></li>
+<li><p>The next two append operations take O(1) time each.</p></li>
+<li><p>The next four append operations take O(1) time each.</p></li>
+<li><p>The next eight append operations take O(1) time each.</p></li>
+<li><p>The next sixteen append operations take O(1) time each.</p></li>
+<li><p>The next thirty-two append operations take O(1) time each.</p></li>
+</ol>
+<p>In general, the next <span class="math notranslate nohighlight">\(2^i\)</span> append operations take O(1) time each, for <span class="math notranslate nohighlight">\(i = 0, 1, 2, ...\)</span>. The total time to perform the first <span class="math notranslate nohighlight">\(2^i\)</span> append operations is O(<span class="math notranslate nohighlight">\(2^i\)</span>). The total time to perform the first n append operations is the sum of the times to perform the first <span class="math notranslate nohighlight">\(2^i\)</span> append operations for all <span class="math notranslate nohighlight">\(i = 0, 1, 2, ..., k\)</span>, where <span class="math notranslate nohighlight">\(2^k ≤ n &lt; 2^{k+1}\)</span>. This sum is at most <span class="math notranslate nohighlight">\(2^0 + 2^1 + 2^2 + ... + 2^k = 2^{k+1} − 1 = 2n − 1 = O(n)\)</span>.</p>
+<section id="geometric-increase-in-capacity">
+<h3><span class="section-number">8.2.2.1. </span>Geometric Increase in Capacity<a class="headerlink" href="#geometric-increase-in-capacity" title="Permalink to this headline">#</a></h3>
+<p>Although the proof of Proposition 5.1 relies on the array being doubled each time we expand, the O(1) amortized bound per operation can be proven for any geo- metrically increasing progression of array sizes (see Section 2.4.2 for discussion of geometric progressions). When choosing the geometric base, there exists a trade- off between run-time efficiency and memory usage. With a base of 2 (i.e., doubling the array), if the last insertion causes a resize event, the array essentially ends up twice as large as it needs to be. If we instead increase the array by only 25% of its current size (i.e., a geometric base of 1.25), we do not risk wasting as much memory in the end, but there will be more intermediate resize events along the way. Still it is possible to prove an O(1) amortized bound, using a constant factor greater than the 3 cyber-dollars per operation used in the proof of Proposition 5.1 (see Exercise C-5.15). The key to the performance is that the amount of additional space is proportional to the current size of the array.</p>
+</section>
+<section id="beware-of-arithmetic-progression">
+<h3><span class="section-number">8.2.2.2. </span>Beware of Arithmetic Progression<a class="headerlink" href="#beware-of-arithmetic-progression" title="Permalink to this headline">#</a></h3>
+<p>To avoid reserving too much space at once, it might be tempting to implement a dynamic array with a strategy in which a constant number of additional cells are reserved each time an array is resized. Unfortunately, the overall performance of such a strategy is significantly worse. At an extreme, an increase of only one cell causes each append operation to resize the array, leading to a familiar 1 + 2 + 3 + ···+n summation and Ω(n2) overall cost. Using increases of 2 or 3 at a time is slightly better, as portrayed in Figure 5.13, but the overall cost remains quadratic.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="https://i.ibb.co/Rgq1THy/array15.png"><img alt="https://i.ibb.co/Rgq1THy/array15.png" src="https://i.ibb.co/Rgq1THy/array15.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8.15 </span><span class="caption-text">Running times of a series of append operations on a dynamic array
+using arithmetic progression of sizes. (a) Assumes increase of 2 in size of the array, while (b) assumes increase of 3.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Using a fixed increment for each resize, and thus an arithmetic progression of intermediate array sizes, results in an overall time that is quadratic in the number of operations, as shown in the following proposition. Intuitively, even an increase in 1000 cells per resize will become insignificant for large data sets.</p>
+</section>
+<section id="proposition-2-fixed-increment-rightarrow-n-2">
+<h3><span class="section-number">8.2.2.3. </span>Proposition 2: Fixed increment <span class="math notranslate nohighlight">\(\rightarrow Ω(n^2)\)</span><a class="headerlink" href="#proposition-2-fixed-increment-rightarrow-n-2" title="Permalink to this headline">#</a></h3>
+<p>Performing a series of n append operations on an initially empty dynamic array using a fixed increment with each resize takes <span class="math notranslate nohighlight">\(Ω(n^2)\)</span> time.</p>
+<p>The proof of this result is based on the following observations:</p>
+<p>Let <span class="math notranslate nohighlight">\(c &gt; 0\)</span> represent the fixed increment in capacity that is used for each resize event. During the series of <span class="math notranslate nohighlight">\(n\)</span> append operations, time will have been spent initializing arrays of size <span class="math notranslate nohighlight">\(c,2c,3c,...,mc\)</span> for <span class="math notranslate nohighlight">\(m = \lceil{n}/c\rceil\)</span>, and therefore, the overall time would be proportional to <span class="math notranslate nohighlight">\(c + 2c + 3c + · · · + mc\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^{m} ci = c \sum_{i=1}^{m} i = c \frac{m(m+1)}{2} \geq c \frac{\frac{n}{c}(\frac{n}{c} + 1)}{2}  \geq \frac{n^2}{2c} \]</div>
+<p>Therefore, performing the n append operations takes <span class="math notranslate nohighlight">\(Ω(n^2)\)</span> time.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="arrays_lowlevel.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8.1. </span>Low-Level Arrays</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="linkedlists.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Linked Lists</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-dynamic-array">8.2.1. Implementing a Dynamic Array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amortized-analysis-of-dynamic-arrays">8.2.2. Amortized Analysis of Dynamic Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-increase-in-capacity">8.2.2.1. Geometric Increase in Capacity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beware-of-arithmetic-progression">8.2.2.2. Beware of Arithmetic Progression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-2-fixed-increment-rightarrow-n-2">8.2.2.3. Proposition 2: Fixed increment <span class="math notranslate nohighlight">\(\rightarrow Ω(n^2)\)</span></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Syed Fahad Sultan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

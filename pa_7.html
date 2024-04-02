@@ -215,8 +215,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="data/queue.html">7.2. Queues</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data/linkedlists.html">8. Linked Lists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data/hashmaps.html">9. Hash Maps</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="data/arrays.html">8. Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/arrays_lowlevel.html">8.1. Low-Level Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/arrays_dynamic.html">8.2. Dynamic Arrays and Amortization</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="data/linkedlists.html">9. Linked Lists</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/linkedlists_singly.html">9.3. Singly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/linkedlists_doubly.html">9.4. Doubly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/linkedlists_circular.html">9.5. Circular Linked Lists</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="functions/filesmodules.html">10. Files and Modules</a></li>
 </ul>
 
@@ -444,6 +453,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><strong>Methods</strong>:</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-queue">Implement Queue</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-stacks-using-queues">Implement Stacks using Queues</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#design-browser-history">Design Browser History</a></li>
 </ul>
 
             </nav>
@@ -832,6 +844,73 @@ document.write(`
 <p>Test your code using the following code cell:</p>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="implement-queue">
+<h1>Implement Queue<a class="headerlink" href="#implement-queue" title="Permalink to this headline">#</a></h1>
+<p>Implement a <strong>first-in-first-out (FIFO) queue</strong>. The implemented queue should support all the functions of a normal queue:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">enqueue(x)</span></code> - Add an element x to the end of the queue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dequeue()</span></code> - Remove the element from the front of the queue and return it. Raise an exception if the queue is empty.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peek()</span></code> - Return the element at the front of the queue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">empty()</span></code> - Return true if the queue is empty, false otherwise.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size()</span></code> - Return the current size of the queue.</p></li>
+</ul>
+<p>You must use only standard operations of a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Queue</span><span class="p">:</span> 
+    
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
+    
+        <span class="k">def</span> <span class="nf">enqueue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    
+        <span class="k">def</span> <span class="nf">dequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Queue is empty&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+        <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    
+        <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="implement-stacks-using-queues">
+<h1>Implement Stacks using Queues<a class="headerlink" href="#implement-stacks-using-queues" title="Permalink to this headline">#</a></h1>
+<p>Implement a <strong>last-in-first-out (LIFO) stack</strong> using only <strong>queues</strong>. The implemented stack should support all the functions of a normal stack (push, top, pop, and empty).</p>
+<p>Implement the <code class="docutils literal notranslate"><span class="pre">MyStack</span></code> class:</p>
+<ul class="simple">
+<li><p>void <code class="docutils literal notranslate"><span class="pre">push(int</span> <span class="pre">x)</span></code> Pushes element x to the top of the stack.</p></li>
+<li><p>int pop() Removes the element on the top of the stack and returns it.</p></li>
+<li><p>int top() Returns the element on the top of the stack.</p></li>
+<li><p>boolean empty() Returns true if the stack is empty, false otherwise.</p></li>
+</ul>
+<p>You must use only standard operations of a queue, which means that only push to back, peek/pop from front, size and is empty operations are valid.
+Depending on your language, the queue may not be supported natively. You may simulate a queue using a list or deque (double-ended queue) as long as you use only a queue’s standard operations.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="design-browser-history">
+<h1>Design Browser History<a class="headerlink" href="#design-browser-history" title="Permalink to this headline">#</a></h1>
+<p>You have a <strong>browser</strong> of one tab where you start on the <code class="docutils literal notranslate"><span class="pre">homepage</span></code> and you can visit another <code class="docutils literal notranslate"><span class="pre">url</span></code>, get back in the history number of <code class="docutils literal notranslate"><span class="pre">steps</span></code> or move forward in the history number of <code class="docutils literal notranslate"><span class="pre">steps</span></code>.</p>
+<p>Implement the <code class="docutils literal notranslate"><span class="pre">BrowserHistory</span></code> class:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BrowserHistory(string</span> <span class="pre">homepage)</span></code> Initializes the object with the <code class="docutils literal notranslate"><span class="pre">homepage</span></code> of the browser.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">visit(string</span> <span class="pre">url)</span></code> Visits <code class="docutils literal notranslate"><span class="pre">url</span></code> from the current page. It clears up all the forward history.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">back(int</span> <span class="pre">steps)</span></code> Move <code class="docutils literal notranslate"><span class="pre">steps</span></code> back in history. If you can only return x steps in the history and <code class="docutils literal notranslate"><span class="pre">steps</span> <span class="pre">&gt;</span> <span class="pre">x</span></code>, you will return only x steps. Return the current url after moving back in history at most steps.
+string forward(int steps) Move steps forward in history. If you can only forward x steps in the history and steps &gt; x, you will forward only x steps. Return the current url after forwarding in history at most steps.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -915,6 +994,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><strong>Methods</strong>:</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-queue">Implement Queue</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-stacks-using-queues">Implement Stacks using Queues</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#design-browser-history">Design Browser History</a></li>
 </ul>
 
   </nav></div>
