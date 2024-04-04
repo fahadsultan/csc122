@@ -112,16 +112,16 @@ parts:
         - file: functions/stacks
       #   - file: data/stack
         - file: data/queue
-    - file: data/arrays
-      sections:
-      - file: data/arrays_lowlevel
-      - file: data/arrays_dynamic
     - file: data/linkedlists
       sections:
       - file: data/linkedlists_singly
       - file: data/linkedlists_doubly
       - file: data/linkedlists_circular
     # - file: data/hashmaps
+    - file: data/arrays
+      sections:
+      - file: data/arrays_static
+      - file: data/arrays_dynamic
     - file: functions/filesmodules
   # - caption: 
   #   numbered: false
