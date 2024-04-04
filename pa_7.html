@@ -216,8 +216,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="data/arrays.html">8. Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="data/arrays_lowlevel.html">8.1. Low-Level Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data/arrays_dynamic.html">8.2. Dynamic Arrays and Amortization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/arrays_static.html">8.2. Static Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/arrays_dynamic.html">8.3. Dynamic Arrays</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="data/linkedlists.html">9. Linked Lists</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -875,6 +875,31 @@ document.write(`
     
         <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">)</span>
+        
+<span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+
+<span class="n">q</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">q</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>     <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="k">assert</span> <span class="n">q</span><span class="o">.</span><span class="n">dequeue</span><span class="p">()</span>  <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="k">assert</span> <span class="n">q</span><span class="o">.</span><span class="n">dequeue</span><span class="p">()</span>  <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Test case 3 failed&quot;</span>
+<span class="k">assert</span> <span class="n">q</span><span class="o">.</span><span class="n">dequeue</span><span class="p">()</span>  <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Test case 4 failed&quot;</span>
+<span class="k">assert</span> <span class="n">q</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Test case 5 failed&quot;</span>
+
+<span class="k">try</span><span class="p">:</span> 
+    <span class="n">q</span><span class="o">.</span><span class="n">dequeue</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="s2">&quot;Test case 6 failed&quot;</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All test cases passed :)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All test cases passed :)
 </pre></div>
 </div>
 </div>
@@ -885,13 +910,66 @@ document.write(`
 <p>Implement a <strong>last-in-first-out (LIFO) stack</strong> using only <strong>queues</strong>. The implemented stack should support all the functions of a normal stack (push, top, pop, and empty).</p>
 <p>Implement the <code class="docutils literal notranslate"><span class="pre">MyStack</span></code> class:</p>
 <ul class="simple">
-<li><p>void <code class="docutils literal notranslate"><span class="pre">push(int</span> <span class="pre">x)</span></code> Pushes element x to the top of the stack.</p></li>
-<li><p>int pop() Removes the element on the top of the stack and returns it.</p></li>
-<li><p>int top() Returns the element on the top of the stack.</p></li>
-<li><p>boolean empty() Returns true if the stack is empty, false otherwise.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">push(x)</span></code> Pushes element x to the top of the stack.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pop()</span></code> Removes the element on the top of the stack and returns it. Raise an exception if the stack is empty.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">top()</span></code> Returns the element on the top of the stack.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">empty()</span></code> Returns true if the stack is empty, false otherwise.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size()</span></code> Returns the current size of the stack.</p></li>
 </ul>
-<p>You must use only standard operations of a queue, which means that only push to back, peek/pop from front, size and is empty operations are valid.
-Depending on your language, the queue may not be supported natively. You may simulate a queue using a list or deque (double-ended queue) as long as you use only a queue’s standard operations.</p>
+<p>You must use only standard operations of a queue, which means that only push to back, peek/pop from front, size and is empty operations are valid.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyStack</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue1</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue2</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue1</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue1</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Stack is empty&quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue1</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">queue2</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue1</span><span class="o">.</span><span class="n">dequeue</span><span class="p">())</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue1</span><span class="o">.</span><span class="n">dequeue</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue1</span>
+        <span class="k">return</span> <span class="n">item</span>
+    
+    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue1</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue1</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+    
+<span class="n">s</span> <span class="o">=</span> <span class="n">MyStack</span><span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>     <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>      <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>      <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Test case 3 failed&quot;</span>
+<span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>      <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Test case 4 failed&quot;</span>
+<span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Test case 5 failed&quot;</span>
+
+<span class="k">try</span><span class="p">:</span> 
+    <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="s2">&quot;Test case 6 failed&quot;</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">pass</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All test cases passed :)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All test cases passed :)
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="design-browser-history">
 <h1>Design Browser History<a class="headerlink" href="#design-browser-history" title="Permalink to this headline">#</a></h1>

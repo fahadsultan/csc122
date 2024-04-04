@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>9.5. Circular Linked Lists &#8212; Data Structures and Algorithms</title>
+    <title>8.5. Circular Linked Lists &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/linkedlists_circular';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10. Files and Modules" href="../functions/filesmodules.html" />
-    <link rel="prev" title="9.4. Doubly Linked Lists" href="linkedlists_doubly.html" />
+    <link rel="next" title="9. Arrays" href="arrays.html" />
+    <link rel="prev" title="8.4. Doubly Linked Lists" href="linkedlists_doubly.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -217,15 +217,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="queue.html">7.2. Queues</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="arrays.html">8. Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="arrays_lowlevel.html">8.1. Low-Level Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arrays_dynamic.html">8.2. Dynamic Arrays and Amortization</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="linkedlists.html">8. Linked Lists</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_singly.html">8.3. Singly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_doubly.html">8.4. Doubly Linked Lists</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.5. Circular Linked Lists</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="linkedlists.html">9. Linked Lists</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_singly.html">9.3. Singly Linked Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_doubly.html">9.4. Doubly Linked Lists</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">9.5. Circular Linked Lists</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="arrays.html">9. Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="arrays_static.html">9.1. Static Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays_dynamic.html">9.2. Dynamic Arrays</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
@@ -422,18 +422,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embedded-references">9.5.1. Embedded references</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-node-class">9.5.2. The Node class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-as-collections">9.5.3. Lists as collections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-and-recursion">9.5.4. Lists and recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-lists">9.5.5. Infinite lists</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-ambiguity-theorem">9.5.6. The fundamental ambiguity theorem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-lists">9.5.7. Modifying lists</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrappers-and-helpers">9.5.8. Wrappers and helpers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linkedlist-class">9.5.9. The <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invariants">9.5.10. Invariants</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">9.5.11. <em>Glossary</em></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9.5.12. <em>Exercises</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embedded-references">8.5.1. Embedded references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-node-class">8.5.2. The Node class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-as-collections">8.5.3. Lists as collections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-and-recursion">8.5.4. Lists and recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-lists">8.5.5. Infinite lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-ambiguity-theorem">8.5.6. The fundamental ambiguity theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-lists">8.5.7. Modifying lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrappers-and-helpers">8.5.8. Wrappers and helpers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linkedlist-class">8.5.9. The <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invariants">8.5.10. Invariants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">8.5.11. <em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">8.5.12. <em>Exercises</em></a></li>
 </ul>
             </nav>
         </div>
@@ -446,9 +446,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="circular-linked-lists">
-<h1><span class="section-number">9.5. </span>Circular Linked Lists<a class="headerlink" href="#circular-linked-lists" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">8.5. </span>Circular Linked Lists<a class="headerlink" href="#circular-linked-lists" title="Permalink to this headline">#</a></h1>
 <section id="embedded-references">
-<h2><span class="section-number">9.5.1. </span>Embedded references<a class="headerlink" href="#embedded-references" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5.1. </span>Embedded references<a class="headerlink" href="#embedded-references" title="Permalink to this headline">#</a></h2>
 <p>We have seen examples of attributes that refer to other objects, which we called <strong>embedded references</strong>. A common data structure, the <strong>linked list</strong>, takes advantage of this feature.</p>
 <p>Linked lists are made up of <strong>nodes</strong>, where each node contains a reference to the next node in the list. In addition, each node contains a unit of data called the <strong>cargo</strong>.</p>
 <p>A linked list is considered a <strong>recursive data structure</strong> because it has a recursive definition.</p>
@@ -460,7 +460,7 @@ document.write(`
 <p>Recursive data structures lend themselves to recursive methods.</p>
 </section>
 <section id="the-node-class">
-<h2><span class="section-number">9.5.2. </span>The Node class<a class="headerlink" href="#the-node-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5.2. </span>The Node class<a class="headerlink" href="#the-node-class" title="Permalink to this headline">#</a></h2>
 <p>As usual when writing a new class, we’ll start with the initialization and <strong>str</strong> methods so that we can test the basic mechanism of creating and displaying the new type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -543,7 +543,7 @@ document.write(`
 <img src="https://www.cs.swarthmore.edu/courses/CS21Book/_images/link2.png"><p>Now you know how to create nodes and link them together. What might be less clear at this point is <em>why</em>.</p>
 </section>
 <section id="lists-as-collections">
-<h2><span class="section-number">9.5.3. </span>Lists as collections<a class="headerlink" href="#lists-as-collections" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5.3. </span>Lists as collections<a class="headerlink" href="#lists-as-collections" title="Permalink to this headline">#</a></h2>
 <p>Lists are useful because they provide a way to assemble multiple objects into a single entity, sometimes called a <strong>collection</strong>. In the example, the first node of the list serves as a reference to the entire list.</p>
 <p>To pass the list as a parameter, we only have to pass a reference to the first node. For example, the function <code class="docutils literal notranslate"><span class="pre">print_list</span></code> takes a single node as an argument (<code class="docutils literal notranslate"><span class="pre">curr</span></code>, short for <em>current</em>). Assuming that is the head of the list, is <em>accumulates</em> the cargo from each node, printing out the contents of the list at the end:</p>
 <div class="cell docutils container">
@@ -572,7 +572,7 @@ document.write(`
 <img src="https://www.cs.swarthmore.edu/courses/CS21Book/_images/link3.png">
 </section>
 <section id="lists-and-recursion">
-<h2><span class="section-number">9.5.4. </span>Lists and recursion<a class="headerlink" href="#lists-and-recursion" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5.4. </span>Lists and recursion<a class="headerlink" href="#lists-and-recursion" title="Permalink to this headline">#</a></h2>
 <p>t is natural to express many list operations using recursive methods. For example, the following is a recursive algorithm for printing a list backwards:</p>
 <ol class="arabic simple">
 <li><p>Separate the list into two pieces: the first node (called the head); and the rest (called the tail).</p></li>
@@ -612,7 +612,7 @@ document.write(`
 <p>Can we prove that <code class="docutils literal notranslate"><span class="pre">print_backward</span></code> will always terminate? In other words, will it always reach the base case? In fact, the answer is no. Some lists will make this method crash.</p>
 </section>
 <section id="infinite-lists">
-<h2><span class="section-number">9.5.5. </span>Infinite lists<a class="headerlink" href="#infinite-lists" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5.5. </span>Infinite lists<a class="headerlink" href="#infinite-lists" title="Permalink to this headline">#</a></h2>
 <p>There is nothing to prevent a node from referring back to an earlier node in the list, including itself. For example, this figure shows a list with two nodes, one of which refers to itself:</p>
 <img src="https://www.cs.swarthmore.edu/courses/CS21Book/_images/link4.png">
 <p>If we invoke <code class="docutils literal notranslate"><span class="pre">print_list</span></code> on this list, it will loop forever. If we invoke <code class="docutils literal notranslate"><span class="pre">print_backward</span></code>, it will recurse infinitely. This sort of behavior makes infinite lists difficult to work with.</p>
@@ -620,7 +620,7 @@ document.write(`
 <p>Regardless, it is problematic that we cannot prove that <code class="docutils literal notranslate"><span class="pre">print_list</span></code> and <code class="docutils literal notranslate"><span class="pre">print_backward</span></code> terminate. The best we can do is the hypothetical statement, If the list contains no loops, then these methods will terminate. This sort of claim is called a precondition. It imposes a constraint on one of the parameters and describes the behavior of the method if the constraint is satisfied. You will see more examples soon.</p>
 </section>
 <section id="the-fundamental-ambiguity-theorem">
-<h2><span class="section-number">9.5.6. </span>The fundamental ambiguity theorem<a class="headerlink" href="#the-fundamental-ambiguity-theorem" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5.6. </span>The fundamental ambiguity theorem<a class="headerlink" href="#the-fundamental-ambiguity-theorem" title="Permalink to this headline">#</a></h2>
 <p>One part of print_backward might have raised an eyebrow:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -646,7 +646,7 @@ document.write(`
 <p>The <strong>fundamental ambiguity theorem</strong> describes the ambiguity that is inherent in a reference to a node: <em>A variable that refers to a node might treat the node as a single object or as the first in a list of nodes.</em></p>
 </section>
 <section id="modifying-lists">
-<h2><span class="section-number">9.5.7. </span>Modifying lists<a class="headerlink" href="#modifying-lists" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5.7. </span>Modifying lists<a class="headerlink" href="#modifying-lists" title="Permalink to this headline">#</a></h2>
 <p>There are two ways to modify a linked list. Obviously, we can change the cargo of one of the nodes, but the more interesting operations are the ones that add, remove, or reorder the nodes.</p>
 <p>As an example, let’s write a method that removes the second node in the list and returns a reference to the removed node:</p>
 <div class="cell docutils container">
@@ -680,7 +680,7 @@ document.write(`
 <p>What happens if you invoke this method and pass a list with only one element (a <strong>singleton</strong>)? What happens if you pass the empty list as an argument? Is there a precondition for this method? If so, fix the method to handle a violation of the precondition in a reasonable way.</p>
 </section>
 <section id="wrappers-and-helpers">
-<h2><span class="section-number">9.5.8. </span>Wrappers and helpers<a class="headerlink" href="#wrappers-and-helpers" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5.8. </span>Wrappers and helpers<a class="headerlink" href="#wrappers-and-helpers" title="Permalink to this headline">#</a></h2>
 <p>It is often useful to divide a list operation into two methods, as we did above with the helper function. As an addition to that example, printing a list backward in the conventional list format [3, 2, 1] we can simply add code to the <code class="docutils literal notranslate"><span class="pre">print_backward</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -696,7 +696,7 @@ document.write(`
 <p>When we use this method, print_backward acts as a <strong>wrapper</strong>, and it uses print_backward_helper as a <strong>helper</strong>.</p>
 </section>
 <section id="the-linkedlist-class">
-<h2><span class="section-number">9.5.9. </span>The <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> class<a class="headerlink" href="#the-linkedlist-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5.9. </span>The <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> class<a class="headerlink" href="#the-linkedlist-class" title="Permalink to this headline">#</a></h2>
 <p>There are some subtle problems with the way we have been implementing lists. In a reversal of cause and effect, we’ll propose an alternative implementation first and then explain what problems it solves.</p>
 <p>First, we’ll create a new class called <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code>. Its attributes are an integer that contains the length of the list and a reference to the first node. <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> objects serve as handles for manipulating lists of <code class="docutils literal notranslate"><span class="pre">Node</span></code> objects:</p>
 <div class="cell docutils container">
@@ -747,7 +747,7 @@ document.write(`
 <p>As usual, you should check code like this to see if it handles the special cases. For example, what happens if the list is initially empty?</p>
 </section>
 <section id="invariants">
-<h2><span class="section-number">9.5.10. </span>Invariants<a class="headerlink" href="#invariants" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5.10. </span>Invariants<a class="headerlink" href="#invariants" title="Permalink to this headline">#</a></h2>
 <p>Some lists are well formed ; others are not. For example, if a list contains a loop, it will cause many of our methods to crash, so we might want to require that lists contain no loops. Another requirement is that the <code class="docutils literal notranslate"><span class="pre">length</span></code> value in the <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> object should be equal to the actual number of nodes in the list.</p>
 <p>Requirements like these are called <strong>invariants</strong> because, ideally, they should be true of every object all the time. Specifying invariants for objects is a useful programming practice because it makes it easier to prove the correctness of code, check the integrity of data structures, and detect errors.</p>
 <p>One thing that is sometimes confusing about invariants is that there are times when they are violated. For example, in the middle of <code class="docutils literal notranslate"><span class="pre">addFirst</span></code>, after we have added the node but before we have incremented <code class="docutils literal notranslate"><span class="pre">length</span></code>, the invariant is violated. This kind of violation is acceptable; in fact, it is often impossible to modify an object without violating an invariant for at least a little while. Normally, we require that every method that violates an invariant must restore the invariant.</p>
@@ -756,7 +756,7 @@ document.write(`
 <hr/>
 </section>
 <section id="glossary">
-<h2><span class="section-number">9.5.11. </span><em>Glossary</em><a class="headerlink" href="#glossary" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5.11. </span><em>Glossary</em><a class="headerlink" href="#glossary" title="Permalink to this headline">#</a></h2>
 <dl class="glossary simple">
 <dt id="term-embedded-reference">embedded reference<a class="headerlink" href="#term-embedded-reference" title="Permalink to this term">#</a></dt><dd><p>A reference stored in an attribute of an object.</p>
 </dd>
@@ -783,7 +783,7 @@ document.write(`
 </dl>
 </section>
 <section id="exercises">
-<h2><span class="section-number">9.5.12. </span><em>Exercises</em><a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5.12. </span><em>Exercises</em><a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>By convention, lists are often printed in brackets with commas between the elements, as in <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>. Modify <code class="docutils literal notranslate"><span class="pre">print_list</span></code> so that it generates output in this format.</p></li>
 </ol>
@@ -827,15 +827,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9.4. </span>Doubly Linked Lists</p>
+        <p class="prev-next-title"><span class="section-number">8.4. </span>Doubly Linked Lists</p>
       </div>
     </a>
     <a class="right-next"
-       href="../functions/filesmodules.html"
+       href="arrays.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Files and Modules</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Arrays</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -857,18 +857,18 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embedded-references">9.5.1. Embedded references</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-node-class">9.5.2. The Node class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-as-collections">9.5.3. Lists as collections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-and-recursion">9.5.4. Lists and recursion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-lists">9.5.5. Infinite lists</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-ambiguity-theorem">9.5.6. The fundamental ambiguity theorem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-lists">9.5.7. Modifying lists</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrappers-and-helpers">9.5.8. Wrappers and helpers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linkedlist-class">9.5.9. The <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invariants">9.5.10. Invariants</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">9.5.11. <em>Glossary</em></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9.5.12. <em>Exercises</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embedded-references">8.5.1. Embedded references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-node-class">8.5.2. The Node class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-as-collections">8.5.3. Lists as collections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-and-recursion">8.5.4. Lists and recursion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-lists">8.5.5. Infinite lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-ambiguity-theorem">8.5.6. The fundamental ambiguity theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-lists">8.5.7. Modifying lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrappers-and-helpers">8.5.8. Wrappers and helpers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linkedlist-class">8.5.9. The <code class="docutils literal notranslate"><span class="pre">LinkedList</span></code> class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invariants">8.5.10. Invariants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">8.5.11. <em>Glossary</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">8.5.12. <em>Exercises</em></a></li>
 </ul>
   </nav></div>
 

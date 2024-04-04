@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>9. Linked Lists &#8212; Data Structures and Algorithms</title>
+    <title>8. Linked Lists &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/linkedlists';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="9.3. Singly Linked Lists" href="linkedlists_singly.html" />
-    <link rel="prev" title="8.2. Dynamic Arrays and Amortization" href="arrays_dynamic.html" />
+    <link rel="next" title="8.3. Singly Linked Lists" href="linkedlists_singly.html" />
+    <link rel="prev" title="7.2. Queues" href="queue.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -217,15 +217,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="queue.html">7.2. Queues</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="arrays.html">8. Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="arrays_lowlevel.html">8.1. Low-Level Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arrays_dynamic.html">8.2. Dynamic Arrays and Amortization</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">8. Linked Lists</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_singly.html">8.3. Singly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_doubly.html">8.4. Doubly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_circular.html">8.5. Circular Linked Lists</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">9. Linked Lists</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_singly.html">9.3. Singly Linked Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_doubly.html">9.4. Doubly Linked Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_circular.html">9.5. Circular Linked Lists</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="arrays.html">9. Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="arrays_static.html">9.1. Static Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays_dynamic.html">9.2. Dynamic Arrays</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
@@ -422,8 +422,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes">9.1. Nodes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-linked-lists">9.2. Types of Linked Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes">8.1. Nodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-linked-lists">8.2. Types of Linked Lists</a></li>
 </ul>
             </nav>
         </div>
@@ -436,17 +436,17 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="linked-lists">
-<h1><span class="section-number">9. </span>Linked Lists<a class="headerlink" href="#linked-lists" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">8. </span>Linked Lists<a class="headerlink" href="#linked-lists" title="Permalink to this headline">#</a></h1>
 <p>Linked lists are a sequential data structure that consist of an ordered set of <strong>Nodes</strong> in a chain like structure 🔗 ⛓️.</p>
 <section id="nodes">
-<h2><span class="section-number">9.1. </span>Nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.1. </span>Nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">#</a></h2>
 <p>A <strong><code class="docutils literal notranslate"><span class="pre">Node</span></code></strong> is a recursive data structure that contains an instance attribute <strong>‘<code class="docutils literal notranslate"><span class="pre">next</span></code>’</strong> which refers to another object of type <code class="docutils literal notranslate"><span class="pre">Node</span></code> that is next in the sequence.</p>
 <p>Instance attributes of <code class="docutils literal notranslate"><span class="pre">Node</span></code> that are NOT ‘<code class="docutils literal notranslate"><span class="pre">next</span></code>’ node_ are often referred to as the <em>data</em> or <em>cargo</em>, or <em>payload</em> of the node.</p>
 <p>For example, a node with data “Monday” has a reference to the node with data “Tuesday”, which has a reference to the node with data “Wednesday”, and so on.</p>
 <figure class="align-default" id="node">
 <a class="reference internal image-reference" href="https://i.ibb.co/zQpFZ8N/node2.png"><img alt="https://i.ibb.co/zQpFZ8N/node2.png" src="https://i.ibb.co/zQpFZ8N/node2.png" style="width: 30%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9.1 </span><span class="caption-text">A node in a linked list contains a reference to the next node in the sequence.</span><a class="headerlink" href="#node" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8.1 </span><span class="caption-text">A node in a linked list contains a reference to the next node in the sequence.</span><a class="headerlink" href="#node" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The code below shows a simple implementation of a Node class:</p>
@@ -507,12 +507,12 @@ except for the last node, which contains a reference to <code class="docutils li
 <p>Each node contains a reference to the next node in the sequence.</p>
 </section>
 <section id="types-of-linked-lists">
-<h2><span class="section-number">9.2. </span>Types of Linked Lists<a class="headerlink" href="#types-of-linked-lists" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.2. </span>Types of Linked Lists<a class="headerlink" href="#types-of-linked-lists" title="Permalink to this headline">#</a></h2>
 <p>There are many types of linked lists, each with their own distinct rules of connection and structure. The three most common types are:</p>
 <figure class="align-default" id="linked-list">
 <a class="reference internal image-reference" href="https://i.ibb.co/pwpcPdf/0-0-XVK02-Guco9x-JMJL.png"><img alt="https://i.ibb.co/pwpcPdf/0-0-XVK02-Guco9x-JMJL.png" src="https://i.ibb.co/pwpcPdf/0-0-XVK02-Guco9x-JMJL.png" style="width: 95%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9.2 </span><span class="caption-text">There are many types of linked lists, each with its own connection rules. The three most common types are <strong>Singly Linked Lists</strong> ➡️, <strong>Doubly Linked Lists</strong> ↔, and <strong>Circular Linked Lists</strong> 🔄, shown above.</span><a class="headerlink" href="#linked-list" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8.2 </span><span class="caption-text">There are many types of linked lists, each with its own connection rules. The three most common types are <strong>Singly Linked Lists</strong> ➡️, <strong>Doubly Linked Lists</strong> ↔, and <strong>Circular Linked Lists</strong> 🔄, shown above.</span><a class="headerlink" href="#linked-list" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple">
@@ -564,12 +564,12 @@ except for the last node, which contains a reference to <code class="docutils li
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="arrays_dynamic.html"
+       href="queue.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8.2. </span>Dynamic Arrays and Amortization</p>
+        <p class="prev-next-title"><span class="section-number">7.2. </span>Queues</p>
       </div>
     </a>
     <a class="right-next"
@@ -577,7 +577,7 @@ except for the last node, which contains a reference to <code class="docutils li
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9.3. </span>Singly Linked Lists</p>
+        <p class="prev-next-title"><span class="section-number">8.3. </span>Singly Linked Lists</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -599,8 +599,8 @@ except for the last node, which contains a reference to <code class="docutils li
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes">9.1. Nodes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-linked-lists">9.2. Types of Linked Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes">8.1. Nodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-linked-lists">8.2. Types of Linked Lists</a></li>
 </ul>
   </nav></div>
 
