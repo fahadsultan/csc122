@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>8.3. Singly Linked Lists &#8212; Data Structures and Algorithms</title>
+    <title>8.1. Singly Linked Lists &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/linkedlists_singly';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8.4. Doubly Linked Lists" href="linkedlists_doubly.html" />
+    <link rel="next" title="8.2. Doubly Linked Lists" href="linkedlists_doubly.html" />
     <link rel="prev" title="8. Linked Lists" href="linkedlists.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -218,14 +218,15 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="linkedlists.html">8. Linked Lists</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.3. Singly Linked Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_doubly.html">8.4. Doubly Linked Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_circular.html">8.5. Circular Linked Lists</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.1. Singly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_doubly.html">8.2. Doubly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_circular.html">8.3. Circular Linked Lists</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="arrays.html">9. Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="arrays_static.html">9.1. Static Arrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arrays_dynamic.html">9.2. Dynamic Arrays</a></li>
+
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
@@ -422,13 +423,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-class">8.3.1. Node Class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singlylinkedlist-class">8.3.2. SinglyLinkedList Class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insertion">8.3.3. Insertion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deletion">8.3.4. Deletion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traversal">8.3.5. Traversal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-complexity">8.3.6. Time Complexity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#space-complexity">8.3.7. Space Complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes">8.1.1. Nodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singlylinkedlist-class">8.1.2. SinglyLinkedList Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traversal">8.1.3. Traversal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insertion">8.1.4. Insertion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deletion">8.1.5. Deletion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">8.1.6. Analysis</a></li>
 </ul>
             </nav>
         </div>
@@ -441,13 +441,28 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="singly-linked-lists">
-<h1><span class="section-number">8.3. </span>Singly Linked Lists<a class="headerlink" href="#singly-linked-lists" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">8.1. </span>Singly Linked Lists<a class="headerlink" href="#singly-linked-lists" title="Permalink to this headline">#</a></h1>
 <p>Singly linked lists are a type of data structure that is made up of nodes that are created using self-referential structures. Each node contains a value and a reference to the next node in the sequence. The first node is called the <strong>head</strong> and the last node is called the <strong>tail</strong>. The tail node points to a null reference. Singly linked lists are used to implement other data structures such as stacks, queues, and graphs.</p>
 <p>Singly linked lists are useful because they allow for constant time insertion and deletion of elements at the beginning of the list. However, they do not allow for constant time access to elements in the middle of the list. To access an element in the middle of the list, you must traverse the list from the head node to the desired node.</p>
 <p>In this notebook, we will implement a singly linked list in Python and demonstrate how to perform common operations on the list such as insertion, deletion, and traversal.</p>
-<section id="node-class">
-<h2><span class="section-number">8.3.1. </span>Node Class<a class="headerlink" href="#node-class" title="Permalink to this headline">#</a></h2>
-<p>The first step in implementing a singly linked list is to define a node class that represents a single node in the list. Each node contains a value and a reference to the next node in the sequence.</p>
+<figure class="align-default" id="singly-linked-list">
+<a class="reference internal image-reference" href="https://i.ibb.co/mJxcf4k/Screen-Shot-2024-04-09-at-8-22-55-AM.png"><img alt="https://i.ibb.co/mJxcf4k/Screen-Shot-2024-04-09-at-8-22-55-AM.png" src="https://i.ibb.co/mJxcf4k/Screen-Shot-2024-04-09-at-8-22-55-AM.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8.3 </span><span class="caption-text">A singly linked list is a data structure that is made up of nodes that are created using self-referential structures. Each node contains a value and a reference to the next node in the sequence.</span><a class="headerlink" href="#singly-linked-list" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="nodes">
+<h2><span class="section-number">8.1.1. </span>Nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">#</a></h2>
+<p>A <strong><code class="docutils literal notranslate"><span class="pre">Node</span></code></strong> is a recursive data structure that contains an instance attribute <strong>‘<code class="docutils literal notranslate"><span class="pre">next</span></code>’</strong> which refers to another object of type <code class="docutils literal notranslate"><span class="pre">Node</span></code> that is next in the sequence.</p>
+<p>Instance attributes of <code class="docutils literal notranslate"><span class="pre">Node</span></code> that are NOT ‘<code class="docutils literal notranslate"><span class="pre">next</span></code>’ node_ are often referred to as the <em>data</em> or <em>cargo</em>, or <em>payload</em> of the node.</p>
+<p>For example, a node with data “Monday” has a reference to the node with data “Tuesday”, which has a reference to the node with data “Wednesday”, and so on.</p>
+<figure class="align-default" id="node">
+<a class="reference internal image-reference" href="https://i.ibb.co/zQpFZ8N/node2.png"><img alt="https://i.ibb.co/zQpFZ8N/node2.png" src="https://i.ibb.co/zQpFZ8N/node2.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8.4 </span><span class="caption-text">A node in a linked list contains a reference to the next node in the sequence.</span><a class="headerlink" href="#node" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The code below shows a simple implementation of a Node class:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
@@ -460,7 +475,7 @@ document.write(`
 </div>
 </section>
 <section id="singlylinkedlist-class">
-<h2><span class="section-number">8.3.2. </span>SinglyLinkedList Class<a class="headerlink" href="#singlylinkedlist-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.1.2. </span>SinglyLinkedList Class<a class="headerlink" href="#singlylinkedlist-class" title="Permalink to this headline">#</a></h2>
 <p>Next, we define a singly linked list class that contains a reference to the head node of the list. The singly linked list class provides methods for inserting, deleting, and traversing the list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -472,8 +487,31 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="traversal">
+<h2><span class="section-number">8.1.3. </span>Traversal<a class="headerlink" href="#traversal" title="Permalink to this headline">#</a></h2>
+<p>To traverse the list, we start at the head node and follow the next references until we reach the end of the list (i.e., the tail node).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">traverse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    
+    <span class="c1"># Start at the head node</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+    
+    <span class="c1"># Traverse the list until the current node is None</span>
+    <span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">current</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="c1"># Move to the next node</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span>
+</pre></div>
+</div>
+<figure class="align-center" id="linkedlist-traversal">
+<a class="reference internal image-reference" href="https://www.codesdope.com/staticroot/images/ds/link14.gif"><img alt="https://www.codesdope.com/staticroot/images/ds/link14.gif" src="https://www.codesdope.com/staticroot/images/ds/link14.gif" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8.5 </span><span class="caption-text"><strong>Traversal</strong>: Keep setting the current node to the next node until the current node is None.</span><a class="headerlink" href="#linkedlist-traversal" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 <section id="insertion">
-<h2><span class="section-number">8.3.3. </span>Insertion<a class="headerlink" href="#insertion" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.1.4. </span>Insertion<a class="headerlink" href="#insertion" title="Permalink to this headline">#</a></h2>
 <p>There are three common cases for inserting a new node into a singly linked list:</p>
 <ol class="arabic simple">
 <li><p><strong>Prepend</strong>: Insert a new node at the beginning of the list.</p></li>
@@ -484,38 +522,49 @@ document.write(`
 <figure class="align-center" id="linkedlist-insertfromfront">
 <a class="reference internal image-reference" href="https://cdn.devdojo.com/images/june2021/LinkedList_frontInsertion.gif"><img alt="https://cdn.devdojo.com/images/june2021/LinkedList_frontInsertion.gif" src="https://cdn.devdojo.com/images/june2021/LinkedList_frontInsertion.gif" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8.3 </span><span class="caption-text"><strong>Prepend</strong>: Inserting a node at the front of a singly linked list.</span><a class="headerlink" href="#linkedlist-insertfromfront" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8.6 </span><span class="caption-text"><strong>Prepend</strong>: Inserting a node at the front of a singly linked list.</span><a class="headerlink" href="#linkedlist-insertfromfront" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>To insert a new node at the end of the list, we create a new node with the desired value and set its next reference to the current head of the list. Then, we update the head of the list to point to the new node.</p>
 <figure class="align-center" id="linkedlist-insertfromback">
 <a class="reference internal image-reference" href="https://cdn.devdojo.com/images/june2021/linkedlist-insertfromback1.gif"><img alt="https://cdn.devdojo.com/images/june2021/linkedlist-insertfromback1.gif" src="https://cdn.devdojo.com/images/june2021/linkedlist-insertfromback1.gif" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8.4 </span><span class="caption-text"><strong>Append</strong>: Inserting a node at the tail of a singly linked list.</span><a class="headerlink" href="#linkedlist-insertfromback" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8.7 </span><span class="caption-text"><strong>Append</strong>: Inserting a node at the tail of a singly linked list.</span><a class="headerlink" href="#linkedlist-insertfromback" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<!-- ```python 
-def append(self, value):
-    new_node = Node(value)
-    if self.head is None:
-        self.head = new_node
-        return
-    last = self.head
-    while last.next:
-        last = last.next
-    last.next = new_node
-``` -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    
+    <span class="c1"># Create a new node with the given value</span>
+    <span class="n">new_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    
+    <span class="c1"># If the list is empty, set the new node as the head</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">new_node</span>
+        <span class="k">return</span>
+
+    
+    <span class="c1"># Otherwise, traverse the list to find the last node</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+    <span class="k">while</span> <span class="n">last</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="n">last</span><span class="o">.</span><span class="n">next</span>
+    
+
+    <span class="c1"># Set the next reference of the last node to the new node</span>
+    <span class="n">last</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">new_node</span>
+</pre></div>
+</div>
 <p>To insert a new node at a specific index in the list, we need to find the node that precedes the index where we want to insert the new node. We then update the next reference of the preceding node to point to the new node, and update the next reference of the new node to point to the node that was previously at the index.</p>
 <figure class="align-center" id="linkedlist-index-insertion">
 <a class="reference internal image-reference" href="https://cdn.devdojo.com/images/june2021/LinkedList_IndexInsertion.gif"><img alt="https://cdn.devdojo.com/images/june2021/LinkedList_IndexInsertion.gif" src="https://cdn.devdojo.com/images/june2021/LinkedList_IndexInsertion.gif" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8.5 </span><span class="caption-text"><strong>Insert</strong>: Inserting a node at a specific index in a singly linked list.</span><a class="headerlink" href="#linkedlist-index-insertion" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8.8 </span><span class="caption-text"><strong>Insert</strong>: Inserting a node at a specific index in a singly linked list.</span><a class="headerlink" href="#linkedlist-index-insertion" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The following code caters all the three cases for insertion of a new node in a singly linked list.</p>
 </section>
 <section id="deletion">
-<h2><span class="section-number">8.3.4. </span>Deletion<a class="headerlink" href="#deletion" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.1.5. </span>Deletion<a class="headerlink" href="#deletion" title="Permalink to this headline">#</a></h2>
 <p>Similar to insertion, there are three common cases for deleting a node from a singly linked list:</p>
 <ol class="arabic simple">
 <li><p><strong>Delete head</strong>: Delete the first node in the list.</p></li>
@@ -526,70 +575,67 @@ def append(self, value):
 <figure class="align-center" id="linkedlist-deletefromfront">
 <a class="reference internal image-reference" href="https://cdn.devdojo.com/images/june2021/Delfront.gif"><img alt="https://cdn.devdojo.com/images/june2021/Delfront.gif" src="https://cdn.devdojo.com/images/june2021/Delfront.gif" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8.6 </span><span class="caption-text"><strong>Delete head</strong>: Deleting the first node in a singly linked list.</span><a class="headerlink" href="#linkedlist-deletefromfront" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8.9 </span><span class="caption-text"><strong>Delete head</strong>: Deleting the first node in a singly linked list.</span><a class="headerlink" href="#linkedlist-deletefromfront" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>To delete the tail of the list, we need to find the node that precedes the tail node. We then update the next reference of the preceding node to point to null.</p>
 <figure class="align-center" id="linkedlist-deletefromback">
 <a class="reference internal image-reference" href="https://cdn.devdojo.com/images/june2021/delBack.gif"><img alt="https://cdn.devdojo.com/images/june2021/delBack.gif" src="https://cdn.devdojo.com/images/june2021/delBack.gif" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8.7 </span><span class="caption-text"><strong>Delete tail</strong>: Deleting the last node in a singly linked list.</span><a class="headerlink" href="#linkedlist-deletefromback" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8.10 </span><span class="caption-text"><strong>Delete tail</strong>: Deleting the last node in a singly linked list.</span><a class="headerlink" href="#linkedlist-deletefromback" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>To delete a node with a specific value from the list, we need to find the node that precedes the node to be deleted. We then update the next reference of the preceding node to skip over the node to be deleted.</p>
 <figure class="align-center" id="linkedlist-index-deletion">
 <a class="reference internal image-reference" href="https://cdn.devdojo.com/images/june2021/delIndex.gif"><img alt="https://cdn.devdojo.com/images/june2021/delIndex.gif" src="https://cdn.devdojo.com/images/june2021/delIndex.gif" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8.8 </span><span class="caption-text"><strong>Delete specific value</strong>: Deleting a node with a specific value from a singly linked list.</span><a class="headerlink" href="#linkedlist-index-deletion" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8.11 </span><span class="caption-text"><strong>Delete specific value</strong>: Deleting a node with a specific value from a singly linked list.</span><a class="headerlink" href="#linkedlist-index-deletion" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>To delete a node from the list, we need to find the node that precedes the node to be deleted. We then update the next reference of the preceding node to skip over the node to be deleted.</p>
-<!-- ```python
-def delete(self, value):
-    current = self.head
-    if current.value == value:
-        self.head = current.next
-    else:
-        while current.next is not None:
-            if current.next.value == value:
-                current.next = current.next.next
-                break
-            current = current.next
-``` -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+
+    <span class="c1"># If the list is empty, return</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="c1"># If the head node has the value to be deleted, update the head to point to the next node</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
+    <span class="k">if</span> <span class="n">current</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Traverse the list to find the node with the value to be deleted</span>
+        <span class="k">while</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+
+                <span class="c1"># Update the next reference of the current node to skip over the node to be deleted</span>
+                <span class="n">current</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
+                <span class="k">break</span>
+
+            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span>
+</pre></div>
+</div>
 </section>
-<section id="traversal">
-<h2><span class="section-number">8.3.5. </span>Traversal<a class="headerlink" href="#traversal" title="Permalink to this headline">#</a></h2>
-<p>To traverse the list, we start at the head node and follow the next references until we reach the end of the list (i.e., the tail node).</p>
-<!-- 
-```python
-def traverse(self):
-    current = self.head
-    while current is not None:
-        print(current.value)
-        current = current.next
-``` -->
-<figure class="align-center" id="linkedlist-traversal">
-<a class="reference internal image-reference" href="https://www.codesdope.com/staticroot/images/ds/link14.gif"><img alt="https://www.codesdope.com/staticroot/images/ds/link14.gif" src="https://www.codesdope.com/staticroot/images/ds/link14.gif" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 8.9 </span><span class="caption-text"><strong>Traversal</strong>: Keep setting the current node to the next node until the current node is None.</span><a class="headerlink" href="#linkedlist-traversal" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="time-complexity">
-<h2><span class="section-number">8.3.6. </span>Time Complexity<a class="headerlink" href="#time-complexity" title="Permalink to this headline">#</a></h2>
+<section id="analysis">
+<h2><span class="section-number">8.1.6. </span>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h2>
 <p>The time complexity of inserting or deleting a node from a singly linked list is <code class="docutils literal notranslate"><span class="pre">O(n)</span></code> in the worst case, where n is the number of nodes in the list. This is because we may need to traverse the entire list to find the node to be inserted or deleted.</p>
-</section>
-<section id="space-complexity">
-<h2><span class="section-number">8.3.7. </span>Space Complexity<a class="headerlink" href="#space-complexity" title="Permalink to this headline">#</a></h2>
 <p>The space complexity of a singly linked list is <code class="docutils literal notranslate"><span class="pre">O(n)</span></code>, where n is the number of nodes in the list. This is because we need to store a reference to each node in the list.</p>
 <!-- ## Putting It All Together
 
 
 ```python
 class SinglyLinkedList:
+    
     def __init__(self):
         self.head = None
 
+    def traverse(self):
+        current = self.head
+        while current is not None:
+            print(current.value)
+            current = current.next
+    
     def insert(self, value):
         new_node = Node(value)
         new_node.next = self.head
@@ -606,11 +652,6 @@ class SinglyLinkedList:
                     break
                 current = current.next
 
-    def traverse(self):
-        current = self.head
-        while current is not None:
-            print(current.value)
-            current = current.next
 ```
 
 Now that we have defined the node and singly linked list classes, we can put it all together and create a singly linked list with some sample values.
@@ -692,7 +733,7 @@ This demonstrates how to create a singly linked list, insert values into the lis
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8.4. </span>Doubly Linked Lists</p>
+        <p class="prev-next-title"><span class="section-number">8.2. </span>Doubly Linked Lists</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -714,13 +755,12 @@ This demonstrates how to create a singly linked list, insert values into the lis
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-class">8.3.1. Node Class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singlylinkedlist-class">8.3.2. SinglyLinkedList Class</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insertion">8.3.3. Insertion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deletion">8.3.4. Deletion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traversal">8.3.5. Traversal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-complexity">8.3.6. Time Complexity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#space-complexity">8.3.7. Space Complexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes">8.1.1. Nodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singlylinkedlist-class">8.1.2. SinglyLinkedList Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traversal">8.1.3. Traversal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insertion">8.1.4. Insertion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deletion">8.1.5. Deletion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">8.1.6. Analysis</a></li>
 </ul>
   </nav></div>
 

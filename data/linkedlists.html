@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/linkedlists';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8.3. Singly Linked Lists" href="linkedlists_singly.html" />
+    <link rel="next" title="8.1. Singly Linked Lists" href="linkedlists_singly.html" />
     <link rel="prev" title="7.2. Queues" href="queue.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -218,14 +218,15 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">8. Linked Lists</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_singly.html">8.3. Singly Linked Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_doubly.html">8.4. Doubly Linked Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_circular.html">8.5. Circular Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_singly.html">8.1. Singly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_doubly.html">8.2. Doubly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_circular.html">8.3. Circular Linked Lists</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="arrays.html">9. Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="arrays_static.html">9.1. Static Arrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arrays_dynamic.html">9.2. Dynamic Arrays</a></li>
+
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
@@ -399,9 +400,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -417,15 +416,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes">8.1. Nodes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-linked-lists">8.2. Types of Linked Lists</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -437,82 +427,38 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="linked-lists">
 <h1><span class="section-number">8. </span>Linked Lists<a class="headerlink" href="#linked-lists" title="Permalink to this headline">#</a></h1>
-<p>Linked lists are a sequential data structure that consist of an ordered set of <strong>Nodes</strong> in a chain like structure 🔗 ⛓️.</p>
-<section id="nodes">
-<h2><span class="section-number">8.1. </span>Nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">#</a></h2>
-<p>A <strong><code class="docutils literal notranslate"><span class="pre">Node</span></code></strong> is a recursive data structure that contains an instance attribute <strong>‘<code class="docutils literal notranslate"><span class="pre">next</span></code>’</strong> which refers to another object of type <code class="docutils literal notranslate"><span class="pre">Node</span></code> that is next in the sequence.</p>
-<p>Instance attributes of <code class="docutils literal notranslate"><span class="pre">Node</span></code> that are NOT ‘<code class="docutils literal notranslate"><span class="pre">next</span></code>’ node_ are often referred to as the <em>data</em> or <em>cargo</em>, or <em>payload</em> of the node.</p>
-<p>For example, a node with data “Monday” has a reference to the node with data “Tuesday”, which has a reference to the node with data “Wednesday”, and so on.</p>
-<figure class="align-default" id="node">
-<a class="reference internal image-reference" href="https://i.ibb.co/zQpFZ8N/node2.png"><img alt="https://i.ibb.co/zQpFZ8N/node2.png" src="https://i.ibb.co/zQpFZ8N/node2.png" style="width: 30%;" /></a>
+<img align="right" width="30%" src="https://i.ibb.co/XjNP4Wd/Screen-Shot-2024-04-09-at-8-34-27-AM.png">
+<p>Linked lists are a <strong>sequential</strong> data structure that consist of an <u>ordered set of <strong>Nodes</strong></u> in a <em>chain like structure</em> .</p>
+<p>Linked lists are an ordered set of data elements, each containing a link to its successor (and sometimes its predecessor). The data elements are called <strong>Nodes</strong>. Each node contains a data element and a reference (or link) to the next node(s) in the sequence. Altogether, the data structure has a chain like structure 🔗 ⛓️.</p>
+<!-- 
+```{figure} 
+---
+name: linked_list
+width: 30%
+---
+Linked lists are a sequential data structure that consist of an ordered set of nodes in a chain like structure. 
+``` 
+-->
+<p>Linked lists are one of the most fundamental data structures in computer science. They belong to a family of data structures that are based on the concept of <strong>Nodes</strong> (also known as vertices) and <strong>Connections</strong> (also known as edges). Other members of this family include trees and graphs.</p>
+<p>Where trees and graphs are hierarchical and non-linear data structures, linked lists are <strong>linear</strong> and <strong>sequential</strong>.</p>
+<figure class="align-default" id="linked-list">
+<a class="reference internal image-reference" href="https://i.ibb.co/XDNkqfW/Screen-Shot-2024-04-09-at-8-16-00-AM.png"><img alt="https://i.ibb.co/XDNkqfW/Screen-Shot-2024-04-09-at-8-16-00-AM.png" src="https://i.ibb.co/XDNkqfW/Screen-Shot-2024-04-09-at-8-16-00-AM.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8.1 </span><span class="caption-text">A node in a linked list contains a reference to the next node in the sequence.</span><a class="headerlink" href="#node" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8.1 </span><span class="caption-text">Linked lists belong to a family of data structures that are based on the concept of nodes and connections. Nodes are depicted as circles, and connections are depicted as arrows between the circles.</span><a class="headerlink" href="#linked-list" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The code below shows a simple implementation of a Node class:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="n">data</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__next</span> <span class="o">=</span> <span class="nb">next</span>
-
-    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span>
-    
-    <span class="k">def</span> <span class="nf">set_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="n">data</span>
-
-    <span class="k">def</span> <span class="nf">get_next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__next</span>
-
-    <span class="k">def</span> <span class="nf">set_next</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">next</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__next</span> <span class="o">=</span> <span class="nb">next</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">)</span>
-
-<span class="n">tuesday</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Tuesday&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tuesday&#39;s data: &quot;</span><span class="p">,</span> <span class="n">tuesday</span><span class="o">.</span><span class="n">get_data</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tuesday&#39;s data:  Tuesday
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monday</span>  <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Monday&quot;</span><span class="p">,</span> <span class="n">tuesday</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Monday&#39;s data: &quot;</span><span class="p">,</span> <span class="n">monday</span><span class="o">.</span><span class="n">get_data</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Monday&#39;s next: &quot;</span><span class="p">,</span> <span class="n">monday</span><span class="o">.</span><span class="n">get_next</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Monday&#39;s next type: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">monday</span><span class="o">.</span><span class="n">get_next</span><span class="p">()))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Monday&#39;s data:  Monday
-Monday&#39;s next:  Tuesday
-Monday&#39;s next type:  &lt;class &#39;__main__.Node&#39;&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>All nodes in a linked list are connected by these “next” references,
-except for the last node, which contains a reference to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>In the context of linked lists, the first node is called the <strong>head</strong> and the last node is called the <strong>tail</strong>.</p>
-<p>Each node contains a reference to the next node in the sequence.</p>
-</section>
-<section id="types-of-linked-lists">
-<h2><span class="section-number">8.2. </span>Types of Linked Lists<a class="headerlink" href="#types-of-linked-lists" title="Permalink to this headline">#</a></h2>
-<p>There are many types of linked lists, each with their own distinct rules of connection and structure. The three most common types are:</p>
-<figure class="align-default" id="linked-list">
+<p>Nodes are the building blocks of linked lists. These are themselves data structures. Each node contains atleast two components:</p>
+<ol class="arabic simple">
+<li><p><strong>Data</strong>: The actual data that the node holds.</p></li>
+<li><p><strong>Pointers</strong>: References to adjacent nodes in the sequence. These <u>references serve as the connections</u> between nodes.</p></li>
+</ol>
+<p>The first node in the linked list is called the <strong>head</strong>. The last node is called the <strong>tail</strong>. The tail node points to <code class="docutils literal notranslate"><span class="pre">null</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code> to indicate the end of the list.</p>
+<hr/>
+<p>There are many types of linked lists, each with their own distinct structure of connections. The three most common types are:</p>
+<figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="https://i.ibb.co/pwpcPdf/0-0-XVK02-Guco9x-JMJL.png"><img alt="https://i.ibb.co/pwpcPdf/0-0-XVK02-Guco9x-JMJL.png" src="https://i.ibb.co/pwpcPdf/0-0-XVK02-Guco9x-JMJL.png" style="width: 95%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8.2 </span><span class="caption-text">There are many types of linked lists, each with its own connection rules. The three most common types are <strong>Singly Linked Lists</strong> ➡️, <strong>Doubly Linked Lists</strong> ↔, and <strong>Circular Linked Lists</strong> 🔄, shown above.</span><a class="headerlink" href="#linked-list" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8.2 </span><span class="caption-text">There are many types of linked lists, each with its own connection rules. The three most common types are <strong>Singly Linked Lists</strong> ➡️, <strong>Doubly Linked Lists</strong> ↔, and <strong>Circular Linked Lists</strong> 🔄, shown above.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple">
@@ -527,7 +473,6 @@ except for the last node, which contains a reference to <code class="docutils li
 <li><p><strong>Circular Linked Lists</strong> 🔄</p></li>
 </ol>
 <p>Circular linked lists are a type of linked list where the last node in the sequence has a reference to the first node in the sequence, creating a circular structure.</p>
-</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -577,7 +522,7 @@ except for the last node, which contains a reference to <code class="docutils li
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8.3. </span>Singly Linked Lists</p>
+        <p class="prev-next-title"><span class="section-number">8.1. </span>Singly Linked Lists</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -590,21 +535,6 @@ except for the last node, which contains a reference to <code class="docutils li
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes">8.1. Nodes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-linked-lists">8.2. Types of Linked Lists</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

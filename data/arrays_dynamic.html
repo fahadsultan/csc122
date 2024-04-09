@@ -220,14 +220,15 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="linkedlists.html">8. Linked Lists</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_singly.html">8.3. Singly Linked Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_doubly.html">8.4. Doubly Linked Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linkedlists_circular.html">8.5. Circular Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_singly.html">8.1. Singly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_doubly.html">8.2. Doubly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkedlists_circular.html">8.3. Circular Linked Lists</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="arrays.html">9. Arrays</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="arrays_static.html">9.1. Static Arrays</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">9.2. Dynamic Arrays</a></li>
+
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
@@ -424,6 +425,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">9.2. Dynamic Arrays</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-dynamic-array">9.2.1. Implementing a Dynamic Array</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amortized-analysis-of-dynamic-arrays">9.2.2. Amortized Analysis of Dynamic Arrays</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-increase-in-capacity">9.2.2.1. Geometric Increase in Capacity</a></li>
@@ -432,6 +434,10 @@ document.write(`
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-list-class">9.3. Python’s List Class</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -639,6 +645,12 @@ using arithmetic progression of sizes. (a) Assumes increase of 2 in size of the 
 </section>
 </section>
 </section>
+<section id="python-s-list-class">
+<h1><span class="section-number">9.3. </span>Python’s List Class<a class="headerlink" href="#python-s-list-class" title="Permalink to this headline">#</a></h1>
+<p>Python’s list class is using a form of dynamic arrays for its storage but does neither uses a pure geometric progression nor an arithmetic progression.</p>
+<p>Despite this, Python’s implementation of the append method exhibits amortized constant-time behavior. We can demonstrate this fact experimentally.</p>
+<p>A single <code class="docutils literal notranslate"><span class="pre">.append</span></code> operation typically executes so quickly that it would be difficult for us to accurately measure the time elapsed at that granularity, although we should notice some of the more expensive operations in which a resize is performed. We can get a more accurate measure of the amortized cost per operation by performing a series of <code class="docutils literal notranslate"><span class="pre">n</span></code> append operations on an initially empty list and determining the average cost of each.</p>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -707,6 +719,7 @@ using arithmetic progression of sizes. (a) Assumes increase of 2 in size of the 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">9.2. Dynamic Arrays</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-dynamic-array">9.2.1. Implementing a Dynamic Array</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amortized-analysis-of-dynamic-arrays">9.2.2. Amortized Analysis of Dynamic Arrays</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-increase-in-capacity">9.2.2.1. Geometric Increase in Capacity</a></li>
@@ -715,6 +728,10 @@ using arithmetic progression of sizes. (a) Assumes increase of 2 in size of the 
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-list-class">9.3. Python’s List Class</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>
