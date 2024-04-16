@@ -29,8 +29,8 @@ PA: _Programming Assignment_
 
 | #     | TOPIC                      | READING | MEETING 1                  | MEETING 2              | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
 |-------|----------------------------|---------|----------------------------|------------------------|-----|-------------------|
-| 5 | Recursion  |  GGT (Chapter 4)   | **[Recursion](functions/recursion.ipynb)** | **[Linear Recursion](functions/head_tail.ipynb)**  |   **[WA.3.](https://docs.google.com/document/d/1MZ1U_PbDTV69Ox9M7-6NEj_YKQqwYj7nFSNV2SZTFA4/edit?usp=sharing)**  |  **[PA 4](https://colab.research.google.com/drive/1N-dZVVXzNrQowCWYmHpmTi9GjEQlxc3z?usp=sharing)** |
-| 6 | Recursion  |    GGT (Chapter 4)     |     **[Branch Recursion](functions/recursion.ipynb)**            |    **[More Recursion](functions/recursion.ipynb)**      |    | **[PA 5](https://colab.research.google.com/drive/1mPlv1SQ-7P6aHBJybeSPBUrB1qtoUOFL?usp=sharing)** |
+| 5 | Recursion  |  GGT<br/>(Ch. 4)   | **[Recursion](functions/recursion.ipynb)** | **[Linear Recursion](functions/head_tail.ipynb)**  |   **[WA.3.](https://docs.google.com/document/d/1MZ1U_PbDTV69Ox9M7-6NEj_YKQqwYj7nFSNV2SZTFA4/edit?usp=sharing)**  |  **[PA 4](https://colab.research.google.com/drive/1N-dZVVXzNrQowCWYmHpmTi9GjEQlxc3z?usp=sharing)** |
+| 6 | Recursion  |    GGT<br/>(Ch. 4)     |     **[Branch Recursion](functions/recursion.ipynb)**            |    **[More Recursion](functions/recursion.ipynb)**      |    | **[PA 5](https://colab.research.google.com/drive/1mPlv1SQ-7P6aHBJybeSPBUrB1qtoUOFL?usp=sharing)** |
 
 <center><b><i><a href="https://colab.research.google.com/drive/1vOphr4otV9PV_-ZWdf2qjgUajaRRBdt9?usp=sharing">Practice Exam 2</a></i></b><center>
 <center><b><i>EXAM 2</i></b><center>
@@ -40,10 +40,10 @@ PA: _Programming Assignment_
 | #     | TOPIC                      | READING | MEETING 1                  | MEETING 2              | WRITTEN  ASSIGNMENT | PROGRAMMING ASSIGNMENT |
 |-------|----------------------------|---------|----------------------------|------------------------|-----|-------------------|
 | 9    | Object Oriented Programming 1  |    GGT (Chapter 2)     |    **[OOP](data/oop.ipynb)**    |  **[Built-in Data Types](data/native_structures.ipynb)**  |     | **[PA 6](https://colab.research.google.com/drive/1E6eShaKYR-a5cRevMmwviTHES9uiK5e1?usp=sharing)** | 
-| 10   | Object Oriented Programming 2 |   GGT (Chapter 2)   |   **[User-defined Types](data/oop1.ipynb)**   |  **[Extending Types](data/inheritance.ipynb)**         |   **[Written Assignment 4](https://docs.google.com/document/d/1P_MGH7yveQICcZqCmyjPdkpHx7b52JJPreTadTBoPdU/edit?usp=sharing)**  | **[PA 7](https://colab.research.google.com/drive/1tsoLLD6nbdmEPBEvjo4kyUjEZdnhvl_D?usp=sharing)** | 
-| 12      | Stacks and Queues  |  GGT (Chapter 6)       |     **[Stacks](data/stacks_queues.md)**                  |       **[Queues](data/queue.md)**     |            | **[Programming Assignment 8](https://colab.research.google.com/drive/1HsMQ30kpNtRodwGeQHQYrZSJv9wnJmp2?usp=sharing)**
-| 13      | Linked Lists  |                            |                        |
-| 14      | Hash Maps  |                            |                        |
+| 10   | Object Oriented Programming 2 |   GGT (Chapter 2)   |   **[User-defined Types](data/oop1.ipynb)**   |  **[Extending Types](data/inheritance.ipynb)**         |   **[WA.4](https://docs.google.com/document/d/1P_MGH7yveQICcZqCmyjPdkpHx7b52JJPreTadTBoPdU/edit?usp=sharing)**  | **[PA 7](https://colab.research.google.com/drive/1tsoLLD6nbdmEPBEvjo4kyUjEZdnhvl_D?usp=sharing)** | 
+| 12      | Stacks and Queues  |  GGT (Chapter 6)       |     **[Stacks](data/stacks_queues.md)**                  |       **[Queues](data/queue.md)**     |            | **[PA 8](https://colab.research.google.com/drive/1HsMQ30kpNtRodwGeQHQYrZSJv9wnJmp2?usp=sharing)**
+| 13      | Linked Lists  |  GGT (Chapter 7) |  **[Singly Linked Lists](data/linkedlists_singly.ipynb)**                       |     **[Doubly Linked Lists](data/linkedlists_doubly.ipynb)** & <br/>   **[Circular Linked Lists](data/linkedlists_circular.ipynb)**               |  | **[PA 9](https://colab.research.google.com/drive/1i40ldpEvSRwXmQmKzD8PwkUFFET31sQ6?usp=sharing)** |
+| 14      |  Miscellaneous |  GGT (Chapter <br/> 5 & 1)   | **[Arrays](data/arrays.ipynb)**                       | **[Files & Modules](functions/filesmodules.ipynb)**           | | **[PA 10]()** |
 
 <center><b><i>FINAL EXAM</i></b></center>
 

@@ -11,29 +11,18 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 
 
 ```{important}
-**[Programming Assigment 8](https://colab.research.google.com/drive/1HsMQ30kpNtRodwGeQHQYrZSJv9wnJmp2?usp=sharing)** is due on **April 5th** at **2:30 PM**. 
+**[Programming Assigment 9](https://colab.research.google.com/drive/1i40ldpEvSRwXmQmKzD8PwkUFFET31sQ6?usp=sharing)** is due on **April 19th** at **2:30 PM**. 
 ```
-
-```{important}
-An optional **Exam 3** is scheduled for **Thursday, April 11th** from **2:30 to 4:30 PM** in **(Riley 204)**. 
-```
-
-```{note}
-_[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_ event: **Paladin Pitch Competition** – Professional Preparation
-**Thursday, April 11, 4:00 – 5:30pm** in (Watkins Room, Trone Student Center)
-For additional information, [click here](https://www.furman.edu/innovation-entrepreneurship/innovation-entrepreneurship/paladin-pitch-competition/)
-```
-
-```{note}
-_[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_  event:
-**Furman Engaged** is on Friday, **April 12th**. If you attend a session at Furman Engaged, you can submit a reflection on that session as well towards one of two required reflections. 
-```
-
 
 ```{note}
 _[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_  event: **PowerPoint Night** is on **April 16, 6-7:30 PM** Jennifer McHan Good Collab in **Riley 106**
 
 **Last day** to submit the two required **reflections** for this course is the last day of class: Tuesday, April 23rd by 11:59 PM.
+```
+
+
+```{important}
+**[Programming Assigment 10]()** is due on **April 24th** at **11:59 PM**. 
 ```
 
 

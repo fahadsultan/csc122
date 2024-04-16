@@ -442,7 +442,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="doubly-linked-lists">
 <h1><span class="section-number">8.2. </span>Doubly Linked Lists<a class="headerlink" href="#doubly-linked-lists" title="Permalink to this headline">#</a></h1>
-<p>Doubly linked lists are a type of linked list where each node contains a pointer to the next node and a pointer to the previous node. This allows for more efficient traversal of the list in both directions.</p>
+<p>Doubly linked lists are a type of linked list where <u>each node contains <strong>two</strong> references</u>:</p>
+<ol class="arabic simple">
+<li><p>a reference to the <strong>next node</strong>, same as singly linked lists</p></li>
+<li><p>a pointer to the <strong>previous node</strong> (🆕!)</p></li>
+</ol>
+<p>This allows for more efficient traversal of the list in both directions.</p>
 <figure class="align-default" id="singly-linked-list">
 <a class="reference internal image-reference" href="https://i.ibb.co/61fvLVz/Screen-Shot-2024-04-09-at-8-23-00-AM.png"><img alt="https://i.ibb.co/61fvLVz/Screen-Shot-2024-04-09-at-8-23-00-AM.png" src="https://i.ibb.co/61fvLVz/Screen-Shot-2024-04-09-at-8-23-00-AM.png" style="width: 90%;" /></a>
 <figcaption>
@@ -469,17 +474,18 @@ document.write(`
 </section>
 <section id="doublylinkedlist-class">
 <h2><span class="section-number">8.2.2. </span>DoublyLinkedList class<a class="headerlink" href="#doublylinkedlist-class" title="Permalink to this headline">#</a></h2>
-<p>We also need to define a <code class="docutils literal notranslate"><span class="pre">DoublyLinkedList</span></code> class that contains a <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">tail</span></code> pointer.</p>
+<p>We also need to define a <code class="docutils literal notranslate"><span class="pre">DoublyLinkedList</span></code> class that contains a <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer (reference), and optionally a <code class="docutils literal notranslate"><span class="pre">tail</span></code> pointer (reference).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DoublyLinkedList</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="kc">None</span>
 </pre></div>
 </div>
+<p>Note that the initialization of a doubly linked list is exactly the same as that of a singly linked list.</p>
 </section>
 <section id="traversal">
 <h2><span class="section-number">8.2.3. </span>Traversal<a class="headerlink" href="#traversal" title="Permalink to this headline">#</a></h2>
-<p>To traverse a doubly linked list, we can start at the <code class="docutils literal notranslate"><span class="pre">head</span></code> node and move to the next node until we reach the end of the list.</p>
+<p>To traverse a doubly linked list, we can start at the <code class="docutils literal notranslate"><span class="pre">head</span></code> node and move to the next node until we reach the end of the list (all the same as singly linked lists).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">traverse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>
     <span class="k">while</span> <span class="n">current</span><span class="p">:</span>
@@ -487,7 +493,7 @@ document.write(`
         <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span>
 </pre></div>
 </div>
-<p>To traverse a doubly linked list in reverse, we can start at the <code class="docutils literal notranslate"><span class="pre">tail</span></code> node and move to the previous node until we reach the beginning of the list.</p>
+<p>To traverse a doubly linked list in reverse (🆕🆕🆕), we can start at the <code class="docutils literal notranslate"><span class="pre">tail</span></code> node and move to the previous node until we reach the beginning of the list.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reverse_traverse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span>
     <span class="k">while</span> <span class="n">current</span><span class="p">:</span>
@@ -495,10 +501,21 @@ document.write(`
         <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">prev</span>
 </pre></div>
 </div>
+<p>Note that at any given time, the beginning and end of a doubly linked list are delimited by the following:</p>
+<ul class="simple">
+<li><p><strong>Beginning</strong>: the <code class="docutils literal notranslate"><span class="pre">head</span></code> node’s <code class="docutils literal notranslate"><span class="pre">prev</span></code> pointer is <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>End</strong>: the <code class="docutils literal notranslate"><span class="pre">tail</span></code> node’s <code class="docutils literal notranslate"><span class="pre">next</span></code> pointer is <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+</ul>
 </section>
 <section id="insertion">
 <h2><span class="section-number">8.2.4. </span>Insertion<a class="headerlink" href="#insertion" title="Permalink to this headline">#</a></h2>
-<p>To insert a new node at the beginning of a doubly linked list, we need to update the <code class="docutils literal notranslate"><span class="pre">prev</span></code> pointer of the current <code class="docutils literal notranslate"><span class="pre">head</span></code> node and the <code class="docutils literal notranslate"><span class="pre">next</span></code> pointer of the new node.</p>
+<p>Similar to singly linked lists, the steps required for insertion are different based on the position of the new node.</p>
+<p>To insert a new node at the <strong>beginning</strong> of a doubly linked list, we need to:</p>
+<ol class="arabic simple">
+<li><p>update the <code class="docutils literal notranslate"><span class="pre">prev</span></code> pointer of the current <code class="docutils literal notranslate"><span class="pre">head</span></code> node to now point to the <code class="docutils literal notranslate"><span class="pre">new_node</span></code>.</p></li>
+<li><p>update the <code class="docutils literal notranslate"><span class="pre">next</span></code> pointer of the new node to point to the current <code class="docutils literal notranslate"><span class="pre">head</span></code> node.</p></li>
+<li><p>update the <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer to point to the <code class="docutils literal notranslate"><span class="pre">new_node</span></code>.</p></li>
+</ol>
 <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1684405576971/67b7b281-8c8b-4240-946d-873c18032561.gif">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">insert_at_beginning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="n">new_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -511,7 +528,12 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">new_node</span>
 </pre></div>
 </div>
-<p>To insert a new node at the end of a doubly linked list, we need to update the <code class="docutils literal notranslate"><span class="pre">next</span></code> pointer of the current <code class="docutils literal notranslate"><span class="pre">tail</span></code> node and the <code class="docutils literal notranslate"><span class="pre">prev</span></code> pointer of the new node.</p>
+<p>To insert a new node at the <strong>end</strong> of a doubly linked list, we need to:</p>
+<ol class="arabic simple">
+<li><p>update the <code class="docutils literal notranslate"><span class="pre">next</span></code> pointer of the current <code class="docutils literal notranslate"><span class="pre">tail</span></code> node to point to the <code class="docutils literal notranslate"><span class="pre">new_node</span></code>.</p></li>
+<li><p>update the <code class="docutils literal notranslate"><span class="pre">prev</span></code> pointer of the new node to point to the current <code class="docutils literal notranslate"><span class="pre">tail</span></code> node.</p></li>
+<li><p>update the <code class="docutils literal notranslate"><span class="pre">tail</span></code> pointer to point to the <code class="docutils literal notranslate"><span class="pre">new_node</span></code>.</p></li>
+</ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">insert_at_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="n">new_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
@@ -523,7 +545,12 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">new_node</span>
 </pre></div>
 </div>
-<p>To insert a new node at a given position in a doubly linked list, we need to update the <code class="docutils literal notranslate"><span class="pre">next</span></code> pointer of the previous node, the <code class="docutils literal notranslate"><span class="pre">prev</span></code> pointer of the next node, and the <code class="docutils literal notranslate"><span class="pre">prev</span></code> and <code class="docutils literal notranslate"><span class="pre">next</span></code> pointers of the new node.</p>
+<p>To insert a new node at a <strong>given position</strong> in a doubly linked list, we need to:</p>
+<ol class="arabic simple">
+<li><p>update the <code class="docutils literal notranslate"><span class="pre">next</span></code> pointer of the previous node to point to the new node.</p></li>
+<li><p>update the <code class="docutils literal notranslate"><span class="pre">prev</span></code> pointer of the next node to point to the new node.</p></li>
+<li><p>update the <code class="docutils literal notranslate"><span class="pre">prev</span></code> and <code class="docutils literal notranslate"><span class="pre">next</span></code> pointers of the new node to point to the previous and next nodes, respectively.</p></li>
+</ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">insert_at_position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">position</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid position&quot;</span><span class="p">)</span>
@@ -601,6 +628,15 @@ document.write(`
 <p>The time complexity of inserting a node at a given position in a doubly linked list is <strong>O(n)</strong> because we may need to traverse the list to find the previous node.</p>
 <p>The time complexity of deleting a node at the beginning or end of a doubly linked list is <strong>O(1)</strong> because we only need to update the <code class="docutils literal notranslate"><span class="pre">prev</span></code> and <code class="docutils literal notranslate"><span class="pre">next</span></code> pointers of a few nodes.</p>
 <p>The time complexity of deleting a node at a given position in a doubly linked list is <strong>O(n)</strong> because we may need to traverse the list to find the node to be deleted.</p>
+<p>Some practice questions with doubly linked lists include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://leetcode.com/problems/design-linked-list/">Design Linked List</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/add-two-numbers-ii/">Add Two Numbers II</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/">Flatten a Multilevel Doubly Linked List</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/">Convert Binary Search Tree to Sorted Doubly Linked List</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/design-a-stack-with-increment-operation/">Design a Stack With Increment Operation</a></p></li>
+<li><p><a class="reference external" href="https://leetcode.com/problems/design-circular-deque/">Design Circular Deque</a></p></li>
+</ul>
 </section>
 </section>
 

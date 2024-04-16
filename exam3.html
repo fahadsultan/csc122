@@ -1,0 +1,985 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Question 1. Short Questions (20 pts.) &#8212; Data Structures and Algorithms</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exam3';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    CSC-122 Data Structures & Algorithms (Spring 2024)
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="calendar.html">Calendar</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="syllabus/index.html">Syllabus</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="syllabus/pathways.html">Purposeful Pathways (Spring ‘24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syllabus/grading.html">Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syllabus/textbook.html">Textbooks &amp; Other Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syllabus/mental_health.html">Mental Health Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syllabus/academic_success.html">Center for Academic Success</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syllabus/accomodations.html">Accomodations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syllabus/integrity.html">Academic Integrity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syllabus/title_9.html">Nondiscrimination Policy and Sexual Misconduct</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Designing Abstract Processes (Algorithms)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="algos/analysis.html">1. Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="algos/time.html">1.4. Time Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algos/space.html">1.5. Space Complexity</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="algos/brute.html">2. Brute Force</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="algos/search_linear.html">2.1. Linear Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algos/bogo.html">2.2. Bogosort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="algos/decrease_conquer.html">3. Decrease and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="algos/sort_selection.html">3.1. Selection Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algos/sort_insertion.html">3.2. Insertion Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="algos/divide_conquer.html">4. Divide and Conquer</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="algos/search_binary.html">4.1. Binary Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algos/sort_merge_iter.html">4.2. Merge Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algos/sort_quick_iter.html">4.3. Quick Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="functions/recursion.html">5. Recursion</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions/head_tail.html">5.4. Linear Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions/tree_recursion.html">5.5. Tree Recursion</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="data/oop.html">6. Object-Oriented Programming</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/native_structures.html">6.1. Native Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/oop1.html">6.2. User-defined Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/inheritance.html">6.3. Extending Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/operator_overloading.html">6.4. Extending Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="data/stacks_queues.html">7. Stacks and Queues</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions/stacks.html">7.1. Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/queue.html">7.2. Queues</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="data/linkedlists.html">8. Linked Lists</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/linkedlists_singly.html">8.1. Singly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/linkedlists_doubly.html">8.2. Doubly Linked Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/linkedlists_circular.html">8.3. Circular Linked Lists</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="data/arrays.html">9. Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/arrays_static.html">9.1. Static Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/arrays_dynamic.html">9.2. Dynamic Arrays</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions/filesmodules.html">10. Files and Modules</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fexam3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/exam3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Question 1. Short Questions (20 pts.)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Question 1.</strong> Short Questions (20 pts.)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fill-in-the-blanks-20-pts"><strong>1.1.</strong> Fill in the blanks (20 pts.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#true-or-false-10-pts"><strong>1.2.</strong> True or False (10 pts.)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-multiple-choice-10-pts"><strong>Question 2.</strong> Multiple Choice (10 pts.)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-book-class-25-pts"><strong>Question 2.</strong> Book Class (25 pts.)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-design-browser-history-25-pts"><strong>Question 3</strong>: Design Browser History (25 pts.)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-outermost-parentheses">Remove Outermost Parentheses</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <center>
+<img width="14%" src="https://www.furman.edu/wp-content/uploads/2019/01/paladin-head/PNG/Paladin-Head-Logo-RGB.png" align="left">
+<h5></h5>
+<h1><b>CSC-122: Data Structures and Algorithms</b></h1>
+<h1><b>Spring 2024</b></h1>
+<h1><b>Exam 3</b></h1>
+</center>
+<br>
+<hr>
+<br>
+<p><strong>Instructions</strong>:</p>
+<ul class="simple">
+<li><p>Make sure to make your own copy of this file by clicking “File” &gt; “Save a copy in Drive”.</p></li>
+<li><p>When you are ready to submit, click “File” &gt; “Download .ipynb” and submit the .ipynb file that you downloaded.</p></li>
+<li><p>Using any <u>AI, external source or communication software</u> for the exam is strictly prohibited, counts as cheating and will result in at least a <u>zero on the exam</u>, if not an <u>F in the course</u>.</p></li>
+<li><p>If anything other than Moodle, this Google Colab file or your file system is seen on your screens, it would be considered plagiarism.</p></li>
+<li><p>State any and all assumptions you make as comments in your answers.</p></li>
+<li><p>Please note that passing all the <u>test cases does not guarantee full points</u>, as test cases only assess correct mapping of inputs to outputs. The questions in this course are rooted in efficiency and algorithms, which can not be tested in an automated way. Solutions which don’t match the specified/required efficiency will result in point deductions.</p></li>
+<li><p><strong>Partial credit</strong> will be given for each question, so make sure to attempt to answer all questions. You can earn partial credit for pseudocode and/or an English description, but <u>only fully functional code will earn you full credit</u>.</p></li>
+<li><p>Please have your <strong>phones turned off</strong> or on airplane mode, in front of you on the desk, facing down.</p></li>
+<li><p>Please note that <u>this is just the <strong>first part</strong> of the test</u> and accounts for 50% of the total test grade.</p></li>
+<li><p>You can only start the second part of the test after you have turned in the first part.</p></li>
+<li><p>You will not get the first part back after you turn it in.</p></li>
+<li><p>The second part of the test will be posted and is to be submitted on completion to Moodle.</p></li>
+<li><p>For both parts of the test, you have 2 hours (2:30 - 4:30 PM).</p></li>
+<li><p>Other than the total time of 2 hours, there is no specific time limit for any part of the test.</p></li>
+</ul>
+<br>
+<hr>
+<br>
+<section id="question-1-short-questions-20-pts">
+<h1><strong>Question 1.</strong> Short Questions (20 pts.)<a class="headerlink" href="#question-1-short-questions-20-pts" title="Permalink to this headline">#</a></h1>
+<section id="fill-in-the-blanks-20-pts">
+<h2><strong>1.1.</strong> Fill in the blanks (20 pts.)<a class="headerlink" href="#fill-in-the-blanks-20-pts" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>A class consists of a collection of <code class="docutils literal notranslate"><span class="pre">________________</span></code> and <code class="docutils literal notranslate"><span class="pre">________________</span></code>.</p></li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">________________</span></code> is an instance of a class.</p></li>
+<li><p>There are two types of attributes in a class: <code class="docutils literal notranslate"><span class="pre">________________</span></code> and <code class="docutils literal notranslate"><span class="pre">________________</span></code>.</p></li>
+<li><p>There are three types of methods in a class: <code class="docutils literal notranslate"><span class="pre">________________</span></code>, <code class="docutils literal notranslate"><span class="pre">________________</span></code>, and <code class="docutils literal notranslate"><span class="pre">________________</span></code>.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">________________</span></code> is a special method that is called when an object is created.</p></li>
+<li><p>All values in Python are <code class="docutils literal notranslate"><span class="pre">________________</span></code>.</p></li>
+<li><p>The value of ____________ are shared by all objects of a class.</p></li>
+<li><p>Values of ___________ are unique to each object of the class.</p></li>
+<li><p>____________ is the concept of hiding data and methods in a single unit.</p></li>
+<li><p>Inheritance is the concept of <code class="docutils literal notranslate"><span class="pre">________________</span></code> a class to create a new class.</p></li>
+<li><p>The fact that <code class="docutils literal notranslate"><span class="pre">+</span></code> operator is used for addition of numeric type values and concatenation of <code class="docutils literal notranslate"><span class="pre">str</span></code> values is an example of <code class="docutils literal notranslate"><span class="pre">________________</span></code>.</p></li>
+<li><p>___________ is used to call the <code class="docutils literal notranslate"><span class="pre">________________</span></code> of a parent class.</p></li>
+<li><p>The first argument of an instance method in a class is always <code class="docutils literal notranslate"><span class="pre">________________</span></code>.</p></li>
+<li><p>The first argument of a class method in a class is always <code class="docutils literal notranslate"><span class="pre">________________</span></code>.</p></li>
+<li><p>All attributes and methods in a class are <code class="docutils literal notranslate"><span class="pre">________________</span></code> access by default.</p></li>
+<li><p>Private attributes and methods cannot be accessed <code class="docutils literal notranslate"><span class="pre">________________</span></code> the class.</p></li>
+<li><p>There are three access levels in Python: <code class="docutils literal notranslate"><span class="pre">________________</span></code>, <code class="docutils literal notranslate"><span class="pre">________________</span></code>, and <code class="docutils literal notranslate"><span class="pre">________________</span></code>.</p></li>
+<li><p>Private attributes and methods are denoted by <code class="docutils literal notranslate"><span class="pre">________________</span></code> before their names.</p></li>
+<li><p>Stacks are <code class="docutils literal notranslate"><span class="pre">________________</span></code> in, ________ out data structures.</p></li>
+<li><p>Queues are <code class="docutils literal notranslate"><span class="pre">________________</span></code> in, ________ out data structures.</p></li>
+<li><p>Nodes in a linked list have at least two attributes: <code class="docutils literal notranslate"><span class="pre">________________</span></code> and <code class="docutils literal notranslate"><span class="pre">________________</span></code>.</p></li>
+</ol>
+</section>
+<section id="true-or-false-10-pts">
+<h2><strong>1.2.</strong> True or False (10 pts.)<a class="headerlink" href="#true-or-false-10-pts" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>In Python, a class is a blueprint for creating objects.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>In Python, a class is a collection of objects.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>There can be only one instance of a class.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>A class can have any number of attributes and methods.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p>Static methods are used to access class attributes.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p>A class can have only one constructor.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+<ol class="arabic simple" start="7">
+<li><p>A class can inherit from multiple parent classes.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+<ol class="arabic simple" start="8">
+<li><p>A class can have only one child class (subclass) inheriting from it.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+<ol class="arabic simple" start="9">
+<li><p>An attribute in a class can be an instance of another class.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+<ol class="arabic simple" start="7">
+<li><p>A subclass can access <em>ALL</em> attributes and methods of its parent class.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+<ol class="arabic simple" start="8">
+<li><p>A parent class can access <em>ALL</em> attributes and methods of its child class.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+<ol class="arabic simple" start="9">
+<li><p>The goal of inheritance is to minimize code duplication.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+<ol class="arabic simple" start="10">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> is a special method in Python that is called when an object is accessed.</p></li>
+</ol>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</section>
+</section>
+<section id="question-2-multiple-choice-10-pts">
+<h1><strong>Question 2.</strong> Multiple Choice (10 pts.)<a class="headerlink" href="#question-2-multiple-choice-10-pts" title="Permalink to this headline">#</a></h1>
+<ol class="arabic simple">
+<li><p>Suppose you have a class <code class="docutils literal notranslate"><span class="pre">Person</span></code> with an attribute <code class="docutils literal notranslate"><span class="pre">name</span></code>. Which of the following is the correct way to access the <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute of an object <code class="docutils literal notranslate"><span class="pre">p</span></code> of the class <code class="docutils literal notranslate"><span class="pre">Person</span></code>?</p>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">p.name</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">Person.name</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">Person(p).name</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">Person(p).name()</span></code></p></li>
+<li><p>E) <code class="docutils literal notranslate"><span class="pre">p.name()</span></code></p></li>
+</ul>
+</li>
+<li><p>Which of the following is the correct way to define a class method in Python?</p>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">method(self):</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">method():</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">method(cls):</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">method(self,</span> <span class="pre">cls):</span></code></p></li>
+<li><p>E) <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">method(cls,</span> <span class="pre">self):</span></code></p></li>
+</ul>
+</li>
+<li><p>Which of the following is the correct way to inherit a class in Python?</p>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">ChildClass(ParentClass):</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">ParentClass(ChildClass):</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">ParentClass.ChildClass:</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">ChildClass.ParentClass:</span></code></p></li>
+<li><p>E) <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">ParentClass,</span> <span class="pre">ChildClass</span></code></p></li>
+</ul>
+</li>
+<li><p>Which of the following is the correct way to call the constructor of a parent class in a child class? Assume both <code class="docutils literal notranslate"><span class="pre">__init__</span></code> methods have no arguments.</p>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">super().__init__()</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">super(self).__init__()</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">super().__init__(self)</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">self.super().__init__()</span></code></p></li>
+<li><p>E) <code class="docutils literal notranslate"><span class="pre">self.super()</span></code></p></li>
+</ul>
+</li>
+<li><p>Which of the following is the correct way to access class attributes in a class method?</p>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">self.class_attribute</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">cls.class_attribute</span></code></p></li>
+<li><p>C) Both <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code></p></li>
+<li><p>D) None of the above</p></li>
+</ul>
+</li>
+<li><p>Stack is a <code class="docutils literal notranslate"><span class="pre">________________</span></code> in, <code class="docutils literal notranslate"><span class="pre">________________</span></code> out data structure.</p>
+<ul class="simple">
+<li><p>A) First, First</p></li>
+<li><p>B) First, Last</p></li>
+<li><p>C) Last, First</p></li>
+<li><p>D) Last, Last</p></li>
+<li><p>E) None of the above</p></li>
+</ul>
+</li>
+<li><p>Queue is a <code class="docutils literal notranslate"><span class="pre">________________</span></code> in, <code class="docutils literal notranslate"><span class="pre">________________</span></code> out data structure.</p>
+<ul class="simple">
+<li><p>A) First, First</p></li>
+<li><p>B) First, Last</p></li>
+<li><p>C) Last, First</p></li>
+<li><p>D) Last, Last</p></li>
+<li><p>E) None of the above</p></li>
+</ul>
+</li>
+<li><p>In a linked list, the <code class="docutils literal notranslate"><span class="pre">next</span></code> attribute is of type <code class="docutils literal notranslate"><span class="pre">________________</span></code>.</p>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p>E) <code class="docutils literal notranslate"><span class="pre">Node</span></code></p></li>
+</ul>
+</li>
+<li><p>In a linked list, the <code class="docutils literal notranslate"><span class="pre">next</span></code> attribute of the last node is <code class="docutils literal notranslate"><span class="pre">________________</span></code>.</p>
+<ul class="simple">
+<li><p>A) <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p>B) <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p>C) <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p>D) <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p>E) <code class="docutils literal notranslate"><span class="pre">Node</span></code></p></li>
+</ul>
+</li>
+<li><p>The linked list needs to contain a reference to the <code class="docutils literal notranslate"><span class="pre">________________</span></code> node to be able to traverse the list.</p>
+<ul class="simple">
+<li><p>A) First</p></li>
+<li><p>B) Last</p></li>
+<li><p>C) Middle</p></li>
+<li><p>D) Random</p></li>
+<li><p>E) None of the above</p></li>
+</ul>
+</li>
+</ol>
+<p>class Stack:
+def <strong>init</strong>(self):
+self.__stack = []</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def push(self, x):
+    self.__stack.append(x)
+
+def pop(self):
+    return self.__stack.pop()
+
+def top(self):
+    return self.__stack[-1]
+
+def empty(self):
+    return len(self.__stack) == 0
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="question-2-book-class-25-pts">
+<h1><strong>Question 2.</strong> Book Class (25 pts.)<a class="headerlink" href="#question-2-book-class-25-pts" title="Permalink to this headline">#</a></h1>
+<p><u>All attributes must be <strong>private</strong></u> and inaccessible from outside the class directly. In other words, all interactions with the class should be done through methods.</p>
+<p>The class should have the following <strong>instance attributes</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code> (str): The title of the book.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">author</span></code> (str): The author of the book.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code> (int): The year the book was published.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code> (str): The genre of the book.</p></li>
+</ul>
+<p>The class should have the following <strong>class attributes</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">book_count</span></code> (int): The total number of books created.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">discount_rate</span></code> (float): The discount rate for all books. The default value is 0.1, which means a 10% discount.</p></li>
+</ul>
+<p>The class should have the following <strong>instance methods</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">title,</span> <span class="pre">author,</span> <span class="pre">year,</span> <span class="pre">genre)</span></code>: The constructor method that initializes the instance attributes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_price(self)</span></code>: A method that returns the price of the book, AFTER applying the discount rate.</p></li>
+</ul>
+<p>The class should have the following <strong>class methods</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_book_count(cls)</span></code>: A class method that returns the total number of books created.</p></li>
+</ul>
+<p>The class should have the following <strong>static methods</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">is_valid_year(year)</span></code>: A static method that returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the year is between 1450 and 2024, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Book</span><span class="p">:</span> 
+    <span class="n">discount_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">n_books</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">author</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+        <span class="n">Book</span><span class="o">.</span><span class="n">n_books</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">get_price</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="n">Book</span><span class="o">.</span><span class="n">discount_rate</span>
+    
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_book_count</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">n_books</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">is_valid_year</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">&gt;</span> <span class="mi">1440</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">year</span> <span class="o">&lt;=</span> <span class="mi">2024</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span>
+    
+<span class="n">book1</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;The Reluctant Fundamentalist&quot;</span><span class="p">,</span> <span class="s2">&quot;Mohsin Hamid&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">book2</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;The Kite Runner&quot;</span><span class="p">,</span> <span class="s2">&quot;Khaled Hosseini&quot;</span><span class="p">,</span> <span class="mi">450</span><span class="p">)</span>
+<span class="n">book3</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;Program or be Programmed&quot;</span><span class="p">,</span> <span class="s2">&quot;Douglas Rushkoff&quot;</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">Book</span><span class="o">.</span><span class="n">get_book_count</span><span class="p">()</span>    <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Test case 1 failed&quot;</span>
+<span class="k">assert</span> <span class="n">Book</span><span class="o">.</span><span class="n">is_valid_year</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Test case 2 failed&quot;</span>
+<span class="k">assert</span> <span class="n">Book</span><span class="o">.</span><span class="n">is_valid_year</span><span class="p">(</span><span class="mi">1440</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Test case 3 failed&quot;</span>
+<span class="k">assert</span> <span class="n">book1</span><span class="o">.</span><span class="n">get_price</span><span class="p">()</span>        <span class="o">==</span> <span class="mi">450</span><span class="p">,</span> <span class="s2">&quot;Test case 4 failed&quot;</span>
+<span class="k">assert</span> <span class="n">book2</span><span class="o">.</span><span class="n">get_price</span><span class="p">()</span>        <span class="o">==</span> <span class="mi">405</span><span class="p">,</span> <span class="s2">&quot;Test case 5 failed&quot;</span>
+<span class="k">assert</span> <span class="n">book3</span><span class="o">.</span><span class="n">get_price</span><span class="p">()</span>        <span class="o">==</span> <span class="mi">270</span><span class="p">,</span> <span class="s2">&quot;Test case 6 failed&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All test cases passed successfully.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All test cases passed successfully.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="question-3-design-browser-history-25-pts">
+<h1><strong>Question 3</strong>: Design Browser History (25 pts.)<a class="headerlink" href="#question-3-design-browser-history-25-pts" title="Permalink to this headline">#</a></h1>
+<p>You have a browser of one tab where you can perform one of the following operations:</p>
+<ul class="simple">
+<li><p>Start on the homepage (string)</p></li>
+<li><p>Visit another url (also string)</p></li>
+<li><p>Go back in the history a specific number of steps</p></li>
+<li><p>Move forward in the history a specific number of steps.</p></li>
+</ul>
+<p>Implement the BrowserHistory class:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__(string</span> <span class="pre">homepage)</span></code> Initializes the object with the homepage (string) of the browser.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">visit(self,</span> <span class="pre">url)</span></code> (Instance method) Adds a new url to the history. Clears up all the forward history. This method does not return anything.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">back(self,</span> <span class="pre">n)</span></code> (Instance method) Move <code class="docutils literal notranslate"><span class="pre">n</span></code> (integer) steps back in history. If you can only back <code class="docutils literal notranslate"><span class="pre">x</span></code> steps in the history and <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">&gt;</span> <span class="pre">x</span></code>, you will back only <code class="docutils literal notranslate"><span class="pre">x</span></code> steps. <u>Return the current url</u> after moving back in history at most <code class="docutils literal notranslate"><span class="pre">n</span></code> steps.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">forward(self,</span> <span class="pre">n)</span></code> (Instance method) Move <code class="docutils literal notranslate"><span class="pre">n</span></code> steps forward in history. If you can only forward <code class="docutils literal notranslate"><span class="pre">x</span></code> steps in the history and <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">&gt;</span> <span class="pre">x</span></code>, you will forward only <code class="docutils literal notranslate"><span class="pre">x</span></code> steps. <u>Return the current url</u> after moving forward in history</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BrowserHistory</span><span class="p">:</span> 
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">homepage</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">future</span>  <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">homepage</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">visit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">future</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">back</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">steps</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">empty</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">future</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+            <span class="n">steps</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">top</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">steps</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">future</span><span class="o">.</span><span class="n">empty</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">future</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+            <span class="n">steps</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">top</span><span class="p">()</span>
+
+<span class="n">hist</span> <span class="o">=</span> <span class="n">BrowserHistory</span><span class="p">(</span><span class="s2">&quot;leetcode.com&quot;</span><span class="p">)</span>
+<span class="n">hist</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s2">&quot;google.com&quot;</span><span class="p">)</span>
+<span class="n">hist</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s2">&quot;facebook.com&quot;</span><span class="p">)</span>
+<span class="n">hist</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s2">&quot;youtube.com&quot;</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">hist</span><span class="o">.</span><span class="n">back</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;facebook.com&quot;</span>
+<span class="k">assert</span> <span class="n">hist</span><span class="o">.</span><span class="n">back</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;google.com&quot;</span>
+<span class="k">assert</span> <span class="n">hist</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;facebook.com&quot;</span>
+<span class="k">assert</span> <span class="n">hist</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s2">&quot;linkedin.com&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All tests passed.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 24&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>             <span class="n">steps</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">top</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">24</span> <span class="n">hist</span> <span class="o">=</span> <span class="n">BrowserHistory</span><span class="p">(</span><span class="s2">&quot;leetcode.com&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">hist</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s2">&quot;google.com&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">hist</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s2">&quot;facebook.com&quot;</span><span class="p">)</span>
+
+<span class="nn">Input In [2],</span> in <span class="ni">BrowserHistory.__init__</span><span class="nt">(self, homepage)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">homepage</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="bp">self</span><span class="o">.</span><span class="n">future</span>  <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">homepage</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Stack&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<section id="remove-outermost-parentheses">
+<h2>Remove Outermost Parentheses<a class="headerlink" href="#remove-outermost-parentheses" title="Permalink to this headline">#</a></h2>
+<p>A valid parentheses string is either empty <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;(&quot;</span> <span class="pre">+</span> <span class="pre">A</span> <span class="pre">+</span> <span class="pre">&quot;)&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">+</span> <span class="pre">B</span></code>, where <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> are valid parentheses strings, and + represents string concatenation.</p>
+<ul class="simple">
+<li><p>For example, <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;()&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;(())()&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;(()(()))&quot;</span></code> are all valid parentheses strings.</p></li>
+</ul>
+<p>A valid parentheses string s is primitive if it is nonempty, and there does not exist a way to split it into <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">A</span> <span class="pre">+</span> <span class="pre">B</span></code>, with <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> nonempty valid parentheses strings.</p>
+<p>Given a valid parentheses string <code class="docutils literal notranslate"><span class="pre">s</span></code>, consider its primitive decomposition: <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">P1</span> <span class="pre">+</span> <span class="pre">P2</span> <span class="pre">+</span> <span class="pre">...</span> <span class="pre">+</span> <span class="pre">Pk</span></code>, where Pi are primitive valid parentheses strings.</p>
+<p>Return s after removing the outermost parentheses of every primitive string in the primitive decomposition of s.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Question 1.</strong> Short Questions (20 pts.)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fill-in-the-blanks-20-pts"><strong>1.1.</strong> Fill in the blanks (20 pts.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#true-or-false-10-pts"><strong>1.2.</strong> True or False (10 pts.)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-multiple-choice-10-pts"><strong>Question 2.</strong> Multiple Choice (10 pts.)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-book-class-25-pts"><strong>Question 2.</strong> Book Class (25 pts.)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-design-browser-history-25-pts"><strong>Question 3</strong>: Design Browser History (25 pts.)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-outermost-parentheses">Remove Outermost Parentheses</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Syed Fahad Sultan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

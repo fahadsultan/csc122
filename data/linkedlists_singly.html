@@ -685,7 +685,25 @@ This code will output the following:
 1
 ```
 
-This demonstrates how to create a singly linked list, insert values into the list, delete values from the list, and traverse the list to print out the values. --></section>
+This demonstrates how to create a singly linked list, insert values into the list, delete values from the list, and traverse the list to print out the values. --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reverse a linked list</span>
+
+<span class="k">def</span> <span class="nf">reverse_linked_list</span><span class="p">(</span><span class="n">linked_list</span><span class="p">):</span>
+    <span class="n">prev</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">linked_list</span><span class="o">.</span><span class="n">head</span>
+    <span class="k">while</span> <span class="n">current</span><span class="p">:</span>
+        <span class="n">next_node</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span>
+        <span class="n">current</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">prev</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">current</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">next_node</span>
+    <span class="n">linked_list</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">prev</span>
+    <span class="k">return</span> <span class="n">linked_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
