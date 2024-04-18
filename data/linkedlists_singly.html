@@ -525,6 +525,7 @@ document.write(`
 <p><span class="caption-number">Fig. 8.6 </span><span class="caption-text"><strong>Prepend</strong>: Inserting a node at the front of a singly linked list.</span><a class="headerlink" href="#linkedlist-insertfromfront" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<p><img src="https://i.ibb.co/F7bkw4k/singly-insert-start.png"><br/><br/></p>
 <p>To insert a new node at the end of the list, we create a new node with the desired value and set its next reference to the current head of the list. Then, we update the head of the list to point to the new node.</p>
 <figure class="align-center" id="linkedlist-insertfromback">
 <a class="reference internal image-reference" href="https://cdn.devdojo.com/images/june2021/linkedlist-insertfromback1.gif"><img alt="https://cdn.devdojo.com/images/june2021/linkedlist-insertfromback1.gif" src="https://cdn.devdojo.com/images/june2021/linkedlist-insertfromback1.gif" style="width: 60%;" /></a>
@@ -554,6 +555,7 @@ document.write(`
     <span class="n">last</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">new_node</span>
 </pre></div>
 </div>
+<p><img src="https://i.ibb.co/D9c6JY8/singly-insert-end.png"><br/><br/></p>
 <p>To insert a new node at a specific index in the list, we need to find the node that precedes the index where we want to insert the new node. We then update the next reference of the preceding node to point to the new node, and update the next reference of the new node to point to the node that was previously at the index.</p>
 <figure class="align-center" id="linkedlist-index-insertion">
 <a class="reference internal image-reference" href="https://cdn.devdojo.com/images/june2021/LinkedList_IndexInsertion.gif"><img alt="https://cdn.devdojo.com/images/june2021/LinkedList_IndexInsertion.gif" src="https://cdn.devdojo.com/images/june2021/LinkedList_IndexInsertion.gif" style="width: 60%;" /></a>
@@ -561,7 +563,7 @@ document.write(`
 <p><span class="caption-number">Fig. 8.8 </span><span class="caption-text"><strong>Insert</strong>: Inserting a node at a specific index in a singly linked list.</span><a class="headerlink" href="#linkedlist-index-insertion" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The following code caters all the three cases for insertion of a new node in a singly linked list.</p>
+<p><img src="https://i.ibb.co/BTgQvCy/singly-insert-middle.png"><br/><br/></p>
 </section>
 <section id="deletion">
 <h2><span class="section-number">8.1.5. </span>Deletion<a class="headerlink" href="#deletion" title="Permalink to this headline">#</a></h2>
@@ -578,6 +580,8 @@ document.write(`
 <p><span class="caption-number">Fig. 8.9 </span><span class="caption-text"><strong>Delete head</strong>: Deleting the first node in a singly linked list.</span><a class="headerlink" href="#linkedlist-deletefromfront" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<img src="https://i.ibb.co/LQd2N82/singly-delete-start.png">
+<br/><br/>
 <p>To delete the tail of the list, we need to find the node that precedes the tail node. We then update the next reference of the preceding node to point to null.</p>
 <figure class="align-center" id="linkedlist-deletefromback">
 <a class="reference internal image-reference" href="https://cdn.devdojo.com/images/june2021/delBack.gif"><img alt="https://cdn.devdojo.com/images/june2021/delBack.gif" src="https://cdn.devdojo.com/images/june2021/delBack.gif" style="width: 60%;" /></a>
@@ -585,6 +589,8 @@ document.write(`
 <p><span class="caption-number">Fig. 8.10 </span><span class="caption-text"><strong>Delete tail</strong>: Deleting the last node in a singly linked list.</span><a class="headerlink" href="#linkedlist-deletefromback" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<img src="https://i.ibb.co/Qmq9LVb/single-delete-end.png">
+<br/><br/>
 <p>To delete a node with a specific value from the list, we need to find the node that precedes the node to be deleted. We then update the next reference of the preceding node to skip over the node to be deleted.</p>
 <figure class="align-center" id="linkedlist-index-deletion">
 <a class="reference internal image-reference" href="https://cdn.devdojo.com/images/june2021/delIndex.gif"><img alt="https://cdn.devdojo.com/images/june2021/delIndex.gif" src="https://cdn.devdojo.com/images/june2021/delIndex.gif" style="width: 60%;" /></a>
@@ -616,6 +622,7 @@ document.write(`
             <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span>
 </pre></div>
 </div>
+<p><img src="https://i.ibb.co/xqWsnGM/singly-delete-middle.png"><br/><br/></p>
 </section>
 <section id="analysis">
 <h2><span class="section-number">8.1.6. </span>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h2>

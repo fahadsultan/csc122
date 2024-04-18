@@ -517,6 +517,7 @@ document.write(`
 <li><p>update the <code class="docutils literal notranslate"><span class="pre">head</span></code> pointer to point to the <code class="docutils literal notranslate"><span class="pre">new_node</span></code>.</p></li>
 </ol>
 <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1684405576971/67b7b281-8c8b-4240-946d-873c18032561.gif">
+<p><img src="https://i.ibb.co/N1GfYyM/doubly-insert-start.png"><br/><br/></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">insert_at_beginning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="n">new_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
@@ -529,6 +530,7 @@ document.write(`
 </pre></div>
 </div>
 <p>To insert a new node at the <strong>end</strong> of a doubly linked list, we need to:</p>
+<p><img src="https://i.ibb.co/2nnxS3L/doubly-insert-end.png"><br/><br/></p>
 <ol class="arabic simple">
 <li><p>update the <code class="docutils literal notranslate"><span class="pre">next</span></code> pointer of the current <code class="docutils literal notranslate"><span class="pre">tail</span></code> node to point to the <code class="docutils literal notranslate"><span class="pre">new_node</span></code>.</p></li>
 <li><p>update the <code class="docutils literal notranslate"><span class="pre">prev</span></code> pointer of the new node to point to the current <code class="docutils literal notranslate"><span class="pre">tail</span></code> node.</p></li>
@@ -546,6 +548,7 @@ document.write(`
 </pre></div>
 </div>
 <p>To insert a new node at a <strong>given position</strong> in a doubly linked list, we need to:</p>
+<p><img src="https://i.ibb.co/6HFCyNn/doubly-insert-middle.png"><br/><br/></p>
 <ol class="arabic simple">
 <li><p>update the <code class="docutils literal notranslate"><span class="pre">next</span></code> pointer of the previous node to point to the new node.</p></li>
 <li><p>update the <code class="docutils literal notranslate"><span class="pre">prev</span></code> pointer of the next node to point to the new node.</p></li>
