@@ -11,18 +11,7 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 
 
 ```{important}
-**[Programming Assigment 9](https://colab.research.google.com/drive/1i40ldpEvSRwXmQmKzD8PwkUFFET31sQ6?usp=sharing)** is due on **April 19th** at **2:30 PM**. 
-```
-
-```{note}
-_[Purposeful Pathways](https://fahadsultan.com/csc122/syllabus/pathways.html)_  event: **PowerPoint Night** is on **April 16, 6-7:30 PM** Jennifer McHan Good Collab in **Riley 106**
-
-**Last day** to submit the two required **reflections** for this course is the last day of class: Tuesday, April 23rd by 11:59 PM.
-```
-
-
-```{important}
-**[Programming Assigment 10]()** is due on **April 24th** at **11:59 PM**. 
+**[Programming Assigment 10](https://colab.research.google.com/drive/1BtmX2WFiPBkxabPknIAy-MxpxXmmOPK9?usp=sharing)** is due on **April 24th** at **11:59 PM**. 
 ```
 
 
