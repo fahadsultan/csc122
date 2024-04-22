@@ -16,6 +16,13 @@ I am excited to talk code 💻, algorithms 🔄 🔀 and data 📊 in this cours
 
 
 ```{important}
+**Both Pathway Reflections** and **ALL Code Reviews** are due on **April 24th** at **11:59 PM**. 
+
+No submissions will be accepted after this deadline.
+```
+
+
+```{important}
 **Final Exam** is scheduled for **Monday, April 29th** from **8:30 to 11:00 AM** in **(Riley 204)**
 ```
 
