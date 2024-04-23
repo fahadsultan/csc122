@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>9.2. Dynamic Arrays &#8212; Data Structures and Algorithms</title>
+    <title>Dynamic Arrays &#8212; Data Structures and Algorithms</title>
   
   
   
@@ -67,8 +67,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'data/arrays_dynamic';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10. Files and Modules" href="../functions/filesmodules.html" />
-    <link rel="prev" title="9.1. Static Arrays" href="arrays_static.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -206,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Abstractions with Data (Data Structures)</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="oop.html">6. Object-Oriented Programming</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="native_structures.html">6.1. Native Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="oop1.html">6.2. User-defined Types</a></li>
@@ -225,12 +223,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="linkedlists_circular.html">8.3. Circular Linked Lists</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="arrays.html">9. Arrays</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="arrays_static.html">9.1. Static Arrays</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">9.2. Dynamic Arrays</a></li>
-
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="arrays.html">9. Arrays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions/filesmodules.html">10. Files and Modules</a></li>
 </ul>
 
@@ -425,17 +418,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">9.2. Dynamic Arrays</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-dynamic-array">9.2.1. Implementing a Dynamic Array</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amortized-analysis-of-dynamic-arrays">9.2.2. Amortized Analysis of Dynamic Arrays</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-increase-in-capacity">9.2.2.1. Geometric Increase in Capacity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beware-of-arithmetic-progression">9.2.2.2. Beware of Arithmetic Progression</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-2-fixed-increment-rightarrow-n-2">9.2.2.3. Proposition 2: Fixed increment <span class="math notranslate nohighlight">\(\rightarrow Ω(n^2)\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dynamic Arrays</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-dynamic-array">Implementing a Dynamic Array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amortized-analysis-of-dynamic-arrays">Amortized Analysis of Dynamic Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-increase-in-capacity">Geometric Increase in Capacity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beware-of-arithmetic-progression">Beware of Arithmetic Progression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-2-fixed-increment-rightarrow-n-2">Proposition 2: Fixed increment <span class="math notranslate nohighlight">\(\rightarrow Ω(n^2)\)</span></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-list-class">9.3. Python’s List Class</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-list-class">Python’s List Class</a></li>
 </ul>
 
             </nav>
@@ -449,12 +442,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="dynamic-arrays">
-<h1><span class="section-number">9.2. </span>Dynamic Arrays<a class="headerlink" href="#dynamic-arrays" title="Permalink to this headline">#</a></h1>
+<h1>Dynamic Arrays<a class="headerlink" href="#dynamic-arrays" title="Permalink to this headline">#</a></h1>
 <p>When creating a low-level array in a computer system, the precise size of that array must be explicitly declared in order for the system to properly allocate a consecutive piece of memory for its storage. For example, Figure 5.11 displays an array of 12 bytes that might be stored in memory locations 2146 through 2157.</p>
 <figure class="align-center" id="figure-5-11">
 <a class="reference internal image-reference" href="https://i.ibb.co/ggpDSqz/array12.png"><img alt="https://i.ibb.co/ggpDSqz/array12.png" src="https://i.ibb.co/ggpDSqz/array12.png" style="width: 90%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9.12 </span><span class="caption-text">An array of 12 bytes allocated in memory locations 2146 through 2157</span><a class="headerlink" href="#figure-5-11" title="Permalink to this image">#</a></p>
+<p><span class="caption-text">An array of 12 bytes allocated in memory locations 2146 through 2157</span><a class="headerlink" href="#figure-5-11" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Because the system might dedicate neighboring memory locations to store other data, the capacity of an array cannot trivially be increased by expanding into sub- sequent cells. In the context of representing a Python tuple or str instance, this constraint is no problem. Instances of those classes are immutable, so the correct size for an underlying array can be fixed when the object is instantiated.</p>
@@ -519,7 +512,7 @@ Length:  26; Size in bytes:  312
 <p>Because a list is a referential structure, the result of getsizeof for a list instance only includes the size for representing its primary structure; it does not account for memory used by the objects that are elements of the list. In our experiment, we repeatedly append None to the list, because we do not care about the contents, but we could append any type of object without affecting the number of bytes reported by getsizeof(data).</p>
 <p>If we were to continue such an experiment for further iterations, we might try to discern the pattern for how large of an array Python creates each time the ca- pacity of the previous array is exhausted (see Exercises R-5.2 and C-5.13). Before exploring the precise sequence of capacities used by Python, we continue in this section by describing a general approach for implementing dynamic arrays and for performing an asymptotic analysis of their performance.</p>
 <section id="implementing-a-dynamic-array">
-<h2><span class="section-number">9.2.1. </span>Implementing a Dynamic Array<a class="headerlink" href="#implementing-a-dynamic-array" title="Permalink to this headline">#</a></h2>
+<h2>Implementing a Dynamic Array<a class="headerlink" href="#implementing-a-dynamic-array" title="Permalink to this headline">#</a></h2>
 <p>Although the Python <code class="docutils literal notranslate"><span class="pre">list</span></code> class provides a highly optimized implementation of dynamic arrays, it is instructive to see how such a class might be implemented.</p>
 <p>The key is to provide means to grow the array <code class="docutils literal notranslate"><span class="pre">A</span></code> that stores the elements of a list. Of course, we cannot actually grow that array, as its capacity is fixed. If an element is appended to a list at a time when the underlying array is full, we perform the following steps:</p>
 <ol class="arabic simple">
@@ -531,7 +524,7 @@ Length:  26; Size in bytes:  312
 <figure class="align-center" id="figure-5-12">
 <a class="reference internal image-reference" href="https://i.ibb.co/gdktfcN/array13.png"><img alt="https://i.ibb.co/gdktfcN/array13.png" src="https://i.ibb.co/gdktfcN/array13.png" style="width: 90%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9.13 </span><span class="caption-text">An illustration of the three steps for “growing” a dynamic array: (a) create new array <code class="docutils literal notranslate"><span class="pre">B</span></code>; (b) store elements of <code class="docutils literal notranslate"><span class="pre">A</span></code> in <code class="docutils literal notranslate"><span class="pre">B</span></code>; (c) reassign reference A to the new array. Not shown is the future garbage collection of the old array, or the insertion of the new element.</span><a class="headerlink" href="#figure-5-12" title="Permalink to this image">#</a></p>
+<p><span class="caption-text">An illustration of the three steps for “growing” a dynamic array: (a) create new array <code class="docutils literal notranslate"><span class="pre">B</span></code>; (b) store elements of <code class="docutils literal notranslate"><span class="pre">A</span></code> in <code class="docutils literal notranslate"><span class="pre">B</span></code>; (c) reassign reference A to the new array. Not shown is the future garbage collection of the old array, or the insertion of the new element.</span><a class="headerlink" href="#figure-5-12" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The remaining issue to consider is how large of a new array to create. A com- monly used rule is for the new array to have twice the capacity of the existing array that has been filled.</p>
@@ -597,14 +590,14 @@ Length:  26; Size in bytes:  312
 </div>
 </section>
 <section id="amortized-analysis-of-dynamic-arrays">
-<h2><span class="section-number">9.2.2. </span>Amortized Analysis of Dynamic Arrays<a class="headerlink" href="#amortized-analysis-of-dynamic-arrays" title="Permalink to this headline">#</a></h2>
+<h2>Amortized Analysis of Dynamic Arrays<a class="headerlink" href="#amortized-analysis-of-dynamic-arrays" title="Permalink to this headline">#</a></h2>
 <p>In this section, we perform a detailed analysis of the running time of operations on dynamic arrays. We use the big-Omega notation introduced in Section 3.3.1 to give an asymptotic lower bound on the running time of an algorithm or step within it.</p>
 <p>The strategy of replacing an array with a new, larger array might at first seem slow, because a single append operation may require <code class="docutils literal notranslate"><span class="pre">Ω(n)</span></code> time to perform, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the current number of elements in the array. However, notice that by doubling the capacity during an array replacement, our new array allows us to add <code class="docutils literal notranslate"><span class="pre">n</span></code> new elements before the array must be replaced again. In this way, there are many simple <code class="docutils literal notranslate"><span class="pre">append</span></code> operations for each expensive one (see Figure 5.13). This fact allows us to show that performing a series of operations on an initially empty dynamic array is efficient in terms of its total running time.</p>
 <p>Using an algorithmic design pattern called amortization, we can show that per- forming a sequence of such append operations on a dynamic array is actually quite efficient.</p>
 <figure class="align-center" id="figure-5-13">
 <a class="reference internal image-reference" href="https://i.ibb.co/KL5QG1q/array14.png"><img alt="https://i.ibb.co/KL5QG1q/array14.png" src="https://i.ibb.co/KL5QG1q/array14.png" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9.14 </span><span class="caption-text">Running times of a series of append operations on a dynamic array.</span><a class="headerlink" href="#figure-5-13" title="Permalink to this image">#</a></p>
+<p><span class="caption-text">Running times of a series of append operations on a dynamic array.</span><a class="headerlink" href="#figure-5-13" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Let S be a sequence implemented by means of a dynamic array with initial capacity one, using the strategy of doubling the array size when full. The total time to perform a series of n append operations in S, starting from S being empty, is O(n).</p>
@@ -619,23 +612,23 @@ Length:  26; Size in bytes:  312
 </ol>
 <p>In general, the next <span class="math notranslate nohighlight">\(2^i\)</span> append operations take O(1) time each, for <span class="math notranslate nohighlight">\(i = 0, 1, 2, ...\)</span>. The total time to perform the first <span class="math notranslate nohighlight">\(2^i\)</span> append operations is O(<span class="math notranslate nohighlight">\(2^i\)</span>). The total time to perform the first n append operations is the sum of the times to perform the first <span class="math notranslate nohighlight">\(2^i\)</span> append operations for all <span class="math notranslate nohighlight">\(i = 0, 1, 2, ..., k\)</span>, where <span class="math notranslate nohighlight">\(2^k ≤ n &lt; 2^{k+1}\)</span>. This sum is at most <span class="math notranslate nohighlight">\(2^0 + 2^1 + 2^2 + ... + 2^k = 2^{k+1} − 1 = 2n − 1 = O(n)\)</span>.</p>
 <section id="geometric-increase-in-capacity">
-<h3><span class="section-number">9.2.2.1. </span>Geometric Increase in Capacity<a class="headerlink" href="#geometric-increase-in-capacity" title="Permalink to this headline">#</a></h3>
+<h3>Geometric Increase in Capacity<a class="headerlink" href="#geometric-increase-in-capacity" title="Permalink to this headline">#</a></h3>
 <p>Although the proof of Proposition 5.1 relies on the array being doubled each time we expand, the O(1) amortized bound per operation can be proven for any geo- metrically increasing progression of array sizes (see Section 2.4.2 for discussion of geometric progressions). When choosing the geometric base, there exists a trade- off between run-time efficiency and memory usage. With a base of 2 (i.e., doubling the array), if the last insertion causes a resize event, the array essentially ends up twice as large as it needs to be. If we instead increase the array by only 25% of its current size (i.e., a geometric base of 1.25), we do not risk wasting as much memory in the end, but there will be more intermediate resize events along the way. Still it is possible to prove an O(1) amortized bound, using a constant factor greater than the 3 cyber-dollars per operation used in the proof of Proposition 5.1 (see Exercise C-5.15). The key to the performance is that the amount of additional space is proportional to the current size of the array.</p>
 </section>
 <section id="beware-of-arithmetic-progression">
-<h3><span class="section-number">9.2.2.2. </span>Beware of Arithmetic Progression<a class="headerlink" href="#beware-of-arithmetic-progression" title="Permalink to this headline">#</a></h3>
+<h3>Beware of Arithmetic Progression<a class="headerlink" href="#beware-of-arithmetic-progression" title="Permalink to this headline">#</a></h3>
 <p>To avoid reserving too much space at once, it might be tempting to implement a dynamic array with a strategy in which a constant number of additional cells are reserved each time an array is resized. Unfortunately, the overall performance of such a strategy is significantly worse. At an extreme, an increase of only one cell causes each append operation to resize the array, leading to a familiar 1 + 2 + 3 + ···+n summation and Ω(n2) overall cost. Using increases of 2 or 3 at a time is slightly better, as portrayed in Figure 5.13, but the overall cost remains quadratic.</p>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="https://i.ibb.co/Rgq1THy/array15.png"><img alt="https://i.ibb.co/Rgq1THy/array15.png" src="https://i.ibb.co/Rgq1THy/array15.png" style="width: 90%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9.15 </span><span class="caption-text">Running times of a series of append operations on a dynamic array
+<p><span class="caption-text">Running times of a series of append operations on a dynamic array
 using arithmetic progression of sizes. (a) Assumes increase of 2 in size of the array, while (b) assumes increase of 3.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Using a fixed increment for each resize, and thus an arithmetic progression of intermediate array sizes, results in an overall time that is quadratic in the number of operations, as shown in the following proposition. Intuitively, even an increase in 1000 cells per resize will become insignificant for large data sets.</p>
 </section>
 <section id="proposition-2-fixed-increment-rightarrow-n-2">
-<h3><span class="section-number">9.2.2.3. </span>Proposition 2: Fixed increment <span class="math notranslate nohighlight">\(\rightarrow Ω(n^2)\)</span><a class="headerlink" href="#proposition-2-fixed-increment-rightarrow-n-2" title="Permalink to this headline">#</a></h3>
+<h3>Proposition 2: Fixed increment <span class="math notranslate nohighlight">\(\rightarrow Ω(n^2)\)</span><a class="headerlink" href="#proposition-2-fixed-increment-rightarrow-n-2" title="Permalink to this headline">#</a></h3>
 <p>Performing a series of n append operations on an initially empty dynamic array using a fixed increment with each resize takes <span class="math notranslate nohighlight">\(Ω(n^2)\)</span> time.</p>
 <p>The proof of this result is based on the following observations:</p>
 <p>Let <span class="math notranslate nohighlight">\(c &gt; 0\)</span> represent the fixed increment in capacity that is used for each resize event. During the series of <span class="math notranslate nohighlight">\(n\)</span> append operations, time will have been spent initializing arrays of size <span class="math notranslate nohighlight">\(c,2c,3c,...,mc\)</span> for <span class="math notranslate nohighlight">\(m = \lceil{n}/c\rceil\)</span>, and therefore, the overall time would be proportional to <span class="math notranslate nohighlight">\(c + 2c + 3c + · · · + mc\)</span>.</p>
@@ -646,7 +639,7 @@ using arithmetic progression of sizes. (a) Assumes increase of 2 in size of the 
 </section>
 </section>
 <section id="python-s-list-class">
-<h1><span class="section-number">9.3. </span>Python’s List Class<a class="headerlink" href="#python-s-list-class" title="Permalink to this headline">#</a></h1>
+<h1>Python’s List Class<a class="headerlink" href="#python-s-list-class" title="Permalink to this headline">#</a></h1>
 <p>Python’s list class is using a form of dynamic arrays for its storage but does neither uses a pure geometric progression nor an arithmetic progression.</p>
 <p>Despite this, Python’s implementation of the append method exhibits amortized constant-time behavior. We can demonstrate this fact experimentally.</p>
 <p>A single <code class="docutils literal notranslate"><span class="pre">.append</span></code> operation typically executes so quickly that it would be difficult for us to accurately measure the time elapsed at that granularity, although we should notice some of the more expensive operations in which a resize is performed. We can get a more accurate measure of the amortized cost per operation by performing a series of <code class="docutils literal notranslate"><span class="pre">n</span></code> append operations on an initially empty list and determining the average cost of each.</p>
@@ -683,24 +676,6 @@ using arithmetic progression of sizes. (a) Assumes increase of 2 in size of the 
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="arrays_static.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9.1. </span>Static Arrays</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../functions/filesmodules.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Files and Modules</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -719,17 +694,17 @@ using arithmetic progression of sizes. (a) Assumes increase of 2 in size of the 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">9.2. Dynamic Arrays</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-dynamic-array">9.2.1. Implementing a Dynamic Array</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amortized-analysis-of-dynamic-arrays">9.2.2. Amortized Analysis of Dynamic Arrays</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-increase-in-capacity">9.2.2.1. Geometric Increase in Capacity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beware-of-arithmetic-progression">9.2.2.2. Beware of Arithmetic Progression</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-2-fixed-increment-rightarrow-n-2">9.2.2.3. Proposition 2: Fixed increment <span class="math notranslate nohighlight">\(\rightarrow Ω(n^2)\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dynamic Arrays</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-dynamic-array">Implementing a Dynamic Array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amortized-analysis-of-dynamic-arrays">Amortized Analysis of Dynamic Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-increase-in-capacity">Geometric Increase in Capacity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beware-of-arithmetic-progression">Beware of Arithmetic Progression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-2-fixed-increment-rightarrow-n-2">Proposition 2: Fixed increment <span class="math notranslate nohighlight">\(\rightarrow Ω(n^2)\)</span></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-list-class">9.3. Python’s List Class</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-list-class">Python’s List Class</a></li>
 </ul>
 
   </nav></div>
