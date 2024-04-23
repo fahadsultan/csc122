@@ -119,9 +119,9 @@ parts:
       - file: data/linkedlists_circular
     # - file: data/hashmaps
     - file: data/arrays
-      sections:
-      - file: data/arrays_static
-      - file: data/arrays_dynamic
+      # sections:
+      # - file: data/arrays_static
+      # - file: data/arrays_dynamic
     - file: functions/filesmodules
   # - caption: 
   #   numbered: false
